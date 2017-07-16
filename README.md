@@ -1,6 +1,6 @@
-# monkeyline
+# website
 
-> Singe Savant waiting line
+> Singe Savant Website
 
 ## Build Setup
 

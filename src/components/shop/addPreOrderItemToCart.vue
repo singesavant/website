@@ -4,7 +4,7 @@
   <div class="cart-buttons">
     <div class="product-qtty">
       <button @click="qttyDown()" class="qtty-modifier">-</button>
-      <input type="number" v-bind:value="qtty" min="1" max="10"/>
+      <input type="number" v-model:value="qtty" min="1" max="10"/>
       <button @click="qttyUp()" class="qtty-modifier">+</button>
     </div>
 
@@ -26,6 +26,13 @@ export default {
   props: [
     'item'
   ],
+  watch: {
+    qtty: function (val, oldVal) {
+      if (val <= 0 || val > 10) {
+        this.qtty = oldVal
+      }
+    }
+  },
   methods: {
     qttyUp () {
       this.qtty++

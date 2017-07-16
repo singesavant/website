@@ -7,6 +7,7 @@ import axios from 'axios'
 import router from './router'
 import store from './store'
 
+import Menubar from '@/components/Menubar'
 import Vue2Filters from 'vue2-filters'
 Vue.use(Vue2Filters)
 
@@ -18,10 +19,5 @@ new Vue({
   el: '#app',
   store,
   router,
-
-  computed: {
-    isAuthenticated: function () {
-      return this.$store.getters.isAuthenticated()
-    }
-  }
+  components: { Menubar }
 })

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <button type="button" v-bind:class="{ active: isActive }" class="order" @click="submitCart(cart)">Réserver &#x2714;</button>
+    <button type="button" v-bind:class="{ active: isActive }" class="order" @click="submitCart(cart)">J'achète &#x2714;</button>
   </div>
 </template>
 

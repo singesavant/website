@@ -4,29 +4,37 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 import VueResource from 'vue-resource'
-import VueAuthenticate from 'vue-authenticate'
+import { VueAuthenticate } from 'vue-authenticate'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 Vue.use(VueResource)
 
 const vueAuth = new VueAuthenticate(Vue.http, {
-  baseUrl: 'http://localhost:8080',
+  baseUrl: 'https://erp.singe-savant.com/',
 
   providers: {
     google: {
       clientId: '554963395859-rlie9i8k2th26gr1rk107d17b4fafils.apps.googleusercontent.com',
-      redirectUri: 'http://localhost:8080/auth/callback' // Your client app URL
+      redirectUri: 'http://localhost:8080/', // Your client app URL
+      url: 'https://www.googleapis.com',
+      scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
+      responseType: 'token'
     }
   }
 })
 
 const store = new Vuex.Store({
+  plugins: [createPersistedState()],
+
   state: {
     preorderable_items: [],
+    malt_items: [],
     preOrders: [],
     userProfile: {},
     cart: {},
-    isAuthenticated: false
+    isAuthenticated: false,
+    user: null
   },
   actions: {
     LOAD_PREORDERABLE_ITEM_LIST: function ({ commit }) {
@@ -36,6 +44,25 @@ const store = new Vuex.Store({
         console.log(err)
       })
     },
+
+    // Move that to BrewShop own store
+    LOAD_MALT_ITEM_LIST: function ({ commit }) {
+      axios.get('/brewshop/items/?item_group=Malts').then((response) => {
+        commit('SET_MALT_ITEM_LIST', { list: response.data })
+      }, (err) => {
+        console.log(err)
+      })
+    },
+
+    // Move that to BrewShop own store
+    LOAD_HOP_ITEM_LIST: function ({ commit }) {
+      axios.get('/brewshop/items/?item_group=Houblons').then((response) => {
+        commit('SET_HOP_ITEM_LIST', { list: response.data })
+      }, (err) => {
+        console.log(err)
+      })
+    },
+
     LOAD_PREORDER_LIST: function ({ commit }) {
       axios.get('/preorders/my/').then((response) => {
         commit('SET_PREORDER_LIST', { list: response.data })
@@ -83,12 +110,37 @@ const store = new Vuex.Store({
           isAuthenticated: vueAuth.isAuthenticated()
         })
       })
+    },
+    logout: function ({ commit }) {
+      axios.get('/auth/logout').then(function () {
+        commit('isAuthenticated', {isAuthenticated: false})
+      })
+    },
+    authenticate: function ({ commit }, { provider }) {
+      vueAuth.authenticate(provider).then(function () {
+        axios.get('/auth/with', {params: {provider: provider, token: vueAuth.getToken()}}
+                 ).then((response) => {
+                   commit('isAuthenticated', {
+                     isAuthenticated: vueAuth.isAuthenticated(),
+                     user: response.data
+                   })
+                 })
+      })
     }
   },
   mutations: {
     SET_PREORDERABLE_ITEM_LIST: (state, { list }) => {
       state.preorderable_items = list
     },
+
+    SET_MALT_ITEM_LIST: (state, { list }) => {
+      state.malt_items = list
+    },
+
+    SET_HOP_ITEM_LIST: (state, { list }) => {
+      state.hop_items = list
+    },
+
     SET_PREORDER_LIST: (state, { list }) => {
       state.preOrders = list
       console.debug('loaded pre order list')
@@ -98,11 +150,12 @@ const store = new Vuex.Store({
     },
     isAuthenticated (state, payload) {
       state.isAuthenticated = payload.isAuthenticated
+      state.user = payload.user
     }
   },
   getters: {
-    isAuthenticated () {
-      return vueAuth.isAuthenticated()
+    isAuthenticated: function (state) {
+      return state.isAuthenticated
     }
   }
 })

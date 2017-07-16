@@ -1,13 +1,14 @@
 //-*- mode: vue; js-indent-level: 2; -*-
 
 <template lang="html">
-  <div class="cart" v-if="cart" v-on:mouseover="showCartDetail()" v-on:mouseout="hideCartDetail()">
+  <div class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseout="hideCartDetail()">
     <img class="icon" src="/static/images/cart.png" alt="cart"/>
 
-    <span v-if="product_count > 0" class="product_count">{{ product_count }} {{ product_count | pluralize('article') }}</span>
-    <span v-if="product_count == 0" class="product_count">Votre panier est vide</span>
-    |
-    <span class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
+    <div class="info">
+      <span v-if="product_count > 0" class="product_count">{{ product_count }} {{ product_count | pluralize('article') }}</span>
+      <span v-else class="product_count">Votre panier est vide</span>
+      <span class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
+    </div>
 
     <submit-cart-button :isActive="product_count > 0" :cart="this.$store.cart" />
 
@@ -35,6 +36,7 @@
 </template>
 
 <script lang="js">
+
 import { mapState } from 'vuex'
 import submitCartButton from './submitCartButton'
 
@@ -63,7 +65,6 @@ export default {
       this.$store.dispatch('REMOVE_PREORDERABLE_ITEM_FROM_CART', {item: item})
     }
   },
-
   computed: {
     product_count () {
       if (this.$store.state.cart.items) {
@@ -80,7 +81,7 @@ export default {
         return Number((this.$store.state.cart.grand_total).toFixed(2))
       } else return 0
     },
-    ...mapState(['cart'])
+    ...mapState(['cart', 'isAuthenticated'])
   },
   mounted: function () {
     this.$store.dispatch('LOAD_CART')
@@ -90,6 +91,14 @@ export default {
 
 <style lang="scss">
 .cart {
+    top: 2vh;
+    right: 2vw;
+
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     table tr td {
         white-space:nowrap;
@@ -97,37 +106,42 @@ export default {
         padding-left: 10px;
     }
 
-    position: absolute;
-    top: 2vh;
-    right: 2vw;
+    .info {
+        display: flex;
+        flex-direction: column;
 
-    color: white;
+        font-size: 0.8em;
+        line-height: 1.4em;
 
-    display: flex;
-    flex-orientation: column;
-    align-items: center;
+        .product_count {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .grand_total {
+            font-weight: bold;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+    }
 
     img.icon {
-      margin-top: -6px;
-    }
+        width: 3vh;
+        height: 3vh;
 
-    .product_count {
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
-    .grand_total {
-        font-weight: bold;
-        margin-right: 10px;
-        margin-left: 10px;
+        padding: 2vh;
+        border:1px solid white;
+        border-radius: 500px;
     }
 
 }
 
 .cart-details {
-    position: absolute;
     top: 6vh;
     right: 10px;
+
+    position: absolute;
 
     padding: 10px;
 

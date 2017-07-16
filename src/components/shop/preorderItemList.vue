@@ -49,7 +49,10 @@ export default {
   computed:
     mapState({
       items: 'preorderable_items'
-    })
+    }),
+  mounted: function () {
+    this.$store.dispatch('LOAD_PREORDERABLE_ITEM_LIST')
+  }
 }
 </script>
 

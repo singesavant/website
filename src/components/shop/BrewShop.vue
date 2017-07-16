@@ -1,28 +1,30 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div class="shop">
+  <div class="brewshop">
 
-    <div class="floor">
+    <div class="content">
+      <h1>Brew<br/>Shop</h1>
+
+      <div v-if="isAuthenticated" id="products">
+        <h2>Malts</h2>
+        <malt-list />
+
+        <h2>Houblons</h2>
+        <hop-list />
+      </div>
+
+      <div v-else>
+        Log toi copain si tu veux la liste !
+      </div>
+
     </div>
-    <div class="neon">
-      <div v-bind:class="{ flicker: isFlickering }" class="overlay"></div>
-    </div>
-
-    <div v-if="isAuthenticated" id="products">
-      <preorder-item-list />
-    </div>
-
-    <welcome v-if="!isAuthenticated" />
-
-    <!-- <pre-order-list /> -->
 
   </div>
 </template>
 
 <script lang="js">
-import preorderItemList from './preorderItemList'
-import preOrderList from './preOrderList'
-import Welcome from './Welcome'
+import MaltList from './items/MaltList'
+import HopList from './items/HopList'
 import { mapState } from 'vuex'
 
 var data = {
@@ -30,12 +32,11 @@ var data = {
 }
 
 export default {
-  name: 'Shop',
+  name: 'BrewShop',
 
   components: {
-    preorderItemList,
-    preOrderList,
-    Welcome
+    MaltList,
+    HopList
   },
   data: function () {
     return data
@@ -59,20 +60,44 @@ export default {
 
 <style lang="scss" scoped>
 
-#products {
-  z-index: 10;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
 
-.shop {
-    background: url('/static/images/shop/background.jpg');
+.brewshop {
+
+    background-color: #14141e;
     background-repeat: repeat;
     background-position: center top;
     width: 100%;
     height: 100%;
     z-index: 1;
+
+    .content {
+        padding: 40px;
+                h1 {
+                    background-image: url('/static/images/brewshop/logo.png');
+                    background-size: auto 100%;
+                    background-repeat: no-repeat no-repeat;
+
+                    padding-left: 120px;
+                    padding-top: 5px;
+
+                    font-size: 4em;
+                    color: white;
+                    text-transform: uppercase;
+                    line-height: 80%
+                }
+
+               h2 {
+                   color: white;
+                   font-size: 2.5em;
+                   text-transform: uppercase;
+                   margin-bottom: 0px;
+               }
+
+         .product {
+
+         }
+    }
+
 
 
     .floor {
