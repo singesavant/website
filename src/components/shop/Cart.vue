@@ -1,13 +1,13 @@
 //-*- mode: vue; js-indent-level: 2; -*-
 
 <template lang="html">
-  <div class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseout="hideCartDetail()">
+  <div v-show="product_count > 0" class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseout="hideCartDetail()">
     <img class="icon" src="/static/images/cart.png" alt="cart"/>
 
     <div class="info">
-      <span v-if="product_count > 0" class="product_count">{{ product_count }} {{ product_count | pluralize('article') }}</span>
-      <span v-else class="product_count">Votre panier est vide</span>
-      <span class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
+      <span class="product_count">{{ product_count }} {{ product_count | pluralize('article') }}</span>
+<!--      <span v-else class="product_count">Votre panier est vide</span> -->
+      <span v-show="product_count > 0" class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
     </div>
 
     <submit-cart-button :isActive="product_count > 0" :cart="this.$store.cart" />

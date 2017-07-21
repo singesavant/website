@@ -1,7 +1,6 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="brewshop">
-
     <div class="content">
       <h1>Brew<br/>Shop</h1>
 
@@ -11,6 +10,15 @@
 
         <h2>Houblons</h2>
         <hop-list />
+
+        <div class="not-found">
+          Impossible de trouver ce que vous voulez ? Il vous manque une info ?
+          <br>
+          <br/>
+
+          Passez nous un <strong>coup de fil</strong> ou <strong>écrivez nous un email</strong> pour en discuter !
+          <img src="/static/images/brewshop/redphone.png" width="160px" alt="Red phone">
+        </div>
       </div>
 
       <div v-else>
@@ -60,6 +68,30 @@ export default {
 
 <style lang="scss" scoped>
 
+.not-found {
+    float: right;
+    width: 20vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 10px;
+
+    strong {
+     display: inline;
+    }
+
+    position: absolute;
+    right: 10px;
+    top: 100px;
+
+    img {
+float: right;
+        }
+
+    display: block;
+
+    border-radius: 5px;
+    border: 1px solid black;
+}
 
 .brewshop {
 
@@ -68,7 +100,7 @@ export default {
     background-position: center top;
     width: 100%;
     height: 100%;
-    z-index: 1;
+
 
     .content {
         padding: 40px;

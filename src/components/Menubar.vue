@@ -4,7 +4,7 @@
   <div id="menubar">
     <div class="logo">
       <router-link :to="{name: 'home'}">
-        <img alt="Logo" src="../../static/images/logo.png" width="80px"/>
+        <img alt="Logo" src="/static/images/menubar_logo.png" />
         <span>Le<br/>Singe<br/>Savant<br/></span>
       </router-link>
     </div>
@@ -50,6 +50,9 @@ export default {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 
+  height: 8vh;
+  min-height: 50px;
+
   display: flex;
   flex-direction: row;
   flex-wrap: no-wrap;
@@ -88,6 +91,12 @@ export default {
       align-items: center;
 
       padding-left: 2vw;
+
+      text-transform: uppercase;
+
+      position: relative;
+      height: 100%;
+
   }
 
   .logo > a {
@@ -96,6 +105,8 @@ export default {
       flex-direction: row;
       align-items: center;
 
+      position: relative;
+
       color: white;
 
       line-height: 1em;
@@ -103,9 +114,11 @@ export default {
       font-size: 0.8em;
       letter-spacing: 0.02em;
 
+      height: 100%;
+
       img {
-          height: 100%;
-          max-width: 50px;
+          position: relative;
+          height: 80%;
           margin-right: 10px;
       }
   }
@@ -115,6 +128,9 @@ export default {
       flex-direction: row;
       align-items: center;
       flex-wrap: no-wrap;
+
+      margin-right: 3vw;
+      height: 100%;
   }
 
   .cart {
