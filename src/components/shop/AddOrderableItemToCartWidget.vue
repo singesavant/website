@@ -8,7 +8,7 @@
       <button @click="qttyUp()" class="qtty-modifier">+</button>
     </div>
 
-    <button class="add-to-cart" type="button" @click="addPreOrderItemToCart(item)">Ajouter au panier</button>
+    <button class="add-to-cart" type="button" @click="addOrderableItemToCart(item)">Ajouter au panier</button>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ var data = {
 }
 
 export default {
-  name: 'addPreOrderItemToCart',
+  name: 'addOrderableItemToCartWidget',
   data: function () {
     return data
   },
@@ -42,8 +42,8 @@ export default {
         this.qtty--
       }
     },
-    addPreOrderItemToCart (item) {
-      this.$store.dispatch('ADD_PREORDERABLE_ITEM_TO_CART', {item: item, quantity: this.qtty})
+    addOrderableItemToCart (item) {
+      this.$store.dispatch('ADD_ORDERABLE_ITEM_TO_CART', {item: item, quantity: this.qtty})
     }
   }
 }
@@ -57,10 +57,11 @@ export default {
     width: 100%;
 
     .product-qtty {
+
+        display: inline-block;
         height: 30px;
 
         button.qtty-modifier {
-            float: left;
             display: inline;
             background-color: white;
             border-radius: 10px;
@@ -70,7 +71,6 @@ export default {
         }
 
         input {
-            float: left;
             display: inline;
             margin-right: 10px;
             margin-left: 10px;

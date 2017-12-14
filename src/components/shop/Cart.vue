@@ -62,7 +62,7 @@ export default {
       this.isCartVisible = false
     },
     removeItemFromCart (item) {
-      this.$store.dispatch('REMOVE_PREORDERABLE_ITEM_FROM_CART', {item: item})
+      this.$store.dispatch('REMOVE_ORDERABLE_ITEM_FROM_CART', {item: item})
     }
   },
   computed: {

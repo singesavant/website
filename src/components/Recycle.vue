@@ -25,7 +25,7 @@
 
     Pour vous récompenser de vos services vous recevrez des crédits directement utilisable à la brasserie.</p>
 
-      <p>Que la collecte commence!</p>
+      <p>Que la collecte commence !</p>
 
     </div>
   </div> <!-- /recycle -->

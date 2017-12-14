@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="preorder-item-container">
+  <div class="orderable-item-container">
     <ul class="item-list">
       <li class="item" v-for="item in items">
 
@@ -24,7 +24,7 @@
         <div class="info">
           <span class="name">{{item.name}}</span>
           <span class="price">{{item.price}}€</span>
-          <add-pre-order-item-to-cart :item="item"/>
+          <add-orderable-item-to-cart-widget :item="item"/>
         </div>
 
       </li>
@@ -34,12 +34,15 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
-import addPreOrderItemToCart from './addPreOrderItemToCart'
+import addOrderableItemToCartWidget from './AddOrderableItemToCartWidget'
 
 export default {
   name: 'orderableItemList',
   components: {
-    addPreOrderItemToCart
+    addOrderableItemToCartWidget
+  },
+  props: {
+    item_group: null
   },
   filters: {
     erp_static_url (uri) {
@@ -51,13 +54,13 @@ export default {
       items: 'orderable_items'
     }),
   mounted: function () {
-    this.$store.dispatch('LOAD_ORDERABLE_ITEM_LIST')
+    this.$store.dispatch('LOAD_ORDERABLE_ITEM_LIST', { item_group: this.item_group })
   }
 }
 </script>
 
 <style lang="scss">
-.preorder-item-container {
+.orderable-item-container {
     align: center;
 
     height: 40vh;
@@ -79,15 +82,12 @@ export default {
 
 
         li.item {
-            width: 25vw;
             height: 100%;
 
             display: flex;
             flex-direction: row;
             align-items: flex-end;
 
-            margin-left: 5vw;
-            margin-right: 5vw;
 
             .info {
                 width: 50%;
@@ -108,13 +108,15 @@ export default {
             .illustration {
                 width: 50%;
                 height: 100%;
-                margin-left: 20px;
-                margin-right: 20px;
 
+                padding-right: 10px;
 
                 .bottles-75cl {
 
                     position: relative;
+
+                    width: 100%;
+                    height: 100%;
 
                     div.bottle {
                         position: absolute;

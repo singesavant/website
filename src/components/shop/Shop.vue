@@ -9,7 +9,7 @@
     </div>
 
     <div v-if="isAuthenticated" id="products">
-      <orderable-item-list />
+      <orderable-item-list item_group="Bières du Singe"/>
     </div>
 
     <welcome v-if="!isAuthenticated" />
