@@ -9,7 +9,7 @@
     </div>
 
     <div v-if="isAuthenticated" id="products">
-      <preorder-item-list />
+      <orderable-item-list />
     </div>
 
     <welcome v-if="!isAuthenticated" />
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="js">
-import preorderItemList from './preorderItemList'
+import orderableItemList from './OrderableItemList'
 import preOrderList from './preOrderList'
 import Welcome from './Welcome'
 import { mapState } from 'vuex'
@@ -33,7 +33,7 @@ export default {
   name: 'Shop',
 
   components: {
-    preorderItemList,
+    orderableItemList,
     preOrderList,
     Welcome
   },

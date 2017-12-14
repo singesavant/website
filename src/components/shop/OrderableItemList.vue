@@ -37,7 +37,7 @@ import { mapState } from 'vuex'
 import addPreOrderItemToCart from './addPreOrderItemToCart'
 
 export default {
-  name: 'preorderItemList',
+  name: 'orderableItemList',
   components: {
     addPreOrderItemToCart
   },
@@ -48,10 +48,10 @@ export default {
   },
   computed:
     mapState({
-      items: 'preorderable_items'
+      items: 'orderable_items'
     }),
   mounted: function () {
-    this.$store.dispatch('LOAD_PREORDERABLE_ITEM_LIST')
+    this.$store.dispatch('LOAD_ORDERABLE_ITEM_LIST')
   }
 }
 </script>

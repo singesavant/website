@@ -28,7 +28,7 @@ const store = new Vuex.Store({
   plugins: [createPersistedState()],
 
   state: {
-    preorderable_items: [],
+    orderable_items: [],
     malt_items: [],
     preOrders: [],
     userProfile: {},
@@ -37,9 +37,9 @@ const store = new Vuex.Store({
     user: null
   },
   actions: {
-    LOAD_PREORDERABLE_ITEM_LIST: function ({ commit }) {
+    LOAD_ORDERABLE_ITEM_LIST: function ({ commit }) {
       axios.get('/preorders/items/').then((response) => {
-        commit('SET_PREORDERABLE_ITEM_LIST', { list: response.data })
+        commit('SET_ORDERABLE_ITEM_LIST', { list: response.data })
       }, (err) => {
         console.log(err)
       })
@@ -63,14 +63,14 @@ const store = new Vuex.Store({
       })
     },
 
-    LOAD_PREORDER_LIST: function ({ commit }) {
+    LOAD_ORDERABLE_LIST: function ({ commit }) {
       axios.get('/preorders/my/').then((response) => {
-        commit('SET_PREORDER_LIST', { list: response.data })
+        commit('SET_ORDERABLE_LIST', { list: response.data })
       }, (err) => {
         console.log(err)
       })
     },
-    ADD_PREORDERABLE_ITEM_TO_CART: function ({ commit }, { item, quantity }) {
+    ADD_ORDERABLE_ITEM_TO_CART: function ({ commit }, { item, quantity }) {
       axios.post('/preorders/items/' + item.code, {quantity: quantity}).then((response) => {
         store.dispatch('LOAD_CART')
         console.debug('Item added to cart.')
@@ -78,7 +78,7 @@ const store = new Vuex.Store({
         console.log(err)
       })
     },
-    REMOVE_PREORDERABLE_ITEM_FROM_CART: function ({ commit }, { item }) {
+    REMOVE_ORDERABLE_ITEM_FROM_CART: function ({ commit }, { item }) {
       console.debug(item.product.code)
       axios.delete('/preorders/cart/', {data: {item_code: item.product.code}}).then((response) => {
         console.debug('Item deleted from cart.')
@@ -91,7 +91,7 @@ const store = new Vuex.Store({
       axios.post('/preorders/cart/').then((response) => {
         commit('SET_CART', { cart: response.data })
 
-        store.dispatch('LOAD_PREORDER_LIST')
+        store.dispatch('LOAD_ORDERABLE_LIST')
       }, (err) => {
         console.log(err)
       })
@@ -129,8 +129,8 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    SET_PREORDERABLE_ITEM_LIST: (state, { list }) => {
-      state.preorderable_items = list
+    SET_ORDERABLE_ITEM_LIST: (state, { list }) => {
+      state.orderable_items = list
     },
 
     SET_MALT_ITEM_LIST: (state, { list }) => {
@@ -141,7 +141,7 @@ const store = new Vuex.Store({
       state.hop_items = list
     },
 
-    SET_PREORDER_LIST: (state, { list }) => {
+    SET_ORDERABLE_LIST: (state, { list }) => {
       state.preOrders = list
       console.debug('loaded pre order list')
     },
@@ -155,7 +155,7 @@ const store = new Vuex.Store({
   },
   getters: {
     isAuthenticated: function (state) {
-      return state.isAuthenticated
+      return vueAuth.isAuthenticated()
     }
   }
 })

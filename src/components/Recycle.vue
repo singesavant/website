@@ -12,16 +12,12 @@
 
       <p>Sur la carte suivante se trouvent les points de collecte du singe dans lesquels vous pouvez déposer vos bouteilles vide.</p>
 
-      <l-map :zoom="zoom" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom">
-        <l-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" :attribution="attribution"></l-tilelayer>
-        <l-marker :position="center" :title="title" :opacity="opacity" :draggable="draggable">
-          <l-tooltip content="a tooltip"></l-tooltip>
-        </l-marker>
-
-        <l-marker :position="marker" :title="title" :opacity="opacity" :draggable="false">
-          <l-popup content="a popup"></l-popup>
-        </l-marker>
-      </l-map>
+      <div id="app" style="height: 100%">
+        <v-map :zoom=13 :center="[51.505, -0.09]">
+          <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+          <v-marker :lat-lng="[51.500, 0.00]"></v-marker>
+        </v-map>
+      </div>
 
       <p>Faites gaffe, toutes les bouteilles ne sont pas récupérable, les bouteilles déposées doivent respecter la charte suivante :
 
@@ -38,22 +34,19 @@
 <script lang="js">
 import { mapState } from 'vuex'
 
+import Vue2Leaflet from 'vue2-leaflet'
+
 var data = {
-  zoom: 13,
-  center: [51.505, -0.09],
-  marker: [51.500, 0.00],
-  minZoom: 8,
-  maxZoom: 15,
-  url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-  attribution: 'vue-leaflet',
-  title: 'vue-leaflet',
-  opacity: 1,
-  draggable: true,
-  attributionControl: false
 }
 
 export default {
   name: 'Recycle',
+
+  components: {
+    'v-tilelayer': Vue2Leaflet.TileLayer,
+    'v-marker': Vue2Leaflet.Marker,
+    'v-map': Vue2Leaflet.Map
+  },
 
   data: function () {
     return data
