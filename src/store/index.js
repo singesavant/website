@@ -1,16 +1,16 @@
 // -*- mode: js; js-indent-level: 2; -*-
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueAxios from 'vue-axios'
 import axios from 'axios'
 
-import VueResource from 'vue-resource'
 import { VueAuthenticate } from 'vue-authenticate'
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
-Vue.use(VueResource)
+Vue.use(VueAxios, axios)
 
-const vueAuth = new VueAuthenticate(Vue.http, {
+const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
   baseUrl: 'https://erp.singe-savant.com/',
 
   providers: {
