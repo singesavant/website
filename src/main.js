@@ -10,10 +10,10 @@ import store from './store'
 import Menubar from '@/components/Menubar'
 import Vue2Filters from 'vue2-filters'
 
-import VueLeaflet from 'vueleaflet'
+import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(Vue2Filters)
-Vue.use(VueLeaflet.plugin, store)
+Vue.use(BootstrapVue)
 
 axios.defaults.baseURL = 'http://localhost:5000/v0.1'
 axios.defaults.withCredentials = true

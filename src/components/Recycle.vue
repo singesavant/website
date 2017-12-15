@@ -12,12 +12,10 @@
 
       <p>Sur la carte suivante se trouvent les points de collecte du singe dans lesquels vous pouvez déposer vos bouteilles vide.</p>
 
-      <div id="app" style="height: 100%">
-        <v-map :zoom=13 :center="[51.505, -0.09]">
-          <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
-          <v-marker :lat-lng="[51.500, 0.00]"></v-marker>
-        </v-map>
-      </div>
+      <v-map :zoom=13 :center="[51.505, -0.09]" style="width:100%; height: 400px">
+        <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
+        <v-marker :lat-lng="[51.500, 0.00]"></v-marker>
+      </v-map>
 
       <p>Faites gaffe, toutes les bouteilles ne sont pas récupérable, les bouteilles déposées doivent respecter la charte suivante :
 
@@ -61,6 +59,8 @@ export default {
 
 
 <style lang="scss" scoped>
+  @import "~leaflet/dist/leaflet.css";
+
   #recycle {
     background-color: #14141e;
     background-repeat: repeat;
