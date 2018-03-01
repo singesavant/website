@@ -13,7 +13,7 @@
 
     <b-row class="justify-content-md-center">
       <b-col cols="10">
-        <b-row class="justify-content-md-center beer-list" align-v="center">
+        <b-row class="justify-content-md-center beer-list" align-v="top">
           <b-col class="align-bottom" sm="3" align="center" cols="2" v-for="beer in orderBy(beers_in_production,'name')" :key="beer.name">
             <router-link :to="{name: 'beer-detail', params: {slug: beer.code}}">
               <div class="beer">
@@ -109,6 +109,19 @@ export default {
 .beer {
     color:black;
     font-variant: small-caps;
+
+
+    img {
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+
+      img {
+        transition: all .3s ease-in-out;
+        transform: scale(1.05);
+      }
+    }
 }
 
 .old-beers{
