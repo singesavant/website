@@ -44,7 +44,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 #menubar {
+
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -81,6 +83,7 @@ export default {
           text-transform: uppercase;
           border-bottom: 2px solid white;
           border-top: 2px solid white;
+          color: white;
       }
   }
 

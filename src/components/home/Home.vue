@@ -2,28 +2,44 @@
 <template lang="html">
 
   <b-container fluid id="home">
-    <!-- <div class="logo"> -->
-    <!--   <img src="/static/images/logo.png" alt="logo"/> -->
-    <!-- </div> -->
 
     <b-row class="mosaic" no-gutters>
+
+      <!-- monkey logo, centered -->
+      <div class="logo">
+        <img src="/static/images/logo.png" alt="logo"/>
+      </div>
+
+
       <b-col cols="12">
 
         <!-- first line -->
         <b-row class="fifty-row" no-gutters>
           <b-col cols="6">
-            <div class="whitebox">
+            <div class="tile">
               <div class="zoomable beers">
-                <router-link :to="{name: 'beer-list'}">Les bières</router-link>
+                <router-link :to="{name: 'beer-list'}">
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Les bières</h2>
+                    <span class="tile-description">Découvrez notre gamme</span>
+                    <b-button class="go-button">Go</b-button>
+                  </div>
+                </router-link>
               </div>
             </div>
           </b-col>
-          <!-- <div class="battle whitebox">La battle du moment</div>-->
 
           <b-col cols="6">
-            <div class="whitebox">
-              <div class="zoomable brewshop">
-                <router-link :to="{name: 'brewshop'}">Brew Shop</router-link>
+            <div class="tile">
+              <div class="zoomable brewlab">
+                <router-link :to="{name: 'brewlab'}">
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Brew Lab & Shop</h2>
+                    <span class="tile-description">Brassage, Houblons, Malts chez le Singe</span>
+                    <b-button class="go-button">Go</b-button>
+                  </div>
+
+                </router-link>
               </div>
             </div>
           </b-col>
@@ -32,20 +48,28 @@
         <!-- second line -->
         <b-row class="fifty-row" no-gutters>
           <b-col cols="4">
-            <div class="whitebox">
-              <div class="zoomable brewlab comingsoon">
-                <!--<router-link :to="{name: 'brewshop'}">-->
-                Le Brewlab
+            <div class="tile">
+              <div class="zoomable dealers">
+                <!--<router-link :to="{name: 'dealers'}">-->
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Dealers du Singe</h2>
+                    <span class="tile-description">Trouvez où acheter et boire nos bières</span>
+                    <b-button class="go-button">Go</b-button>
+                  </div>
                 <!--</router-link>-->
               </div>
             </div>
           </b-col>
 
           <b-col cols="4">
-            <div class="whitebox">
+            <div class="tile">
               <div class="zoomable shop comingsoon">
                 <router-link :to="{name: 'shop'}">
-                  Le Shop
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Le Shop</h2>
+                    <span class="tile-description">Achetez nos créations en direct !</span>
+                    <b-button class="go-button">Go</b-button>
+                  </div>
                 </router-link>
               </div>
             </div>
@@ -54,9 +78,13 @@
           <b-col cols="4">
             <b-row class="fifty-row">
               <b-col>
-                <div class="whitebox">
+                <div class="tile">
                   <div class="zoomable brewery comingsoon">
-                    La brasserie
+                    <div class="tile-text-wrapper">
+                      <h2 class="tile-title">La brasserie</h2>
+                      <span class="tile-description">Qui est le Singe ?</span>
+                      <b-button class="go-button">Go</b-button>
+                    </div>
                   </div>
                 </div>
               </b-col>
@@ -64,9 +92,15 @@
 
             <b-row class="fifty-row">
               <b-col>
-                <div class="whitebox">
+                <div class="tile">
                   <div class="zoomable recycling">
-                    <router-link :to="{name: 'recycle'}">Projet 0: Recyclage</router-link>
+                    <router-link :to="{name: 'recycle'}">
+                      <div class="tile-text-wrapper">
+                        <h2 class="tile-title">Projet 0: Recyclage</h2>
+                        <span class="tile-description">Verre recyclé, déchêts revalorisés, ...</span>
+                        <b-button class="go-button">Go</b-button>
+                       </div>
+                    </router-link>
                   </div>
                 </div>
               </b-col>
@@ -79,9 +113,21 @@
 
     <!-- footer -->
     <b-row class="footer" no-gutters>
-      <b-col cols="12">
-        Subscribe...
+      <b-col cols="6">
+        <b-button>Nous contacter</b-button>
+        <b-button>Venir</b-button>
+        Suivez-nous !
+        <b-button>F</b-button>
+        <b-button>T</b-button>
       </b-col>
+
+      <b-col cols="6">
+        Nouveautés, bons plans et événements du singe
+
+        <mailchimp-subscribe action="xxx"></mailchimp-subscribe>
+
+      </b-col>
+
     </b-row>
 
   </b-container> <!-- /home -->
@@ -90,12 +136,17 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
+import mailchimpSubscribe from '../Mailchimp'
 
 var data = {
 }
 
 export default {
   name: 'Home',
+
+  components: {
+    mailchimpSubscribe
+  },
 
   data: function () {
     return data
@@ -111,23 +162,53 @@ export default {
 
 <style lang="scss">
 
-.fifty-row {min-height: 50%;}
-
-.mosaic { min-height: 95vh; }
-.footer { min-height: 5vh; }
-
 #home {
+    overflow: hidden;
 
+    position: relative;
 
+    padding: 0px;
+
+    height: 100vh;
+    width: 100vw;
+
+    .fifty-row {
+        height: 50%;
+    }
+
+    .mosaic {
+        min-height: 94vh;
+        border: 2px solid white;
+    }
+
+    .footer {
+        border-left: 4px solid white;
+        border-right: 4px solid white;
+        background-color: #00132c;
+
+        button {
+            background-color: #001736;
+            color: #5c728a;
+            border: none;
+            border-radius: 0;
+            font-variant: small-caps;
+            font-weight: 300;
+            padding-left: 20px;
+            padding-right: 20px;
+
+        }
+
+    }
+
+    // centered brand logo
     .logo {
         z-index: 10;
         position: absolute;
-        height: 200Px;
-        width: 200px;
-        margin: 50% 50%;
-
-        left:-100px;
-        top:-140px;
+        
+        margin:0;
+        left: 50%;
+        top:45%;
+        transform: translate(-50%, -50%);
 
         img {
             width: 200px;
@@ -135,29 +216,93 @@ export default {
         }
     }
 
-    .whitebox {
+    .tile {
         height: 100%;
+        border: 2px solid white;
 
+        overflow: hidden;
 
         .zoomable {
             width: 100%;
             height: 100%;
 
-            background-size: cover;
             background-position: center;
             background-repeat: no-repeat no-repeat;
+            background-size: 40%, 105%;
 
-            box-shadow:0px 0px 70px 0px black inset;
+            box-shadow:0px 0px 40px 0px black inset;
 
             transition: all .3s ease-in-out;
 
             &:hover, &:focus {
-                transform: scale(1.1);
+                // transform: scale(1.1);
+                background-size: 41%, 100%;
                 transition: all .3s ease-in-out;
+
+                box-shadow:0px 0px 130px 0px black inset;
+
+                .tile-text-wrapper {
+                    visibility: visible;
+                }
+
             }
 
 
         }
+
+
+        .tile-text-wrapper {
+            visibility: hidden;
+
+            padding: 3vh;
+
+            max-width: 80%;
+            min-width: 50%;
+
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            right: auto;
+
+            color: white;
+
+            .go-button {
+                position: absolute;
+                right: 10%;
+                bottom: 3vh;
+
+                margin-left: 20%;
+
+                border-radius : 50%;
+                border: 0px;
+                font-size: 100%;
+                font-variant: small-caps;
+                background-color: white;
+                color: black;
+            }
+
+            .tile-title {
+                position: relative;
+                font-size: 1.2em;
+                font-variant: small-caps;
+                padding-bottom: 6px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 10%;
+                    height: 1px;
+                    left: 0;
+                    bottom: 0;
+                    background-color: white;
+                }
+            }
+
+            .tile-description {
+                font-weight: 300;
+            }
+        }
+
 
         .comingsoon:hover {
             transition: none;
@@ -175,27 +320,12 @@ export default {
 
 }
 
-
 .beers {
-    background-image: url('/static/images/home/beers.jpg');
-}
-
-.battle {
-    background-image: url('/static/images/home/battle.jpg');
-}
-
-.brewshop-bg {
-    background-image: url('/static/images/home/brewshop-bg.jpg');
-    background-color: rgba(0, 0, 0, 255) !important;
-}
-
-.brewshop {
-    background-image: url('/static/images/home/brewshop.png');
-    background-size: 40% !important;
+    background: url(/static/images/home/beers_text.png), url(/static/images/home/beers.jpg);
 }
 
 .brewlab {
-    background-image: url('/static/images/home/brewlab.jpg');
+    background-image: url('/static/images/home/brewlab_text.png') no-repeat center, url('/static/images/home/brewlab.jpg');
 }
 
 .shop {

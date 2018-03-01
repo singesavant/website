@@ -11,32 +11,38 @@
       </div>
     </div>
 
-
-    <h2>Actuellement</h2>
-
-    <b-row>
-      <b-col cols="2" v-for="beer in beers_in_production" :key="beer.name">
-        <b-card :title="beer.name"
-                :img-src="beer.thumbnail|erp_static_url"
-                :img-alt="beer.name">
-          <p class="card-text" v-html="$options.filters.truncate(beer.description_html, 200, '...')"></p>
-
-          <router-link :to="{name: 'beer-detail', params: {slug: beer.code}}">Voir</router-link>
-        </b-card>
+    <b-row class="justify-content-md-center">
+      <b-col cols="10">
+        <b-row class="justify-content-md-center beer-list" align-v="center">
+          <b-col class="align-bottom" sm="3" align="center" cols="2" v-for="beer in orderBy(beers_in_production,'name')" :key="beer.name">
+            <router-link :to="{name: 'beer-detail', params: {slug: beer.code}}">
+              <div class="beer">
+                <img class="beer-label-round" :src="beer.thumbnail|erp_static_url" :alt="beer.name">
+                <!-- <p class="card-text" v-html="$options.filters.truncate(beer.description_html, 200, '...')"></p> -->
+                <h3>{{ beer.name }}</h3>
+              </div>
+            </router-link>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
 
-    <h2>Les anciennes</h2>
 
-    <b-row>
-      <b-col cols="2" v-for="beer in beers_not_produced_anymore" :key="beer.name">
-        <b-card :title="beer.name"
-                :img-src="beer.thumbnail|erp_static_url"
-                :img-alt="beer.name">
-          <p class="card-text" v-html="$options.filters.truncate(beer.description_html, 200, '...')"></p>
+    <b-row class="justify-content-md-center old-beers">
+      <b-col cols="10">
+        <h2>Vous avez tout bu :</h2>
 
-          <router-link :to="{name: 'beer-detail', params: {slug: beer.code}}">Voir</router-link>
-        </b-card>
+        <b-row class="justify-content-md-center beer-list">
+          <b-col align="center" cols="2" v-for="beer in beers_not_produced_anymore" :key="beer.name">
+            <router-link :to="{name: 'beer-detail', params: {slug: beer.code}}">
+              <div class="beer">
+                <img class="beer-label-round" :src="beer.thumbnail|erp_static_url" :alt="beer.name">
+                <!-- <p class="card-text" v-html="$options.filters.truncate(beer.description_html, 200, '...')"></p> -->
+                <h3>{{ beer.name }}</h3>
+              </div>
+            </router-link>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
 
@@ -84,3 +90,33 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.beer-list {
+  margin-top: 50px;
+}
+
+.beer-label-round {
+    border: 1px solid black;
+    width: 90%;
+    object-fit: fill;
+    clip-path: circle(35% at center);
+
+    padding: 0px;
+    margin: -30px;
+}
+
+.beer {
+    color:black;
+    font-variant: small-caps;
+}
+
+.old-beers{
+    background-color: #eee;
+    margin-top: 30px;
+
+    h2 {
+        margin-top: 20px;
+    }
+}
+</style>

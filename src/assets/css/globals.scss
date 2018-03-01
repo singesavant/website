@@ -15,19 +15,10 @@ a {
     outline: none;
 }
 
-body {
-    overflow: hidden;
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.1s
 }
 
-button {
-    background-color: #d06f5a;
-    border: none;
-    color: white;
-
-    margin-top: 10px;
-
-    font-weight: bold;
-
-    height: 40px;
-    pointer: cursor;
+.fade-enter, .fade-leave-active {
+    opacity: 0
 }

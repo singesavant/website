@@ -62,8 +62,13 @@
   </head>
   <body>
       <div id="app">
-        <menubar v-show="['home'].indexOf($route.name) == -1"></menubar>
-        <router-view></router-view>
+          <transition name="fade" mode="out-in" appear>
+              <menubar v-if="['home'].indexOf($route.name) == -1"></menubar>
+          </transition>
+
+          <transition name="fade" mode="out-in" appear>
+              <router-view></router-view>
+          </transition>
       </div>
   </body>
 </html>
