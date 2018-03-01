@@ -10,11 +10,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="order in preOrders">
+        <tr v-for="order in sales_orders">
           <td>{{order.name}}</td>
           <td>{{order.date}}</td>
           <td>{{order.amount_total}}€</td>
-          <td><button>Annuler</button></td>
+          <td>
+            <b-button>Annuler</b-button>
+            <b-button :to="{name: 'so-payment', params: {slug: order.name}}">Payer</b-button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -25,12 +28,12 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'preOrderList',
+  name: 'SalesOrderList',
   computed: mapState([
-    'preOrders'
+    'sales_orders'
   ]),
   mounted: function () {
-    this.$store.dispatch('LOAD_PREORDER_LIST')
+    this.$store.dispatch('LOAD_SALESORDER_LIST')
   }
 }
 </script>

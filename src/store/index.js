@@ -29,7 +29,10 @@ const store = new Vuex.Store({
 
   state: {
     orderable_items: [],
+    sales_orders: [],
     malt_items: [],
+    beers: [],
+    current_beer_details: {},
     orders: [],
     userProfile: {},
     cart: {},
@@ -37,6 +40,30 @@ const store = new Vuex.Store({
     user: null
   },
   actions: {
+    LOAD_BEER_DETAILS: function ({ commit }, { slug }) {
+      axios.get('/beers/' + slug).then((response) => {
+        commit('SET_BEER_DETAILS', { details: response.data })
+      }, (err) => {
+        console.log(err)
+      })
+    },
+
+    LOAD_BEER_LIST: function ({ commit }) {
+      axios.get('/beers/').then((response) => {
+        commit('SET_BEER_LIST', { list: response.data })
+      }, (err) => {
+        console.log(err)
+      })
+    },
+
+    LOAD_SALESORDER_LIST: function ({ commit }) {
+      axios.get('/shop/orders/').then((response) => {
+        commit('SET_SALESORDER_LIST', { list: response.data })
+      }, (err) => {
+        console.log(err)
+      })
+    },
+
     LOAD_ORDERABLE_ITEM_LIST: function ({ commit }, { item_group }) {
       axios.get('/shop/items/',
                 { params: {item_group: item_group} }).then((response) => {
@@ -64,6 +91,7 @@ const store = new Vuex.Store({
       })
     },
 
+    // FIXME: remove that?
     LOAD_ORDERABLE_LIST: function ({ commit }) {
       axios.get('/shop/my/').then((response) => {
         commit('SET_ORDERABLE_LIST', { list: response.data })
@@ -80,7 +108,6 @@ const store = new Vuex.Store({
       })
     },
     REMOVE_ORDERABLE_ITEM_FROM_CART: function ({ commit }, { item }) {
-      console.debug(item.product.code)
       axios.delete('/shop/cart/', {data: {item_code: item.product.code}}).then((response) => {
         console.debug('Item deleted from cart.')
         store.dispatch('LOAD_CART')
@@ -89,12 +116,17 @@ const store = new Vuex.Store({
       })
     },
     SUBMIT_CART: function ({ commit }, { cart }) {
-      axios.post('/shop/cart/').then((response) => {
-        commit('SET_CART', { cart: response.data })
+      return new Promise((resolve, reject) => {
+        axios.post('/shop/cart/').then((response) => {
+          commit('SET_CART', { cart: [] })
 
-        store.dispatch('LOAD_ORDERABLE_LIST')
-      }, (err) => {
-        console.log(err)
+          store.dispatch('LOAD_ORDERABLE_LIST')
+
+          var salesOrder = response.data
+          resolve(salesOrder)
+        }, (err) => {
+          console.log(err)
+        })
       })
     },
     LOAD_CART: function ({ commit }) {
@@ -130,8 +162,20 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
+    SET_BEER_LIST: (state, { list }) => {
+      state.beers = list
+    },
+
+    SET_BEER_DETAILS: (state, { details }) => {
+      state.current_beer_details = details
+    },
+
     SET_ORDERABLE_ITEM_LIST: (state, { list }) => {
       state.orderable_items = list
+    },
+
+    SET_SALESORDER_LIST: (state, { list }) => {
+      state.sales_orders = list
     },
 
     SET_MALT_ITEM_LIST: (state, { list }) => {

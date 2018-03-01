@@ -1,61 +1,91 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div id="home" class="column">
-    <div class="logo">
-      <img src="/static/images/logo.png" alt="logo"/>
-    </div>
 
-    <div class="row">
-      <div class="whitebox">
-        <div class="zoomable beers">
-          <router-link :to="{name: 'product', params: {slug: 'hopshot'}}">Hop Shot</router-link>
-        </div>
-      </div>
-      <!-- <div class="battle whitebox">La battle du moment</div>-->
+  <b-container fluid id="home">
+    <!-- <div class="logo"> -->
+    <!--   <img src="/static/images/logo.png" alt="logo"/> -->
+    <!-- </div> -->
 
-      <div class="whitebox brewshop-bg">
-        <div class="zoomable brewshop">
-          <router-link :to="{name: 'brewshop'}">Brew Shop</router-link>
-        </div>
-      </div>
+    <b-row class="mosaic" no-gutters>
+      <b-col cols="12">
 
-    </div>
+        <!-- first line -->
+        <b-row class="fifty-row" no-gutters>
+          <b-col cols="6">
+            <div class="whitebox">
+              <div class="zoomable beers">
+                <router-link :to="{name: 'beer-list'}">Les bières</router-link>
+              </div>
+            </div>
+          </b-col>
+          <!-- <div class="battle whitebox">La battle du moment</div>-->
 
-    <div class="row">
-      <div class="whitebox">
-        <div class="zoomable brewlab comingsoon">
-          <!--<router-link :to="{name: 'brewshop'}">-->
-          Le Brewlab
-          <!--</router-link>-->
-        </div>
-      </div>
+          <b-col cols="6">
+            <div class="whitebox">
+              <div class="zoomable brewshop">
+                <router-link :to="{name: 'brewshop'}">Brew Shop</router-link>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
 
-      <div class="whitebox">
-        <div class="zoomable shop comingsoon">
-          <router-link :to="{name: 'shop'}">
-          Le Shop
-          </router-link>
-        </div>
-      </div>
+        <!-- second line -->
+        <b-row class="fifty-row" no-gutters>
+          <b-col cols="4">
+            <div class="whitebox">
+              <div class="zoomable brewlab comingsoon">
+                <!--<router-link :to="{name: 'brewshop'}">-->
+                Le Brewlab
+                <!--</router-link>-->
+              </div>
+            </div>
+          </b-col>
 
-      <div class="column">
+          <b-col cols="4">
+            <div class="whitebox">
+              <div class="zoomable shop comingsoon">
+                <router-link :to="{name: 'shop'}">
+                  Le Shop
+                </router-link>
+              </div>
+            </div>
+          </b-col>
 
-        <div class="whitebox">
-          <div class="zoomable brewery comingsoon">
-            La brasserie
-          </div>
-        </div>
+          <b-col cols="4">
+            <b-row class="fifty-row">
+              <b-col>
+                <div class="whitebox">
+                  <div class="zoomable brewery comingsoon">
+                    La brasserie
+                  </div>
+                </div>
+              </b-col>
+            </b-row>
 
-        <div class="whitebox">
-          <div class="zoomable recycling">
-            <router-link :to="{name: 'recycle'}">Projet 0: Recyclage</router-link>
-          </div>
-        </div>
+            <b-row class="fifty-row">
+              <b-col>
+                <div class="whitebox">
+                  <div class="zoomable recycling">
+                    <router-link :to="{name: 'recycle'}">Projet 0: Recyclage</router-link>
+                  </div>
+                </div>
+              </b-col>
+            </b-row>
+          </b-col>
 
-      </div>
-    </div>
+        </b-row>
+      </b-col>
+    </b-row>
 
-  </div> <!-- /home -->
+    <!-- footer -->
+    <b-row class="footer" no-gutters>
+      <b-col cols="12">
+        Subscribe...
+      </b-col>
+    </b-row>
+
+  </b-container> <!-- /home -->
+
 </template>
 
 <script lang="js">
@@ -79,13 +109,15 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-#home {
-    display: flex;
-    position: relative;
+<style lang="scss">
 
-    height: 100%;
-    width: 100%;
+.fifty-row {min-height: 50%;}
+
+.mosaic { min-height: 95vh; }
+.footer { min-height: 5vh; }
+
+#home {
+
 
     .logo {
         z-index: 10;
@@ -104,12 +136,8 @@ export default {
     }
 
     .whitebox {
-        margin: 5px;
-        flex-grow: 1.0;
+        height: 100%;
 
-        overflow: hidden;
-
-        font-size: 2em;
 
         .zoomable {
             width: 100%;
@@ -138,8 +166,6 @@ export default {
             background-repeat: no-repeat;
         }
 
-
-        text-indent: -9999px;                 /* sends the text off-screen */
         a {
             width: 100%;
             height: 100%;
@@ -149,20 +175,6 @@ export default {
 
 }
 
-
-
-.column {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-grow: 1;
-}
 
 .beers {
     background-image: url('/static/images/home/beers.jpg');
@@ -198,9 +210,4 @@ export default {
     background-image: url('/static/images/home/recycling.jpg');
 }
 
-
-
-
-
 </style>
-<style lang="scss" src="../../../static/globals.scss">

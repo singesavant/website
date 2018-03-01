@@ -70,7 +70,6 @@ export default {
       if (this.$store.state.cart.items) {
         var count = 0
         for (var item of this.$store.state.cart.items) {
-          console.debug(item)
           count += item.quantity
         }
         return count

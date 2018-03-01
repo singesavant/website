@@ -4,7 +4,7 @@
     <div class="header">
       <div class="title">
         <div class="rectangle">
-          <h1>HopShot<br/>IPA</h1>
+          <h1>{{ beer.name }}</h1>
         </div>
         <div class="triangle">
         </div>
@@ -18,7 +18,7 @@
       <div class="right">
         <div class="text">
           <h2>Qu'est ce que ?</h2>
-          <p>Blah!</p>
+          <p v-html='beer.description_html'></p>
          </div>
       </div>
     </div>
@@ -27,11 +27,11 @@
       <div class="left">
         <div class="text">
           <h2>Caractéristiques</h2>
-          <p>Blah!</p>
+          <p v-html='beer.website_long_description_html'></p>
          </div>
       </div>
       <div class="right">
-        <img src="/static/images/product/hopshot/logo.png" alt="logo">
+        <img :src="beer.thumbnail|erp_static_url" :alt="beer.name">
       </div>
     </div>
 
@@ -48,17 +48,30 @@ var data = {
 export default {
   name: 'ProductDetail',
 
+  computed: {
+    ...mapState({
+      beer: 'current_beer_details'
+    }),
+    ...mapState(['isAuthenticated'])
+  },
+
   components: {
   },
+
   data: function () {
     return data
   },
   mounted: function () {
-    this.toggleFlickering()
+    this.$store.dispatch('LOAD_BEER_DETAILS', {slug: this.$route.params.slug})
   },
   methods: {
   },
-  computed: mapState(['isAuthenticated'])
+  filters: {
+    erp_static_url (uri) {
+      return 'https://erp.singe-savant.com/' + uri
+    }
+  }
+
 }
 </script>
 

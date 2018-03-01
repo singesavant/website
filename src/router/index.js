@@ -4,9 +4,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
+import SumUpPayment from '@/components/shop/Payment'
 import Home from '@/components/home/Home'
 import Recycle from '@/components/Recycle'
-import ProductDetail from '@/components/product/ProductDetail'
+import BeerDetail from '@/components/beers/BeerDetail'
+import BeerList from '@/components/beers/BeerList'
+import SalesOrderList from '@/components/shop/preOrderList'
 
 Vue.use(Router)
 
@@ -25,6 +28,20 @@ export default new Router({
       }
     },
     {
+      path: '/shop/orders/:slug/payment',
+      name: 'so-payment',
+      components: {
+        'default': SumUpPayment
+      }
+    },
+    {
+      path: '/shop/orders/',
+      name: 'sales-orders',
+      components: {
+        'default': SalesOrderList
+      }
+    },
+    {
       path: '/recycle',
       name: 'recycle',
       components: {
@@ -39,10 +56,17 @@ export default new Router({
       }
     },
     {
-      path: '/p/:slug',
-      name: 'product',
+      path: '/b',
+      name: 'beer-list',
       components: {
-        'default': ProductDetail
+        'default': BeerList
+      }
+    },
+    {
+      path: '/b/:slug',
+      name: 'beer-detail',
+      components: {
+        'default': BeerDetail
       }
     }
   ]

@@ -1,7 +1,8 @@
+// -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div class="orderable-item-container">
-    <ul class="item-list">
-      <li class="item" v-for="item in items">
+  <div class="orderable-item-container container-fluid d-flex">
+    <ul class="item-list row">
+      <li class="item col" v-for="item in items">
 
         <!-- illustration -->
         <div class="illustration">
@@ -60,6 +61,9 @@ export default {
 </script>
 
 <style lang="scss">
+</style>
+
+<xstyle lang="scss">
 .orderable-item-container {
     align: center;
 

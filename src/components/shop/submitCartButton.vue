@@ -10,7 +10,9 @@ export default {
   props: ['cart', 'isActive'],
   methods: {
     submitCart (cart) {
-      this.$store.dispatch('SUBMIT_CART', {cart: cart})
+      this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data =>
+        this.$router.replace({name: 'so-payment', params: {slug: data.name}})
+      )
     }
   }
 }
