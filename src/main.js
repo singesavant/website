@@ -23,7 +23,6 @@ Vue.use(BootstrapVue)
 
 axios.defaults.baseURL = 'http://localhost:5000/v0.1'
 axios.defaults.withCredentials = true
-axios.defaults.headers.common.crossDomain = true
 
 /* eslint-disable no-new */
 new Vue({

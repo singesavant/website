@@ -32,7 +32,7 @@ import axios from 'axios'
 import card from 'vue-credit-card/src/components/Card.vue'
 
 let defaultProps = {
-  number: '4012888888881881',
+  number: '4222222222222',
   name: 'Tester',
   expiry: '11/20',
   cvc: '123'
@@ -69,21 +69,22 @@ export default {
   methods: {
     submit_payment: function (event) {
       var sumupAxios = axios.create({
-        baseURL: 'https://api.sumup.com/v0.1/'
+        baseURL: 'https://api.sumup.com/v0.1/',
+        withCredentials: false
       })
 
       var requestData = {
         payment_type: 'card',
         card: {
           cvv: data.cardDetail.cvc,
-          expiry_month: data.cardDetail.expiry,
-          expiry_year: data.cardDetail.expiry,
-          number: data.cardDetail.number,
+          expiry_month: data.cardDetail.expiry.split('/')[0].trim(),
+          expiry_year: '20' + data.cardDetail.expiry.split('/')[1].trim(),
+          number: data.cardDetail.number.replace(/\s/g, ''),
           name: data.cardDetail.name
         }
       }
 
-      sumupAxios.post('/checkouts/' + data.checkout.id, requestData).then((response) => { alert('YAY!') })
+      sumupAxios.put('/checkouts/' + data.checkout.id, requestData).then((response) => { alert('YAY!') })
     }
   }
 

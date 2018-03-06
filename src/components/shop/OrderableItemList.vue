@@ -2,7 +2,7 @@
 <template lang="html">
   <ul class="item-list">
     <b-row class="orderable-item-container justify-content-md-center">
-      <b-col sm=2 v-for="item in items">
+      <b-col sm=2 v-for="item in items" :key="item.name">
         <li class="item">
           <!-- illustration -->
           <b-row>
