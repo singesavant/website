@@ -50,13 +50,13 @@
           <b-col cols="4">
             <div class="tile">
               <div class="zoomable dealers">
-                <!--<router-link :to="{name: 'dealers'}">-->
+                <router-link :to="{name: 'dealers'}">
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Dealers du Singe</h2>
                     <span class="tile-description">Trouvez où acheter et boire nos bières</span>
                     <b-button class="go-button">Go</b-button>
                   </div>
-                <!--</router-link>-->
+                </router-link>
               </div>
             </div>
           </b-col>

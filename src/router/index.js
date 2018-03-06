@@ -9,6 +9,7 @@ import Home from '@/components/home/Home'
 import Recycle from '@/components/Recycle'
 import BeerDetail from '@/components/beers/BeerDetail'
 import BeerList from '@/components/beers/BeerList'
+import DealerList from '@/components/dealers/DealerList'
 import SalesOrderList from '@/components/shop/preOrderList'
 
 Vue.use(Router)
@@ -53,6 +54,13 @@ export default new Router({
       name: 'brewshop',
       components: {
         'default': BrewShop
+      }
+    },
+    {
+      path: '/dealers',
+      name: 'dealers',
+      components: {
+        'default': DealerList
       }
     },
     {

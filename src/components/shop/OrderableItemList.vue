@@ -1,36 +1,40 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div class="orderable-item-container container-fluid d-flex">
-    <ul class="item-list row">
-      <li class="item col" v-for="item in items">
-
-        <!-- illustration -->
-        <div class="illustration">
-          <div class="bottles-75cl">
-            <div class="bottle front">
+  <ul class="item-list">
+    <b-row class="orderable-item-container justify-content-md-center">
+      <b-col sm=2 v-for="item in items">
+        <li class="item">
+          <!-- illustration -->
+          <b-row>
+          <b-col cols=12 class="illustration">
+            <div class="bottles">
+              <div class="bottle front">
                 <img class="top" src="static/images/bottle-75-top.png" alt="bottle top">
                 <img class="label" v-bind:src=item.thumbnail|erp_static_url>
                 <img class="bottom" src="static/images/bottle-75-bottom.png" alt="bottle bottom">
-            </div>
+              </div>
 
-            <div class="bottle back">
+              <div class="bottle back">
                 <img class="top" src="static/images/bottle-75-top.png" alt="bottle top">
                 <img class="label" v-bind:src=item.thumbnail|erp_static_url>
                 <img class="bottom" src="static/images/bottle-75-bottom.png" alt="bottle bottom">
+              </div>
             </div>
-          </div>
-        </div>
+          </b-col>
 
-        <!-- info -->
-        <div class="info">
-          <span class="name">{{item.name}}</span>
-          <span class="price">{{item.price}}€</span>
-          <add-orderable-item-to-cart-widget :item="item"/>
-        </div>
+          <!-- info -->
+          <b-col cols=12 class="info">
+            <span class="name">{{item.name}}</span>
+            <span class="price">{{item.price}}€</span>
+            <add-orderable-item-to-cart-widget :item="item"/>
+          </b-col>
 
-      </li>
-    </ul>
-  </div>
+          </b-row>
+        </li>
+      </b-col>
+    </b-row>
+  </ul>
+
 </template>
 
 <script lang="js">
@@ -60,107 +64,80 @@ export default {
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss" scoped>
+  ul.item-list {
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0px !important;
 
-<xstyle lang="scss">
+    z-index: 3;
+
+    list-style-type: none;
+  }
+
 .orderable-item-container {
-    align: center;
 
-    height: 40vh;
-
-    margin-bottom: 5%;
-
-
-    ul.item-list {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-
-
-        li.item {
+    li.item {
+        .info {
+            width: 50%;
             height: 100%;
+            color: white;
 
-            display: flex;
-            flex-direction: row;
-            align-items: flex-end;
-
-
-            .info {
-                width: 50%;
-                height: 100%;
-                color: white;
-
-                display: flex;
-                flex-direction: column;
-
-                .name {
-                    font-weight: bold;
-                    margin-top: auto;
-                }
-
+            .name {
+                font-weight: bold;
+                margin-top: auto;
             }
 
+        }
 
-            .illustration {
-                width: 50%;
+
+        .illustration {
+
+            width: 50%;
+            height: 100%;
+
+            padding-right: 10px;
+
+            .bottles {
+
+                position: relative;
+
+                width: 100%;
                 height: 100%;
 
-                padding-right: 10px;
+                div.bottle {
 
-                .bottles-75cl {
+                    &.front {
+                        width: 70%;
 
-                    position: relative;
+                        height: 100%;
+                        left: 30%;
+                        z-index: 20;
+                    }
 
-                    width: 100%;
-                    height: 100%;
+                    &.back {
+                        position:absolute;
+                        width: 50%;
 
-                    div.bottle {
-                        position: absolute;
+                        height: 80%;
 
-                        &.front {
-                            width: 70%;
-
-                            height: 100%;
-                            left: 30%;
-                            z-index: 20;
-                        }
-
-                        &.back {
-                            width: 50%;
-
-                            height: 80%;
-
-                            top: 30px;
+                        top: 30px;
 
 
-                            left: 10px;
-                            z-index: 19;
-                        }
+                        left: 10px;
+                        z-index: 19;
+                    }
 
-                        display: flex;
-                        flex-direction: column;
 
-                        img {
-                            width: 100%;
-                        }
-
+                    img {
+                        width: 100%;
                     }
                 }
-
             }
 
         }
     }
 
 }
-
-
 </style>

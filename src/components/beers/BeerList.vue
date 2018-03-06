@@ -110,6 +110,9 @@ export default {
     color:black;
     font-variant: small-caps;
 
+    h3 {
+        font-size: 1.5em;
+    }
 
     img {
         transition: all .3s ease-in-out;

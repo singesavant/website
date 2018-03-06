@@ -3,12 +3,12 @@
 <template lang="html">
   <div class="cart-buttons">
     <div class="product-qtty">
-      <button @click="qttyDown()" class="qtty-modifier">-</button>
-      <input type="number" v-model:value="qtty" min="1" max="10"/>
-      <button @click="qttyUp()" class="qtty-modifier">+</button>
+      <b-button @click="qttyDown()" class="qtty-modifier">-</b-button>
+      <b-input type="number" v-model:value="qtty" min="1" max="10"/>
+      <b-button @click="qttyUp()" class="qtty-modifier">+</b-button>
     </div>
 
-    <button class="add-to-cart" type="button" @click="addOrderableItemToCart(item)">Ajouter au panier</button>
+    <b-button class="add-to-cart" type="button" @click="addOrderableItemToCart(item)">Ajouter au panier</b-button>
   </div>
 </template>
 

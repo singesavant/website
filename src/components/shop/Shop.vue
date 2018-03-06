@@ -4,6 +4,7 @@
 
     <div class="floor">
     </div>
+
     <div class="neon">
       <div v-bind:class="{ flicker: isFlickering }" class="overlay"></div>
     </div>
@@ -13,8 +14,6 @@
     </div>
 
     <welcome v-if="!isAuthenticated" />
-
-    <!-- <pre-order-list /> -->
 
   </div>
 </template>
@@ -60,33 +59,15 @@ export default {
 
 <style lang="scss" scoped>
 
-#products {
-  z-index: 10;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-
 .shop {
-    background: url('/static/images/shop/background.jpg');
-    background-repeat: repeat;
-    background-position: center top;
+    background: url('/static/images/shop/background.jpg'), url('/static/images/shop/wall_floor.jpg');
+    background-repeat: repeat, repeat;
+    background-attachment: fixed, fixed;
+    background-position: center, bottom;
+    background-size: cover, 100% 20vh;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     z-index: 1;
-
-
-    .floor {
-      background: url('/static/images/shop/wall_floor.jpg');
-      background-position: center bottom;
-      background-size: 100%;
-      background-repeat: repeat-x;
-      position: fixed;
-      height: 200px;
-      width: 100%;
-      bottom: 0;
-      z-index: 2;
-    }
 
     .neon {
         background: url('/static/images/shop/shop_light.png'), url('/static/images/shop/shop_cross.png');
@@ -103,7 +84,7 @@ export default {
         top: 40%;
         left: 50%;
 
-        position: absolute;
+        position: fixed;
 
         z-index: 2;
 
