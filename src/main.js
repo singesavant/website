@@ -21,6 +21,16 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(Vue2Filters)
 Vue.use(BootstrapVue)
 
+// Override leaflet/webpack problem
+import L from 'leaflet'
+delete L.Icon.Default.prototype._getIconUrl
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+})
+
 axios.defaults.baseURL = 'http://localhost:5000/v0.1'
 axios.defaults.withCredentials = true
 

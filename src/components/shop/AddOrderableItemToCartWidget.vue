@@ -14,14 +14,12 @@
 
 <script lang="js">
 
-var data = {
-  qtty: 1
-}
-
 export default {
   name: 'addOrderableItemToCartWidget',
   data: function () {
-    return data
+    return {
+      qtty: 1
+    }
   },
   props: [
     'item'
@@ -32,6 +30,9 @@ export default {
         this.qtty = oldVal
       }
     }
+  },
+  mounted: function () {
+    alert('ya')
   },
   methods: {
     qttyUp () {

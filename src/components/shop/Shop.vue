@@ -10,7 +10,12 @@
     </div>
 
     <div v-if="isAuthenticated" id="products">
-      <orderable-item-list item_group="Bières du Singe"/>
+    <b-row class="product-list-container justify-content-md-center">
+      <b-col cols="10">
+        <orderable-item-list item_group="Bières du Singe"/>
+      </b-col>
+    </b-row>
+
     </div>
 
     <welcome v-if="!isAuthenticated" />
@@ -68,6 +73,11 @@ export default {
     width: 100%;
     min-height: 100vh;
     z-index: 1;
+
+
+    .product-list-container {
+        z-index: 3;
+     }
 
     .neon {
         background: url('/static/images/shop/shop_light.png'), url('/static/images/shop/shop_cross.png');
