@@ -29,6 +29,7 @@ const store = new Vuex.Store({
 
   state: {
     orderable_items: [],
+    orderable_item_details: {},
     sales_orders: [],
     malt_items: [],
     beers: [],
@@ -88,6 +89,14 @@ const store = new Vuex.Store({
         commit('SET_HOP_ITEM_LIST', { list: response.data })
       }, (err) => {
         console.log(err)
+      })
+    },
+
+    LOAD_ORDERABLE_ITEM_DETAILS: function ({ commit }, { item }) {
+      axios.get('/shop/items/' + item.code).then((response) => {
+        commit('SET_ORDERABLE_ITEM_DETAILS', { itemDetails: response.data })
+      }, (err) => {
+        console.warn(err)
       })
     },
 
@@ -192,6 +201,9 @@ const store = new Vuex.Store({
     },
     SET_CART: (state, { cart }) => {
       state.cart = cart
+    },
+    SET_ORDERABLE_ITEM_DETAILS: (state, { itemDetails }) => {
+      state.orderable_item_details[itemDetails['name']] = itemDetails
     },
     isAuthenticated (state, payload) {
       state.isAuthenticated = payload.isAuthenticated

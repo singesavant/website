@@ -1,8 +1,8 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <li class="item flip-container">
-    <div class="flipper" :class="{ flipped: isFlipped }">
-    <b-row class="front">
+  <li class="item">
+    <div :class="{ flipped: isFlipped }">
+    <b-row>
 
       <!-- illustration -->
       <b-col cols=12 class="illustration">
@@ -37,17 +37,16 @@
         </b-row>
         <b-row>
           <b-col align="center" cols=12>
-            <b-button v-on:click="flip()">Commander</b-button>
+            <b-button v-on:click="flip()" v-if="in_stock">Commander</b-button>
           </b-col>
         </b-row>
       </b-col>
 
     </b-row>
 
-    <b-row class="back">
+    <b-row>
       <b-col cols=12 class="info" align="center" align-v="bottom">
         <span class="name">{{item.name}}</span>
-        <span class="price">{{item.price}}€</span>
         <add-orderable-item-to-cart-widget :item="item"/>
         <b-button v-on:click="flip()">Annuler</b-button>
       </b-col>
@@ -58,7 +57,6 @@
 </template>
 
 <script lang="js">
-import { mapState } from 'vuex'
 import addOrderableItemToCartWidget from './AddOrderableItemToCartWidget'
 
 export default {
@@ -81,9 +79,19 @@ export default {
       return 'https://erp.singe-savant.com/' + uri
     }
   },
-  computed:
-    mapState({
-    }),
+  computed: {
+    in_stock: function () {
+      var inStock = false
+
+      if (this.item.has_variants) {
+        for (var variant in this.item.variants) {
+          inStock |= (variant.orderable_qty > 0)
+        }
+      }
+
+      return inStock
+    }
+  },
 
   methods: {
     flip: function () {
@@ -127,7 +135,7 @@ li.item {
         position: relative;
         width: 50%;
 
-        min-height: 40vh;
+        min-height: 50vh;
 
         padding-right: 10px;
 
@@ -156,7 +164,7 @@ li.item {
                 }
 
                 &.back {
-                    $width: 20%;
+                    $width: 100%;
 
                     z-index: 4;
                     width: $width;
@@ -202,6 +210,8 @@ li.item {
 }
 
 .flip-container {
+    margin-top:15vh;
+    margin-bottom: 15vh;
 	  height: 40vh;
 }
 

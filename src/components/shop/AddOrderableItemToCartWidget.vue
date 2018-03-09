@@ -2,104 +2,98 @@
 
 <template lang="html">
   <div class="cart-buttons">
-    <div class="product-qtty">
-      <b-button @click="qttyDown()" class="qtty-modifier">-</b-button>
-      <b-input type="number" v-model:value="qtty" min="1" max="10"/>
-      <b-button @click="qttyUp()" class="qtty-modifier">+</b-button>
+
+    <!-- this item has variants, show them all -->
+    <div v-if="item_details.has_variants">
+      <b-form-select @change="variant_updated(variant_selected_code)" v-model="variant_selected_code">
+        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" :disabled="variant.orderable_qty <= 0">{{ variant.name }}</option>
+      </b-form-select>
+
+      <div class="product-qtty" v-if="variant_selected">
+
+        <h3>{{ variant_selected.name }}</h3>
+        <b-form>
+          <b-input-group>
+            <b-button @click="qtty_down(variant_selected)">-</b-button>
+            <b-input type="number" v-model="qtty[variant_selected.name]" :value="0" min="0" :max="variant_selected.orderable_qty"/>
+            <b-button @click="qtty_up(variant_selected)">+</b-button>
+          </b-input-group>
+          <b-button class="add-to-cart" @click="addOrderableItemToCart(variant_selected)">Ajouter au panier</b-button>
+        </b-form>
+      </div>
+
     </div>
 
-    <b-button class="add-to-cart" type="button" @click="addOrderableItemToCart(item)">Ajouter au panier</b-button>
+    <!-- we have no variant -->
+    <div class="product-qtty" v-else>
+      <b-button class="qtty-modifier">-</b-button>
+      <b-input type="number" v-model:value="qtty[item_details.name]" value="0" min="1" max="10"/>
+      <b-button class="qtty-modifier">+</b-button>
+    </div>
   </div>
 </template>
 
 <script lang="js">
+import { mapState } from 'vuex'
+
+function defaultDict (createValue) {
+  return new Proxy(Object.create(null), {
+    get (storage, property) {
+      if (!(property in storage)) {
+        storage[property] = createValue(property)
+      }
+      return storage[property]
+    }
+  })
+}
 
 export default {
   name: 'addOrderableItemToCartWidget',
   data: function () {
     return {
-      qtty: 1
+      qtty: defaultDict(function () { return 0 }),
+      variant_selected_code: null,
+      variant_selected: null
     }
   },
   props: [
     'item'
   ],
-  watch: {
-    qtty: function (val, oldVal) {
-      if (val <= 0 || val > 10) {
-        this.qtty = oldVal
-      }
+  computed: mapState({
+    item_details: function (state) {
+      return state.orderable_item_details[this.item['name']]
     }
-  },
+  }),
   mounted: function () {
-    alert('ya')
+    this.$store.dispatch('LOAD_ORDERABLE_ITEM_DETAILS', {item: this.item})
   },
   methods: {
-    qttyUp () {
-      this.qtty++
-    },
-    qttyDown () {
-      if (this.qtty > 1) {
-        this.qtty--
+    qtty_down (item) {
+      if (this.qtty[item.name] > 0) {
+        this.qtty[item.name]--
+        this.$forceUpdate()
       }
     },
+    qtty_up (item) {
+      if (this.qtty[item.name] < item.orderable_qty) {
+        this.qtty[item.name]++
+        this.$forceUpdate()
+      }
+    },
+    variant_updated (variant) {
+      this.variant_selected = this.item_details['variants'][0]
+      this.$forceUpdate()
+    },
     addOrderableItemToCart (item) {
-      this.$store.dispatch('ADD_ORDERABLE_ITEM_TO_CART', {item: item, quantity: this.qtty})
+      this.$store.dispatch('ADD_ORDERABLE_ITEM_TO_CART', {item: item, quantity: this.qtty[item.name]})
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-.cart-buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    .product-qtty {
-
-        display: inline-block;
-        height: 30px;
-
-        button.qtty-modifier {
-            display: inline;
-            background-color: white;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
-            border: none;
-        }
-
-        input {
-            display: inline;
-            margin-right: 10px;
-            margin-left: 10px;
-            border-radius: 25px;
-            border: none;
-            text-align: center;
-            width: 50%;
-
-            -moz-appearance: textfield;
-            -webkit-appearance: none;
-        }
-
-    }
-
-
-
-    button.add-to-cart {
-        background-color: #d06f5a;
-        border: none;
-        color: white;
-
-        margin-top: 10px;
-
-        font-weight: bold;
-
-        width: 100%;
-        height: 40px;
-    }
-
+.soldout {
+  text-decoration: line-through;
 }
-  </style>
+</style>

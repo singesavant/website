@@ -7,7 +7,7 @@
 
       <!-- monkey logo, centered -->
       <div class="logo">
-        <img src="/static/images/logo.png" alt="logo"/>
+        <img src="/static/images/home/logo.png" alt="logo"/>
       </div>
 
 
@@ -307,7 +307,6 @@ export default {
         .comingsoon:hover {
             transition: none;
             background-image: url(/static/images/home/comingsoon.png);
-            background-size: 30%;
             background-repeat: no-repeat;
         }
 
@@ -325,11 +324,17 @@ export default {
 }
 
 .brewlab {
-    background-image: url('/static/images/home/brewlab_text.png') no-repeat center, url('/static/images/home/brewlab.jpg');
+    background: url('/static/images/home/brewlabshop_text.png'), url('/static/images/home/beers.jpg');
 }
 
+.dealers {
+    background: url('/static/images/home/dealers_text.png'), url('/static/images/home/beers.jpg');
+    background-size: 60%, 105% !important;
+}
+
+
 .shop {
-    background-image: url('/static/images/home/shop.jpg');
+    background: url('/static/images/home/beers.jpg'), url('/static/images/home/beers.jpg');
 }
 
 .brewery {
