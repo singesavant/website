@@ -42,10 +42,14 @@ const store = new Vuex.Store({
   },
   actions: {
     LOAD_BEER_DETAILS: function ({ commit }, { slug }) {
-      axios.get('/beers/' + slug).then((response) => {
-        commit('SET_BEER_DETAILS', { details: response.data })
-      }, (err) => {
-        console.log(err)
+      return new Promise((resolve, reject) => {
+        axios.get('/beers/' + slug).then((response) => {
+          commit('SET_BEER_DETAILS', { details: response.data })
+          resolve()
+        }, (err) => {
+          console.log(err)
+          reject()
+        })
       })
     },
 
@@ -135,6 +139,7 @@ const store = new Vuex.Store({
           resolve(salesOrder)
         }, (err) => {
           console.log(err)
+          reject()
         })
       })
     },

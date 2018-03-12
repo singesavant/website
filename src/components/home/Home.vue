@@ -159,7 +159,7 @@ export default {
 }
 </script>
 
-
+v
 <style lang="scss">
 
 #home {
@@ -212,7 +212,6 @@ export default {
 
         img {
             width: 200px;
-            height: 200px;
         }
     }
 
@@ -320,21 +319,21 @@ export default {
 }
 
 .beers {
-    background: url(/static/images/home/beers_text.png), url(/static/images/home/beers.jpg);
+    background: url(/static/images/home/beers_text.png), url(/static/images/home/beers.gif);
 }
 
 .brewlab {
-    background: url('/static/images/home/brewlabshop_text.png'), url('/static/images/home/beers.jpg');
+    background: url('/static/images/home/brewlabshop_text.png'), url('/static/images/home/brewlab.jpg');
 }
 
 .dealers {
-    background: url('/static/images/home/dealers_text.png'), url('/static/images/home/beers.jpg');
+    background: url('/static/images/home/dealers_text.png'), url('/static/images/home/dealers.jpg');
     background-size: 60%, 105% !important;
 }
 
 
 .shop {
-    background: url('/static/images/home/beers.jpg'), url('/static/images/home/beers.jpg');
+    background: url('/static/images/home/shop_text.png'), url('/static/images/home/shop.jpg');
 }
 
 .brewery {
