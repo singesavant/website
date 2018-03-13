@@ -3,106 +3,127 @@
   <div class="product">
     <beer-header :title="beer.name"></beer-header>
 
-    <b-row class="about" align-h="center">
-      <b-col cols="4" class="left">
-        <img :src="get_left_image_url|erp_static_url" alt="big">
-      </b-col>
-      <b-col cols="4" class="right">
-        <div class="text">
-          ..<router-link :to="{name: 'beer-list'}">retour aux bières</router-link>
-          <h2  class="beer-subtitle">Qu'est ce que ?</h2>
-          <p v-if="website_specifications.style">{{ website_specifications.style }} - {{ website_specifications.abv }}%</p>
-
-          <p v-html='beer.website_long_description_html'></p>
-         </div>
-      </b-col>
-    </b-row>
-
-    <b-row class="more" align-h="center">
-      <b-col class="grey-bg" cols="4">
-        <b-row align-h="center">
-          <b-col cols="10" class="left">
-            <div class="caract-section" v-if="website_specifications.apparence">
-              <h2 class="beer-subtitle">Caractéristiques</h2>
-
-              <!-- Appareance -->
-              <b-row>
-                <b-col class="caract-title" cols="4">
-                  Apparence
-                </b-col>
-                <b-col class="caract-value" cols="8">
-                  {{ website_specifications.apparence }}
-                </b-col>
-              </b-row>
-
-              <!-- Arome -->
-              <b-row>
-                <b-col class="caract-title" cols="4">
-                  Arôme
-                </b-col>
-                <b-col class="caract-value" cols="8">
-                  {{ website_specifications.aroma }}
-                </b-col>
-              </b-row>
-
-              <!-- Gout -->
-              <b-row>
-                <b-col class="caract-title" cols="4">
-                  Goût
-                </b-col>
-                <b-col class="caract-value" cols="8">
-                  {{ website_specifications.gout }}
-                </b-col>
-              </b-row>
-            </div>
-
-            <div class="caract-section" v-if="website_specifications.hops">
-              <h2 class="beer-subtitle">Houblons</h2>
-              <ul class="hop-list">
-                <li class="hop" v-for="hop in website_specifications.hops.split(',')">{{ hop }}</li>
-              </ul>
-            </div>
-
-            <div class="caract-section" v-if="website_specifications.hops">
-              <h2 class="beer-subtitle">Amertume</h2>
-              <ul class="ibus" id="ibu-container">
-                <li v-for="n in get_ibus" class="bullet ibu-bullet"></li><li v-for="n in get_missing_ibus" class="bullet no-ibu-bullet"></li>
-              </ul>
-
-              <b-tooltip target="ibu-container" placement="bottom">
-              <span class="ibu-comment" v-if="get_ibus == 1">Pas du tout amère</span>
-              <span class="ibu-comment" v-if="get_ibus == 2">Légèrement amère</span>
-              <span class="ibu-comment" v-if="get_ibus == 3">Assez amère</span>
-              <span class="ibu-comment" v-if="get_ibus == 4">Amertume soutenue</span>
-              <span class="ibu-comment" v-if="get_ibus == 5">Très amère</span>
-              </b-tooltip>
-
-            </div>
-          </b-col>
-        </b-row>
-      </b-col>
-      <b-col cols="4" class="right">
+    <b-row class="badge-header" align-h="center">
+      <b-col class="background" sm="8">
         <img class="label" :src="beer.website_image|erp_static_url" :alt="beer.name">
       </b-col>
     </b-row>
 
-    <b-row class="buy" align-h="center">
-      <b-col cols="4" class="left">
+    <b-row class="about" align-h="center">
+      <b-col sm="4" class="left">
+        <div class="text">
+          <h2  class="beer-subtitle">Qu'est ce que ?</h2>
+          <p v-html='beer.website_long_description_html'></p>
+        </div>
       </b-col>
-      <b-col cols="4" class="right">
+      <b-col class="right" sm="4">
+        <b-row align-h="center">
+          <div class="text">
+            <b-col cols="12">
+              <div class="caract-section" v-if="website_specifications.apparence">
+                <h2 class="beer-subtitle">Caractéristiques</h2>
+
+                <!-- Appareance -->
+                <b-row v-if="website_specifications.style">
+                  <b-col class="caract-title" cols="4">
+                    Style
+                  </b-col>
+                  <b-col class="caract-value" cols="8">
+                    {{ website_specifications.style }}
+                  </b-col>
+                </b-row>
+
+                <!-- Appareance -->
+                <b-row>
+                  <b-col class="caract-title" cols="4">
+                    Apparence
+                  </b-col>
+                  <b-col class="caract-value" cols="8">
+                    {{ website_specifications.apparence }}
+                  </b-col>
+                </b-row>
+
+                <!-- Arome -->
+                <b-row>
+                  <b-col class="caract-title" cols="4">
+                    Arôme
+                  </b-col>
+                  <b-col class="caract-value" cols="8">
+                    {{ website_specifications.aroma }}
+                  </b-col>
+                </b-row>
+
+                <!-- Gout -->
+                <b-row>
+                  <b-col class="caract-title" cols="4">
+                    Goût
+                  </b-col>
+                  <b-col class="caract-value" cols="8">
+                    {{ website_specifications.gout }}
+                  </b-col>
+                </b-row>
+              </div>
+
+              <div class="caract-section" v-if="website_specifications.hops">
+                <h2 class="beer-subtitle">Houblons</h2>
+                <ul class="hop-list">
+                  <li class="hop" v-for="hop in website_specifications.hops.split(',')">{{ hop }}</li>
+                </ul>
+              </div>
+
+              <div class="caract-section" v-if="website_specifications.hops">
+                <h2 class="beer-subtitle">Amertume</h2>
+                <ul class="ibus" id="ibu-container">
+                  <li v-for="n in get_ibus" class="bullet ibu-bullet"></li><li v-for="n in get_missing_ibus" class="bullet no-ibu-bullet"></li>
+                </ul>
+
+                <b-tooltip target="ibu-container" placement="bottom">
+                  <span class="ibu-comment" v-if="get_ibus == 1">Pas du tout amère</span>
+                  <span class="ibu-comment" v-if="get_ibus == 2">Légèrement amère</span>
+                  <span class="ibu-comment" v-if="get_ibus == 3">Assez amère</span>
+                  <span class="ibu-comment" v-if="get_ibus == 4">Amertume soutenue</span>
+                  <span class="ibu-comment" v-if="get_ibus == 5">Très amère</span>
+                </b-tooltip>
+
+              </div>
+            </b-col>
+          </div>
+        </b-row>
       </b-col>
     </b-row>
 
+    <b-row class="buy" align-h="center">
+      <b-col cols="8">
+        Commandez en ligne<br/> et faîtes vous livrer à vélo !<br/>
+        <b-button id="go-to-shop" variant="secondary">Accéder au shop</b-button>
+        <b-tooltip target="go-to-shop" title="Bientôt disponible !"/>
+      </b-col>
+    </b-row>
 
     <b-row class="other-beers justify-content-md-center">
-      <b-col cols="10">
-        <b-row class="justify-content-md-center beer-list">
-          <b-col class="align-bottom" sm="3" align="center" cols="2" v-for="beer in get_four_other_beers" :key="beer.name">
+      <b-col cols="12" align="center">
+        <b-row>
+          <b-col cols="2" offset="5">
+            <h2 class="beer-subtitle">D'autres recettes ?</h2>
+          </b-col>
+        </b-row>
+      </b-col>
+
+      <b-col cols="12">
+        <b-row class="justify-content-md-center beer-list" align-h="center">
+          <b-col class="align-bottom" sm="2" align="center" v-for="beer in get_five_other_beers" :key="beer.name">
             <beer-card :beer="beer"/>
+          </b-col>
+        </b-row>
+        <b-row align-h="center" class="all-beers">
+          <b-col align="center">
+            <b-button variant="primary" :to="{name: 'beer-list'}">Voir toutes les bières</b-button>
           </b-col>
         </b-row>
       </b-col>
     </b-row>
+
+    <monkey-footer/>
 
   </div>
 </template>
@@ -117,6 +138,7 @@ import VueLodash from 'vue-lodash'
 Vue.use(VueLodash, lodash)
 import BeerHeader from './Header.vue'
 import BeerCard from './BeerCard.vue'
+import MonkeyFooter from '../Footer.vue'
 
 export default {
   name: 'ProductDetail',
@@ -141,8 +163,8 @@ export default {
       get_missing_ibus: function () {
         return (5 - parseInt(this.website_specifications['ibu']))
       },
-      get_four_other_beers: function () {
-        return this._.sampleSize(this.beers.filter(beer => beer.disabled === false && beer.name !== this.beer.name), 4)
+      get_five_other_beers: function () {
+        return this._.sampleSize(this.beers.filter(beer => beer.disabled === false && beer.name !== this.beer.name), 5)
       },
       get_left_image_url: function () {
         var item = this._.find(this.beer.slideshow_items, {heading: 'left'})
@@ -155,7 +177,8 @@ export default {
 
   components: {
     BeerHeader,
-    BeerCard
+    BeerCard,
+    MonkeyFooter
   },
 
   data: function () {
@@ -218,8 +241,24 @@ export default {
 }
 
 .buy {
-    background-color: black;
-    height: 2px;
+    height: 50vh;
+
+    .col-8 {
+        background-image: url(/static/images/product/bg-shop.jpg);
+        background-size: cover;
+
+        text-align: center;
+
+        font-size: 4vh;
+        color: white;
+        text-transform: uppercase;
+
+        padding-top: 10vh;
+
+        button, a {
+            margin-top: 5vh;
+        }
+    }
 }
 
 h2.beer-subtitle {
@@ -274,35 +313,59 @@ h2.beer-subtitle {
 .product {
     height: 100%;
     width: 100%;
+    background-color: #eee;
 
-    background-color: white;
+    .badge-header {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        position: relative;
+        margin-top: -10vh;
+        height: 40vh;
 
-    .about {
-        background-color: black;
-        justify-content: center;
-
-        .left {
-            padding-left: 0;
-            padding-right: 0;
-            img {
-                object-fit: cover;
-                min-height: 100%;
-            }
+        img {
+            height: 50vh;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -15vh;
+            margin-left: -25vh;
         }
 
-        .right {
+        .background {
             background-color: white;
+        }
+    }
+
+
+    .about {
+        justify-content: center;
+
+        .left, .right {
+            background-color: white;
+
             line-height: 200%;
 
             .text {
                 padding: 40px;
+            }
 
-          }
+
+            .caract-section {
+                margin-bottom: 30px;
+                &::first {
+                }
+
+                .row {
+                    margin-bottom: 10px;
+
+                }
+            }
+
+            .caract-value {
+                font-weight: 300;
+            }
+
         }
-    }
-
-    .grey-bg {
-        background-color: #eee;
     }
 
     .more {
@@ -311,33 +374,6 @@ h2.beer-subtitle {
 
         .left {
           padding: 40px;
-        }
-
-        .caract-section {
-            margin-bottom: 30px;
-            &::first {
-            }
-
-            .row {
-                margin-bottom: 10px;
-
-             }
-        }
-
-        .caract-value {
-            font-weight: 300;
-        }
-
-
-        .right {
-            text-align: center;
-          background-color: white;
-
-          img {
-              height: 100%;
-              max-width: 100%;
-          }
-
         }
     }
 }

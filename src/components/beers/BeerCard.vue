@@ -28,6 +28,7 @@ export default {
 .beer-card {
     color:black;
     font-variant: small-caps;
+    padding-bottom: 5vh;
 
     h3 {
         font-size: 1.5em;

@@ -1,5 +1,4 @@
 //-*- mode: vue; js-indent-level: 2; -*-
-
 <template lang="html">
   <div id="menubar">
     <div class="logo">
@@ -9,12 +8,21 @@
       </router-link>
     </div>
 
-    <button class="toggle-button">
-      <span class="text">Menu</span>
+    <button @click="toggleMenu()" class="toggle-button">
+      <span v-if="!menuIsVisible" class="text">Menu</span>
+      <span v-else class="text">X</span>
     </button>
 
+    <div @click="toggleMenu()" class="menu-expanded" :class="{visible: menuIsVisible}">
+      <ul>
+        <li><router-link :to="{name: 'beer-list'}">Les bières</router-link></li>
+        <li><router-link :to="{name: 'dealers'}">Nos points de vente</router-link></li>
+        <li><router-link :to="{name: 'home'}">Accueil</router-link></li>
+      </ul>
+    </div>
+
     <div class="menu-right">
-      <auth class="auth" />
+      <!-- <auth class="auth" />-->
 
       <cart />
 
@@ -29,10 +37,20 @@ import { mapState } from 'vuex'
 import Auth from './Auth.vue'
 import Cart from './shop/Cart.vue'
 
+var data = {
+  menuIsVisible: false
+}
+
 export default {
   name: 'Menubar',
 
   methods: {
+    toggleMenu: function () {
+      this.menuIsVisible = !this.menuIsVisible
+    }
+  },
+  data: function () {
+    return data
   },
   components: {
     Auth,
@@ -49,8 +67,8 @@ export default {
 
   position: fixed;
   z-index: 100;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.95);
 
   height: 8vh;
   min-height: 50px;
@@ -62,16 +80,16 @@ export default {
   align-items: center;
 
   .toggle-button {
-      position: absolute;
-
+      align-self: center;
       display: flex;
       flex-direction: row;
       align-items: center;
+      align-content: center;
       justify-content: center;
 
-      left: 50%;
-      right: 50%;
-      margin-left: -20px;
+
+
+      min-width: 4vw;
 
 
       background: none;
@@ -84,7 +102,14 @@ export default {
           border-bottom: 2px solid white;
           border-top: 2px solid white;
           color: white;
+
+          .visible {
+              display: block;
+          }
+
       }
+
+
   }
 
   .logo {
@@ -124,6 +149,53 @@ export default {
           height: 80%;
           margin-right: 10px;
       }
+  }
+
+  .menu-expanded {
+      &.visible {
+          visibility: visible;
+          opacity: 1;
+          transition: visibility 0s, opacity .1s linear;
+      }
+      opacity: 0;
+      visibility: hidden;
+
+      transition: all .1s ease-in-out;
+
+      position: absolute;
+      width: 100%;
+      top: 8vh;
+      height: 92vh;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+
+      > ul {
+          padding-top: 3%;
+          margin-left: auto;
+          margin-right: auto;
+
+          list-style-type: none;
+          text-align: center;
+
+          width: 70vw;
+
+          li {
+              color: white;
+              font-size: 2vw;
+              letter-spacing: 0.3em;
+              text-transform: uppercase;
+              border-bottom: 1px solid white;
+              padding: 1vh;
+              padding-top: 1.5vh;
+              padding-bottom: 1.5vh;
+
+              a {
+                  color: white;
+              }
+
+          }
+       }
+
   }
 
   .menu-right {

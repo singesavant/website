@@ -11,13 +11,17 @@
         </v-marker>
 
       </v-map>
+
+      <monkey-footer/>
     </b-col>
   </b-row>
+
 </template>
 
 <script lang="js">
 import Vue2Leaflet from 'vue2-leaflet'
 import L from 'leaflet'
+import MonkeyFooter from '../Footer'
 
 var ResizedIcon = L.Icon.extend({options: {iconSize: [40, 40], iconAnchor: [20, 20], popupAnchor: [0, -20]}})
 
@@ -60,7 +64,8 @@ export default {
     'v-tilelayer': Vue2Leaflet.TileLayer,
     'v-marker': Vue2Leaflet.Marker,
     'v-map': Vue2Leaflet.Map,
-    'v-popup': Vue2Leaflet.Popup
+    'v-popup': Vue2Leaflet.Popup,
+    'monkey-footer': MonkeyFooter
   },
 
   filters: {
@@ -93,7 +98,7 @@ export default {
   .dealer-map {
       z-index:1;
       width: 100%;
-      height: 100vh;
+      height: 100%;
     }
 
 </style>

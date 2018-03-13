@@ -63,7 +63,7 @@
 
           <b-col cols="4">
             <div class="tile">
-              <div class="zoomable shop comingsoon">
+              <div class="zoomable shop">
                 <router-link :to="{name: 'shop'}">
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Le Shop</h2>
@@ -79,7 +79,7 @@
             <b-row class="fifty-row">
               <b-col>
                 <div class="tile">
-                  <div class="zoomable brewery comingsoon">
+                  <div class="zoomable brewery">
                     <div class="tile-text-wrapper">
                       <h2 class="tile-title">La brasserie</h2>
                       <span class="tile-description">Qui est le Singe ?</span>
@@ -111,32 +111,14 @@
       </b-col>
     </b-row>
 
-    <!-- footer -->
-    <b-row class="footer" no-gutters>
-      <b-col cols="6">
-        <b-button>Nous contacter</b-button>
-        <b-button>Venir</b-button>
-        Suivez-nous !
-        <b-button>F</b-button>
-        <b-button>T</b-button>
-      </b-col>
-
-      <b-col cols="6">
-        Nouveautés, bons plans et événements du singe
-
-        <mailchimp-subscribe action="xxx"></mailchimp-subscribe>
-
-      </b-col>
-
-    </b-row>
-
+    <monkey-footer/>
   </b-container> <!-- /home -->
 
 </template>
 
 <script lang="js">
 import { mapState } from 'vuex'
-import mailchimpSubscribe from '../Mailchimp'
+import MonkeyFooter from '../Footer'
 
 var data = {
 }
@@ -145,7 +127,7 @@ export default {
   name: 'Home',
 
   components: {
-    mailchimpSubscribe
+    MonkeyFooter
   },
 
   data: function () {
@@ -181,24 +163,6 @@ v
         border: 2px solid white;
     }
 
-    .footer {
-        border-left: 4px solid white;
-        border-right: 4px solid white;
-        background-color: #00132c;
-
-        button {
-            background-color: #001736;
-            color: #5c728a;
-            border: none;
-            border-radius: 0;
-            font-variant: small-caps;
-            font-weight: 300;
-            padding-left: 20px;
-            padding-right: 20px;
-
-        }
-
-    }
 
     // centered brand logo
     .logo {
@@ -211,7 +175,7 @@ v
         transform: translate(-50%, -50%);
 
         img {
-            width: 200px;
+            width: 25vh;
         }
     }
 
@@ -225,20 +189,18 @@ v
             width: 100%;
             height: 100%;
 
-            background-position: center;
-            background-repeat: no-repeat no-repeat;
-            background-size: 40%, 105%;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
+            background-size: 35%, cover;
 
             box-shadow:0px 0px 40px 0px black inset;
 
             transition: all .3s ease-in-out;
 
             &:hover, &:focus {
-                // transform: scale(1.1);
-                background-size: 41%, 100%;
                 transition: all .3s ease-in-out;
 
-                box-shadow:0px 0px 130px 0px black inset;
+                box-shadow:0px 0px 80px 0px black inset;
 
                 .tile-text-wrapper {
                     visibility: visible;
@@ -320,6 +282,8 @@ v
 
 .beers {
     background: url(/static/images/home/beers_text.png), url(/static/images/home/beers.gif);
+    background-size: 35%, cover !important;
+    background-position: 47% 39%, center !important;
 }
 
 .brewlab {
@@ -328,20 +292,27 @@ v
 
 .dealers {
     background: url('/static/images/home/dealers_text.png'), url('/static/images/home/dealers.jpg');
-    background-size: 60%, 105% !important;
+    background-size: 60%, cover !important;
 }
 
 
 .shop {
     background: url('/static/images/home/shop_text.png'), url('/static/images/home/shop.jpg');
+
+    &:hover {
+        background: url('/static/images/home/shop_text_overlay.png'), url('/static/images/home/shop_text.png'), url('/static/images/home/shop.jpg') !important;
+        background-size: 43.5%, 35%, cover !important;
+        background-repeat: no-repeat, no-repeat, no-repeat !important;
+        background-position: center, center,  center !important;
+    }
 }
 
 .brewery {
-    background-image: url('/static/images/home/brewery.jpg');
+    background-image: url('/static/images/home/shop.jpg'), url('/static/images/home/brewery.jpg');
 }
 
 .recycling {
-    background-image: url('/static/images/home/recycling.jpg');
+    background-image:  url('/static/images/home/shop.jpg'), url('/static/images/home/recycling.jpg');
 }
 
 </style>

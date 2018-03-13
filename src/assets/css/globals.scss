@@ -14,14 +14,32 @@
 
 
 html {
-    font-family: 'Poppins', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Poppins', 'Helvetica', 'Arial', sans-serif !important;
 }
-
 
 a {
     text-decoration: none;
     outline: none;
+
 }
+
+$orange: #d06f5a;
+
+.btn-primary {
+    background-color: $orange !important;
+    border-color: $orange !important;
+    box-shadow: 0 !important;
+    &.active {
+        box-shadow: 0 !important;
+    }
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
 
 .fade-enter-active, .fade-leave-active {
     transition: opacity 0.1s

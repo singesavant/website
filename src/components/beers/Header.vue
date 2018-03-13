@@ -1,13 +1,26 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="beer-header">
-    <div class="title">
-      <div class="rectangle">
-        <h1>{{ title }}</h1>
-      </div>
-      <div class="triangle">
-      </div>
-    </div>
+    <b-row class="full-width" align-h="center" align-v="bottom" no-gutters>
+      <b-col sm="8" md="5">
+        <div class="title">
+          <div class="rectangle">
+            <h1 v-if="title">{{ title }}</h1>
+            <img :src="titleImg" v-if="titleImg"/>
+          </div>
+        </div>
+      </b-col>
+    </b-row>
+    <b-row v-if="!nolink" class="full-width" align-h="center" align-v="bottom" no-gutters>
+      <b-col class="go-back" cols="4">
+        <router-link :to="{name: 'beer-list'}">
+          <img class="back" src="/static/images/product/back.png">
+          Retour aux bières
+        </router-link>
+      </b-col>
+    </b-row>
+    <b-row class="spacer" align-h="center" no-gutters>
+    </b-row>
   </div>
 </template>
 
@@ -17,79 +30,80 @@
     props: {
       title: {
         type: String,
-        default: '??'
+        default: null
+      },
+      titleImg: {
+        type: String,
+        default: null
+      },
+      nolink: {
+        type: Boolean,
+        default: false
       }
+
     }
   }
 </script>
 
 <style lang="scss" scoped>
 .beer-header {
-    height: 50vh;
-    background-image: url(/static/images/product/hopshot/header.jpg);
-    width: 100%;
+    height: 70vh;
+    background-image: url(/static/images/product/header.jpg);
+    background-size: cover;
 
     display: flex;
-    justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: flex-end;
+
+    justify-content: flex-end;
 
     text-align: center;
 
+    .full-width {
+        width: 100%;
+     }
+
+    .spacer {
+        height: 27vh;
+    }
+
     .title {
-
-        margin-top: 20vh;
-
-        .rectangle {
-            border: 0.4vw solid black;
-            width: 60vw;
-            height: auto;
-            text-align: center;
-
-            display: flex;
-            justify-content: center;
-
-            z-index: 7;
-
-
-            h1 {
-                letter-spacing: 1em;
-                line-height: 1.5em;
-                text-transform: uppercase;
-                margin: 20;
-                padding: 0;
-
-                z-index: 10;
-            }
+        h1 {
+            letter-spacing: 0.2em;
+            line-height: 1.2em;
+            text-transform: uppercase;
+            font-weight: 350;
+            padding: 0;
+            color: white;
+            font-size: 6vh;
+            padding-bottom: 1vh;
         }
 
-        .triangle {
-            height: 30vw;
-            width: 30vw;
-            position:relative;
-            margin: 0 auto;
-
-            pointer-events: none;
-
-            overflow:hidden;
-            top: -10vw;
-
-            z-index: 8;
-
-            &:after {
-                height:100%;
-                width:100%;
-                position:relative;
-                content:'';
-                transform: rotate(45deg);
-                display:block;
-                position:absolute;
-                top: -75%;
-                background-image:url(/static/images/product/hopshot/header.jpg);
-                background-size:cover;
-                box-shadow: -1px 3px 5px 3px rgba(0, 0, 0, 0.7);
-            }
+        img {
+            height: 30vh;
+            margin-top: 20vh;
         }
 
+    }
+
+    .go-back {
+        text-align: center;
+
+        a, a.visited {
+            color: white;
+            font-weight: 350;
+            text-decoration: underline;
+        }
+
+        img {
+            margin-left: auto;
+            margin-right: auto;
+            width: 3vh;
+            }
+    }
+    .back {
+        display: block;
     }
 }
 </style>
