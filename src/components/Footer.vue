@@ -3,8 +3,8 @@
   <!-- footer -->
   <b-row class="footer" no-gutters>
     <b-col cols="6" class="left">
-      <b-button class="blue">Nous contacter</b-button>
-      <b-button class="blue">Venir</b-button>
+      <b-button :to="{name: 'contact'}" class="blue">Nous contacter</b-button>
+      <b-button :to="{name: 'contact'}" class="blue">Venir</b-button>
       <span>Suivez-nous :</span>
       <b-button id="facebook-button" variant="primary" target="_new" href="http://facebook.com/brasserie.singe.savant/" class="blue facebook">F</b-button>
       <b-button id="twitter-button" variant="primary" target="_new" href="https://twitter.com/singesavantbrew" class="blue twitter">T</b-button>
@@ -15,7 +15,7 @@
     <b-col cols="6" class="right">
       <span>Nouveautés, bons plans et événements du singe :</span>
 
-      <mailchimp-subscribe action="//singe-savant.us14.list-manage.com/subscribe/post?u=999332df614031c8e90ec190c&id=91d6425351"></mailchimp-subscribe>
+      <mailchimp-subscribe action="https://singe-savant.us14.list-manage.com/subscribe/post?u=999332df614031c8e90ec190c&id=91d6425351"></mailchimp-subscribe>
 
     </b-col>
 

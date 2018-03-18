@@ -6,6 +6,7 @@ import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
 import SumUpPayment from '@/components/shop/Payment'
 import Home from '@/components/home/Home'
+import Contact from '@/components/Come'
 import Recycle from '@/components/Recycle'
 import BeerDetail from '@/components/beers/BeerDetail'
 import BeerList from '@/components/beers/BeerList'
@@ -20,6 +21,11 @@ export default new Router({
       name: 'home',
       path: '/',
       component: Home
+    },
+    {
+      name: 'contact',
+      path: '/contact',
+      component: Contact
     },
     {
       path: '/shop',
