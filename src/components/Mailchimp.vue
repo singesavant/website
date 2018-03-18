@@ -1,25 +1,16 @@
 // -*- mode: vue; js-indent-level: 2; -*-
-// To get the `action` prop:
-// 1. Go to your dashboard on mailchimp.com and navigate 
-//    to Lists > Signup Forms > Embedded Forms.
-// 2. Copy the `<form>` action from the generated HTML code.
-// 3. Pass that into the component via the prop, like so:
-//      <mailchimp-subscribe 
-//          action="//yourname.us10.list-manage.com/subscribe/post?u=012345678910&id=ab12345
-//      ></mailchimp subscribe>
-
-<template lang="html" type="text/x-template" id="mailchimp-subscribe-template">
-  <form v-if="!successMessage" @submit.prevent="subscribe($event)">
-    <input v-model="email" name="EMAIL" type="text" placeholder="Email" id="email" />
-    <input type="submit" />
-  </form>
-  <p v-if="errorMessage && !successMessage" transition="fade">{{ errorMessage }}</p>
-  <p v-if="successMessage" transition="fade">{{ successMessage }}</p>
+<template lang="html">
+  <div class="email-subscribe">
+    <b-form inline v-if="!successMessage" @submit.prevent="subscribe($event)">
+      <b-input v-model="email" name="EMAIL" type="text" placeholder="Votre e-mail" id="email" />
+      <b-button variant="primary">C'est parti !</b-button>
+    </b-form>
+    <p v-if="errorMessage && !successMessage" transition="fade">{{ errorMessage }}</p>
+    <p v-if="successMessage" transition="fade">{{ successMessage }}</p>
+  </div>
 </template>
 
 <script lang="js">
-import { Vue } from 'vue'
-
 var data = {
   email: '',
   response: {},
@@ -27,7 +18,8 @@ var data = {
   successMessage: null
 }
 
-Vue.component('mailchimpSubscribe', {
+export default {
+  name: 'MailchimpSubscribe',
 
   props: {
     action: {
@@ -43,8 +35,6 @@ Vue.component('mailchimpSubscribe', {
     // action string.
     this.action = this.action.replace('/post?', '/post-json?').concat('&c=?')
   },
-
-  template: '#mailchimp-subscribe-template',
 
   methods: {
     subscribe: function (e) {
@@ -71,6 +61,9 @@ Vue.component('mailchimpSubscribe', {
    */
     }
   }
-})
+}
 
 </script>
+
+<style lang="scss">
+</style>

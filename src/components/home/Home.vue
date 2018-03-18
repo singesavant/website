@@ -32,14 +32,15 @@
           <b-col cols="6">
             <div class="tile">
               <div class="zoomable brewlab">
-                <router-link :to="{name: 'brewlab'}">
+                <div class="soon"></div>
+                <!-- <router-link :to="{name: 'brewlab'}"> -->
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Brew Lab & Shop</h2>
-                    <span class="tile-description">Brassage, Houblons, Malts chez le Singe</span>
-                    <b-button class="go-button">Go</b-button>
+                    <span class="tile-description">Brassage DIY, Houblons, Malts chez le Singe</span>
+                    <!-- <b-button class="go-button">Go</b-button> -->
                   </div>
 
-                </router-link>
+                <!-- </router-link> -->
               </div>
             </div>
           </b-col>
@@ -64,13 +65,14 @@
           <b-col cols="4">
             <div class="tile">
               <div class="zoomable shop">
-                <router-link :to="{name: 'shop'}">
+                <div class="soon"></div>
+                <!-- <router-link :to="{name: 'shop'}"> -->
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Le Shop</h2>
-                    <span class="tile-description">Achetez nos créations en direct !</span>
-                    <b-button class="go-button">Go</b-button>
+                    <span class="tile-description">Commandez nos créations en direct !</span>
+                    <!-- <b-button class="go-button">Go</b-button> -->
                   </div>
-                </router-link>
+                <!-- </router-link> -->
               </div>
             </div>
           </b-col>
@@ -80,10 +82,11 @@
               <b-col>
                 <div class="tile">
                   <div class="zoomable brewery">
+                    <div class="soon"></div>
                     <div class="tile-text-wrapper">
                       <h2 class="tile-title">La brasserie</h2>
                       <span class="tile-description">Qui est le Singe ?</span>
-                      <b-button class="go-button">Go</b-button>
+                      <!-- <b-button class="go-button">Go</b-button> -->
                     </div>
                   </div>
                 </div>
@@ -94,11 +97,12 @@
               <b-col>
                 <div class="tile">
                   <div class="zoomable recycling">
+                    <div class="soon"></div>
                     <router-link :to="{name: 'recycle'}">
                       <div class="tile-text-wrapper">
                         <h2 class="tile-title">Projet 0: Recyclage</h2>
                         <span class="tile-description">Verre recyclé, déchêts revalorisés, ...</span>
-                        <b-button class="go-button">Go</b-button>
+                        <!-- <b-button class="go-button">Go</b-button> -->
                        </div>
                     </router-link>
                   </div>
@@ -206,6 +210,27 @@ v
                     visibility: visible;
                 }
 
+                .soon {
+                    position: absolute;
+                    background-size: 13vh 13vh;
+                    width: 16vh;
+                    height: 16vh;
+
+                }
+
+            }
+
+            .soon {
+                transition: all .3s ease-in-out;
+
+                background-image: url('/static/images/home/comingsoon.png');
+                background-position: bottom right;
+                background-size: 10vh 10vh;
+                background-repeat: no-repeat;
+
+                transform: rotate(-20deg);
+                width: 12vh;
+                height: 12vh;
             }
 
 
@@ -265,12 +290,6 @@ v
         }
 
 
-        .comingsoon:hover {
-            transition: none;
-            background-image: url(/static/images/home/comingsoon.png);
-            background-repeat: no-repeat;
-        }
-
         a {
             width: 100%;
             height: 100%;
@@ -312,7 +331,7 @@ v
 }
 
 .recycling {
-    background-image:  url('/static/images/home/shop.jpg'), url('/static/images/home/recycling.jpg');
+    background-image:  url('/static/images/home/recycling_text.png'), url('/static/images/home/recycling.jpg');
 }
 
 </style>

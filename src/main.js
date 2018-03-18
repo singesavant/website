@@ -9,7 +9,7 @@ import store from './store'
 
 import Menubar from '@/components/Menubar'
 import Vue2Filters from 'vue2-filters'
-
+import VueAnalytics from 'vue-analytics'
 import BootstrapVue from 'bootstrap-vue'
 
 import '@/assets/css/globals.scss'
@@ -20,6 +20,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(Vue2Filters)
 Vue.use(BootstrapVue)
+Vue.use(VueAnalytics, {
+  id: 'UA-75870516-1',
+  debug: {
+    sendHitTask: process.env.NODE_ENV === 'production'
+  },
+  router
+})
 
 // Override leaflet/webpack problem
 import L from 'leaflet'

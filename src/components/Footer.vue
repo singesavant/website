@@ -2,20 +2,20 @@
 <template lang="html">
   <!-- footer -->
   <b-row class="footer" no-gutters>
-    <b-col cols="6">
+    <b-col cols="6" class="left">
       <b-button>Nous contacter</b-button>
       <b-button>Venir</b-button>
-      Suivez-nous !
+      <span>Suivez-nous :</span>
       <b-button id="facebook-button" variant="primary" target="_new" href="http://facebook.com/brasserie.singe.savant/" class="facebook">F</b-button>
       <b-button id="twitter-button" variant="primary" target="_new" href="https://twitter.com/singesavantbrew" class="twitter">T</b-button>
 
       <b-tooltip target="twitter-button" placement="top" title="@singesavantbrew"/>
     </b-col>
 
-    <b-col cols="6">
-      Nouveautés, bons plans et événements du singe
+    <b-col cols="6" class="right">
+      <span>Nouveautés, bons plans et événements du singe :</span>
 
-      <mailchimp-subscribe action="xxx"></mailchimp-subscribe>
+      <mailchimp-subscribe action="//singe-savant.us14.list-manage.com/subscribe/post?u=999332df614031c8e90ec190c&id=91d6425351"></mailchimp-subscribe>
 
     </b-col>
 
@@ -23,13 +23,13 @@
 </template>
 
 <script lang="js">
-import mailchimpSubscribe from './Mailchimp'
+import MailchimpSubscribe from './Mailchimp'
 
 export default {
   name: 'MonkeyFooter',
 
   components: {
-    mailchimpSubscribe
+    MailchimpSubscribe
   }
 }
 </script>
@@ -40,6 +40,29 @@ export default {
     border-right: 4px solid white;
     background-color: #00132c;
     padding: 3px;
+
+    .col-6 {
+        display: flex;
+        align-items: center;
+
+        &.right {
+            justify-content: flex-end;
+        }
+
+        &.left {
+            justify-content: flex-start;
+        }
+
+        flex-direction: row;
+        flex-wrap: no-wrap;
+        
+        span {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    color: #aaa;
 
     button, a {
         background-color: #001736 !important;
