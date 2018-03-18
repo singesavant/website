@@ -3,11 +3,11 @@
   <!-- footer -->
   <b-row class="footer" no-gutters>
     <b-col cols="6" class="left">
-      <b-button>Nous contacter</b-button>
-      <b-button>Venir</b-button>
+      <b-button class="blue">Nous contacter</b-button>
+      <b-button class="blue">Venir</b-button>
       <span>Suivez-nous :</span>
-      <b-button id="facebook-button" variant="primary" target="_new" href="http://facebook.com/brasserie.singe.savant/" class="facebook">F</b-button>
-      <b-button id="twitter-button" variant="primary" target="_new" href="https://twitter.com/singesavantbrew" class="twitter">T</b-button>
+      <b-button id="facebook-button" variant="primary" target="_new" href="http://facebook.com/brasserie.singe.savant/" class="blue facebook">F</b-button>
+      <b-button id="twitter-button" variant="primary" target="_new" href="https://twitter.com/singesavantbrew" class="blue twitter">T</b-button>
 
       <b-tooltip target="twitter-button" placement="top" title="@singesavantbrew"/>
     </b-col>
@@ -64,7 +64,7 @@ export default {
 
     color: #aaa;
 
-    button, a {
+    button.blue, a.blue {
         background-color: #001736 !important;
         border: none;
         border-radius: 0;

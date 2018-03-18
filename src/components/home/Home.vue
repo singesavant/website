@@ -98,13 +98,13 @@
                 <div class="tile">
                   <div class="zoomable recycling">
                     <div class="soon"></div>
-                    <router-link :to="{name: 'recycle'}">
+                    <!-- <router-link :to="{name: 'recycle'}"> -->
                       <div class="tile-text-wrapper">
                         <h2 class="tile-title">Projet 0: Recyclage</h2>
                         <span class="tile-description">Verre recyclé, déchêts revalorisés, ...</span>
                         <!-- <b-button class="go-button">Go</b-button> -->
                        </div>
-                    </router-link>
+                    <!-- </router-link> -->
                   </div>
                 </div>
               </b-col>
