@@ -13,7 +13,7 @@
       <b-col sm="4" class="left">
         <div class="text">
           <h2  class="beer-subtitle">Qu'est ce que ?</h2>
-          <p v-html='beer.website_long_description_html'></p>
+          <p class="description" v-html='beer.website_long_description_html'></p>
         </div>
       </b-col>
       <b-col class="right" sm="4">
@@ -34,7 +34,7 @@
                 </b-row>
 
                 <!-- Appareance -->
-                <b-row>
+                <b-row v-if="website_specifications.apparence">
                   <b-col class="caract-title" cols="4">
                     Apparence
                   </b-col>
@@ -44,7 +44,7 @@
                 </b-row>
 
                 <!-- Arome -->
-                <b-row>
+                <b-row v-if="website_specifications.aroma">
                   <b-col class="caract-title" cols="4">
                     Arôme
                   </b-col>
@@ -54,7 +54,7 @@
                 </b-row>
 
                 <!-- Gout -->
-                <b-row>
+                <b-row v-if="website_specifications.gout">
                   <b-col class="caract-title" cols="4">
                     Goût
                   </b-col>
@@ -71,7 +71,7 @@
                 </ul>
               </div>
 
-              <div class="caract-section" v-if="website_specifications.hops">
+              <div class="caract-section" v-if="website_specifications.ibu">
                 <h2 class="beer-subtitle">Amertume</h2>
                 <ul class="ibus" id="ibu-container">
                   <li v-for="n in get_ibus" class="bullet ibu-bullet"></li><li v-for="n in get_missing_ibus" class="bullet no-ibu-bullet"></li>
@@ -362,6 +362,11 @@ h2.beer-subtitle {
             }
 
             .caract-value {
+                font-weight: 300;
+            }
+
+            .description {
+                text-align: justify;
                 font-weight: 300;
             }
 
