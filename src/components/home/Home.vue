@@ -308,7 +308,7 @@ v
 }
 
 .brewery {
-    background-image: url('/static/images/home/shop.jpg'), url('/static/images/home/brewery.jpg');
+    background-image: url('/static/images/home/brewery_text.png'), url('/static/images/home/brewery.jpg');
 }
 
 .recycling {
