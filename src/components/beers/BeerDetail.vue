@@ -96,7 +96,9 @@
       <b-col cols="8">
         Commandez en ligne<br/> et faîtes vous livrer à vélo !<br/>
         <b-button id="go-to-shop" variant="secondary">Accéder au shop</b-button>
-        <b-tooltip target="go-to-shop" title="Bientôt disponible !"/>
+        <b-tooltip target="go-to-shop" title="Bientôt disponible ! En attendant, envoyez-nous votre commande par e-mail :)"/>
+
+        <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p>
       </b-col>
     </b-row>
 
@@ -243,6 +245,8 @@ export default {
 .buy {
     height: 50vh;
 
+
+
     .col-8 {
         background-image: url(/static/images/product/bg-shop.jpg);
         background-size: cover;
@@ -258,6 +262,12 @@ export default {
         button, a {
             margin-top: 5vh;
         }
+
+        .smaller {
+            margin-top: 1em;
+            font-size: 1rem;
+        }
+
     }
 }
 
