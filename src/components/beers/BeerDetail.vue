@@ -263,6 +263,10 @@ export default {
             margin-top: 5vh;
         }
 
+        a {
+            color: #d06f5a;
+        }
+
         .smaller {
             margin-top: 1em;
             font-size: 1rem;
