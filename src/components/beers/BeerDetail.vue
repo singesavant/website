@@ -23,13 +23,23 @@
               <div class="caract-section" v-if="website_specifications.apparence">
                 <h2 class="beer-subtitle">Caractéristiques</h2>
 
-                <!-- Appareance -->
+                <!-- Style -->
                 <b-row v-if="website_specifications.style">
                   <b-col class="caract-title" cols="4">
                     Style
                   </b-col>
                   <b-col class="caract-value" cols="8">
                     {{ website_specifications.style }}
+                  </b-col>
+                </b-row>
+
+                <!-- ABV -->
+                <b-row v-if="website_specifications.abv">
+                  <b-col class="caract-title" cols="4">
+                    Alcool
+                  </b-col>
+                  <b-col class="caract-value" cols="8">
+                    {{ website_specifications.abv }}
                   </b-col>
                 </b-row>
 
