@@ -39,7 +39,7 @@
                     Alcool
                   </b-col>
                   <b-col class="caract-value" cols="8">
-                    {{ website_specifications.abv }}
+                    {{ website_specifications.abv }}%
                   </b-col>
                 </b-row>
 
