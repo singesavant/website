@@ -53,7 +53,7 @@ var data = {
     {name: 'Célestin', type: 'Cave', link: 'http://www.celestinlille.fr/', position: [50.639589, 3.059731]},
     {name: 'L\'épicerie équitable', type: 'Magasin', link: 'http://lille.epicerie-equitable.com/', position: [50.6261559, 3.0466974]},
     {name: 'L\'Abbaye des Saveurs', type: 'Cave', link: 'https://www.facebook.com/Abbaye-Des-Saveurs-Lille-286430299047/?rf=250891748442500', position: [50.6406741,3.0590201]},
-      {name: 'Robin des Bio', type: 'Magasin', link: 'http://www.robindesbio.org/', position: [50.626514,3.0650758]},
+    {name: 'Robin des Bio', type: 'Magasin', link: 'http://www.robindesbio.org/', position: [50.626514, 3.0650758]},
 
     // livraison
     {name: 'La Coroutine', type: 'Espace de Coworking (Livraison)', link: 'http://lacoroutine.org/', position: [50.629472, 3.069627]},
