@@ -45,7 +45,7 @@ var data = {
     {name: 'DIY Café', type: 'Bar', link: 'https://www.facebook.com/doityourselfcafe/', position: [50.6275895, 3.0398153]},
     {name: 'La Mousse Touch', type: 'Bar', link: 'https://www.facebook.com/Moussetouch8/', position: [50.6271711, 3.0676324]},
     {name: 'Le Beerchope', type: 'Bar/Cave', link: 'https://www.facebook.com/BeerChopeLille/', position: [50.6415644, 3.0634995]},
-      {name: 'L\'idéal', type: 'Bar/Epicerie', link: 'https://www.facebook.com/Lidealcafeepicerie/', position: [50.6265298,3.0622277]},
+      {name: 'L\'idéal', type: 'Bar/Epicerie', link: 'https://www.facebook.com/Lidealcafeepicerie/', position: [50.6265298, 3.0622277]},
 
     // Magasins
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]},
