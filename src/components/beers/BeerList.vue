@@ -17,6 +17,21 @@
       </b-col>
     </b-row>
 
+    <b-row align-h="center">
+      <b-col cols="8">
+        <b-row align-h="center" class="old-beers">
+          <h2 class="old-header">.:[Vous avez tout bu]:.</h2>
+          <b-col>
+            <b-row class="beer-list" align-v="top">
+              <b-col align-v="bottom" sm="4" align="center" v-for="beer in orderBy(beers_not_produced_anymore,'name')" :key="beer.name">
+                <beer-card :beer="beer"/>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
+
     <monkey-footer/>
 
 
@@ -101,10 +116,12 @@ export default {
 
 .old-beers{
     background-color: #eee;
-    margin-top: 30px;
+    margin-top: 10px;
 
     h2 {
-        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
     }
 }
 </style>

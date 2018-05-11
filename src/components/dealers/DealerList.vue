@@ -45,13 +45,15 @@ var data = {
     {name: 'DIY Café', type: 'Bar', link: 'https://www.facebook.com/doityourselfcafe/', position: [50.6275895, 3.0398153]},
     {name: 'La Mousse Touch', type: 'Bar', link: 'https://www.facebook.com/Moussetouch8/', position: [50.6271711, 3.0676324]},
     {name: 'Le Beerchope', type: 'Bar/Cave', link: 'https://www.facebook.com/BeerChopeLille/', position: [50.6415644, 3.0634995]},
-      {name: 'L\'idéal', type: 'Bar/Epicerie', link: 'https://www.facebook.com/Lidealcafeepicerie/', position: [50.6265298, 3.0622277]},
+    {name: 'L\'idéal', type: 'Bar/Epicerie', link: 'https://www.facebook.com/Lidealcafeepicerie/', position: [50.6265298, 3.0622277]},
+    {name: 'Le Ressourcerie', type: 'Bar', link: 'https://www.facebook.com/laressourceriebar/', position: [50.636162, 3.059049]},
 
     // Magasins
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]},
     {name: 'Mes Voisins Producteurs', type: 'Magasin en ligne', link: 'https://www.mesvoisinsproducteurs.com/collections/bieres-et-cidres', position: [50.6249887, 3.0984093]},
-    {name: 'Célestin', type: 'Cave', link: 'http://www.celestinlille.fr/', position: [50.639589, 3.059731]},
-    {name: 'L\'épicerie équitable', type: 'Magasin', link: 'http://lille.epicerie-equitable.com/', position: [50.6261559, 3.0466974]},
+      //    {name: 'Célestin', type: 'Cave', link: 'http://www.celestinlille.fr/', position: [50.639589, 3.059731]},
+    {name: 'Quai des saveurs (Halles)', type: 'Magasin', link: 'https://www.facebook.com/quaidessaveurs.59/', position: [50.6266814, 3.0493332]},
+    {name: 'L\'épicerie équitable (Halles)', type: 'Magasin', link: 'http://lille.epicerie-equitable.com/', position: [50.6261559, 3.0466974]},
     {name: 'L\'Abbaye des Saveurs', type: 'Cave', link: 'https://www.facebook.com/Abbaye-Des-Saveurs-Lille-286430299047/?rf=250891748442500', position: [50.6406741, 3.0590201]},
     {name: 'Robin des Bio', type: 'Magasin', link: 'http://www.robindesbio.org/', position: [50.626514, 3.0650758]},
 
