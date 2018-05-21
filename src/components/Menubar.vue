@@ -15,6 +15,7 @@
 
     <div @click="toggleMenu()" class="menu-expanded" :class="{visible: menuIsVisible}">
       <ul>
+        <li><router-link :to="{name: 'about'}">La brasserie</router-link></li>
         <li><router-link :to="{name: 'beer-list'}">Les bières</router-link></li>
         <li><router-link :to="{name: 'dealers'}">Nos points de vente</router-link></li>
         <li><router-link :to="{name: 'contact'}">Venir / Contact</router-link></li>

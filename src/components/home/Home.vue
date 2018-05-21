@@ -82,12 +82,13 @@
               <b-col>
                 <div class="tile">
                   <div class="zoomable brewery">
-                    <div class="soon"></div>
-                    <div class="tile-text-wrapper">
-                      <h2 class="tile-title">La brasserie</h2>
-                      <span class="tile-description">Qui est le Singe ?</span>
-                      <!-- <b-button class="go-button">Go</b-button> -->
-                    </div>
+                    <router-link :to="{name: 'about'}">
+                        <div class="tile-text-wrapper">
+                        <h2 class="tile-title">La brasserie</h2>
+                        <span class="tile-description">Qui est le Singe ?</span>
+                        <!-- <b-button class="go-button">Go</b-button> -->
+                      </div>
+                    </router-link>
                   </div>
                 </div>
               </b-col>
