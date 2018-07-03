@@ -79,11 +79,11 @@
                 <p>
                   Grâce aux <strong>partenaires</strong> (bars, restaurants,
                   traiteurs, …) qui nous ont fait <strong>confiance</strong> et
-                  on été <strong>enthousiastes</strong> de cette idée folle,
+                  ont été <strong>enthousiastes</strong> par cette idée folle,
                   nous récoltons aujourd'hui lors de <strong>nos
                   tournées</strong> la <strong>majeure partie des
-                  bouteilles</strong> pour satisfaire l'appétit toujours
-                  grandissant que les lillois ont pour les bières du Singe.
+                  bouteilles</strong> nécessaires à couvrir l'appétit toujours
+                  grandissant des lillois pour les bières du Singe.
                 </p>
 
                 <p>
