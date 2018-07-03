@@ -100,7 +100,7 @@
                   <div class="zoomable recycling">
                     <router-link :to="{name: 'recycle'}">
                       <div class="tile-text-wrapper">
-                        <h2 class="tile-title">Projet 0: Recyclage</h2>
+                        <h2 class="tile-title">Recyclage</h2>
                         <span class="tile-description">Verre recyclé, déchêts revalorisés, ...</span>
                         <b-button class="go-button">Go</b-button>
                        </div>
