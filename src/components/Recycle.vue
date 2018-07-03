@@ -11,7 +11,7 @@
             <b-row class="paragraphs-row" no-gutters >
               <b-col class="text" align-v="bottom" sm="12">
 
-                <h2>Nos bouteilles ressuscitent !</h2>
+                <h2>Un Singe, des Bouteilles et une Diva</h2>
 
                 <p>
                   <blockquote>En 2018, environ <strong>24.000 bouteilles</strong> seront
@@ -21,20 +21,51 @@
               </b-col>
 
               <b-col class="text" align-v="bottom" sm="6">
+                <h3></h3>
                 <p>
                   Plus de <strong>99%</strong> des bouteilles utilisées à la
-                  brasserie sont collectées via notre <strong>filière de récupération</strong> de
-                  verre. Ces bouteilles, normalement <strong>destinées à la benne</strong> car
-                  <strong>non consignées</strong>, sont cependant <strong>parfaitement réutilisables</strong>.
+                  brasserie sont issues de <strong>notre filière de
+                  récupération</strong> de verre, mise en place dès le début du
+                  projet.
                 </p>
+
+                <p>
+                  Ces bouteilles récoltées, normalement <strong>destinées à la
+                  benne</strong> car <strong>non consignées</strong>, sont
+                  cependant <strong>parfaitement réutilisables</strong>.
+                </p>
+
+                <p>
+                  Faire fondre une nouvelle bouteille consomme
+                  environ <strong>345g de CO2</strong> (<em>source</em>
+                  : <a target="_new"
+                  href="https://www.consoglobe.com/tetra-pak-emballe-verre-2511-cg">tetrapak</a>),
+                  alors que notre filière semble consommer <strong>moins de 30g
+                  de CO2</strong> par bouteille selon nos <a href="#"
+                  v-b-tooltip.hover title="On les publie bientôt !">premiers
+                  calculs</a>, soit environ <strong>12 fois moins</strong>...
+                  autant vous dire qu'<strong>on continue d'y croire</strong> !
+                </p>
+
               </b-col>
 
               <b-col class="text" align-v="bottom" sm="6">
+                <h4>Le chant de la <em>Diva</em></h4>
                 <p>
-                  Plus de <strong>99%</strong> des bouteilles utilisées à la
-                  brasserie sont collectées via notre <strong>filière de récupération</strong> de
-                  verre. Ces bouteilles, normalement <strong>destinées à la benne</strong> car
-                  <strong>non consignées</strong>, sont cependant <strong>parfaitement réutilisables</strong>.
+                  C'est grâce à notre <strong>laveuse de 1972</strong>, rachetée
+                  et importée de Suisse, que nous pouvons laver un peu plus
+                  de <strong>200 bouteilles par heure</strong> et ainsi être
+                  autonomes.
+                </p>
+                
+                <p>
+                  Appelée chez nous "la <em>Diva</em>" pour son chant mécanique,
+                  elle permet de <strong>décoller les étiquettes</strong>
+                  et <strong>résidus organiques</strong> à l’intérieur des
+                  bouteilles grâce à des jets à haute pression et des brosses
+                  supersoniques. Les bouteilles sont ensuite rincées et
+                  désinfectées pour être prêtes pour <strong>une nouvelle
+                  vie</strong>.
                 </p>
               </b-col>
 
@@ -46,35 +77,75 @@
               <b-col class="text" align-v="bottom" sm="6">
                 <h4>Merci aux pros !</h4>
                 <p>
-                  De nombreux partenaires (bars, restaurants, traiteurs, …) nous
-                  accompagnent pour mener cette mission à bien et nous donnent
-                  leurs bouteilles non consignées pour que nous puissions leur
-                  offrir une seconde vie. C'est grâce à eux que nous avons assez
-                  de bouteilles pour satisfaire l'appétit toujours grandissant
-                  que les Lillois ont pour les bières du Singe.
+                  Grâce aux <strong>partenaires</strong> (bars, restaurants,
+                  traiteurs, …) qui nous ont fait <strong>confiance</strong> et
+                  on été <strong>enthousiastes</strong> de cette idée folle,
+                  nous récoltons aujourd'hui lors de <strong>nos
+                  tournées</strong> la <strong>majeure partie des
+                  bouteilles</strong> pour satisfaire l'appétit toujours
+                  grandissant que les lillois ont pour les bières du Singe.
                 </p>
 
-                <v-map ref="map" class="dealer-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
+                <p>
+                  Vous pouvez retrouver la <strong>liste de nos
+                  partenaires</strong> sur la carte ci-dessous : <strong>big
+                  up</strong> pour leur participations !<br/> Par ailleurs, si vous êtes pro ou
+                  connaissez un potentiel spot de ramassage sur la Métropole,
+                  n'hésitez pas à
+                  <router-link :to="{name: 'contact'}">nous contacter</router-link> !
+                </p>
+
+                <v-map ref="recycle-map" class="recycle-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
                   <v-tilelayer url="http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png"></v-tilelayer>
-                  <v-marker v-for="dealer in dealers" :key="dealer.name" :icon="stickerIcon" :lat-lng="dealer.position" :title="dealer.name" :draggable="false">
-                    <v-popup :content="make_popup_content(dealer)">
+                  <v-marker v-for="partner in partners" :key="partner.name" :icon="stickerIcon" :lat-lng="partner.position" :title="partner.name" :draggable="false">
+                    <v-popup :content="make_popup_content(partner)">
                     </v-popup>
                   </v-marker>
                 </v-map>
-                
+
               </b-col>
 
 
               <b-col class="text" align-v="bottom" sm="6">
                 <h4>Vous faîtes la différence</h4>
                 <p>
-                  Vous pouvez également nous ramener vos bouteilles de bière
-                  vides à la brasserie.
+                  Sans <strong>votre aide</strong>, nous ne récupérons
+                  qu’une <strong>infime partie</strong> des bouteilles que nous
+                  distribuons.
                 </p>
+
+                <p>
+                  C'est pourquoi, vous pouvez donc <strong>nous ramener vos
+                  bouteilles</strong> de bière vides
+                  directement <router-link :to="{name: 'contact'}">à la
+                  brasserie</router-link>. C'est aussi une bonne occasion pour
+                  venir <strong>découvrir les nouveautés et
+                  avant-premières</strong>, vous ne perdrez pas votre temps, on
+                  a toujours quelque chose à vous raconter !
+                </p>
+
+                <p>
+                  Qu’elles viennent de chez nous ou non, nous
+                  leur <strong>donnerons une deuxième vie</strong> ! Attention
+                  cependant : toutes les bouteilles ne sont malheureusement pas
+                  recyclables. Pour vous aider à trier, nous publierons bientôt
+                  un guide.
+                </p>
+
+                <p>
+                  Vous souhaitez <strong>vous organiser</strong> entre voisins,
+                  colocs, ami-e-s, collègues ou autres pour collecter vos
+                  bouteilles ? C'est tout à fait possible ! Nous
+                  pouvons <strong>venir ramasser chez vous</strong> à partir
+                  de <strong>100 bouteilles triées</strong>. N'hésitez pas à
+                  <router-link :to="{name: 'contact'}">nous contacter</router-link>.
+                </p>
+
               </b-col>
 
             </b-row>
           </b-col>
+
         </b-row>
 
         <monkey-footer/>
@@ -113,7 +184,14 @@ var data = {
   center: [50.6330, 3.0612],
   stickerIcon: new ResizedIcon({iconUrl: '/static/images/marker-icon.png'}),
   partners: [
-    {name: 'Brasserie du Singe Savant', type: 'Quartiers Généraux!', link: 'http://www.singe-savant.com/', position: [50.619011, 3.077805]}
+    {name: 'Ripaille', type: 'Resto', link: 'http://www.ripaille-lille.fr/', position: [50.6386031, 3.0560171]},
+    // Bars
+    {name: 'Uno\'s', type: 'Bar', link: 'http://unosbar.com/', position: [50.6260794, 3.0446603]},
+    {name: 'DIY Café', type: 'Bar', link: 'https://www.facebook.com/doityourselfcafe/', position: [50.6275895, 3.0398153]},
+    {name: 'La Mousse Touch', type: 'Bar', link: 'https://www.facebook.com/Moussetouch8/', position: [50.6271711, 3.0676324]},
+    {name: 'Le Beerchope', type: 'Bar/Cave', link: 'https://www.facebook.com/BeerChopeLille/', position: [50.6415644, 3.0634995]},
+    // Magasins
+    {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]}
   ]
 }
 
@@ -136,6 +214,9 @@ export default {
   mounted: function () {
   },
   methods: {
+    make_popup_content (dealer) {
+      return '<a href="' + dealer.link + '" target="_new">' + dealer.name + '</a> (' + dealer.type + ')'
+    }
   },
   computed: mapState([])
 }
@@ -143,7 +224,20 @@ export default {
 
 
 <style lang="scss" scoped>
-  @import "~leaflet/dist/leaflet.css";
+@import "~leaflet/dist/leaflet.css";
+
+h2 {
+    font-variant: small-caps;
+}
+
+
+.recycle-map  {
+    width: 100%;
+    position: relative;
+    display: block !important;
+    height: 40vh;
+}
+
 
 .paragraphs {
     background-color: #eee;

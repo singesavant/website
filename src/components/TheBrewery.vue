@@ -22,7 +22,7 @@
                 </p>
 
                 <p>
-                  Au delà de l'aspect brassicole, nous mettons un point d'honneur à travailler au maximum avec des <b>matières premières biologiques</b>, privilégions les <b>circuits courts</b> et essayons de <b>réduire nos déchets</b> tant que possible.
+                  Au delà de l'aspect brassicole, nous mettons un point d'honneur à travailler au maximum avec des <b>matières premières biologiques</b>, privilégions les <b>circuits courts</b> et essayons de <b><router-link :to="{name: 'recycle'}">réduire nos déchets</router-link></b> tant que possible.
                 </p>
 
                 <p>
@@ -63,7 +63,7 @@
               <b-col class="text" align-v="bottom" sm="6">
 
                 <p>
-                  <strong>Nous vendons en direct</strong>
+                  <h4>Nous vendons en direct</h4>
                 </p>
 
                 <p>
@@ -79,7 +79,7 @@
 
               <b-col class="text" align-v="bottom" sm="6">
                 <p>
-                  <b>La brasserie se partage !</b>
+                  <h4>La brasserie se partage !</h4>
                 </p>
                 <p>
                   Au delà d'une brasserie de production, le Singe propose un <b>BrewLab</b> composé d'une <b>école de brassage</b> où apprendre et s'améliorer. C'est aussi un lieu où <b>échanger</b> avec les autres passionné-e-s et un <b>BrewShop</b> où acheter vos <b>matières premières</b> ainsi que votre <b>matériel de brassage</b>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
