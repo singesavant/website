@@ -150,9 +150,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.beer-list {
-  margin-top: 50px;
-}
 
 .paragraphs {
     background-color: #eee;

@@ -18,6 +18,7 @@
         <li><router-link :to="{name: 'about'}">La brasserie</router-link></li>
         <li><router-link :to="{name: 'beer-list'}">Les bières</router-link></li>
         <li><router-link :to="{name: 'dealers'}">Nos points de vente</router-link></li>
+        <li><router-link :to="{name: 'recycle'}">Projet 0 : Revalorisation</router-link></li>
         <li><router-link :to="{name: 'contact'}">Venir / Contact</router-link></li>
         <li><router-link :to="{name: 'home'}">Accueil</router-link></li>
       </ul>
