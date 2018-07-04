@@ -19,7 +19,7 @@
                   Notre BrewShop vous propose toutes les <strong>matières
                   premières</strong> pour
                   <strong>brasser à la maison</strong> ou
-                  au <strong>BrewLab</strong>. Comme toujours, si vous avez
+                  au <router-link :to="{name: 'brewlab'}"><strong>BrewLab</strong></router-link>. Comme toujours, si vous avez
                   besoin de conseils, nous sommes sur place pour <strong>vous
                   aiguiller</strong> pour votre prochaine recette.
                 </p>
@@ -60,8 +60,6 @@
                   et servez-vous !
                 </p>
 
-
-
                 <malt-list />
               </b-col>
 
@@ -93,16 +91,17 @@
 
                 <hop-list />
 
-                <h2 class="other">Autre</h2>
+                <h2 class="other">Et le reste ?</h2>
 
                 <p>
                   Bien que non listées pour le moment ici, nous vous proposons
                   aussi des <strong><router-link :to="{name:
                   'recycle'}">bouteilles propres
                   recyclées</router-link></strong>, des bouteilles sales que
-                  vous pouvez laver sur place, des <strong>levures</strong> et
-                  d'autres matières premières nécessaires au brassage. N'hésitez
-                  pas à nous solliciter !
+                  vous pouvez laver sur place, des <strong>levures</strong>,
+                  <strong>tests de contamination</strong>, <strong>capsules</strong> et d'autres
+                  matières premières nécessaires au brassage. N'hésitez pas à
+                  nous solliciter !
                 </p>
 
 

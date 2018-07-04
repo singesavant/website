@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
+import BrewLab from '@/components/BrewLab'
 import SumUpPayment from '@/components/shop/Payment'
 import Home from '@/components/home/Home'
 import Contact from '@/components/Come'
@@ -61,6 +62,13 @@ export default new Router({
       name: 'about',
       components: {
         'default': TheBrewery
+      }
+    },
+    {
+      path: '/brewlab',
+      name: 'brewlab',
+      components: {
+        'default': BrewLab
       }
     },
     {
