@@ -32,15 +32,14 @@
           <b-col cols="6">
             <div class="tile">
               <div class="zoomable brewlab">
-                <div class="soon"></div>
-                <!-- <router-link :to="{name: 'brewlab'}"> -->
+                <router-link :to="{name: 'brewlab'}">
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Brew Lab & Shop</h2>
-                    <span class="tile-description">Brassage DIY, Houblons, Malts chez le Singe</span>
-                    <!-- <b-button class="go-button">Go</b-button> -->
+                    <span class="tile-description">École de brassage, Houblons, Malts chez le Singe</span>
+
                   </div>
 
-                <!-- </router-link> -->
+                </router-link>
               </div>
             </div>
           </b-col>

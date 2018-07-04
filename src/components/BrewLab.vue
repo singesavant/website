@@ -22,8 +22,8 @@
             </b-row>
 
             <b-row class="paragraphs-row" no-gutters >
-              <b-col class="text" align-v="bottom" sm="6">
-                <h2>Je débute</h2>
+              <b-col class="text beginner-column" align-v="bottom" sm="6">
+                <h2 class="beginner">Je débute</h2>
 
                 <p>
                   Nous proposons <strong>formule d'initiation</strong> pour
@@ -134,7 +134,7 @@
               </b-col>
 
               <b-col class="text" align-v="bottom" sm="6">
-                <h2>Je brasse déjà</h2>
+                <h2 class="confirmed">Je brasse déjà</h2>
 
                 <p>
                   Si vous brassez déjà et que vous en avez <strong>marre de
@@ -245,6 +245,31 @@ export default {
 
 <style lang="scss" scoped>
 
+
+h2.beginner:before {
+    content: "";
+    display: block;
+    background: url('/static/images/brewlab/beginner-icon.png') no-repeat;
+    background-size: contain;
+    width: 37px;
+    height: 37px;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+h2.confirmed:before {
+    content: "";
+    display: block;
+    background: url('/static/images/brewlab/confirmed-icon.png') no-repeat;
+    background-size: contain;
+    width: 37px;
+    height: 37px;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+
+
 .foreword {
     font-variant: small-caps;
 }
@@ -334,6 +359,12 @@ blockquote:before {
 }
 blockquote p {
     display: inline;
+}
+
+.beginner-column {
+
+border-right: 1px solid #eee;
+
 }
 
 
