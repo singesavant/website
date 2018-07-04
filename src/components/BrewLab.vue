@@ -34,13 +34,13 @@
                 <img class="illustration-picture" src="/static/images/brewlab/invit.png" alt="invitation"/>
 
                 <p>
-                  La formule est simple : vous apprenez
+                  La formule est simple et complète : vous apprenez
                   la <strong>théorie</strong>, <strong>goûtez</strong> plein de
                   choses, écrivez
                   une <strong>recette</strong>, <strong>brassez</strong> votre
                   bière, la mettez en <strong>bouteille</strong> et
                   repartez <strong>heureux-se</strong> avec environ <strong>30
-                  bouteilles</strong> de 75cl ou <strong>90 bouteilles</strong>
+                  bouteilles</strong> de 75cl ou <strong>60 bouteilles</strong>
                   de 33cl ! En gros, <strong>1 journée et demi</strong> de votre
                   temps pour repartir avec de <strong>belles
                   connaissances</strong> brassicoles.
@@ -165,7 +165,7 @@
                   <strong class="foreword">Brassez !</strong> Si vous souhaitez <strong>brasser</strong>, nous proposons une
                    <strong>brasserie monocuve</strong> de <strong>30 litres</strong> que vous
                    pouvez utiliser pour <strong>45€ / journée</strong> (produits de nettoyage
-                   inclus) --<strong>seul-e</strong> ou en <strong>groupe</strong>. 
+                   inclus) --<strong>seul-e</strong> ou à <strong>plusieurs adhérants</strong>. 
                 </p>
 
                 <img class="illustration-picture short" src="/static/images/brewlab/brassage_baby.gif" alt="babyfoot"/>
