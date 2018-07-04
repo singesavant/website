@@ -32,6 +32,7 @@ const store = new Vuex.Store({
     orderable_item_details: {},
     sales_orders: [],
     malt_items: [],
+    hop_items: [],
     beers: [],
     current_beer_details: {},
     orders: [],
