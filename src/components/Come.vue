@@ -152,7 +152,7 @@ export default {
     }
 
     .text {
-        padding: 10px;
+        padding: 3vh;
         p {
             font-weight: 300;
         }

@@ -256,7 +256,7 @@ h2 {
     }
 
     .text {
-        padding: 10px;
+        padding: 3vh;
         text-align: justify;
 
         p {

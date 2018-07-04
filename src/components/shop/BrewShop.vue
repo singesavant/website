@@ -1,38 +1,131 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="brewshop">
-    <div class="content">
-      <h1>Brew<br/>Shop</h1>
+    <beer-header title-img="/static/images/brewshop/logo.png" nolink></beer-header>
 
-      <div v-if="isAuthenticated" id="products">
-        <h2>Malts</h2>
-        <malt-list />
+    <b-row align-h="center" no-gutters class="paragraphs">
+      <b-col cols="8">
+        <b-row align-h="center" no-gutters>
+          <b-col>
+            <b-row class="paragraphs-row first" no-gutters >
+              <b-col class="text" align-v="bottom" sm="12">
+                <h1>Malts, Houblons & Levure</h1>
 
-        <h2>Houblons</h2>
-        <hop-list />
+                <p>
+                  Vous êtes <strong>brasseur amateur</strong> ? Nous aussi ! 
+                </p>
 
-        <div class="not-found">
-          Impossible de trouver ce que vous voulez ? Il vous manque une info ?
-          <br>
-          <br/>
+                <p>
+                  Notre BrewShop vous propose toutes les <strong>matières
+                  premières</strong> pour
+                  <strong>brasser à la maison</strong> ou
+                  au <strong>BrewLab</strong>. Comme toujours, si vous avez
+                  besoin de conseils, nous sommes sur place pour <strong>vous
+                  aiguiller</strong> pour votre prochaine recette.
+                </p>
 
-          Passez nous un <strong>coup de fil</strong> ou <strong>écrivez nous un email</strong> pour en discuter !
-          <img src="/static/images/brewshop/redphone.png" width="160px" alt="Red phone">
-        </div>
-      </div>
+                <p>
+                  Pensez à apporter vos <strong>sachets</strong>
+                  ou <strong>bocaux</strong> pour <strong>limiter les
+                  déchets</strong>.
+                </p>
 
-      <div v-else>
-        Log toi copain si tu veux la liste !
-      </div>
+                <p>
+                  Pour <strong>commander</strong> ou avoir des précisions, vous
+                  pouvez tout simplement <router-link :to="{name: 'contact'}">venir à la brasserie</router-link>, nous envoyer un
+                  <router-link :to="{name: 'contact'}">e-mail</router-link> ou
+                  nous <router-link :to="{name: 'contact'}">appeler</router-link>.
+                </p>
 
-    </div>
+              </b-col>
+            </b-row>
 
+            <b-row class="paragraphs-row" no-gutters >
+              <b-col class="text" align-v="bottom" sm="6">
+                <h2 class="malts">Malts</h2>
+
+                <p>
+                  Nos malts proviennent principalement de la gamme <strong>Agriculture Biologique</strong> de la <a href="http://www.castlemalting.com/CastleMaltingMalts.asp?Language=French" target="_new">Malterie du Château</a>.
+                </p>
+
+                <p>
+                  En tant que membre du BrewLab, vous pouvez <strong>concasser
+                  gratuitement</strong> sur place et bénéficiez
+                  de <strong>10%</strong> dès 5kg puis <strong>20%</strong> à
+                  partir de 25kg.
+                </p>
+
+                <p>
+                  Les sacs sont en <strong>libre service</strong>, goûtez, pesez
+                  et servez-vous !
+                </p>
+
+
+
+                <malt-list />
+              </b-col>
+
+              <b-col class="text" align-v="bottom" sm="6">
+                <h2 class="hops">Houblons</h2>
+
+                <p>
+                  En fonction des variétés et disponibilités, nos houblons
+                  proviennent de plusieurs sources : <a target="_new"
+                  href="https://ychhops.com/">Yakima</a>, <a target="_new"
+                  href="https://www.charlesfaram.co.uk/">Charles
+                  Faram</a>, <a target="_new"
+                  href="http://www.cophoudal.fr/">CopHoudal</a>, ... Nous
+                  favorisons les houblons d'<strong>origine biologique</strong>
+                  dès lors qu'on nous en offre la possibilité.
+                </p>
+
+                <p>
+                  Nos houblons sont immédiatement <strong>reconditionnés sous
+                  vide</strong>, gardés à l'<strong>abri de la lumière</strong>
+                  et à <strong>basse température</strong>.
+                </p>
+
+                <p>
+                  En tant que membre du BrewLab, vous
+                  obtenez <strong>5%</strong> de réduction dès 400g
+                  et <strong>15%</strong> à partir de 600g.
+                </p>
+
+                <hop-list />
+
+                <h2 class="other">Autre</h2>
+
+                <p>
+                  Bien que non listées pour le moment ici, nous vous proposons
+                  aussi des <strong><router-link :to="{name:
+                  'recycle'}">bouteilles propres
+                  recyclées</router-link></strong>, des bouteilles sales que
+                  vous pouvez laver sur place, des <strong>levures</strong> et
+                  d'autres matières premières nécessaires au brassage. N'hésitez
+                  pas à nous solliciter !
+                </p>
+
+
+              </b-col>
+
+            </b-row>
+          </b-col>
+
+        </b-row>
+
+        <monkey-footer/>
+      </b-col>
+    </b-row>
   </div>
+
 </template>
 
 <script lang="js">
 import MaltList from './items/MaltList'
 import HopList from './items/HopList'
+import MonkeyFooter from '../Footer'
+import BeerHeader from '../beers/Header'
+
 import { mapState } from 'vuex'
 
 var data = {
@@ -44,7 +137,10 @@ export default {
 
   components: {
     MaltList,
-    HopList
+    HopList,
+    'monkey-footer': MonkeyFooter,
+    BeerHeader
+
   },
   data: function () {
     return data
@@ -68,121 +164,84 @@ export default {
 
 <style lang="scss" scoped>
 
-.not-found {
-    float: right;
-    width: 20vw;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: black;
-    padding: 10px;
-
-    strong {
-     display: inline;
-    }
-
-    position: absolute;
-    right: 10px;
-    top: 100px;
-
-    img {
-float: right;
-        }
-
+h2.malts:before {
+    content: "";
     display: block;
-
-    border-radius: 5px;
-    border: 1px solid black;
+    background: url('/static/images/brewshop/malt_logo.png') no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 0 6px 0 0;
 }
 
-.brewshop {
+h2.hops:before {
+    content: "";
+    display: block;
+    background: url('/static/images/brewshop/hop_logo.png') no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 0 6px 0 0;
+}
 
-    background-color: #14141e;
-    background-repeat: repeat;
-    background-position: center top;
-    width: 100%;
-    height: 100%;
+h2.other {
+margin-top: 40px;
+}
+
+h2.other:before {
+    content: "";
+    display: block;
+    background: url('/static/images/brewshop/malt_logo.png') no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 0 6px 0 0;
+}
 
 
-    .content {
-        padding: 40px;
-                h1 {
-                    background-image: url('/static/images/brewshop/logo.png');
-                    background-size: auto 100%;
-                    background-repeat: no-repeat no-repeat;
 
-                    padding-left: 120px;
-                    padding-top: 5px;
 
-                    font-size: 4em;
-                    color: white;
-                    text-transform: uppercase;
-                    line-height: 80%
-                }
 
-               h2 {
-                   color: white;
-                   font-size: 2.5em;
-                   text-transform: uppercase;
-                   margin-bottom: 0px;
-               }
+.beer-header {
+    background-image: url(/static/images/brewshop/header.jpg) !important;
+    background-position: 10%;
+}
 
-         .product {
 
-         }
+.paragraphs {
+    background-color: #eee;
+}
+
+.paragraphs-row {
+    margin-top: -10vh;
+    background-color: white;
+    margin-bottom: 10vh;
+    padding-bottom: 10vh;
+
+    img.full {
+        width:100%;
+        height: 100%;
+        object-fit:contain;
     }
 
+    .text {
+        padding: 3vh;
+        text-align: justify;
 
-
-    .floor {
-      background: url('/static/images/shop/wall_floor.jpg');
-      background-position: center bottom;
-      background-size: 100%;
-      background-repeat: repeat-x;
-      position: fixed;
-      height: 200px;
-      width: 100%;
-      bottom: 0;
-      z-index: 2;
-    }
-
-    .neon {
-        background: url('/static/images/shop/shop_light.png'), url('/static/images/shop/shop_cross.png');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        height: 25vw;
-        width: 25vw;
-
-        margin-left: -12.5vw;
-        margin-top: -12.5vw;
-
-        top: 40%;
-        left: 50%;
-
-        position: absolute;
-
-        z-index: 2;
-
-        .overlay {
-            width: 100%;
-            height: 100%;
-
-            background: url('/static/images/shop/shop_light_overlay.png');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-
-            &.flicker {
-                animation: flickering .1s cubic-bezier(.2, 0, 0.5, 1.0) 1.5s alternate;
-            }
-
-            @keyframes flickering {
-                to { opacity: 1; }
-                from { opacity: 0; }
-            }
+        p {
+            font-weight: 300;
         }
+
     }
+
+    &, .first {
+        margin-bottom: 0px;
+        padding-bottom: 50px;
+    }
+
 }
 
 </style>
