@@ -51,7 +51,6 @@ var data = {
     {name: 'Taverne Duchenot', type: 'Bar/Resto', link: 'http://taverne-duchenot.fr/', position: [50.749309, 2.250787]},
     {name: 'L\'illustration', type: 'Bar', link: 'http://www.bar-lillustration.fr/', position: [50.6394789,3.0562629]},
 
-
     // Magasins
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]},
     {name: 'Mes Voisins Producteurs', type: 'Magasin en ligne', link: 'https://www.mesvoisinsproducteurs.com/collections/bieres-et-cidres', position: [50.6249887, 3.0984093]},
@@ -64,7 +63,6 @@ var data = {
     {name: 'Les Vins d\'Aurélien', type: 'Cave', link: 'http://www.lesvinsdaurelien.fr/', position: [50.6338339, 3.058698]},
     {name: 'Un grain dans le bocal', type: 'Epicerie', link: 'http://ungraindanslebocal.com/', position: [50.6746152, 3.1815381]},
     {name: 'L\'ilot saveurs', type: '', link: 'https://www.facebook.com/lilotsaveursLeforest/', position: [50.4377566, 3.0606366]},
-
 
     // livraison
     {name: 'La Coroutine', type: 'Espace de Coworking (Livraison)', link: 'http://lacoroutine.org/', position: [50.629472, 3.069627]},
