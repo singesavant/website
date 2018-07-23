@@ -49,7 +49,7 @@ var data = {
     {name: 'L\'idéal', type: 'Bar/Epicerie', link: 'https://www.facebook.com/Lidealcafeepicerie/', position: [50.6265298, 3.0622277]},
     {name: 'Le Ressourcerie', type: 'Bar', link: 'https://www.facebook.com/laressourceriebar/', position: [50.636162, 3.059049]},
     {name: 'Taverne Duchenot', type: 'Bar/Resto', link: 'http://taverne-duchenot.fr/', position: [50.749309, 2.250787]},
-    {name: 'L\'illustration', type: 'Bar', link: 'http://www.bar-lillustration.fr/', position: [50.6394789,3.0562629]},
+    {name: 'L\'illustration', type: 'Bar', link: 'http://www.bar-lillustration.fr/', position: [50.6394789, 3.0562629]},
 
     // Magasins
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]},
