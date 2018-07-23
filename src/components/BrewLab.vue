@@ -165,7 +165,9 @@
                   <strong class="foreword">Brassez !</strong> Si vous souhaitez <strong>brasser</strong>, nous proposons une
                    <strong>brasserie monocuve</strong> de <strong>30 litres</strong> que vous
                    pouvez utiliser pour <strong>45€ / journée</strong> (produits de nettoyage
-                   inclus) --<strong>seul-e</strong> ou à <strong>plusieurs adhérants</strong>. 
+                   inclus) --<strong>seul-e</strong> ou à <strong>plusieurs adhérants</strong>.
+                   Si vous avez déjà vos matières premières, pas de problème,
+                   sinon, vous pouvez aussi les acheter sur place au <router-link :to="{name: 'brewshop'}">BrewShop</router-link>.
                 </p>
 
                 <img class="illustration-picture short" src="/static/images/brewlab/brassage_baby.gif" alt="babyfoot"/>
