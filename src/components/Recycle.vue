@@ -190,6 +190,13 @@ var data = {
     {name: 'DIY Café', type: 'Bar', link: 'https://www.facebook.com/doityourselfcafe/', position: [50.6275895, 3.0398153]},
     {name: 'La Mousse Touch', type: 'Bar', link: 'https://www.facebook.com/Moussetouch8/', position: [50.6271711, 3.0676324]},
     {name: 'Le Beerchope', type: 'Bar/Cave', link: 'https://www.facebook.com/BeerChopeLille/', position: [50.6415644, 3.0634995]},
+    {name: 'L\'idéal', type: 'Bar', link: 'https://www.facebook.com/Lidealcafeepicerie/', position: [50.6264965, 3.0643873]},
+    {name: 'L\'Annexe', type: 'Bar', link: 'https://www.facebook.com/AnneSoetAlex/', position: [50.65475, 3.08534]},
+    {name: 'Le Monde Moderne', type: 'Bar', link: 'https://www.facebook.com/lemondemoderne/', position: [50.63753, 3.06385]},
+    {name: 'Lokarria', type: 'Bar', link: 'https://www.facebook.com/Lokarria-1411907759105354/', position: [50.6271622, 3.0570218]},
+    {name: 'La Ripaille', type: 'Bar', link: 'https://www.facebook.com/ripaillelille/', position: [50.63878, 3.0560813]},
+    {name: 'Le Beerstro', type: 'Bar', link: 'https://www.facebook.com/beerstrolille/', position: [50.643328, 3.0584703]},
+
     // Magasins
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]}
   ]
