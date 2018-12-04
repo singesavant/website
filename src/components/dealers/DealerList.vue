@@ -40,6 +40,11 @@ var data = {
     {name: 'Ripaille', type: 'Resto', link: 'http://www.ripaille-lille.fr/', position: [50.6386031, 3.0560171]},
     {name: 'BelleRose', type: 'Bar/Resto', link: 'https://www.bellerose.fr/', position: [50.6391984, 3.0565078]},
     {name: 'La face B', type: 'Resto', link: 'http://lafaceblille.com/', position: [50.6236689, 3.0405098]},
+    {name: 'L\'empreinte', type: 'Resto', link: 'https://www.empreinterestaurant.com/', position: [50.6294906, 3.0205056]},
+    {name: 'L\'annexe', type: 'Resto', link: 'https://www.lannexe-lille.fr/', position: [50.65477, 3.0830933]},
+    {name: 'Wally\'s Coffee', type: 'Resto/Coffee Shop', link: 'http://wallyscoffee.fr/', position: [50.6327198, 3.062177]},
+    {name: 'Le Bloempot', type: 'Resto', link: 'http://www.bloempot.fr/', position: [50.6380896, 3.0560483]},
+    {name: 'Le Lovibond', type: 'Bar/Resto', link: 'https://www.facebook.com/Lovibond1.0/', position: [50.6308553, 3.0615832]},
 
     // Bars
     {name: 'Uno\'s', type: 'Bar', link: 'http://unosbar.com/', position: [50.6260794, 3.0446603]},
@@ -50,6 +55,13 @@ var data = {
     {name: 'Le Ressourcerie', type: 'Bar', link: 'https://www.facebook.com/laressourceriebar/', position: [50.636162, 3.059049]},
     {name: 'Taverne Duchenot', type: 'Bar/Resto', link: 'http://taverne-duchenot.fr/', position: [50.749309, 2.250787]},
     {name: 'L\'illustration', type: 'Bar', link: 'http://www.bar-lillustration.fr/', position: [50.6394789, 3.0562629]},
+    {name: 'Le Baragouin', type: 'Bar', link: 'https://www.facebook.com/baragouin/', position: [50.367148, 3.0790493]},
+    {name: 'La Capsule', type: 'Bar', link: 'https://www.bar-la-capsule.fr/', position: [50.6404977, 3.0579524]},
+    {name: 'Le café des Six Roses', type: 'Bar', link: 'https://www.facebook.com/les6Roses/', position: [50.6310673, 3.0500399]},
+    {name: 'La biche et le renard', type: 'Bar/Shop', link: 'https://www.facebook.com/La-Biche-Le-Renard-653452244737057/', position: [50.6414941, 3.0634136]},
+    {name: 'La biche et le renard', type: 'Bar/Shop', link: 'https://www.facebook.com/La-Biche-Le-Renard-653452244737057/', position: [50.6414941, 3.0634136]},
+    {name: 'Le fut et à mesure', type: 'Bar', link: 'http://www.aufutetamesure.fr/', position: [50.6328065, 3.0515258]},
+    {name: 'Les Chineurs', type: 'Bar', link: 'https://www.facebook.com/Leschineurs.lille/', position: [50.6377921, 3.0561421]},
 
     // Magasins
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]},
@@ -63,11 +75,17 @@ var data = {
     {name: 'Les Vins d\'Aurélien', type: 'Cave', link: 'http://www.lesvinsdaurelien.fr/', position: [50.6338339, 3.058698]},
     {name: 'Un grain dans le bocal', type: 'Epicerie', link: 'http://ungraindanslebocal.com/', position: [50.6746152, 3.1815381]},
     {name: 'L\'ilot saveurs', type: '', link: 'https://www.facebook.com/lilotsaveursLeforest/', position: [50.4377566, 3.0606366]},
+    {name: 'Les épicentriques', type: 'Epicerie', link: 'http://www.lesepicentriques.fr/', position: [50.626468, 3.0456393]},
+    {name: 'Les mains dans le guidon', type: 'Atelier Vélo', link: 'http://www.lesmainsdansleguidon.fr/', position: [50.629381, 3.0520384]},
+
+    // Hotel
+    {name: 'Novotel Centre Gares', type: 'Hotel', link: 'https://www.accorhotels.com/fr/hotel-3165-novotel-lille-centre-gares/index.shtml', position: [50.6345226, 3.0711482]},
 
     // livraison
     {name: 'La Coroutine', type: 'Espace de Coworking (Livraison)', link: 'http://lacoroutine.org/', position: [50.629472, 3.069627]},
-    {name: 'Ruche de Lille-Europe', type: 'Ruche (Livraison)', link: 'https://laruchequiditoui.fr/fr/assemblies/9523', position: [50.639412, 3.075413]},
-    {name: 'Ruche d\'Euratechnologies', type: 'Ruche (Livraison)', link: 'https://laruchequiditoui.fr/fr/assemblies/811', position: [50.633315, 3.020232]}
+    {name: 'Le Mutualab', type: 'Espace de Coworking (Livraison)', link: 'https://www.mutualab.org/', position: [50.6296492, 3.0592892]}
+    // {name: 'Ruche de Lille-Europe', type: 'Ruche (Livraison)', link: 'https://laruchequiditoui.fr/fr/assemblies/9523', position: [50.639412, 3.075413]},
+    // {name: 'Ruche d\'Euratechnologies', type: 'Ruche (Livraison)', link: 'https://laruchequiditoui.fr/fr/assemblies/811', position: [50.633315, 3.020232]}
   ]
 }
 
