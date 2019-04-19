@@ -23,7 +23,7 @@
               <b-col class="text" align-v="bottom" sm="6">
                 <h3></h3>
                 <p>
-                  Plus de <strong>99%</strong> des bouteilles utilisées à la
+                  Plus de <strong>60%</strong> des bouteilles utilisées à la
                   brasserie sont issues de <strong>notre filière de
                   récupération</strong> de verre, mise en place dès le début du
                   projet.
@@ -54,7 +54,7 @@
                 <p>
                   C'est grâce à notre <strong>laveuse de 1972</strong>, rachetée
                   et importée de Suisse, que nous pouvons laver un peu plus
-                  de <strong>200 bouteilles par heure</strong> et ainsi être
+                  de <strong>300 bouteilles par heure</strong> et ainsi être
                   autonomes.
                 </p>
                 
