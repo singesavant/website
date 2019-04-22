@@ -45,6 +45,7 @@ var data = {
     {name: 'Wally\'s Coffee', type: 'Resto/Coffee Shop', link: 'http://wallyscoffee.fr/', position: [50.6327198, 3.062177]},
     {name: 'Le Bloempot', type: 'Resto', link: 'http://www.bloempot.fr/', position: [50.6380896, 3.0560483]},
     {name: 'Le Lovibond', type: 'Bar/Resto', link: 'https://www.facebook.com/Lovibond1.0/', position: [50.6308553, 3.0615832]},
+    {name: 'Le Comptoir Végétal', type: 'Resto', link: 'http://le-comptoir-vegetal.fr', position: [50.6379621, 3.0236949]},
 
     // Bars
     {name: 'Uno\'s', type: 'Bar', link: 'http://unosbar.com/', position: [50.6260794, 3.0446603]},
@@ -59,7 +60,6 @@ var data = {
     {name: 'La Capsule', type: 'Bar', link: 'https://www.bar-la-capsule.fr/', position: [50.6404977, 3.0579524]},
     {name: 'Le café des Six Roses', type: 'Bar', link: 'https://www.facebook.com/les6Roses/', position: [50.6310673, 3.0500399]},
     {name: 'La biche et le renard', type: 'Bar/Shop', link: 'https://www.facebook.com/La-Biche-Le-Renard-653452244737057/', position: [50.6414941, 3.0634136]},
-    {name: 'La biche et le renard', type: 'Bar/Shop', link: 'https://www.facebook.com/La-Biche-Le-Renard-653452244737057/', position: [50.6414941, 3.0634136]},
     {name: 'Le fut et à mesure', type: 'Bar', link: 'http://www.aufutetamesure.fr/', position: [50.6328065, 3.0515258]},
     {name: 'Les Chineurs', type: 'Bar', link: 'https://www.facebook.com/Leschineurs.lille/', position: [50.6377921, 3.0561421]},
 
@@ -67,10 +67,10 @@ var data = {
     {name: 'SuperQuinquin', type: 'Magasin', link: 'http://superquinquin.fr/', position: [50.6329646, 3.0856811]},
     {name: 'Mes Voisins Producteurs', type: 'Magasin en ligne', link: 'https://www.mesvoisinsproducteurs.com/collections/bieres-et-cidres', position: [50.6249887, 3.0984093]},
       //    {name: 'Célestin', type: 'Cave', link: 'http://www.celestinlille.fr/', position: [50.639589, 3.059731]},
-    {name: 'Quai des saveurs (Halles)', type: 'Magasin', link: 'https://www.facebook.com/quaidessaveurs.59/', position: [50.6266814, 3.0493332]},
+    {name: 'Bières des Halles', type: 'Magasin', link: 'https://www.facebook.com/quaidessaveurs.59/', position: [50.6266814, 3.0493332]},
     {name: 'L\'épicerie équitable (Halles)', type: 'Magasin', link: 'http://lille.epicerie-equitable.com/', position: [50.6261559, 3.0466974]},
     {name: 'L\'Abbaye des Saveurs', type: 'Cave', link: 'https://www.facebook.com/Abbaye-Des-Saveurs-Lille-286430299047/?rf=250891748442500', position: [50.6406741, 3.0590201]},
-    {name: 'Robin des Bio', type: 'Magasin', link: 'http://www.robindesbio.org/', position: [50.626514, 3.0650758]},
+//    {name: 'Robin des Bio', type: 'Magasin', link: 'http://www.robindesbio.org/', position: [50.626514, 3.0650758]},
     {name: 'Les Caves de Jules', type: 'Cave', link: 'http://www.lacavedejules.fr/', position: [50.6535437, 3.076412]},
     {name: 'Les Vins d\'Aurélien', type: 'Cave', link: 'http://www.lesvinsdaurelien.fr/', position: [50.6338339, 3.058698]},
     {name: 'Un grain dans le bocal', type: 'Epicerie', link: 'http://ungraindanslebocal.com/', position: [50.6746152, 3.1815381]},
