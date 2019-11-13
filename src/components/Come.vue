@@ -15,11 +15,11 @@
 
                 <p>
                   <strong>Brasserie du Singe Savant</strong><br/>
-                  1bis Rue Charles Delesalle @ La Cofabrik<br/>
+                  134 rue d'Arras <br/>
                   59000 Lille [<a href="https://goo.gl/maps/8fZnfwx1eS32">Google Maps</a>]
                 </p>
 
-                <p>Métro <strong>Porte de Douai</strong> ou <strong>Porte de Valenciennes</strong></p>
+                <p>Métro <strong>Porte d'Arras</strong> ou <strong>Porte de Douai</strong></p>
 
                 <p>
                   Tél: 03.74.09.49.25 - Email: contact AT singe-savant.com
@@ -32,52 +32,12 @@
                 <p>
                   N'hésitez pas à venir nous saluer, <strong>nous vendons en direct</strong> !
                   <br/>
-                  Vous pouvez entrer avec votre voiture, vélo, longboard, ...
+                  Notre local est accessible en voiture, vélo, longboard, ...
                 </p>
 
               </b-col>
 
-              <b-col class="text" align-v="bottom" sm="6">
-                <h2>Comment venir ?</h2>
-
-                <p>
-                  Depuis le <strong>boulevard de Belfort</strong>, porte de douai dans votre dos, prenez <strong>à droite</strong> juste avant le parc vers la rue <strong>Charles Delesalle</strong>.
-                </p>
-
-              </b-col>
-              <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/come/path-1.jpg" alt="chemin1"/>
-              </b-col>
-
-              <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/come/path-2.jpg" alt="chemin1"/>
-              </b-col>
-
-              <b-col class="text" align-v="bottom" sm="6">
-
-                <p>
-                  Contournez par <strong>la gauche le bâtiment</strong> pour aller sur la rue <strong>Maxime Gorki</strong>. Ne prenez pas la rue Charles Delesalle !
-                </p>
-
-              </b-col>
-
-
-              <b-col class="text" align-v="bottom" sm="6">
-                <p>
-                  Sur votre droite, vous trouverez <strong>une grille verte</strong> une indication notée "La Cofabrik". Il y a une <strong>sonnette</strong> Singe Savant au niveau de l'accès piéton. Vous pouvez entrer avec votre véhicule, demandez nous juste d'ouvrir le portail par l'interphone.
-                  </p>
-              </b-col>
-              <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/come/path-3.jpg" alt="chemin 3"/>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-
-
-
-      </b-col>
-    </b-row>
+             
 
     <monkey-footer/>
 
