@@ -36,8 +36,11 @@
                 </p>
 
               </b-col>
-
-             
+            </b-row>
+          </b-col>
+        </b-row>
+      </b-col>
+    </b-row>
 
     <monkey-footer/>
 
