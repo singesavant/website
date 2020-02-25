@@ -56,8 +56,27 @@ var data = {
     {name: 'Auberge du Vert Mont', type: 'Auberge Resto', link: 'http://www.vertmont.fr/', position: [50.7929067, 2.7011755]},
     {name: 'Le Vagabond', type: 'Resto', link: 'https://le-vagabond.net/', position: [50.6461058, 3.0535296]},
     {name: 'Chez mon cousin', type: 'Resto', link: 'http://chezmoncousin.net/', position: [50.6380195, 3.0214976]},
+    {name: 'Le Rituel', type: 'Resto/Bar', link: '#', position: [50.6323823, 3.0551686]},
+    {name: 'Aux éphérites', type: 'Resto', link: 'https://www.auxepherites.com/', position: [50.6297122, 3.0593384]},
+    {name: 'Babe', type: 'Resto/Bar', link: 'http://babe-lille.fr', position: [50.6344238, 3.0589335]},
+    {name: 'Les Intrépides', type: 'Store', link: '#', position: [50.6392446, 3.0625697]},
+
+    {name: 'Meltdown', type: 'Bar', link: 'https://www.facebook.com/DisrespectLille/', position: [50.6327164, 3.0513703]},
+
+    {name: 'Bleu Canard', type: 'Resto', link: 'https://www.bleucanard-lille.com/', position: [50.6363465, 3.0637507]},
+    {name: 'The Queen Victoria', type: 'Bar', link: 'http://www.queenvictoria.fr/', position: [50.6293788, 3.0564167]},
+
+    {name: 'The Fridge', type: 'Bar', link: 'http://www.thefridge.fr/', position: [50.6308707, 3.0530225]},
+    {name: 'Chur Chill', type: 'Bar', link: 'https://www.facebook.com/Church.Chill.Lille/', position: [50.6327391, 3.0495411]},
+    {name: 'Cerise sur l\'apéro', type: 'Store', link: '#', position: [50.6469194, 3.0566221]},
+    {name: 'Histoire de goût', type: 'Store', link: 'https://www.unehistoiredegouts.fr/', position: [50.6312656, 2.7669805]},
+    {name: 'Dame C.', type: 'Bar', link: 'https://bardamec.wixsite.com/ledamec', position: [50.637848, 3.0562262]},
+    {name: 'Frères Delassic', type: 'Cheese Stop', link: 'https://www.fromage-delassic.fr/', position: [50.6395753, 3.0624217]},
+    {name: 'Caf&diskaire', type: 'Bar', link: 'https://www.facebook.com/lecafediskaire', position: [50.6303986, 3.043088]},
 
     // Bars
+    {name: 'La Dilletante', type: 'Bar', link: 'https://www.facebook.com/LaDiletLille/', position: [50.6433721, 3.0576505]},
+    {name: 'Le Barboteur', type: 'Bar/Resto', link: 'https://www.facebook.com/LeBarboteur.restautant.bar/', position: [50.6293752, 3.0191921]},
     {name: 'Uno\'s', type: 'Bar', link: 'http://unosbar.com/', position: [50.6260794, 3.0446603]},
     {name: 'DIY Café', type: 'Bar', link: 'https://www.facebook.com/doityourselfcafe/', position: [50.6275895, 3.0398153]},
     {name: 'La Mousse Touch', type: 'Bar', link: 'https://www.facebook.com/Moussetouch8/', position: [50.6271711, 3.0676324]},
@@ -97,11 +116,11 @@ var data = {
 
     // Hotel
     //    {name: 'Novotel Centre Gares', type: 'Hotel', link: 'https://www.accorhotels.com/fr/hotel-3165-novotel-lille-centre-gares/index.shtml', position: [50.6345226, 3.0711482]},
-    {name: 'Clarance', type: 'Hotel', link: 'https://www.clarancehotel.com/', position: [50.6388153, 3.0547882]},
+    {name: 'Clarance', type: 'Hotel', link: 'https://www.clarancehotel.com/', position: [50.6388153, 3.0547882]}
 
     // livraison
-    {name: 'La Coroutine', type: 'Espace de Coworking (Livraison)', link: 'http://lacoroutine.org/', position: [50.629472, 3.069627]},
-    {name: 'Le Mutualab', type: 'Espace de Coworking (Livraison)', link: 'https://www.mutualab.org/', position: [50.6296492, 3.0592892]}
+    // {name: 'La Coroutine', type: 'Espace de Coworking (Livraison)', link: 'http://lacoroutine.org/', position: [50.629472, 3.069627]},
+    // {name: 'Le Mutualab', type: 'Espace de Coworking (Livraison)', link: 'https://www.mutualab.org/', position: [50.6296492, 3.0592892]}
     // {name: 'Ruche de Lille-Europe', type: 'Ruche (Livraison)', link: 'https://laruchequiditoui.fr/fr/assemblies/9523', position: [50.639412, 3.075413]},
     // {name: 'Ruche d\'Euratechnologies', type: 'Ruche (Livraison)', link: 'https://laruchequiditoui.fr/fr/assemblies/811', position: [50.633315, 3.020232]}
   ]
