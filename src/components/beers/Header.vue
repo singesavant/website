@@ -14,7 +14,7 @@
     <b-row v-if="!nolink" class="full-width" align-h="center" align-v="bottom" no-gutters>
       <b-col class="go-back" cols="4">
         <router-link :to="{name: 'beer-list'}">
-          <img class="back" src="/static/images/product/back.png">
+          <img class="back" src="/images/product/back.png">
           Retour aux bières
         </router-link>
       </b-col>
@@ -48,7 +48,7 @@
 <style lang="scss" scoped>
 .beer-header {
     height: 70vh;
-    background-image: url(/static/images/product/header.jpg);
+    background-image: url(/images/product/header.jpg);
     background-size: cover;
 
     display: flex;

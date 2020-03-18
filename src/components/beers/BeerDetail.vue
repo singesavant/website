@@ -77,14 +77,15 @@
               <div class="caract-section" v-if="website_specifications.hops">
                 <h2 class="beer-subtitle">Houblons</h2>
                 <ul class="hop-list">
-                  <li class="hop" v-for="hop in website_specifications.hops.split(',')">{{ hop }}</li>
+                  <li class="hop" v-bind:key="hop.name" v-for="hop in website_specifications.hops.split(',')">{{ hop }}</li>
                 </ul>
               </div>
 
               <div class="caract-section" v-if="website_specifications.ibu">
                 <h2 class="beer-subtitle">Amertume</h2>
                 <ul class="ibus" id="ibu-container">
-                  <li v-for="n in get_ibus" class="bullet ibu-bullet"></li><li v-for="n in get_missing_ibus" class="bullet no-ibu-bullet"></li>
+                  <li v-bind:key="n" v-for="n in get_ibus" class="bullet ibu-bullet"></li>
+                  <li v-bind:key="n" v-for="n in get_missing_ibus" class="bullet no-ibu-bullet"></li>
                 </ul>
 
                 <b-tooltip target="ibu-container" placement="bottom">
@@ -151,6 +152,7 @@ Vue.use(VueLodash, lodash)
 import BeerHeader from './Header.vue'
 import BeerCard from './BeerCard.vue'
 import MonkeyFooter from '../Footer.vue'
+import _ from 'lodash'
 
 export default {
   name: 'ProductDetail',
@@ -161,7 +163,7 @@ export default {
     }),
     ...mapState(['isAuthenticated', 'beers']),
     ...{
-      website_specifications: function (key) {
+      website_specifications: function () {
         var specs = {}
         for (var idx in this.beer.website_specifications) {
           specs[this.beer.website_specifications[idx].label] = this.beer.website_specifications[idx].description
@@ -176,10 +178,10 @@ export default {
         return (5 - parseInt(this.website_specifications['ibu']))
       },
       get_five_other_beers: function () {
-        return this._.sampleSize(this.beers.filter(beer => beer.disabled === false && beer.name !== this.beer.name), 5)
+        return _.sampleSize(this.beers.filter(beer => beer.disabled === false && beer.name !== this.beer.name), 5)
       },
       get_left_image_url: function () {
-        var item = this._.find(this.beer.slideshow_items, {heading: 'left'})
+        var item = _.find(this.beer.slideshow_items, {heading: 'left'})
         if (item) {
           return item.image
         }
@@ -200,7 +202,7 @@ export default {
     // call again the method if the route changes
     '$route': 'fetchData'
   },
-  beforeUpdate: function (to, from, next) {
+  beforeUpdate: function () {
     window.scrollTo(0, 0)
   },
   created: function () {
@@ -258,7 +260,7 @@ export default {
 
 
     .col-8 {
-        background-image: url(/static/images/product/bg-shop.jpg);
+        background-image: url(/images/product/bg-shop.jpg);
         background-size: cover;
 
         text-align: center;
@@ -291,7 +293,7 @@ h2.beer-subtitle {
     font-size: 1.2em;
     font-variant: small-caps;
 
-    background: url(/static/images/product/h2-icon.png), url(/static/images/product/h2-icon.png);
+    background: url(/images/product/h2-icon.png), url(/images/product/h2-icon.png);
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: 0%, 100%;

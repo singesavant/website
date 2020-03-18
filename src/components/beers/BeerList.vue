@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="product-list">
-    <beer-header title-img="/static/images/home/beers_text.png" nolink></beer-header>
+    <beer-header title-img="/images/home/beers_text.png" nolink></beer-header>
 
     <b-row align-h="center">
       <b-col cols="8">
@@ -59,6 +59,7 @@ import { mapState } from 'vuex'
 import BeerHeader from './Header'
 import BeerCard from './BeerCard'
 import MonkeyFooter from '../Footer'
+import Vue2Filters from 'vue2-filters'
 
 var data = {
 }
@@ -85,6 +86,8 @@ export default {
     BeerCard,
     MonkeyFooter
   },
+
+  mixins: [Vue2Filters.mixin],
 
   data: function () {
     return data

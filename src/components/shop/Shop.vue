@@ -25,7 +25,6 @@
 
 <script lang="js">
 import orderableItemList from './OrderableItemList'
-import preOrderList from './preOrderList'
 import Welcome from './Welcome'
 import { mapState } from 'vuex'
 
@@ -38,7 +37,6 @@ export default {
 
   components: {
     orderableItemList,
-    preOrderList,
     Welcome
   },
   data: function () {

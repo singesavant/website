@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="product-list">
-    <beer-header title-img="/static/images/come/icon.png" nolink></beer-header>
+    <beer-header title-img="/images/come/icon.png" nolink></beer-header>
 
     <b-row align-h="center" no-gutters  class="paragraphs">
       <b-col cols="8">
@@ -9,7 +9,7 @@
           <b-col>
             <b-row class="paragraphs-row" no-gutters >
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/come/map.jpg" alt="carte"/>
+                <img class="full" src="/images/come/map.jpg" alt="carte"/>
               </b-col>
               <b-col class="text" align-v="bottom" sm="6">
 
@@ -124,6 +124,6 @@ export default {
 }
 
 .beer-header {
-    background-image: url(/static/images/come/header.jpg) !important;
+    background-image: url(/images/come/header.jpg) !important;
 }
 </style>

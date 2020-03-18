@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="order in sales_orders">
+        <tr v-for="order in sales_orders" v-bind:key="order.name">
           <td>{{order.name}}</td>
           <td>{{order.date}}</td>
           <td>{{order.amount_total}}€</td>

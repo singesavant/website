@@ -2,7 +2,7 @@
 <template lang="html">
 
   <div class="recycle">
-    <beer-header title-img="/static/images/recycle/logo.png" nolink></beer-header>
+    <beer-header title-img="/images/recycle/logo.png" nolink></beer-header>
 
     <b-row align-h="center" no-gutters  class="paragraphs">
       <b-col cols="8">
@@ -14,8 +14,8 @@
                 <h2>Un Singe, des Bouteilles et une Diva</h2>
 
                 <p>
-                  <blockquote>En 2018, environ <strong>24.000 bouteilles</strong> seront
-                  sauvées des déchetteries lilloises par la brasserie.</blockquote>
+                  <q>En 2018, environ <strong>24.000 bouteilles</strong> seront
+                  sauvées des déchetteries lilloises par la brasserie.</q>
                 </p>
 
               </b-col>
@@ -95,13 +95,13 @@
                   <router-link :to="{name: 'contact'}">nous contacter</router-link> !
                 </p>
 
-                <v-map ref="recycle-map" class="recycle-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
-                  <v-tilelayer url="http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png"></v-tilelayer>
-                  <v-marker v-for="partner in partners" :key="partner.name" :icon="stickerIcon" :lat-lng="partner.position" :title="partner.name" :draggable="false">
-                    <v-popup :content="make_popup_content(partner)">
-                    </v-popup>
-                  </v-marker>
-                </v-map>
+                <l-map ref="recycle-map" class="recycle-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
+                  <l-tile-layer url="http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png"></l-tile-layer>
+                  <l-marker v-for="partner in partners" :key="partner.name" :icon="stickerIcon" :lat-lng="partner.position" :title="partner.name" :draggable="false">
+                    <l-popup :content="make_popup_content(partner)">
+                    </l-popup>
+                  </l-marker>
+                </l-map>
 
               </b-col>
 
@@ -166,14 +166,14 @@ import BeerHeader from './beers/Header'
 import VueDPlayer from 'vue-dplayer'
 import 'vue-dplayer/dist/vue-dplayer.css'
 
-import Vue2Leaflet from 'vue2-leaflet'
+import { LMap, LMarker, LPopup, LTileLayer } from 'vue2-leaflet'
 
 var ResizedIcon = L.Icon.extend({options: {iconSize: [40, 40], iconAnchor: [20, 20], popupAnchor: [0, -20]}})
 
 var data = {
   video_options: {
     video: {
-      url: '/static/videos/bottle-recycling.webm'
+      url: '/videos/bottle-recycling.webm'
       // pic: 'http://static.smartisanos.cn/pr/img/video/video_03_cc87ce5bdb.jpg'
     },
     autoplay: false
@@ -182,7 +182,7 @@ var data = {
   minZoom: 13.0,
   maxZoom: 15.0,
   center: [50.6330, 3.0612],
-  stickerIcon: new ResizedIcon({iconUrl: '/static/images/marker-icon.png'}),
+  stickerIcon: new ResizedIcon({iconUrl: '/images/marker-icon.png'}),
   partners: [
     {name: 'Ripaille', type: 'Resto', link: 'http://www.ripaille-lille.fr/', position: [50.6386031, 3.0560171]},
     // Bars
@@ -206,10 +206,11 @@ export default {
   name: 'Recycle',
 
   components: {
-    'v-tilelayer': Vue2Leaflet.TileLayer,
-    'v-marker': Vue2Leaflet.Marker,
-    'v-map': Vue2Leaflet.Map,
-    'v-popup': Vue2Leaflet.Popup,
+    LMap,
+    LPopup,
+    LMarker,
+    LTileLayer,
+
     'monkey-footer': MonkeyFooter,
     BeerHeader,
     'd-player': VueDPlayer
@@ -274,7 +275,7 @@ h2 {
 }
 
 .beer-header {
-    background-image: url(/static/images/recycle/header.jpg) !important;
+    background-image: url(/images/recycle/header.jpg) !important;
     background-position: 10%;
 }
 

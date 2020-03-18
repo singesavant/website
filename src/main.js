@@ -3,14 +3,18 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import axios from 'axios'
-
 import router from './router'
 import store from './store'
+
+import App from './App'
 
 import Menubar from '@/components/Menubar'
 import Vue2Filters from 'vue2-filters'
 import VueAnalytics from 'vue-analytics'
 import BootstrapVue from 'bootstrap-vue'
+
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
 
 import '@/assets/css/globals.scss'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
@@ -18,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(VueLodash, { name: 'custom' , lodash: lodash })
 Vue.use(Vue2Filters)
 Vue.use(BootstrapVue)
 Vue.use(VueAnalytics, {
@@ -43,6 +48,7 @@ axios.defaults.withCredentials = true
 
 /* eslint-disable no-new */
 new Vue({
+  render: h=> h(App),
   el: '#app',
   store,
   router,

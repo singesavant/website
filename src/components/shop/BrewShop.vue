@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="brewshop">
-    <beer-header title-img="/static/images/brewshop/logo.png" nolink></beer-header>
+    <beer-header title-img="/images/brewshop/logo.png" nolink></beer-header>
 
     <b-row align-h="center" no-gutters class="paragraphs">
       <b-col cols="8">
@@ -166,7 +166,7 @@ export default {
 h2.malts:before {
     content: "";
     display: block;
-    background: url('/static/images/brewshop/malt_logo.png') no-repeat;
+    background: url('/images/brewshop/malt_logo.png') no-repeat;
     background-size: contain;
     width: 40px;
     height: 40px;
@@ -177,7 +177,7 @@ h2.malts:before {
 h2.hops:before {
     content: "";
     display: block;
-    background: url('/static/images/brewshop/hop_logo.png') no-repeat;
+    background: url('/images/brewshop/hop_logo.png') no-repeat;
     background-size: contain;
     width: 40px;
     height: 40px;
@@ -192,7 +192,7 @@ margin-top: 40px;
 h2.other:before {
     content: "";
     display: block;
-    background: url('/static/images/brewshop/malt_logo.png') no-repeat;
+    background: url('/images/brewshop/malt_logo.png') no-repeat;
     background-size: contain;
     width: 40px;
     height: 40px;
@@ -205,7 +205,7 @@ h2.other:before {
 
 
 .beer-header {
-    background-image: url(/static/images/brewshop/header.jpg) !important;
+    background-image: url(/images/brewshop/header.jpg) !important;
     background-position: 10%;
 }
 

@@ -7,7 +7,7 @@
 
       <!-- monkey logo, centered -->
       <div class="logo">
-        <img src="/static/images/home/logo.png" alt="logo"/>
+        <img src="images/home/logo.png" alt="logo"/>
       </div>
 
 
@@ -224,7 +224,7 @@ v
             .soon {
                 transition: all .3s ease-in-out;
 
-                background-image: url('/static/images/home/comingsoon.png');
+                background-image: url('/images/home/comingsoon.png');
                 background-position: bottom right;
                 background-size: 10vh 10vh;
                 background-repeat: no-repeat;
@@ -301,29 +301,29 @@ v
 }
 
 .beers {
-    background: url(/static/images/home/beers_text.png), url(/static/images/home/beers.gif);
+    background: url(/images/home/beers_text.png), url(/images/home/beers.gif);
     background-size: 35%, cover !important;
     background-position: 47% 39%, center !important;
 }
 
 .brewlab {
-    background: url('/static/images/home/brewlabshop_text.png'), url('/static/images/home/brewlab.jpg');
+    background: url('/images/home/brewlabshop_text.png'), url('/images/home/brewlab.jpg');
 }
 
 .dealers {
-    background: url('/static/images/home/dealers_text.png'), url('/static/images/home/dealers.jpg');
+    background: url('/images/home/dealers_text.png'), url('/images/home/dealers.jpg');
     background-size: 60%, cover !important;
 }
 
 
 .shop {
-//    background: url('/static/images/home/shop_text.png'), url('/static/images/KKBB_Ban.gif');
-    background: url('/static/images/KKBB_Ban.gif');
+//    background: url('/images/home/shop_text.png'), url('/images/KKBB_Ban.gif');
+    background: url('/images/KKBB_Ban.gif');
             background-size: cover ! important;
 
     
     &:hover {
-        //background: url('/static/images/home/shop_text_overlay.png'), url('/static/images/home/shop_text.png'), url('/static/images/home/shop.jpg') !important;
+        //background: url('/images/home/shop_text_overlay.png'), url('/images/home/shop_text.png'), url('/images/home/shop.jpg') !important;
 //        background-size: 43.5%, 35%, cover !important;
         background-size: cover !important;
         background-repeat: no-repeat, no-repeat, no-repeat !important;
@@ -333,11 +333,11 @@ v
 }
 
 .brewery {
-    background-image: url('/static/images/home/brewery_text.png'), url('/static/images/home/brewery.jpg');
+    background-image: url('/images/home/brewery_text.png'), url('/images/home/brewery.jpg');
 }
 
 .recycling {
-    background-image:  url('/static/images/home/recycling_text.png'), url('/static/images/home/recycling.jpg');
+    background-image:  url('/images/home/recycling_text.png'), url('/images/home/recycling.jpg');
 }
 
 </style>

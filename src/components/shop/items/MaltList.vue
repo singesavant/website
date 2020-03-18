@@ -24,6 +24,7 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
+import Vue2Filters from 'vue2-filters'
 
 export default {
   name: 'MaltList',
@@ -37,7 +38,8 @@ export default {
   computed:
     mapState({
       malt_items: 'malt_items'
-    }),
+  }),
+  mixins: [Vue2Filters.mixin],  
   mounted: function () {
     this.$store.dispatch('LOAD_MALT_ITEM_LIST')
   }

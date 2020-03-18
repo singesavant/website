@@ -3,7 +3,7 @@
   <div id="menubar">
     <div class="logo">
       <router-link :to="{name: 'home'}">
-        <img alt="Logo" src="/static/images/menubar_logo.png" />
+        <img alt="Logo" src="/images/menubar_logo.png" />
         <span>Le<br/>Singe<br/>Savant<br/></span>
       </router-link>
     </div>
@@ -37,7 +37,6 @@
 <script lang="js">
 
 import { mapState } from 'vuex'
-import Auth from './Auth.vue'
 import Cart from './shop/Cart.vue'
 
 var data = {
@@ -56,7 +55,6 @@ export default {
     return data
   },
   components: {
-    Auth,
     Cart
   },
   computed:

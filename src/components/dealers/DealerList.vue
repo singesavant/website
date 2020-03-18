@@ -2,15 +2,15 @@
 <template lang="html">
   <b-row no-gutters class="dealer-map-container">
     <b-col cols=12>
-      <v-map ref="map" class="dealer-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
-        <v-tilelayer url="http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png"></v-tilelayer>
+      <l-map ref="map" class="dealer-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
+        <l-tile-layer url="http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"></l-tile-layer>
 
-        <v-marker v-for="dealer in dealers" :key="dealer.name" :icon="stickerIcon" :lat-lng="dealer.position" :title="dealer.name" :draggable="false">
-          <v-popup :content="make_popup_content(dealer)">
-          </v-popup>
-        </v-marker>
+        <l-marker v-for="dealer in dealers" :key="dealer.name" :icon="stickerIcon" :lat-lng="dealer.position" :title="dealer.name" :draggable="false">
+          <l-popup :content="make_popup_content(dealer)">
+          </l-popup>
+        </l-marker>
 
-      </v-map>
+      </l-map>
 
       <monkey-footer/>
     </b-col>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="js">
-import Vue2Leaflet from 'vue2-leaflet'
+import { LMap, LMarker, LPopup, LTileLayer } from 'vue2-leaflet'
 import L from 'leaflet'
 import MonkeyFooter from '../Footer'
 
@@ -30,7 +30,7 @@ var data = {
   minZoom: 13.0,
   maxZoom: 15.0,
   center: [50.6330, 3.0612],
-  stickerIcon: new ResizedIcon({iconUrl: '/static/images/marker-icon.png'}),
+  stickerIcon: new ResizedIcon({iconUrl: '/images/marker-icon.png'}),
 
   dealers: [
     {name: 'Brasserie du Singe Savant', type: 'Quartiers Généraux!', link: 'http://www.singe-savant.com/', position: [50.619011, 3.077805]},
@@ -130,10 +130,11 @@ export default {
   name: 'DealerList',
 
   components: {
-    'v-tilelayer': Vue2Leaflet.TileLayer,
-    'v-marker': Vue2Leaflet.Marker,
-    'v-map': Vue2Leaflet.Map,
-    'v-popup': Vue2Leaflet.Popup,
+    LMap,
+    LPopup,
+    LMarker,
+    LTileLayer,
+
     'monkey-footer': MonkeyFooter
   },
 

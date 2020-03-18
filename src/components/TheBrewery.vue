@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="product-list">
-    <beer-header title-img="/static/images/brewery/logo.png" nolink></beer-header>
+    <beer-header title-img="/images/brewery/logo.png" nolink></beer-header>
 
     <b-row align-h="center" no-gutters  class="paragraphs">
       <b-col cols="8">
@@ -9,7 +9,7 @@
           <b-col>
             <b-row class="paragraphs-row" no-gutters >
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/brewery/monkey-looking.jpg" alt="Singe qui brasse"/>
+                <img class="full" src="/images/brewery/monkey-looking.jpg" alt="Singe qui brasse"/>
               </b-col>
               <b-col class="text" align-v="bottom" sm="6">
 
@@ -53,18 +53,16 @@
 
               </b-col>
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/brewery/hops.jpg" alt="Houblons"/>
+                <img class="full" src="/images/brewery/hops.jpg" alt="Houblons"/>
               </b-col>
 
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/brewery/magasin.jpg" alt="Magasin"/>
+                <img class="full" src="/images/brewery/magasin.jpg" alt="Magasin"/>
               </b-col>
 
               <b-col class="text" align-v="bottom" sm="6">
 
-                <p>
                   <h4>Nous vendons en direct</h4>
-                </p>
 
                 <p>
                   Toutes nos recettes sont <b>disponibles en brasserie</b> à la fois en <b>bouteilles</b> mais aussi en <b>fûts</b> si vous prévoyez un événement. N'hésitez pas à <router-link :to="{name: 'contact'}">venir</router-link> faire vos achats ou discuter de votre projet.
@@ -78,16 +76,13 @@
 
 
               <b-col class="text" align-v="bottom" sm="6">
-                <p>
                   <h4>La brasserie se partage !</h4>
-                </p>
                 <p>
                   Au delà d'une brasserie de production, le Singe propose un <b>BrewLab</b> composé d'une <b>école de brassage</b> où apprendre et s'améliorer. C'est aussi un lieu où <b>échanger</b> avec les autres passionné-e-s et un <b>BrewShop</b> où acheter vos <b>matières premières</b> ainsi que votre <b>matériel de brassage</b>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
                 </p>
-
               </b-col>
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/static/images/brewery/brewlab.jpg" alt="BrewLab"/>
+                <img class="full" src="/images/brewery/brewlab.jpg" alt="BrewLab"/>
               </b-col>
             </b-row>
           </b-col>
@@ -179,7 +174,7 @@ export default {
 }
 
 .beer-header {
-    background-image: url(/static/images/brewery/header.jpg) !important;
+    background-image: url(/images/brewery/header.jpg) !important;
     background-position: 10%;
 }
 

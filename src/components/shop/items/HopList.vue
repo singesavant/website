@@ -28,6 +28,7 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
+import Vue2Filters from 'vue2-filters'
 
 export default {
   name: 'HopList',
@@ -38,6 +39,7 @@ export default {
       return 'https://erp.singe-savant.com/' + uri
     }
   },
+  mixins: [Vue2Filters.mixin],
   computed:
     mapState({
       items: 'hop_items'

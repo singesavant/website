@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="brewlab">
-    <beer-header title-img="/static/images/brewlab/logo.png" nolink></beer-header>
+    <beer-header title-img="/images/brewlab/logo.png" nolink></beer-header>
 
     <b-row align-h="center" no-gutters class="paragraphs">
       <b-col cols="8">
@@ -12,10 +12,10 @@
                 <h1>Envie de Brasser ?</h1>
 
                 <p>
-                  <blockquote>Que vous souhaitiez <strong>vous initier au brassage</strong>
+                  <q>Que vous souhaitiez <strong>vous initier au brassage</strong>
                   ou <strong>venir pratiquer ailleurs qu'à la maison</strong>,
                   le BrewLab du Singe vous accueille <strong>toute la
-                  semaine</strong> !</blockquote>
+                  semaine</strong> !</q>
                 </p>
 
               </b-col>
@@ -31,7 +31,7 @@
                   soyez seul-e ou en groupe !
                 </p>
 
-                <img class="illustration-picture" src="/static/images/brewlab/invit.png" alt="invitation"/>
+                <img class="illustration-picture" src="/images/brewlab/invit.png" alt="invitation"/>
 
                 <p>
                   La formule est simple et complète : vous apprenez
@@ -75,7 +75,7 @@
                 </p>
 
 
-                <img class="illustration-picture short" src="/static/images/brewlab/mashing.jpg" alt="mashing"/>
+                <img class="illustration-picture short" src="/images/brewlab/mashing.jpg" alt="mashing"/>
 
 
                 <h4>En détails</h4>
@@ -127,7 +127,7 @@
                 </p>
 
 
-                <img class="illustration-picture " src="/static/images/brewlab/bottling.jpg" alt="bottling"/>
+                <img class="illustration-picture " src="/images/brewlab/bottling.jpg" alt="bottling"/>
 
 
 
@@ -170,7 +170,7 @@
                    sinon, vous pouvez aussi les acheter sur place au <router-link :to="{name: 'brewshop'}">BrewShop</router-link>.
                 </p>
 
-                <img class="illustration-picture short" src="/static/images/brewlab/brassage_baby.gif" alt="babyfoot"/>
+                <img class="illustration-picture short" src="/images/brewlab/brassage_baby.gif" alt="babyfoot"/>
 
                 <p>
                   <strong class="foreword">Envie de vous améliorer ?</strong> Choisissez une
@@ -220,7 +220,7 @@ var data = {
 export default {
   name: 'BrewLab',
 
-  components: {
+components: {
     'monkey-footer': MonkeyFooter,
     BeerHeader
 
@@ -251,7 +251,7 @@ export default {
 h2.beginner:before {
     content: "";
     display: block;
-    background: url('/static/images/brewlab/beginner-icon.png') no-repeat;
+    background: url('/images/brewlab/beginner-icon.png') no-repeat;
     background-size: contain;
     width: 37px;
     height: 37px;
@@ -262,7 +262,7 @@ h2.beginner:before {
 h2.confirmed:before {
     content: "";
     display: block;
-    background: url('/static/images/brewlab/confirmed-icon.png') no-repeat;
+    background: url('/images/brewlab/confirmed-icon.png') no-repeat;
     background-size: contain;
     width: 37px;
     height: 37px;
@@ -302,7 +302,7 @@ margin-top: 20px;
 
 
 .beer-header {
-    background-image: url(/static/images/brewlab/header.jpg) !important;
+    background-image: url(/images/brewlab/header.jpg) !important;
     background-position: 10%;
 }
 

@@ -9,7 +9,7 @@
 
     <h3>{{ checkout.amount }}{{ checkout.currency }}</h3>
 
-    <card v-model="cardDetail"></card>
+    <!-- <card v-model="cardDetail"></card> -->
     <form>
       <input name="number" placeholder="Card number" type="tel" v-model="cardDetail.number" v-card-focus>
       <input name="name" placeholder="Full name" type="text" v-model="cardDetail.name" v-card-focus>
@@ -29,7 +29,7 @@ import { mapState } from 'vuex'
 
 import axios from 'axios'
 
-import card from 'vue-credit-card/src/components/Card.vue'
+
 
 let defaultProps = {
   number: '4222222222222',
@@ -46,7 +46,7 @@ var data = {
 export default {
   name: 'SumUpPayment',
   components: {
-    card
+    // card
   },
   created: function () {
   },
@@ -67,7 +67,7 @@ export default {
       .then((response) => { data.checkout = response.data })
   },
   methods: {
-    submit_payment: function (event) {
+    submit_payment: function () {
       var sumupAxios = axios.create({
         baseURL: 'https://api.sumup.com/v0.1/',
         withCredentials: false
@@ -84,7 +84,7 @@ export default {
         }
       }
 
-      sumupAxios.put('/checkouts/' + data.checkout.id, requestData).then((response) => { alert('YAY!') })
+      sumupAxios.put('/checkouts/' + data.checkout.id, requestData).then(() => { alert('YAY!') })
     }
   }
 

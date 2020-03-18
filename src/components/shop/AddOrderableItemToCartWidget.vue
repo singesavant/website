@@ -27,7 +27,7 @@
     <!-- we have no variant -->
     <div class="product-qtty" v-else>
       <b-button class="qtty-modifier">-</b-button>
-      <b-input type="number" v-model:value="qtty[item_details.name]" value="0" min="1" max="10"/>
+      <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="10"/>
       <b-button class="qtty-modifier">+</b-button>
     </div>
   </div>
@@ -80,7 +80,7 @@ export default {
         this.$forceUpdate()
       }
     },
-    variant_updated (variant) {
+    variant_updated () {
       this.variant_selected = this.item_details['variants'][0]
       this.$forceUpdate()
     },

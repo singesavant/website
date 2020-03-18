@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in cart.items">
+          <tr v-for="item in cart.items" v-bind:key="item.product.name">
             <td>{{item.product.name}}</td>
             <td>x{{item.quantity}}</td>
             <td>{{item.line_price | currency('', 2) }}€</td>

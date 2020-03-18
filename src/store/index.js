@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 
-import { VueAuthenticate } from 'vue-authenticate'
+import VueAuthenticate from 'vue-authenticate'
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
@@ -113,23 +113,23 @@ const store = new Vuex.Store({
         console.log(err)
       })
     },
-    ADD_ORDERABLE_ITEM_TO_CART: function ({ commit }, { item, quantity }) {
-      axios.post('/shop/items/' + item.code, {quantity: quantity}).then((response) => {
+    ADD_ORDERABLE_ITEM_TO_CART: function ({ item, quantity }) {
+      axios.post('/shop/items/' + item.code, {quantity: quantity}).then(() => {
         store.dispatch('LOAD_CART')
         console.debug('Item added to cart.')
       }, (err) => {
         console.log(err)
       })
     },
-    REMOVE_ORDERABLE_ITEM_FROM_CART: function ({ commit }, { item }) {
-      axios.delete('/shop/cart/', {data: {item_code: item.product.code}}).then((response) => {
+    REMOVE_ORDERABLE_ITEM_FROM_CART: function ({ item }) {
+      axios.delete('/shop/cart/', {data: {item_code: item.product.code}}).then(() => {
         console.debug('Item deleted from cart.')
         store.dispatch('LOAD_CART')
       }, (err) => {
         console.log(err)
       })
     },
-    SUBMIT_CART: function ({ commit }, { cart }) {
+    SUBMIT_CART: function ({ commit }) {
       return new Promise((resolve, reject) => {
         axios.post('/shop/cart/').then((response) => {
           commit('SET_CART', { cart: [] })
@@ -153,7 +153,7 @@ const store = new Vuex.Store({
     },
     // Perform VueAuthenticate login using Vuex actions
     login (context, payload) {
-      vueAuth.login(payload.user, payload.requestOptions).then((response) => {
+      vueAuth.login(payload.user, payload.requestOptions).then(() => {
         context.commit('isAuthenticated', {
           isAuthenticated: vueAuth.isAuthenticated()
         })
@@ -217,7 +217,7 @@ const store = new Vuex.Store({
     }
   },
   getters: {
-    isAuthenticated: function (state) {
+    isAuthenticated: function () {
       return vueAuth.isAuthenticated()
     }
   }
