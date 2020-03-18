@@ -25,7 +25,7 @@
     </div>
 
     <div class="menu-right">
-      <!-- <auth class="auth" />-->
+      <auth class="auth" />
 
       <cart />
 
@@ -38,6 +38,7 @@
 
 import { mapState } from 'vuex'
 import Cart from './shop/Cart.vue'
+import Auth from './Auth.vue'
 
 var data = {
   menuIsVisible: false
@@ -55,7 +56,8 @@ export default {
     return data
   },
   components: {
-    Cart
+    Cart,
+    Auth
   },
   computed:
     mapState(['isAuthenticated', 'user'])

@@ -9,7 +9,7 @@
       <div v-bind:class="{ flicker: isFlickering }" class="overlay"></div>
     </div>
 
-    <div v-if="isAuthenticated" id="products">
+    <div id="products">
     <b-row class="product-list-container justify-content-md-center">
       <b-col cols="10">
         <orderable-item-list item_group="Bières du Singe"/>
@@ -28,6 +28,7 @@ import orderableItemList from './OrderableItemList'
 import Welcome from './Welcome'
 import { mapState } from 'vuex'
 
+
 var data = {
   isFlickering: false
 }
@@ -45,6 +46,7 @@ export default {
   mounted: function () {
     this.toggleFlickering()
   },
+
   methods: {
     login () {
       this.$store.dispatch('login')
@@ -63,7 +65,7 @@ export default {
 <style lang="scss" scoped>
 
 .shop {
-    background: url('/static/images/shop/background.jpg'), url('/static/images/shop/wall_floor.jpg');
+    background: url('/images/shop/background.jpg'), url('/images/shop/wall_floor.jpg');
     background-repeat: repeat, repeat;
     background-attachment: fixed, fixed;
     background-position: center, bottom;
@@ -78,7 +80,7 @@ export default {
      }
 
     .neon {
-        background: url('/static/images/shop/shop_light.png'), url('/static/images/shop/shop_cross.png');
+        background: url('/images/shop/shop_light.png'), url('/images/shop/shop_cross.png');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -100,7 +102,7 @@ export default {
             width: 100%;
             height: 100%;
 
-            background: url('/static/images/shop/shop_light_overlay.png');
+            background: url('/images/shop/shop_light_overlay.png');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;

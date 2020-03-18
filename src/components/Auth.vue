@@ -5,7 +5,7 @@
     <div class="auth" v-if="isAuthenticated">
       <div class="picture-wrapper">
         <img v-if="user.picture" v-bind:src="user.picture" class="picture" alt="user picture"/>
-        <img v-else class="picture" src="/static/images/default_avatar.jpeg" alt="default user picture">
+        <img v-else class="picture" src="/images/default_avatar.jpeg" alt="default user picture">
       </div>
       <span class="name">
         <span class="firstname">{{ user.first_name }}</span>

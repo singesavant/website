@@ -2,7 +2,7 @@
 
 <template lang="html">
   <div v-show="product_count > 0" class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseout="hideCartDetail()">
-    <img class="icon" src="/static/images/cart.png" alt="cart"/>
+    <img class="icon" src="/images/cart.png" alt="cart"/>
 
     <div class="info">
       <span class="product_count">{{ product_count }} {{ product_count | pluralize('article') }}</span>

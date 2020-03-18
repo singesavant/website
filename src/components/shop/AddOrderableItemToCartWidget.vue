@@ -27,7 +27,7 @@
     <!-- we have no variant -->
     <div class="product-qtty" v-else>
       <b-button class="qtty-modifier">-</b-button>
-      <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="10"/>
+      <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="20"/>
       <b-button class="qtty-modifier">+</b-button>
     </div>
   </div>

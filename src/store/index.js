@@ -10,8 +10,8 @@ import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
-const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
-  baseUrl: 'https://erp.singe-savant.com/',
+const vueAuth = VueAuthenticate.factory(Vue.prototype.$http, {
+  baseUrl: 'http://localhost:8080/',
 
   providers: {
     google: {
@@ -113,7 +113,7 @@ const store = new Vuex.Store({
         console.log(err)
       })
     },
-    ADD_ORDERABLE_ITEM_TO_CART: function ({ item, quantity }) {
+    ADD_ORDERABLE_ITEM_TO_CART: function (_, { item, quantity }) {
       axios.post('/shop/items/' + item.code, {quantity: quantity}).then(() => {
         store.dispatch('LOAD_CART')
         console.debug('Item added to cart.')
@@ -121,7 +121,7 @@ const store = new Vuex.Store({
         console.log(err)
       })
     },
-    REMOVE_ORDERABLE_ITEM_FROM_CART: function ({ item }) {
+    REMOVE_ORDERABLE_ITEM_FROM_CART: function (_, { item }) {
       axios.delete('/shop/cart/', {data: {item_code: item.product.code}}).then(() => {
         console.debug('Item deleted from cart.')
         store.dispatch('LOAD_CART')

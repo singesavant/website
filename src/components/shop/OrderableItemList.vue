@@ -13,6 +13,7 @@
 <script lang="js">
 import { mapState } from 'vuex'
 import BeerItem from './BeerItem'
+import Vue2Filters from 'vue2-filters'
 
 export default {
   name: 'orderableItemList',
@@ -24,9 +25,10 @@ export default {
   },
   filters: {
     erp_static_url (uri) {
-      return 'https://erp.singe-savant.com/' + uri
+      return 'https://localhost:5000/' + uri
     }
   },
+  mixins: [Vue2Filters.mixin],
   computed:
     mapState({
       items: 'orderable_items'

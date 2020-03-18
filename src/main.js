@@ -43,7 +43,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 })
 
-axios.defaults.baseURL = 'https://api.singe-savant.com/v0.1'
+axios.defaults.baseURL = 'http://localhost:5000/v0.1'
 axios.defaults.withCredentials = true
 
 /* eslint-disable no-new */

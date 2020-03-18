@@ -8,21 +8,21 @@
       <b-col cols=12 class="illustration">
         <div class="bottles">
           <div class="bottle front">
-            <img class="top" src="static/images/bottle-75-top.png" alt="bottle top">
+            <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
             <img class="label" :src=item.thumbnail|erp_static_url>
-            <img class="bottom" src="static/images/bottle-75-bottom.png" alt="bottle bottom">
+            <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
           </div>
 
           <div class="bottle back left">
-            <img class="top" src="static/images/bottle-75-top.png" alt="bottle top">
+            <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
             <img class="label" :src=item.thumbnail|erp_static_url>
-            <img class="bottom" src="static/images/bottle-75-bottom.png" alt="bottle bottom">
+            <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
           </div>
 
           <div class="bottle back right">
-            <img class="top" src="static/images/bottle-75-top.png" alt="bottle top">
+            <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
             <img class="label" :src=item.thumbnail|erp_static_url>
-            <img class="bottom" src="static/images/bottle-75-bottom.png" alt="bottle bottom">
+            <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
           </div>
 
         </div>
