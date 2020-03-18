@@ -115,8 +115,7 @@
                 </p>
 
                 <p>
-                  C'est pourquoi, vous pouvez donc <strong>nous ramener vos
-                  bouteilles</strong> de bière vides
+                  C'est pourquoi vous pouvez nous ramener <strong>toutes les bouteilles vides du singe savant</strong>
                   directement <router-link :to="{name: 'contact'}">à la
                   brasserie</router-link>. C'est aussi une bonne occasion pour
                   venir <strong>découvrir les nouveautés et
@@ -125,19 +124,11 @@
                 </p>
 
                 <p>
-                  Qu’elles viennent de chez nous ou non, nous
-                  leur <strong>donnerons une deuxième vie</strong> ! Attention
-                  cependant : toutes les bouteilles ne sont malheureusement pas
-                  recyclables. Pour vous aider à trier, nous publierons bientôt
-                  un guide.
-                </p>
-
-                <p>
                   Vous souhaitez <strong>vous organiser</strong> entre voisins,
-                  colocs, ami-e-s, collègues ou autres pour collecter vos
-                  bouteilles ? C'est tout à fait possible ! Nous
-                  pouvons <strong>venir ramasser chez vous</strong> à partir
-                  de <strong>100 bouteilles triées</strong>. N'hésitez pas à
+                  colocs, ami-e-s, collègues ou autres pour nous rendre vos bouteilles vides ?
+                  C'est tout à fait possible ! Nous
+                  pouvons <strong>venir les récupérer chez vous</strong> à partir
+                  de <strong>100 bouteilles du Singe</strong> collectées. N'hésitez pas à
                   <router-link :to="{name: 'contact'}">nous contacter</router-link>.
                 </p>
 
