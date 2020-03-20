@@ -3,15 +3,18 @@
 <template lang="html">
   <div class="cart-buttons">
 
+    <div v-if="is_out_of_stock(item)">
+      <h2>KO!</h2>
+    </div>
+
+    <div v-else>
     <!-- this item has variants, show them all -->
     <div v-if="item_details.has_variants">
       <b-form-select @change="variant_updated(variant_selected_code)" v-model="variant_selected_code">
-        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" :disabled="variant.orderable_qty <= 0">{{ variant.name }}</option>
+        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" :disabled="variant.orderable_qty <= 0">{{ variant.name }} <span v-if="variant.orderable_qty > 0">(Stock : {{ variant.orderable_qty }})</span></option>
       </b-form-select>
 
       <div class="product-qtty" v-if="variant_selected">
-
-        <h3>{{ variant_selected.name }}</h3>
         <b-form>
           <b-input-group>
             <b-button @click="qtty_down(variant_selected)">-</b-button>
@@ -30,7 +33,8 @@
       <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="20"/>
       <b-button class="qtty-modifier">+</b-button>
     </div>
-  </div>
+    </div>
+    </div>
 </template>
 
 <script lang="js">
@@ -84,6 +88,19 @@ export default {
       this.variant_selected = this.item_details['variants'][0]
       this.$forceUpdate()
     },
+
+    is_out_of_stock () {
+      var out_of_stock = true
+      this.item_details['variants'].forEach(function (variant) {
+         if (parseInt(variant.orderable_qty) > 0) {
+          out_of_stock = false
+         }
+      })
+
+      return out_of_stock
+
+    },
+
     addOrderableItemToCart (item) {
       this.$store.dispatch('ADD_ORDERABLE_ITEM_TO_CART', {item: item, quantity: this.qtty[item.name]})
     }
@@ -92,6 +109,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+input[type=number],
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -moz-appearance: textfield !important;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 .soldout {
   text-decoration: line-through;

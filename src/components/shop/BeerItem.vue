@@ -12,43 +12,15 @@
             <img class="label" :src=item.thumbnail|erp_static_url>
             <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
           </div>
-
-          <div class="bottle back left">
-            <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
-            <img class="label" :src=item.thumbnail|erp_static_url>
-            <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
-          </div>
-
-          <div class="bottle back right">
-            <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
-            <img class="label" :src=item.thumbnail|erp_static_url>
-            <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
-          </div>
-
         </div>
-      </b-col>
-
-      <!-- info -->
-      <b-col cols=12 class="info">
-        <b-row>
-          <b-col align="center" cols=12>
-            <span class="name">{{item.name}}</span>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col align="center" cols=12>
-            <b-button v-on:click="flip()" v-if="in_stock">Commander</b-button>
-          </b-col>
-        </b-row>
       </b-col>
 
     </b-row>
 
     <b-row>
       <b-col cols=12 class="info" align="center" align-v="bottom">
-        <span class="name">{{item.name}}</span>
+        <h3>{{ item.name }}</h3>
         <add-orderable-item-to-cart-widget :item="item"/>
-        <b-button v-on:click="flip()">Annuler</b-button>
       </b-col>
     </b-row>
 </div>
@@ -150,6 +122,8 @@ li.item {
 
                 position: absolute;
 
+                margin-bottom: 10px;
+
                 bottom: 0;
 
                 &.front {
@@ -188,11 +162,13 @@ li.item {
                 img.label {
                     background-color: white;
                     object-fit: fill;
-                    clip-path: inset(5px 10px);
-                    margin-bottom: -5px;
-                    margin-top: -5px;
-                    margin-left: -2.5px;
-                    margin-right: -2.5px;
+                    // clip-path: inset(5px 10px);
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    padding-left: -2.5px;
+                    padding-right: -2.5px;
                 }
             }
         }

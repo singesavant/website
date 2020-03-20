@@ -1,21 +1,28 @@
 <template lang="html">
   <div>
-    <button type="button" v-bind:class="{ active: isActive }" class="order" @click="submitCart(cart)">J'achète &#x2714;</button>
+    <button type="button" v-bind:class="{ active: isActive }" class="order" @click="reviewOrder(cart)">J'achète &#x2714;</button>
   </div>
 </template>
 
 <script lang="js">
-export default {
-  name: 'submitCartButton',
-  props: ['cart', 'isActive'],
-  methods: {
-    submitCart (cart) {
-      this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data =>
-        this.$router.replace({name: 'so-payment', params: {slug: data.name}})
-      )
+    export default {
+        name: 'submitCartButton',
+        props: ['cart', 'isActive'],
+
+        methods: {
+            reviewOrder (cart) {
+                console.debug(cart)
+                this.$router.replace({name: 'so-checkout', params: {slug: cart.name}})
+            },
+
+            submitCart (cart) {
+                this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data =>
+                                                                   this.$router.replace({name: 'so-checkout', params: {slug: data.name}})
+                                                                      )
+            }
+        }
+
     }
-  }
-}
 </script>
 
 <style lang="scss">

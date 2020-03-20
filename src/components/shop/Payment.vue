@@ -5,21 +5,19 @@
 
     <b-link :to="{name: 'sales-orders'}">Retourner aux commandes</b-link>
 
-    <h2>{{ checkout.checkout_reference }}</h2>
 
-    <h3>{{ checkout.amount }}{{ checkout.currency }}</h3>
+    <b-row>
+      <b-col cols="5">
+        <h2>{{ checkout.checkout_reference }}</h2>
+        <h3>{{ checkout.amount }}{{ checkout.currency }}</h3>
 
-    <!-- <card v-model="cardDetail"></card> -->
-    <form>
-      <input name="number" placeholder="Card number" type="tel" v-model="cardDetail.number" v-card-focus>
-      <input name="name" placeholder="Full name" type="text" v-model="cardDetail.name" v-card-focus>
-      <input name="expiry" placeholder="MM/YY" type="tel" v-model="cardDetail.expiry" v-card-focus>
-      <input name="cvc" placeholder="CVC" type="number" v-model="cardDetail.cvc" v-card-focus>
-
-      <b-button v-on:click="submit_payment">Payer!</b-button>
-    </form>
-
-
+      </b-col>
+      <b-col cols="5">
+        <form @submit="submit_payment">
+          <card-form :form-data="cardData"/>
+        </form>
+      </b-col>
+    </b-row>
   </div>
 
 </template>
@@ -28,25 +26,23 @@
 import { mapState } from 'vuex'
 
 import axios from 'axios'
-
-
-
-let defaultProps = {
-  number: '4222222222222',
-  name: 'Tester',
-  expiry: '11/20',
-  cvc: '123'
-}
+import CardForm from '../CardForm.vue'
 
 var data = {
-  cardDetail: defaultProps,
+   cardData: {
+     cardName: 'Bob Robert',
+     cardNumber: '4111111111111111',
+     cardMonth: '11',
+     cardYear: '2022',
+     cardCvv: '938'
+  },
   checkout: null
 }
 
 export default {
   name: 'SumUpPayment',
   components: {
-    // card
+    CardForm
   },
   created: function () {
   },
@@ -67,20 +63,22 @@ export default {
       .then((response) => { data.checkout = response.data })
   },
   methods: {
-    submit_payment: function () {
+submit_payment: function () {
+      console.debug(data.cardData.cardNumber);
       var sumupAxios = axios.create({
         baseURL: 'https://api.sumup.com/v0.1/',
         withCredentials: false
       })
 
+      console.debug(data.cardData);
       var requestData = {
         payment_type: 'card',
         card: {
-          cvv: data.cardDetail.cvc,
-          expiry_month: data.cardDetail.expiry.split('/')[0].trim(),
-          expiry_year: '20' + data.cardDetail.expiry.split('/')[1].trim(),
-          number: data.cardDetail.number.replace(/\s/g, ''),
-          name: data.cardDetail.name
+          cvv: data.cardData.cardCvv,
+          expiry_month: data.cardData.cardMonth,
+          expiry_year: data.cardData.cardYear,
+          number: data.cardData.cardNumber.replace(/\s/g, ''),
+          name: data.cardData.cardName
         }
       }
 
@@ -90,3 +88,7 @@ export default {
 
 }
 </script>
+
+<style lang="scss">
+@import 'src/assets/css/creditcard.scss';
+</style>

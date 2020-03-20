@@ -1,6 +1,6 @@
 //-*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div id="menubar">
+  <div id="menubar" class="sticky-top">
     <div class="logo">
       <router-link :to="{name: 'home'}">
         <img alt="Logo" src="/images/menubar_logo.png" />

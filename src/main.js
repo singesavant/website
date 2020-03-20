@@ -11,7 +11,8 @@ import App from './App'
 import Menubar from '@/components/Menubar'
 import Vue2Filters from 'vue2-filters'
 import VueAnalytics from 'vue-analytics'
-import BootstrapVue from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+
 
 import VueLodash from 'vue-lodash'
 import lodash from 'lodash'
@@ -25,6 +26,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(VueLodash, { name: 'custom' , lodash: lodash })
 Vue.use(Vue2Filters)
 Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
+
 Vue.use(VueAnalytics, {
   id: 'UA-75870516-1',
   debug: {

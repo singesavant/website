@@ -6,6 +6,7 @@ import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
 import BrewLab from '@/components/BrewLab'
 import SumUpPayment from '@/components/shop/Payment'
+import Checkout from '@/components/shop/Checkout'
 import Home from '@/components/home/Home'
 import Contact from '@/components/Come'
 import TheBrewery from '@/components/TheBrewery'
@@ -34,6 +35,13 @@ export default new Router({
       name: 'shop',
       components: {
         'default': Shop
+      }
+    },
+    {
+      path: '/shop/orders/:slug/checkout',
+      name: 'so-checkout',
+      components: {
+        'default': Checkout
       }
     },
     {
