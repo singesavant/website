@@ -9,13 +9,13 @@
       <div v-bind:class="{ flicker: isFlickering }" class="overlay"></div>
     </div>
 
+    <!-- product list -->
     <div id="products">
-    <b-row class="product-list-container justify-content-md-center">
-      <b-col cols="10">
-        <orderable-item-list item_group="Bières du Singe"/>
-      </b-col>
-    </b-row>
-
+      <b-row class="product-list-container justify-content-md-center">
+        <b-col cols="10">
+          <orderable-item-list item_group="Bières du Singe"/>
+        </b-col>
+      </b-row>
     </div>
 
     <welcome v-if="!isAuthenticated" />
@@ -65,12 +65,13 @@ export default {
 <style lang="scss" scoped>
 
 .shop {
-    background: url('/images/shop/background.jpg'), url('/images/shop/wall_floor.jpg');
-    background-repeat: repeat, repeat;
+    padding-top: 10vh;
+    background: url('/images/shop/wall_floor.jpg'), url('/images/shop/background.jpg');
+    background-repeat: no-repeat, no-repeat;
     background-attachment: fixed, fixed;
-    background-position: center, bottom;
-    background-size: cover, 100% 20vh;
-    width: 100%;
+    background-position: bottom, center;
+    background-size: 100%, cover !important;
+
     min-height: 100vh;
     z-index: 1;
 

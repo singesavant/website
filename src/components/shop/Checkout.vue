@@ -1,13 +1,21 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <b-container fluid class="brick-background">
+
+    <b-modal id="payment-modal" :title="sales_order.name" hide-footer="true">
+      <SumUpPayment/>
+    </b-modal>
+
+
     <b-row class="justify-content-md-center">
       <b-col cols="10">
 
-        <b-card border-variant="light" header="Vérification de commande" class="text-center" v-if="sales_order != null">
-            <b-card-title>Un dernier check avant d'envoyer</b-card-title>
+              <b-overlay :show="is_loading" rounded="sm">
+        <b-card border-variant="light" header="Vérification de commande" class="text-center" >
+            <b-card-title v-if="sales_order != null">Un dernier check avant d'envoyer</b-card-title>
 
-              <b-row class="justify-content-md-center">
+            <b-row class="justify-content-md-center" v-if="sales_order != null">
+
 
                 <!-- Shipping -->
                 <b-col cols="6">
@@ -110,27 +118,33 @@
                     <!-- Taxes list -->
                     <b-table-simple class="taxes-list" v-if="sales_order.taxes.length > 0" cellspacing="0" cellpadding="0">
                       <b-tr v-for="tax in sales_order.taxes" v-bind:key="tax.name">
-                        <b-td class="border-0">
-                          <b-img width="75px" height="75px" src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
-                        </b-td>
-                        <b-td rowspan="2" class="align-middle text-left">
-                          {{ tax.description }}
-                          <br/>
-                          <b-badge show variant="secondary">N'oubliez pas : la livraison est offerte à partir de 58€ !</b-badge>
-                        </b-td>
-                        <b-td class="align-middle">
-                          {{ tax.tax_amount }}€
-                        </b-td>
+
+                        <!-- Livraison -->
+                        <div v-if="tax.description == 'Livraison'">
+                          <b-td class="border-0 align-middle">
+                            <b-img width="100%" src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
+                          </b-td>
+                          <b-td class="align-middle text-left">
+                            {{ tax.description }}
+                            <br/>
+                            <em>N'oubliez pas : la livraison est offerte à partir de 58€ !</em>
+                          </b-td>
+                          <b-td class="align-middle">
+                            <span v-if="tax.amount > 0">{{ tax.tax_amount }}€</span>
+                            <span v-else>OFFERTE !</span>
+                          </b-td>
+                        </div>
+
                       </b-tr>
                     </b-table-simple>
 
                     <b-table-simple v-else class="taxes-list">
                       <!-- No taxes -->
                       <b-tr>
-                        <b-td borderless>
+                        <b-td>
                           <b-img width="75px" height="75px" src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
                         </b-td>
-                        <b-td rowspan="2" class="align-middle">
+                        <b-td class="align-middle">
                           Livraison
                         </b-td>
                         <b-td class="align-middle">
@@ -181,15 +195,17 @@
                   </b-card>
                 </b-col>
               </b-row>
-              <!-- If order does not exist -->
-        </b-card>
-            <b-card v-else>
-              <b-row align-v="center">
+            <!-- If order does not exist -->
+
+              <b-row align-v="center" v-else-if="is_loading == false">
                 <b-col>
                   <h1>Cette commande n'existe pas !</h1>
                 </b-col>
               </b-row>
-            </b-card>
+
+        </b-card>
+              </b-overlay>
+
 
       </b-col>
     </b-row>
@@ -202,10 +218,12 @@ import axios from 'axios'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { digits } from 'vee-validate/dist/rules'
+import SumUpPayment from './Payment.vue'
 
 extend('digits', digits);
 
 var data = {
+  is_loading: true,
   sales_order: null,
   itemPictureProps: { blank: true, width: 75, height: 75, class: 'm1' },
 
@@ -241,7 +259,8 @@ export default {
 
   components: {
     ValidationProvider,
-    ValidationObserver
+    ValidationObserver,
+    SumUpPayment
   },
 
   created: function () {
@@ -262,7 +281,12 @@ export default {
 
   mounted: function () {
     axios.get('/shop/orders/' + this.$route.params.slug)
-      .then((response) => { data.sales_order = response.data })
+      .then((response) => {
+        data.sales_order = response.data;
+      })
+      .catch(() => data.sales_order = null )
+      .finally(() => data.is_loading = false)
+
 
     // XXX 'Lille' Hardcoded!
     axios.get('/customer/address')
@@ -281,6 +305,8 @@ export default {
           console.debug('Contact updated successfully.')
 
           // go to checkout!
+          //this.$router.replace({name: 'so-payment', params: {slug: data.sales_order.name}})
+          this.$bvModal.show('payment-modal')
 
 
         }, (err) => {

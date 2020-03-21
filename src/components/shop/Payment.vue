@@ -1,25 +1,12 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div v-if="checkout != null">
-    <h1>Payer!</h1>
+  <b-overlay :show="is_loading" rounded="sm">
+    <!-- {{ checkout.amount }}{{ checkout.currency }}-->
 
-    <b-link :to="{name: 'sales-orders'}">Retourner aux commandes</b-link>
-
-
-    <b-row>
-      <b-col cols="5">
-        <h2>{{ checkout.checkout_reference }}</h2>
-        <h3>{{ checkout.amount }}{{ checkout.currency }}</h3>
-
-      </b-col>
-      <b-col cols="5">
-        <form @submit="submit_payment">
-          <card-form :form-data="cardData"/>
-        </form>
-      </b-col>
-    </b-row>
-  </div>
-
+    <form @submit="submit_payment">
+      <card-form :form-data="cardData"/>
+    </form>
+  </b-overlay>
 </template>
 
 <script lang="js">
@@ -59,7 +46,7 @@ export default {
     }),
 
   mounted: function () {
-    axios.get('/shop/orders/' + this.$route.params.slug + '/checkout')
+    axios.get('/shop/orders/' + this.$route.params.slug + '/payment')
       .then((response) => { data.checkout = response.data })
   },
   methods: {

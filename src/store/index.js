@@ -129,12 +129,12 @@ const store = new Vuex.Store({
         console.log(err)
       })
     },
-    SUBMIT_CART: function ({ commit }) {
+    SUBMIT_CART: function () {
       return new Promise((resolve, reject) => {
         axios.post('/shop/cart/').then((response) => {
-          commit('SET_CART', { cart: [] })
+          // commit('SET_CART', { cart: [] })
 
-          store.dispatch('LOAD_ORDERABLE_LIST')
+          // store.dispatch('LOAD_ORDERABLE_LIST')
 
           var salesOrder = response.data
           resolve(salesOrder)

@@ -10,7 +10,7 @@
       <span v-show="product_count > 0" class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
     </div>
 
-    <submit-cart-button :isActive="product_count > 0" :cart="this.$store.cart" />
+    <submit-cart-button :isActive="product_count > 0" v-bind:cart="cart" />
 
     <div v-if="isCartVisible" class="cart-details">
       <table class="article-lines">
@@ -126,10 +126,9 @@ export default {
     }
 
     img.icon {
-        width: 3vh;
-        height: 3vh;
 
-        padding: 2vh;
+
+        padding: 0.5vh;
         border:1px solid white;
         border-radius: 500px;
     }

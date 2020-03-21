@@ -7,12 +7,16 @@
 <script lang="js">
     export default {
         name: 'submitCartButton',
-        props: ['cart', 'isActive'],
+        props: {
+            'cart': Object,
+            'isActive': Boolean
+        },
 
         methods: {
             reviewOrder (cart) {
-                console.debug(cart)
-                this.$router.replace({name: 'so-checkout', params: {slug: cart.name}})
+                this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data =>
+                                                                       this.$router.replace({name: 'so-checkout', params: {slug: data.name}})
+                                                                      )
             },
 
             submitCart (cart) {

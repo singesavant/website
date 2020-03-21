@@ -65,15 +65,13 @@
             <div class="tile">
               <div class="zoomable shop">
                 <!-- <div class="soon"></div> -->
-                <!-- <router-link :to="{name: 'shop'}"> -->
-                  <a href="https://www.kisskissbankbank.com/fr/projects/brasserie-du-singe-savant-le-bar" target="_new">
+                <router-link :to="{name: 'shop'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">Soutenez-nous !</h2>
-                    <span class="tile-description">L'ouverture du bar dépend de vous :)</span>
+                    <h2 class="tile-title">Commandez en ligne !</h2>
+                    <span class="tile-description">Direct producteur + livraison en véhicule électrique</span>
                     <!-- <b-button class="go-button">Go</b-button> -->
                   </div>
-                  </a>
-                <!-- </router-link> -->
+                </router-link>
               </div>
             </div>
           </b-col>
@@ -317,19 +315,8 @@ v
 
 
 .shop {
-//    background: url('/images/home/shop_text.png'), url('/images/KKBB_Ban.gif');
-    background: url('/images/KKBB_Ban.gif');
-            background-size: cover ! important;
-
-    
-    &:hover {
-        //background: url('/images/home/shop_text_overlay.png'), url('/images/home/shop_text.png'), url('/images/home/shop.jpg') !important;
-//        background-size: 43.5%, 35%, cover !important;
-        background-size: cover !important;
-        background-repeat: no-repeat, no-repeat, no-repeat !important;
-        background-position: center, center,  center !important;
-    }
-    
+    background: url('/images/home/shop_text_overlay.png'), url('/images/home/shop_text.png'), url('/images/home/shop.jpg');
+    background-size: 43.5%, 35%, cover ! important;
 }
 
 .brewery {

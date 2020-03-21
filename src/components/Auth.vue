@@ -11,10 +11,10 @@
         <span class="firstname">{{ user.first_name }}</span>
         <span class="lastname">{{ user.last_name }}</span>
       </span>
-      <!-- <button @click="logout()">Logout</button> -->
+      <b-button @click="logout()">Déconnexion</b-button>
     </div>
     <div class="auth" v-else>
-      <button @click="authenticate('google')">auth Google</button>
+      <b-button @click="authenticate('google')">Se Connecter</b-button>
     </div>
   </div>
 </template>
