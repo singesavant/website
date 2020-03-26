@@ -91,7 +91,7 @@ export default {
 
     check_qtty_input (item) {
       if (parseInt(item.orderable_qty) < this.qtty[item.name]) {
-        console.debug("FORCING!")
+        // console.debug("FORCING!")
         this.qtty[item.name] = parseInt(item.orderable_qty)
       }
       this.$forceUpdate()
