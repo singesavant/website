@@ -3,7 +3,7 @@
 <template lang="html">
   <div class="cart-buttons">
 
-    <div v-if="is_out_of_stock(item)">
+    <div v-if="is_out_of_stock(item_details)">
       <h2>KO!</h2>
     </div>
 
@@ -99,11 +99,15 @@ export default {
 
     is_out_of_stock (item) {
       var out_of_stock = true
-      item['variants'].forEach(function (variant) {
-         if (parseInt(variant.orderable_qty) > 0) {
-          out_of_stock = false
-         }
-      })
+
+      if (item.has_variants)
+      {
+        item['variants'].forEach(function (variant) {
+          if (parseInt(variant.orderable_qty) > 0) {
+            out_of_stock = false
+          }
+        })
+      }
 
       return out_of_stock
 
