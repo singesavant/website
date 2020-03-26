@@ -97,9 +97,9 @@ export default {
       this.$forceUpdate()
     },
 
-    is_out_of_stock () {
+    is_out_of_stock (item) {
       var out_of_stock = true
-      this.item_details['variants'].forEach(function (variant) {
+      item['variants'].forEach(function (variant) {
          if (parseInt(variant.orderable_qty) > 0) {
           out_of_stock = false
          }
