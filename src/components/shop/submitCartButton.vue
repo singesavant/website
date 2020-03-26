@@ -29,14 +29,15 @@
                 data.is_loading = true
 
                 this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data => {
+
+                    data.is_loading = false
+
                     if (this.$router.currentRoute.name == 'so-checkout') {
                         this.$router.go(0)
                     }
                     else {
                         this.$router.push({name: 'so-checkout', params: {slug: data.name}})
                     }
-
-                    data.is_loading = false
 
                 })
             },
