@@ -139,32 +139,6 @@
 
                     </b-table-simple>
 
-                    <!-- Charity -->
-                    <!--
-                    <b-row>
-                      <b-col cols="12">
-                        <b-media no-body>
-                          <b-media-aside vertical-align="top">
-                            <b-img blank blank-color="#ccc" width="120px" height="120px" alt="placeholder"></b-img>
-                          </b-media-aside>
-                          <b-media-body align="left" class="ml-3">
-                            <h5 class="mt-0">CORONAVIRUS : Soutenez vos établissement lillois fermés !&nbsp;<b-icon icon="heart-fill"/></h5>
-                            <p>
-                              Avec votre commande, offrez un crédit de X€ à l'établissement :
-                            <b-form>
-                              <b-form-select v-model="charity_selected" :options="charity_options" size="sm" class="mt-3"></b-form-select>
-                            </b-form>
-                            </p>
-
-                          </b-media-body>
-                        </b-media>
-
-
-                      </b-col>
-                    </b-row>
-
-                    -->
-
                     <hr/>
 
                     <!-- TOTAL -->
@@ -225,21 +199,9 @@ var data = {
   contact: {
     first_name: '',
     last_name: '',
-    mobileno: ''
-  },
+    mobile_no: ''
+  }
 
-  // Charity
-  charity_selected: null,
-  charity_options: [
-    { value: null, text: '--' },
-    {
-      label: 'Bar',
-      options: [
-        { value: { C: 'DIY' }, text: 'DIY Café' },
-        { value: { R: 'Lovibond' }, text: 'Le Lovibond' }
-      ]
-    }
-  ]
 }
 
 export default {
