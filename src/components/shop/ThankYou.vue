@@ -6,7 +6,7 @@
       <b-col sm="7">
 
         <b-overlay rounded="sm">
-          <b-card border-variant="light" header="C'EST FINI" class="text-center" >
+          <b-card border-variant="light" header="Votre commande est entre nos mains !" class="text-center" >
             <b-card-title>Merci {{ user.first_name }}, votre commande est validée !</b-card-title>
             <p>
               Comptez sur nous pour mettre la commande en préparation au plus vite.

@@ -74,8 +74,9 @@
             <div class="mb-0">
               <b-img left src="/images/shop/corona/laptop.png" blank-color="#ccc" width="100%" alt="sipping"></b-img>
               <p>
-                On vous fait confiance pour <strong>éviter de faire des micros commandes</strong> et ainsi <strong>minimiser nos déplacements</strong>. <br/>
-                Pour ce faire, on vous <strong>offre la livraison</strong> à partir de 50€ d'achat ! <br/>
+                Le personnel soignant demande de <strong>minimiser les déplacements</strong>, pour nous aider, <strong>évitez de faire des micros commandes</strong>
+                <br/>
+                Pour vous aider, on vous <strong>offre la livraison</strong> à partir de 50€ ! <br/>
                 Bon achat et <strong>#KIFFEZ CHEZ VOUS</strong>, la meilleure manière de protéger nos proches !
               </p>
               <p>
