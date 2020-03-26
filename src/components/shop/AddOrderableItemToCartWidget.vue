@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 
 <template lang="html">
-  <div class="cart-buttons">
+  <div class="cart-buttons" v-if="item_details">
 
     <div v-if="is_out_of_stock(item_details)">
       <h2>KO!</h2>
