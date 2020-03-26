@@ -5,7 +5,6 @@ import Router from 'vue-router'
 import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
 import BrewLab from '@/components/BrewLab'
-import SumUpPayment from '@/components/shop/Payment'
 import Checkout from '@/components/shop/Checkout'
 import Home from '@/components/home/Home'
 import Contact from '@/components/Come'
@@ -15,6 +14,8 @@ import BeerDetail from '@/components/beers/BeerDetail'
 import BeerList from '@/components/beers/BeerList'
 import DealerList from '@/components/dealers/DealerList'
 import SalesOrderList from '@/components/shop/preOrderList'
+import GiveAway from '@/components/shop/GiveAway'
+import ThankYou from '@/components/shop/ThankYou'
 
 Vue.use(Router)
 
@@ -45,10 +46,17 @@ export default new Router({
       }
     },
     {
-      path: '/shop/orders/:slug/payment',
-      name: 'so-payment',
+      path: '/shop/orders/:slug/giveaway',
+      name: 'so-giveaway',
       components: {
-        'default': SumUpPayment
+        'default': GiveAway
+      }
+    },
+    {
+      path: '/shop/orders/:slug/thank-you',
+      name: 'so-thank-you',
+      components: {
+        'default': ThankYou
       }
     },
     {

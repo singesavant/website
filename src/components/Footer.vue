@@ -73,7 +73,7 @@ export default {
         padding-right: 20px;
 
         &.twitter {
-            background-image: url(/static/images/home/twitter.png);
+            background-image: url(/images/home/twitter.png);
             background-repeat: no-repeat;
             background-size: auto 70%;
             background-position: center;
@@ -81,7 +81,7 @@ export default {
         }
 
         &.facebook {
-            background-image: url(/static/images/home/facebook.png);
+            background-image: url(/images/home/facebook.png);
             background-repeat: no-repeat;
             background-size: auto 70%;
             background-position: center;

@@ -27,11 +27,10 @@
     </div>
 
     <div class="menu-right">
-      <auth class="auth" />
-
       <cart />
 
-      <router-view name="menubar-actions"></router-view>
+      <auth class="auth" />
+<!--      <router-view name="menubar-actions"></router-view> -->
     </div>
   </div>
 </template>
@@ -72,7 +71,8 @@ export default {
 
   position: fixed;
   z-index: 100;
-  width: 100vw;
+  width: 100%;
+
   background-color: rgba(0, 0, 0, 0.95);
 
   height: 8vh;
@@ -140,7 +140,7 @@ export default {
 
       position: relative;
 
-      color: white;
+      color: white !important;
 
       line-height: 1em;
 
@@ -195,7 +195,7 @@ export default {
               padding-bottom: 1.5vh;
 
               a {
-                  color: white;
+                  color: white !important;
               }
 
           }

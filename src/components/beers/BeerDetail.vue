@@ -105,9 +105,10 @@
 
     <b-row class="buy" align-h="center">
       <b-col cols="8">
-        Commandez en ligne<br/> et faîtes vous livrer à vélo !<br/>
-        <b-button id="go-to-shop" variant="secondary">Accéder au shop</b-button>
-        <b-tooltip target="go-to-shop" title="Bientôt disponible ! En attendant, envoyez-nous votre commande par e-mail :)"/>
+        Commandez en ligne<br/> et faîtes vous livrer en véhicule électrique !<br/>
+        <router-link :to="{name: 'shop'}">
+          <b-button id="go-to-shop" variant="secondary" >Accéder au shop</b-button>
+        </router-link>
 
         <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p>
       </b-col>

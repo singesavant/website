@@ -2,7 +2,7 @@
 <template lang="html">
   <b-container fluid class="brick-background">
 
-    <b-modal id="payment-modal" :title="sales_order.name" hide-footer="true">
+    <b-modal v-if="sales_order != null" id="payment-modal" :title="sales_order.name" hide-footer>
       <SumUpPayment/>
     </b-modal>
 
@@ -77,7 +77,10 @@
                         <span>{{ errors[0] }}</span>
                       </ValidationProvider>
 
-                      <b-button :disabled="invalid" type="submit" variant="primary">Procéder au paiement <b-icon icon="credit-card"></b-icon></b-button>
+                      <b-overlay :show="is_processing">
+                        <b-button :disabled="invalid" type="submit" variant="primary">Procéder au paiement&nbsp;<b-icon icon="credit-card"></b-icon></b-button>
+                      </b-overlay>
+
                     </div>
 
                     <div class="text-left">
@@ -93,6 +96,11 @@
                 <b-col cols="5" class="order-list">
 
                   <b-card bg-variant="light">
+                    <div class="text-right">
+                      <b-icon icon="gear"></b-icon>&nbsp;
+                      <router-link :to="{name: 'shop'}"><em>Modifier mon panier</em></router-link>
+                    </div>
+
                     <b-table-simple class="item-list">
                       <b-tr v-for="item in sales_order.items" v-bind:key="item.item_code">
                         <b-td>
@@ -111,48 +119,25 @@
                           {{ item.amount }}€
                         </b-td>
                       </b-tr>
-                    </b-table-simple>
 
-                    <hr/>
-
-                    <!-- Taxes list -->
-                    <b-table-simple class="taxes-list" v-if="sales_order.taxes.length > 0" cellspacing="0" cellpadding="0">
-                      <b-tr v-for="tax in sales_order.taxes" v-bind:key="tax.name">
-
+                      <!-- Taxes list -->
                         <!-- Livraison -->
-                        <div v-if="tax.description == 'Livraison'">
-                          <b-td class="border-0 align-middle">
-                            <b-img width="100%" src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
+                        <b-tr v-for="tax in sales_order_taxes_filtered" v-bind:key="tax.name">
+                          <b-td class="align-middle">
+                            <b-img src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
                           </b-td>
-                          <b-td class="align-middle text-left">
+                          <b-td colspan="2" class="align-middle text-left">
                             {{ tax.description }}
                             <br/>
-                            <em>N'oubliez pas : la livraison est offerte à partir de 58€ !</em>
+                            <em v-if="tax.tax_amount > 0">N'oubliez pas : la livraison est offerte à partir de 50€ !</em>
                           </b-td>
                           <b-td class="align-middle">
-                            <span v-if="tax.amount > 0">{{ tax.tax_amount }}€</span>
+                            <span v-if="tax.tax_amount > 0">{{ tax.tax_amount }}€</span>
                             <span v-else>OFFERTE !</span>
                           </b-td>
-                        </div>
+                        </b-tr>
 
-                      </b-tr>
                     </b-table-simple>
-
-                    <b-table-simple v-else class="taxes-list">
-                      <!-- No taxes -->
-                      <b-tr>
-                        <b-td>
-                          <b-img width="75px" height="75px" src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
-                        </b-td>
-                        <b-td class="align-middle">
-                          Livraison
-                        </b-td>
-                        <b-td class="align-middle">
-                          OFFERT !
-                        </b-td>
-                      </b-tr>
-                    </b-table-simple>
-
 
                     <!-- Charity -->
                     <!--
@@ -214,16 +199,19 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
-import axios from 'axios'
+     import axios from 'axios'
+     import _ from 'lodash';
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { digits } from 'vee-validate/dist/rules'
 import SumUpPayment from './Payment.vue'
 
+
 extend('digits', digits);
 
 var data = {
   is_loading: true,
+  is_processing: false,
   sales_order: null,
   itemPictureProps: { blank: true, width: 75, height: 75, class: 'm1' },
 
@@ -276,8 +264,13 @@ export default {
     return data
   },
 
-  computed: mapState({
-  }),
+  computed: {
+    sales_order_taxes_filtered () {
+      return _.filter(data.sales_order.taxes, {'description': 'Livraison'})
+    },
+    ...mapState({
+    })
+  },
 
   mounted: function () {
     axios.get('/shop/orders/' + this.$route.params.slug)
@@ -298,6 +291,8 @@ export default {
 
   methods: {
     onSubmit: function () {
+      data.is_processing = true
+
       axios.post('/customer/address', data.address).then(() => {
         console.debug('Address updated successfully.')
 
@@ -308,15 +303,17 @@ export default {
           //this.$router.replace({name: 'so-payment', params: {slug: data.sales_order.name}})
           this.$bvModal.show('payment-modal')
 
+          data.is_processing = false
+
 
         }, (err) => {
-          console.log(err)
           alert.error(err)
+          data.is_processing = false
         })
 
       }, (err) => {
-        console.log(err)
         alert.error(err)
+        data.is_processing = false
       })
     }
   }

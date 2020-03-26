@@ -11,10 +11,10 @@
         <span class="firstname">{{ user.first_name }}</span>
         <span class="lastname">{{ user.last_name }}</span>
       </span>
-      <b-button @click="logout()">Déconnexion</b-button>
+        <b-button v-b-tooltip.hover title="Déconnexion" variant="dark" @click="logout()"><b-icon icon="power"></b-icon></b-button>
     </div>
     <div class="auth" v-else>
-      <b-button @click="authenticate('google')">Se Connecter</b-button>
+      <b-button v-b-tooltip.hover title="via Google. Les autres moyens arrivent bientôt !" variant="primary" @click="authenticate('google')">Se Connecter</b-button>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
     }
   },
   computed:
-    mapState(['isAuthenticated', 'user'])
+  mapState(['isAuthenticated', 'user'])
 }
 </script>
 
@@ -85,6 +85,8 @@ export default {
       flex-direction: column;
       align-items: left;
       align-content: center;
+
+      margin-right: 10px;
 
     }
 }

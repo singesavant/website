@@ -19,8 +19,10 @@
 
     <b-row>
       <b-col cols=12 class="info" align="center" align-v="bottom">
-        <h3>{{ item.name }}</h3>
-        <add-orderable-item-to-cart-widget :item="item"/>
+        <h3 v-if="isAuthenticated">{{ item.name }}</h3>
+        <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
+        <add-orderable-item-to-cart-widget :item="item" v-if="isAuthenticated"/>
+        <span v-else>Connectez vous pour commander</span>
       </b-col>
     </b-row>
 </div>
@@ -29,7 +31,8 @@
 </template>
 
 <script lang="js">
-import addOrderableItemToCartWidget from './AddOrderableItemToCartWidget'
+  import addOrderableItemToCartWidget from './AddOrderableItemToCartWidget'
+import { mapState } from 'vuex'
 
 export default {
   name: 'BeerItem',
@@ -62,7 +65,8 @@ export default {
       }
 
       return inStock
-    }
+    },
+    ...mapState(['isAuthenticated'])
   },
 
   methods: {

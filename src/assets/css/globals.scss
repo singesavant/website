@@ -23,6 +23,7 @@ html {
 a {
     text-decoration: none;
     outline: none !important;
+    color: $orange !important;
 }
 
 
@@ -32,6 +33,7 @@ a {
     border-color: $orange !important;
     box-shadow: none !important;
     outline: none !important;
+    color: white !important;
     &.active {
         box-shadow: 0 !important;
     }

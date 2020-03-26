@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="card-form">
     <div class="card-list">
       <Card
@@ -23,7 +23,8 @@
           :maxlength="cardNumberMaxLength"
           data-card-field
           autocomplete="off"
-        />
+          />
+        <!--
         <button
           class="card-input__eye"
           :class="{ '-active' : !isCardNumberMasked }"
@@ -32,6 +33,7 @@
           :disabled="formData.cardNumber === ''"
           @click="toggleMask"
         ></button>
+        -->
       </div>
       <div class="card-input">
         <label for="cardName" class="card-input__label">Card Name</label>
@@ -99,12 +101,12 @@
         </div>
       </div>
 
-      <button class="card-form__button" v-on:click="invalidCard">Submit</button>
+      <button type="submit" class="card-form__button">Payer !</button>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="js">
 import Card from '@/components/Card'
 export default {
   name: 'CardForm',
@@ -165,7 +167,7 @@ export default {
         cardCvv: 'v-card-cvv'
       },
       minCardYear: new Date().getFullYear(),
-      isCardNumberMasked: true,
+      isCardNumberMasked: false,
       mainCardNumber: this.cardNumber,
       cardNumberMaxLength: 19
     }
@@ -184,7 +186,7 @@ export default {
     }
   },
   mounted () {
-    this.maskCardNumber()
+    // this.maskCardNumber()
   },
   methods: {
     generateMonthValue (n) {
@@ -221,7 +223,7 @@ export default {
       this.$emit('input-card-cvv', this.formData.cardCvv)
     },
     invalidCard () {
-      let number = this.formData.cardNumber
+      let number = this.formData.mainCardNumber
       let sum = 0
       let isOdd = true
       for (let i = number.length - 1; i >= 0; i--) {
@@ -237,9 +239,8 @@ export default {
         }
         isOdd = !isOdd
       }
-      console.debug(sum);
       if (sum % 10 !== 0) {
-        // alert('invalid card number')
+        alert('invalid card number')
       }
     },
     blurCardNumber () {

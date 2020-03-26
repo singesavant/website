@@ -1,10 +1,18 @@
 <template lang="html">
   <div>
-    <button type="button" v-bind:class="{ active: isActive }" class="order" @click="reviewOrder(cart)">J'achète &#x2714;</button>
+    <b-overlay :show="is_loading">
+      <b-button type="button" variant="primary" v-bind:class="{ active: isActive }" class="order" @click="reviewOrder(cart)">J'achète&nbsp;<b-icon icon="check-circle"></b-icon></b-button>
+    </b-overlay>
+
   </div>
 </template>
 
 <script lang="js">
+  var data = {
+      is_loading: false
+  }
+
+
     export default {
         name: 'submitCartButton',
         props: {
@@ -12,17 +20,33 @@
             'isActive': Boolean
         },
 
+        data: function() {
+            return data
+        },
+
         methods: {
             reviewOrder (cart) {
-                this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data =>
-                                                                       this.$router.replace({name: 'so-checkout', params: {slug: data.name}})
-                                                                      )
+                data.is_loading = true
+
+                this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data => {
+                    if (this.$router.currentRoute.name == 'so-checkout') {
+                        this.$router.go(0)
+                    }
+                    else {
+                        this.$router.push({name: 'so-checkout', params: {slug: data.name}})
+                    }
+
+                    data.is_loading = false
+
+                })
             },
 
             submitCart (cart) {
-                this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data =>
-                                                                   this.$router.replace({name: 'so-checkout', params: {slug: data.name}})
-                                                                      )
+                data.is_loading = true
+                this.$store.dispatch('SUBMIT_CART', {cart: cart}).then(data => {
+                    data.is_loading = false
+                    this.$router.push({name: 'so-checkout', params: {slug: data.name}})
+                })
             }
         }
 

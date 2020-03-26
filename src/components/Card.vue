@@ -179,8 +179,12 @@ export default {
   },
   computed: {
     cardType () {
-      let number = this.labels.cardNumber
-      let re = new RegExp('^4')
+        let number = this.labels.cardNumber
+        let re = new RegExp('^4')
+
+        if (number == undefined) return  ''
+
+
       if (number.match(re) != null) return 'visa'
 
       re = new RegExp('^(34|37)')

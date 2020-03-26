@@ -1,7 +1,7 @@
 //-*- mode: vue; js-indent-level: 2; -*-
 
 <template lang="html">
-  <div v-show="product_count > 0" class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseout="hideCartDetail()">
+  <div v-show="product_count > 0" class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseleave="hideCartDetail()">
     <img class="icon" src="/images/cart.png" alt="cart"/>
 
     <div class="info">
@@ -12,25 +12,25 @@
 
     <submit-cart-button :isActive="product_count > 0" v-bind:cart="cart" />
 
-    <div v-if="isCartVisible" class="cart-details">
-      <table class="article-lines">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Qtté</th>
-            <th>Total</th>
-            <th>&#9760;</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in cart.items" v-bind:key="item.product.name">
-            <td>{{item.product.name}}</td>
-            <td>x{{item.quantity}}</td>
-            <td>{{item.line_price | currency('', 2) }}€</td>
-            <td><button @click="removeItemFromCart(item)" class="remove">&#xd7;</button></td>
-          </tr>
-        </tbody>
-      </table>
+    <div v-show="isCartVisible" class="cart-details">
+      <b-table-simple class="article-lines">
+        <b-thead>
+          <b-tr>
+            <b-th>Item</b-th>
+            <b-th>Qtté</b-th>
+            <b-th>Total</b-th>
+            <b-th>&#9760;</b-th>
+          </b-tr>
+        </b-thead>
+        <b-tbody>
+          <b-tr v-for="item in cart.items" v-bind:key="item.product.name">
+            <b-td>{{item.product.name}}</b-td>
+            <b-td>x{{item.quantity}}</b-td>
+            <b-td>{{item.line_price | currency('', 2) }}€</b-td>
+            <b-td><b-button @click="removeItemFromCart(item)" class="remove vertical-align-middle"><b-icon icon="x"></b-icon></b-button></b-td>
+          </b-tr>
+        </b-tbody>
+      </b-table-simple>
     </div>
   </div>
 </template>
@@ -136,16 +136,27 @@ export default {
 }
 
 .cart-details {
-    top: 6vh;
-    right: 10px;
+    right: 0;
+    top:0;
+    margin-top: 7.9vh;
+    bottom: 0px;
 
-    position: absolute;
+    height: 100%;
+
+    table td, thead {
+        color: white !important;
+    }
+
+
+    position: fixed;
 
     padding: 10px;
 
-    z-index: 100;
+    z-index: 200;
 
-    background-color: rgba(0.5, 0.5, 0.5, 0.5);
+    transition: 1s;
+
+    background-color: rgba(0, 0, 0, 0.9);
 
     button.remove {
         background-color: #d06f5a;

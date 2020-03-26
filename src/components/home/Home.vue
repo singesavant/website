@@ -144,8 +144,8 @@ export default {
 }
 </script>
 
-v
-<style lang="scss">
+
+<style lang="scss" scoped>
 
 #home {
     overflow: hidden;
@@ -315,8 +315,14 @@ v
 
 
 .shop {
-    background: url('/images/home/shop_text_overlay.png'), url('/images/home/shop_text.png'), url('/images/home/shop.jpg');
-    background-size: 43.5%, 35%, cover ! important;
+    background: url('/images/home/shop_text_overlay.png'), url('/images/shop/corona/coronabuster.png'), url('/images/home/shop_text.png'), url('/images/home/shop.jpg');
+    background-size: 43.5%, 50%, 35%, cover ! important;
+    background-position: center, 50% 50%, center, center !important;
+
+    &:hover {
+        background-position: center, -30% -30%, center, center !important;
+    }
+
 }
 
 .brewery {
