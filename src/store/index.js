@@ -11,12 +11,12 @@ Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
 const vueAuth = VueAuthenticate.factory(Vue.prototype.$http, {
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'https://www-staging.singe-savant.com/',
 
   providers: {
     google: {
       clientId: '554963395859-rlie9i8k2th26gr1rk107d17b4fafils.apps.googleusercontent.com',
-      redirectUri: 'http://localhost:8080/', // Your client app URL
+      redirectUri: 'https://www-staging.singe-savant.com/', // Your client app URL
       url: 'https://www.googleapis.com',
       scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
       responseType: 'token'
@@ -47,8 +47,8 @@ const store = new Vuex.Store({
         axios.get('/beers/' + slug).then((response) => {
           commit('SET_BEER_DETAILS', { details: response.data })
           resolve()
-        }, (err) => {
-          console.log(err)
+        }, () => {
+          // console.log(err)
           reject()
         })
       })
@@ -57,16 +57,16 @@ const store = new Vuex.Store({
     LOAD_BEER_LIST: function ({ commit }) {
       axios.get('/beers/').then((response) => {
         commit('SET_BEER_LIST', { list: response.data })
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
 
     LOAD_SALESORDER_LIST: function ({ commit }) {
       axios.get('/shop/orders/').then((response) => {
         commit('SET_SALESORDER_LIST', { list: response.data })
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
 
@@ -74,8 +74,8 @@ const store = new Vuex.Store({
       axios.get('/shop/items/',
                 { params: {item_group: item_group} }).then((response) => {
                   commit('SET_ORDERABLE_ITEM_LIST', { list: response.data })
-                }, (err) => {
-                  console.log(err)
+                }, () => {
+                  // console.log(err)
                 })
     },
 
@@ -83,8 +83,8 @@ const store = new Vuex.Store({
     LOAD_MALT_ITEM_LIST: function ({ commit }) {
       axios.get('/brewshop/items/?item_group=Malts').then((response) => {
         commit('SET_MALT_ITEM_LIST', { list: response.data })
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
 
@@ -92,16 +92,16 @@ const store = new Vuex.Store({
     LOAD_HOP_ITEM_LIST: function ({ commit }) {
       axios.get('/brewshop/items/?item_group=Houblons').then((response) => {
         commit('SET_HOP_ITEM_LIST', { list: response.data })
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
 
     LOAD_ORDERABLE_ITEM_DETAILS: function ({ commit }, { item }) {
       axios.get('/shop/items/' + item.code).then((response) => {
         commit('SET_ORDERABLE_ITEM_DETAILS', { itemDetails: response.data })
-      }, (err) => {
-        console.warn(err)
+      }, () => {
+        //console.warn(err)
       })
     },
 
@@ -109,24 +109,24 @@ const store = new Vuex.Store({
     LOAD_ORDERABLE_LIST: function ({ commit }) {
       axios.get('/shop/my/').then((response) => {
         commit('SET_ORDERABLE_LIST', { list: response.data })
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
     ADD_ORDERABLE_ITEM_TO_CART: function (_, { item, quantity }) {
       axios.post('/shop/items/' + item.code, {quantity: quantity}).then(() => {
         store.dispatch('LOAD_CART')
-        console.debug('Item added to cart.')
-      }, (err) => {
-        console.log(err)
+        // console.debug('Item added to cart.')
+      }, () => {
+        // console.log(err)
       })
     },
     REMOVE_ORDERABLE_ITEM_FROM_CART: function (_, { item }) {
       axios.delete('/shop/cart/', {data: {item_code: item.product.code}}).then(() => {
-        console.debug('Item deleted from cart.')
+        // console.debug('Item deleted from cart.')
         store.dispatch('LOAD_CART')
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
     SUBMIT_CART: function () {
@@ -138,8 +138,8 @@ const store = new Vuex.Store({
 
           var salesOrder = response.data
           resolve(salesOrder)
-        }, (err) => {
-          console.log(err)
+        }, () => {
+          // console.log(err)
           reject()
         })
       })
@@ -147,8 +147,8 @@ const store = new Vuex.Store({
     LOAD_CART: function ({ commit }) {
       axios.get('/shop/cart/').then((response) => {
         commit('SET_CART', { cart: response.data })
-      }, (err) => {
-        console.log(err)
+      }, () => {
+        // console.log(err)
       })
     },
     // Perform VueAuthenticate login using Vuex actions
@@ -203,7 +203,7 @@ const store = new Vuex.Store({
 
     SET_ORDERABLE_LIST: (state, { list }) => {
       state.orders = list
-      console.debug('loaded pre order list')
+      // console.debug('loaded pre order list')
     },
     SET_CART: (state, { cart }) => {
       state.cart = cart

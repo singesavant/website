@@ -294,10 +294,8 @@ export default {
       data.is_processing = true
 
       axios.post('/customer/address', data.address).then(() => {
-        console.debug('Address updated successfully.')
 
         axios.post('/customer/contact', data.contact).then(() => {
-          console.debug('Contact updated successfully.')
 
           // go to checkout!
           //this.$router.replace({name: 'so-payment', params: {slug: data.sales_order.name}})
