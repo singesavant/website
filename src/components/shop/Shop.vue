@@ -24,7 +24,7 @@
                   <b-img left src="/images/shop/corona/crocrovirus.png" blank-color="#ccc" width="100%" alt="bouteilles"></b-img>
                   Comme vous le savez, nous avons choisi de <strong>fermer la boutique physique</strong> dès le début d'épidémie du <em>COVID</em> pour éviter de contribuer à la propagation.
                   <br/>
-                  Après une longue réflexion, nous avons décidé de mettre place un <strong>service de livraison, par nous-même</strong>.
+                  Après une longue réflexion, nous avons décidé de mettre en place un <strong>service de livraison, par nous-même</strong>.
                   Pourquoi ? Car même si la bière n'est pas une boisson de première nécessité (#eaudurobinet), nous pensons qu'il s'agit d'une bonne manière :
                   <ul>
                     <li>d'<strong>éviter vos déplacements</strong></li>
@@ -66,7 +66,7 @@
                   A la fin de votre commande, vous serez invité.e.s à <strong>choisir le lieu de votre cœur</strong> et vous pourrez lui <strong>attribuer un crédit</strong> grâce à votre commande.
                 <p>
 
-                <p>Grâce à ce système, nous espérons <strong>alléger un peu le besoin trésorerie de nos partenaires</strong> pour leurs reprises !</p>
+                <p>Grâce à ce système, nous espérons <strong>alléger un peu le besoin de trésorerie de nos partenaires</strong> pour leurs reprises !</p>
 
               </b-col>
 
@@ -80,7 +80,7 @@
               <p>
                 Le personnel soignant demande de <strong>minimiser les déplacements</strong>, pour nous aider, <strong>évitez de faire des micros commandes</strong>
                 <br/>
-                Pour vous aider, on vous <strong>offre la livraison</strong> à partir de 50€ ! <br/>
+                Du coup, on vous <strong>offre la livraison</strong> à partir de 50€ ! <br/>
                 Bon achat et <strong>#KIFFEZ CHEZ VOUS</strong>, la meilleure manière de protéger nos proches !
               </p>
               <p>

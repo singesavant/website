@@ -11,7 +11,9 @@
     <!-- this item has variants, show them all -->
     <div v-if="item_details.has_variants">
       <b-form-select @change="variant_updated(variant_selected_code)" v-model="variant_selected_code">
-        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" :disabled="variant.orderable_qty <= 0">{{ variant.name }} <span v-if="variant.orderable_qty > 0">(Stock : {{ variant.orderable_qty }})</span> - {{ variant.price }}€</option>
+
+        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" v-bind:class="{ 'soldout': variant.orderable_qty <= 0 }" :disabled="variant.orderable_qty <= 0"><span v-if="variant.orderable_qty <= 0">RUPTURE XXXX </span>{{ variant.name }} <span v-if="variant.orderable_qty > 0">(Stock : {{ variant.orderable_qty }})</span><span v-if="variant.oderable_qty > 0"> - {{ variant.price }}€</span></option>
+
       </b-form-select>
 
       <div class="product-qtty" v-if="variant_selected">
@@ -146,8 +148,8 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-
 .soldout {
-  text-decoration: line-through;
+    text-decoration: line-through !important;
+    color: grey;
 }
 </style>
