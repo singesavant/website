@@ -44,6 +44,10 @@
 
                 </p>
 
+                <p><b-icon icon="watch"/>Concernant le délais, nous vous <strong>livrerons les Mardi et Vendredi</strong>. Il vous suffit de commander <strong>24H à l'avance</strong> pour que nous puissions préparer votre commande.
+                </p>
+
+
               </b-col>
 
               <b-col cols="6">

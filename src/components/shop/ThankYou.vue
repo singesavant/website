@@ -10,6 +10,8 @@
             <b-card-title>Merci {{ user.first_name }}, votre commande est validée !</b-card-title>
             <p>
               Comptez sur nous pour mettre la commande en préparation au plus vite.
+              <br/>
+                            Elle vous sera livrée Mardi ou Vendredi prochain.
             </p>
 
             <b-img src="/images/shop/corona/thumbup.png"></b-img>
