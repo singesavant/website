@@ -15,6 +15,7 @@
       </b-form-select>
 
       <div class="product-qtty" v-if="variant_selected">
+      <b-overlay :show="is_loading" rounded="sm">
         <b-form>
           <b-input-group>
             <b-button @click="qtty_down(variant_selected)">-</b-button>
@@ -23,16 +24,21 @@
           </b-input-group>
           <b-button class="add-to-cart" @click="addOrderableItemToCart(variant_selected)">Ajouter au panier</b-button>
         </b-form>
+        </b-overlay>
       </div>
 
     </div>
 
     <!-- we have no variant -->
+
     <div class="product-qtty" v-else>
-      <b-button class="qtty-modifier">-</b-button>
-      <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="20"/>
-      <b-button class="qtty-modifier">+</b-button>
+      <b-overlay :show="is_loading" rounded="sm">
+        <b-button class="qtty-modifier">-</b-button>
+        <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="20"/>
+        <b-button class="qtty-modifier">+</b-button>
+      </b-overlay>
     </div>
+
     </div>
     </div>
 </template>
@@ -57,7 +63,8 @@ export default {
     return {
       qtty: defaultDict(function () { return 0 }),
       variant_selected_code: null,
-      variant_selected: null
+      variant_selected: null,
+      is_loading: false
     }
   },
   props: [
@@ -114,7 +121,16 @@ export default {
     },
 
     addOrderableItemToCart (item) {
+      this.is_loading = true
       this.$store.dispatch('ADD_ORDERABLE_ITEM_TO_CART', {item: item, quantity: this.qtty[item.name]})
+        .then(() => {
+          this.$bvToast.toast(`${ item['name'] } x ${ this.qtty[item.name] }`, {
+            autoHideDelay: 3000,
+            title: `Ajouté au panier !`,
+            variant: "info"
+          })
+
+        }).finally(() => this.is_loading = false)
     }
   }
 }
