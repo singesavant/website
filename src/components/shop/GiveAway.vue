@@ -93,7 +93,7 @@ export default {
 
       axios.post('/shop/orders/' + this.$route.params.slug + '/giveaway', {'partner_name': data.selected_partner})
         .then(()=> {
-          this.$router.push({'name': 'so-thank-you'})
+          this.$router.push({'name': 'so-thank-you', params: {slug: this.$route.params.slug}})
         })
         .catch(() => {
           alert("ERREUR !")

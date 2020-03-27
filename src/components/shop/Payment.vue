@@ -83,7 +83,7 @@ export default {
     validatePayment:function (checkout_id) {
       axios.post('/shop/orders/' + this.$route.params.slug + '/payment', {'checkout_id': checkout_id})
         .then(() => {
-          this.$router.push({'name': 'so-giveaway'})
+          this.$router.push({'name': 'so-giveaway', params: {slug: this.$route.params.slug}})
         })
 
       this.$store.dispatch('LOAD_CART')
