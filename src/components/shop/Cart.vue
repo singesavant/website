@@ -1,18 +1,26 @@
 //-*- mode: vue; js-indent-level: 2; -*-
 
 <template lang="html">
-  <div v-show="product_count > 0" class="cart" v-if="isAuthenticated" v-on:mouseover="showCartDetail()" v-on:mouseleave="hideCartDetail()">
-    <img class="icon" src="/images/cart.png" alt="cart"/>
+  <div v-show="product_count > 0" class="cart" v-if="isAuthenticated">
+    <a href="#"  @click="toggleCartDetail()">
+      <img class="icon" src="/images/cart.png" alt="cart"/>
+    </a>
 
-    <div class="info">
+    <div class="info" @click="toggleCartDetail()">
       <span class="product_count">{{ product_count }} {{ product_count | pluralize('article') }}</span>
 <!--      <span v-else class="product_count">Votre panier est vide</span> -->
       <span v-show="product_count > 0" class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
     </div>
 
+
     <submit-cart-button :isActive="product_count > 0" v-bind:cart="cart" />
 
     <div v-show="isCartVisible" class="cart-details">
+
+      <a href="#" @click="hideCartDetail()">
+        <b-icon icon="x-circle-fill"/> Fermer
+      </a>
+
       <b-table-simple class="article-lines">
         <b-thead>
           <b-tr>
@@ -61,6 +69,11 @@ export default {
     hideCartDetail: function () {
       this.isCartVisible = false
     },
+
+    toggleCartDetail: function () {
+      this.isCartVisible = !this.isCartVisible
+    },
+
     removeItemFromCart (item) {
       this.$store.dispatch('REMOVE_ORDERABLE_ITEM_FROM_CART', {item: item})
     }
