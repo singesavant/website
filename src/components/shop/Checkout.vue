@@ -126,7 +126,7 @@
                         <!-- Livraison -->
                         <b-tr v-for="tax in sales_order_taxes_filtered" v-bind:key="tax.name">
                           <b-td class="align-middle">
-                            <b-img src="/images/shop/shipping-icon.png" blank-color="#777" rounded alt="Tax Preview"></b-img>
+                            <b-img src="/images/shop/shipping-icon.png" blank-color="#777" width="75px" rounded alt="Tax Preview"></b-img>
                           </b-td>
                           <b-td colspan="2" class="align-middle text-left">
                             {{ tax.description }}
