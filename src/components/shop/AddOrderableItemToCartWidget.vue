@@ -10,7 +10,7 @@
     <div v-else>
     <!-- this item has variants, show them all -->
     <div v-if="item_details.has_variants">
-      <b-form-select @change="variant_updated(variant_selected_code)" v-model="variant_selected_code">
+      <b-form-select @change="variant_updated($event)" v-model="variant_selected_code">
 
         <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" v-bind:class="{ 'soldout': variant.orderable_qty <= 0 }" :disabled="variant.orderable_qty <= 0"><span v-if="variant.orderable_qty <= 0">RUPTURE XXXX </span>{{ variant.name }} <span v-if="variant.orderable_qty > 0">(Stock : {{ variant.orderable_qty }})</span><span v-if="variant.oderable_qty > 0"> - {{ variant.price }}€</span></option>
 
@@ -46,7 +46,8 @@
 </template>
 
 <script lang="js">
-import { mapState } from 'vuex'
+  import { mapState } from 'vuex'
+import _ from 'lodash'
 
 function defaultDict (createValue) {
   return new Proxy(Object.create(null), {
@@ -93,8 +94,8 @@ export default {
         this.$forceUpdate()
       }
     },
-    variant_updated () {
-      this.variant_selected = this.item_details['variants'][0]
+    variant_updated (variant_code) {
+      this.variant_selected = _.find(this.item_details['variants'], {'name': variant_code})
       this.$forceUpdate()
     },
 
