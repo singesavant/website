@@ -2,7 +2,7 @@
 
 <template lang="html">
   <div v-show="product_count > 0" class="cart" v-if="isAuthenticated">
-    <a href="#"  @click="toggleCartDetail()">
+    <a href="#"  @click="toggleCartDetail()" v-b-tooltip.hover title="Afficher votre panier">
       <img class="icon" src="/images/cart.png" alt="cart"/>
     </a>
 
