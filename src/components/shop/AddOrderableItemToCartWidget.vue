@@ -129,7 +129,7 @@ export default {
           this.$bvToast.toast(`${ item['name'] } x ${ this.qtty[item.name] }`, {
             autoHideDelay: 3000,
             title: `Ajouté au panier !`,
-            variant: "info"
+            variant: "secondary"
           })
 
         }).finally(() => this.is_loading = false)

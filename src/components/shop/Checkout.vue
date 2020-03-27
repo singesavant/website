@@ -96,10 +96,12 @@
                 <b-col cols="5" class="order-list">
 
                   <b-card bg-variant="light">
+                    <!--
                     <div class="text-right">
                       <b-icon icon="gear"></b-icon>&nbsp;
-                      <router-link :to="{name: 'shop'}"><em>Modifier mon panier</em></router-link>
+                      <router-link :to="{name: 'shop'}"><em>Retourner aux articles</em></router-link>
                     </div>
+                    -->
 
                     <b-table-simple class="item-list">
                       <b-tr v-for="item in sales_order.items" v-bind:key="item.item_code">

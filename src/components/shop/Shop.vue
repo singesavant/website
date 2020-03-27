@@ -44,7 +44,7 @@
 
                 </p>
 
-                <p><b-icon icon="watch"/>Concernant le délais, nous vous <strong>livrerons les Mardi et Vendredi</strong>. Il vous suffit de commander <strong>24H à l'avance</strong> pour que nous puissions préparer votre commande.
+                <p><b-icon icon="watch"/>&nbsp;Concernant le délais, nous vous <strong>livrerons les Mardi et Vendredi</strong>. Il vous suffit de commander <strong>24H à l'avance</strong> pour que nous puissions préparer votre commande.
                 </p>
 
 
@@ -78,7 +78,7 @@
             <div class="mb-0">
               <b-img left src="/images/shop/corona/laptop.png" blank-color="#ccc" width="100%" alt="sipping"></b-img>
               <p>
-                Le personnel soignant demande de <strong>minimiser les déplacements</strong>, pour nous aider, <strong>évitez de faire des micros commandes</strong>
+                Le personnel soignant demande de <strong>minimiser les déplacements</strong> : pour nous aider, <strong>évitez de faire des micros commandes</strong>
                 <br/>
                 Du coup, on vous <strong>offre la livraison</strong> à partir de 50€ ! <br/>
                 Bon achat et <strong>#KIFFEZ CHEZ VOUS</strong>, la meilleure manière de protéger nos proches !

@@ -2,7 +2,7 @@
 
 <template lang="html">
   <div v-show="product_count > 0" class="cart" v-if="isAuthenticated">
-    <a href="#"  @click="toggleCartDetail()" v-b-tooltip.hover title="Afficher votre panier">
+    <a href="javascript:;"  @click="toggleCartDetail()" v-b-tooltip.hover title="Afficher votre panier">
       <img class="icon" src="/images/cart.png" alt="cart"/>
     </a>
 
@@ -12,12 +12,11 @@
       <span v-show="product_count > 0" class="grand_total">{{ rounded_total|currency('', 2) }}€</span>
     </div>
 
-
     <submit-cart-button :isActive="product_count > 0" v-bind:cart="cart" />
 
-    <div v-show="isCartVisible" class="cart-details">
+    <div v-bind:class="{ deployed: isCartVisible }" class="cart-details">
 
-      <a href="#" @click="hideCartDetail()">
+      <a href="javascript:;" @click="hideCartDetail()">
         <b-icon icon="x-circle-fill"/> Fermer
       </a>
 
@@ -97,6 +96,8 @@ export default {
   },
   mounted: function () {
     this.$store.dispatch('LOAD_CART')
+
+    this.$watch("product_count", () => this.showCartDetail())
   }
 }
 </script>
@@ -148,11 +149,20 @@ export default {
 
 }
 
+
+
 .cart-details {
-    right: 0;
+
+    &.deployed {
+        right:0;
+    }
+
+    right: -30vw;
     top:0;
     margin-top: 7.9vh;
     bottom: 0px;
+
+    max-width: 30vw;
 
     height: 100%;
 
@@ -161,13 +171,14 @@ export default {
     }
 
 
-    position: fixed;
+    position: fixed !important;
 
     padding: 10px;
 
     z-index: 200;
 
-    transition: 1s;
+    transition-timing-function: linear;
+    transition: 0.4s;
 
     background-color: rgba(0, 0, 0, 0.9);
 
