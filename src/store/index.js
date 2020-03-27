@@ -163,6 +163,10 @@ const store = new Vuex.Store({
       axios.get('/auth/logout').then(function () {
         commit('isAuthenticated', {isAuthenticated: false})
       })
+        .catch((error) => {
+          if (error.response.status == 404)
+            commit('isAuthenticated', {isAuthenticated: false})
+        })
     },
     authenticate: function ({ commit }, { provider }) {
       vueAuth.authenticate(provider).then(function () {
