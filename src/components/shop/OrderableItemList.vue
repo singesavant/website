@@ -23,11 +23,7 @@ export default {
   props: {
     item_group: null
   },
-  filters: {
-    erp_static_url (uri) {
-      return 'https://localhost:5000/' + uri
-    }
-  },
+
   mixins: [Vue2Filters.mixin],
   computed:
     mapState({

@@ -19,10 +19,10 @@
 
     <b-row>
       <b-col cols=12 class="info" align="center" align-v="bottom">
-        <h3 v-if="isAuthenticated">{{ item.name }}</h3>
+        <h3 v-if="isAuthenticated" v-b-tooltip.hover title="Cliquez pour découvrir la recette"><router-link :to="{'name': 'beer-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
         <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
         <add-orderable-item-to-cart-widget :item="item" v-if="isAuthenticated"/>
-        <span v-else>Connectez vous pour commander</span>
+        <span v-else><strong>[Connectez vous pour commander]</strong></span>
       </b-col>
     </b-row>
 </div>
@@ -91,6 +91,12 @@ export default {
 
 li.item {
     z-index: 3;
+
+    a {
+        color: white !important;
+        text-decoration: none;
+    }
+
 
     .info {
         z-index: 3;

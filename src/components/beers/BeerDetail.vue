@@ -77,15 +77,15 @@
               <div class="caract-section" v-if="website_specifications.hops">
                 <h2 class="beer-subtitle">Houblons</h2>
                 <ul class="hop-list">
-                  <li class="hop" v-bind:key="hop.name" v-for="hop in website_specifications.hops.split(',')">{{ hop }}</li>
+                  <li class="hop" :key="index" :index="index" v-for="(hop, index) in website_specifications.hops.split(',')">{{ hop }}</li>
                 </ul>
               </div>
 
               <div class="caract-section" v-if="website_specifications.ibu">
                 <h2 class="beer-subtitle">Amertume</h2>
                 <ul class="ibus" id="ibu-container">
-                  <li v-bind:key="n" v-for="n in get_ibus" class="bullet ibu-bullet"></li>
-                  <li v-bind:key="n" v-for="n in get_missing_ibus" class="bullet no-ibu-bullet"></li>
+                  <li :key="index" :index="index" v-for="(n, index) in get_ibus" class="bullet ibu-bullet"></li>
+                  <li :key="index" :index="index" v-for="(n, index) in get_missing_ibus" class="bullet no-ibu-bullet"></li>
                 </ul>
 
                 <b-tooltip target="ibu-container" placement="bottom">
