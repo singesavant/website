@@ -22,7 +22,7 @@
             <b-input @change="check_qtty_input(variant_selected)" type="number" v-model="qtty[variant_selected.name]" :value="0" min="0" :max="variant_selected.orderable_qty"/>
             <b-button @click="qtty_up(variant_selected)">+</b-button>
           </b-input-group>
-          <b-button class="add-to-cart" @click="addOrderableItemToCart(variant_selected)">Ajouter au panier</b-button>
+          <b-button variant="primary" class="add-to-cart" @click="addOrderableItemToCart(variant_selected)">Ajouter au panier</b-button>
         </b-form>
         </b-overlay>
       </div>
