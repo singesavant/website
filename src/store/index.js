@@ -11,12 +11,12 @@ Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 
 const vueAuth = VueAuthenticate.factory(Vue.prototype.$http, {
-  baseUrl: 'https://www-staging.singe-savant.com/',
+  baseUrl: process.env.VUE_APP_GAUTH_RETURN_URI,
 
   providers: {
     google: {
       clientId: '554963395859-rlie9i8k2th26gr1rk107d17b4fafils.apps.googleusercontent.com',
-      redirectUri: 'https://www-staging.singe-savant.com/', // Your client app URL
+      redirectUri: process.env.VUE_APP_GAUTH_RETURN_URI, // Your client app URL
       url: 'https://www.googleapis.com',
       scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
       responseType: 'token'

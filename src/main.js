@@ -46,7 +46,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 })
 
-axios.defaults.baseURL = 'http://localhost:5000/v0.1'
+axios.defaults.baseURL = process.env.VUE_APP_API_REST_SERVER
 axios.defaults.withCredentials = true
 
 /* eslint-disable no-new */
