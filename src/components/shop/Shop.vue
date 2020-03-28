@@ -12,14 +12,14 @@
     <!-- product list -->
     <div id="products">
       <b-row no-gutters class="product-list-container justify-content-md-center">
-        <b-col cols="10">
+        <b-col sm="12" md="10">
           <b-alert show variant="dark" dismissible fade>
             <h4 class="alert-heading">Livraison : COVID-19 & LOVE MONEY</h4>
             <p>
               <em>En ces temps de singe maigre, merci d'être toujours avec nous les monkeys !</em>
             </p>
             <b-row>
-              <b-col cols="6">
+              <b-col sm="12" md="6">
                 <p>
                   <b-img left src="/images/shop/corona/crocrovirus.png" blank-color="#ccc" width="100%" alt="bouteilles"></b-img>
                   Comme vous le savez, nous avons choisi de <strong>fermer la boutique physique</strong> dès le début d'épidémie du <em>COVID</em> pour éviter de contribuer à la propagation.
@@ -50,7 +50,7 @@
 
               </b-col>
 
-              <b-col cols="6">
+              <b-col sm="12" md="6">
                 <p>
                   <b-img left src="/images/shop/corona/bouteille3.png" blank-color="#ccc" width="100%" alt="bouteilles"></b-img>
                   Vous le savez, la plupart de <strong>vos lieux préférés sont fermés</strong> en ce moment. Malgré les mesures financières annoncées par le gouvernement, c'est un <strong>moment extrêmement difficile</strong> pour les bars, restaurants et autres indépendants.
@@ -78,7 +78,7 @@
             <div class="mb-0">
               <b-img left src="/images/shop/corona/laptop.png" blank-color="#ccc" width="100%" alt="sipping"></b-img>
               <p>
-                Le personnel soignant demande de <strong>minimiser les déplacements</strong> : pour nous aider, <strong>évitez de faire des micros commandes</strong>
+                Le personnel soignant demande de <strong>minimiser les déplacements</strong> : pour nous aider, <strong>évitez de faire des micros commandes</strong>.
                 <br/>
                 Du coup, on vous <strong>offre la livraison</strong> à partir de 50€ ! <br/>
                 Bon achat et <strong>#KIFFEZ CHEZ VOUS</strong>, la meilleure manière de protéger nos proches !

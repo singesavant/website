@@ -1,11 +1,11 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <li class="item">
+  <li class="item" v-if="in_stock">
     <div :class="{ flipped: isFlipped }">
-    <b-row>
+    <b-row no-gutters align-h="center">
 
       <!-- illustration -->
-      <b-col cols=12 class="illustration">
+      <b-col sm="12" lg="12" class="illustration">
         <div class="bottles">
           <div class="bottle front">
             <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
@@ -14,11 +14,10 @@
           </div>
         </div>
       </b-col>
-
     </b-row>
 
-    <b-row>
-      <b-col cols=12 class="info" align="center" align-v="bottom">
+    <b-row no-gutters align-h="center">
+      <b-col sm="12" lg="12" class="info" align="center" align-v="bottom">
         <h3 v-if="isAuthenticated" v-b-tooltip.hover title="Cliquez pour découvrir la recette"><router-link :to="{'name': 'beer-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
         <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
         <add-orderable-item-to-cart-widget :item="item" v-if="isAuthenticated"/>
@@ -112,6 +111,7 @@ li.item {
         }
 
     }
+
 
     .illustration {
         position: relative;

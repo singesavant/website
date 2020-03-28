@@ -7,8 +7,8 @@
     </b-modal>
 
 
-    <b-row class="justify-content-md-center">
-      <b-col cols="10">
+    <b-row class="justify-content-md-center" align-h="center">
+      <b-col sm="12" md="10">
 
               <b-overlay :show="is_loading" rounded="sm">
         <b-card border-variant="light" header="Vérification de commande" class="text-center" >
@@ -18,7 +18,7 @@
 
 
                 <!-- Shipping -->
-                <b-col cols="6">
+                <b-col sm="12" md="6">
                   <ValidationObserver v-slot="{ invalid }">
                   <b-form id="shipping-info-form" @submit.prevent="onSubmit">
                     <b-form-group id="input-group-2" label="Pour qui ?" label-for="input-2">
@@ -93,7 +93,7 @@
                 </b-col>
 
                 <!-- Order summary -->
-                <b-col cols="5" class="order-list">
+                <b-col sm="12" md="5" class="order-list">
 
                   <b-card bg-variant="light">
                     <!--

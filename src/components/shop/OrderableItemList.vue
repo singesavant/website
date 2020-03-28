@@ -2,7 +2,7 @@
 <template lang="html">
   <ul class="item-list">
     <b-row class="orderable-item-container justify-content-md-center">
-      <b-col sm=3 v-for="item in orderBy(items, 'name')" :key="item.name">
+      <b-col sm="6" md="3" v-for="item in orderBy(items, 'name')" :key="item.name">
         <beer-item :item="item"></beer-item>
       </b-col>
     </b-row>
