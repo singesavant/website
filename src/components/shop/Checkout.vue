@@ -64,7 +64,7 @@
 
                       <b-input-group>
                         <b-form-input v-model="address.pincode" id="input-zipcode" readonly required></b-form-input>
-                        <b-form-input v-model="address.city" id="input-city" readonly required></b-form-input>
+                        <b-form-input v-b-tooltip.hover title="Nous livraison uniquement sur LILLE pour le moment, désolé !" v-model="address.city" id="input-city" readonly required></b-form-input>
                       </b-input-group>
 
                     </b-form-group>
