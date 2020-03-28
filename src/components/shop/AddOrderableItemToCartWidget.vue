@@ -13,7 +13,7 @@
       <b-form-select @change="variant_updated($event)" v-model="variant_selected_code">
         <option value="null">&darr;&nbsp;Choisissez votre format</option>
 
-        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" v-bind:class="{ 'soldout': variant.orderable_qty <= 0 }" :disabled="variant.orderable_qty <= 0"><span v-if="variant.orderable_qty <= 0">RUPTURE XXXX </span>{{ variant.name }} <span v-if="variant.orderable_qty > 0">(Stock : {{ variant.orderable_qty }})</span><span v-if="variant.oderable_qty > 0"> - {{ variant.price }}€</span></option>
+        <option :value="variant.code" v-for="variant in item_details.variants" :key="variant.code" v-bind:class="{ 'soldout': variant.orderable_qty <= 0 }" :disabled="variant.orderable_qty <= 0"><span v-if="variant.orderable_qty <= 0">RUPTURE XXXX </span>{{ variant.name }} <span v-if="variant.orderable_qty > 0">(Stock : {{ variant.orderable_qty }})</span><span v-if="variant.orderable_qty > 0"> - {{ variant.price }}€</span></option>
 
       </b-form-select>
 

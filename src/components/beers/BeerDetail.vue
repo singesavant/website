@@ -110,7 +110,7 @@
           <b-button id="go-to-shop" variant="secondary" >Accéder au shop</b-button>
         </router-link>
 
-        <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p>
+        <!-- <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p> -->
       </b-col>
     </b-row>
 
