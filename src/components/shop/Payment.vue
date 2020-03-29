@@ -52,8 +52,8 @@ var data = {
   hide_acs_form: false,
 
   cardData: {
-     cardName: 'Guillaume Libersat',
-     cardNumber: '4978 7416 6466 8935',
+     cardName: '',
+     cardNumber: '',
      cardMonth: null,
      cardYear: null,
      cardCvv: ''
