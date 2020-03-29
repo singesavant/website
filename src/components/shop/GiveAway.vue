@@ -17,7 +17,7 @@
 
             <b-img src="/images/shop/corona/bouteille1.png" style="float: left;"/>
             <b-row class="justify-content-md-center">
-              <b-form @submit="submit_giveaway">
+              <b-form action="#" @submit="submit_giveaway">
 
                 <b-form-group>
                   <p>
