@@ -30,11 +30,11 @@ import CardForm from '../CardForm.vue'
 
 var data = {
    cardData: {
-     cardName: 'Bob Robert',
-     cardNumber: '4111111111111111',
-     cardMonth: '11',
-     cardYear: '2022',
-     cardCvv: '938'
+     cardName: '',
+     cardNumber: '',
+     cardMonth: '',
+     cardYear: '',
+     cardCvv: ''
   },
   checkout: null,
   is_loading: false,
