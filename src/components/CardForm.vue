@@ -11,7 +11,7 @@
     </div>
     <div class="card-form__inner">
       <div class="card-input">
-        <label for="cardNumber" class="card-input__label">Card Number</label>
+        <label for="cardNumber" class="card-input__label">Numéro de carte</label>
         <input
           type="tel"
           :id="fields.cardNumber"
@@ -36,7 +36,7 @@
         -->
       </div>
       <div class="card-input">
-        <label for="cardName" class="card-input__label">Card Name</label>
+        <label for="cardName" class="card-input__label">Nom du porteur</label>
         <input
           type="text"
           :id="fields.cardName"
@@ -51,7 +51,7 @@
       <div class="card-form__row">
         <div class="card-form__col">
           <div class="card-form__group">
-            <label for="cardMonth" class="card-input__label">Expiration Date</label>
+            <label for="cardMonth" class="card-input__label">Date d'expiration</label>
             <select
               class="card-input__input -select"
               :id="fields.cardMonth"
@@ -59,7 +59,7 @@
               @change="changeMonth"
               data-card-field
             >
-              <option value disabled selected>Month</option>
+              <option value disabled selected>Mois</option>
               <option
                 v-bind:value="n < 10 ? '0' + n : n"
                 v-for="n in 12"
@@ -74,7 +74,7 @@
               @change="changeYear"
               data-card-field
             >
-              <option value disabled selected>Year</option>
+              <option value disabled selected>Année</option>
               <option
                 v-bind:value="$index + minCardYear"
                 v-for="(n, $index) in 12"
