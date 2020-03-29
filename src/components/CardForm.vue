@@ -101,7 +101,7 @@
         </div>
       </div>
 
-      <button type="submit" class="card-form__button">Payer !</button>
+      <b-button variant="primary" type="submit" class="card-form__button">Payer !</b-button>
     </div>
   </div>
 </template>

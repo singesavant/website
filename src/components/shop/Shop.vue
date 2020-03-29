@@ -44,7 +44,7 @@
 
                 </p>
 
-                <p><b-icon icon="watch"/>&nbsp;Concernant le délais, nous vous <strong>livrerons les Mardi et Vendredi</strong>. Il vous suffit de commander <strong>24H à l'avance</strong> pour que nous puissions préparer votre commande. Livraison sur <strong>LILLE UNIQUEMENT</strong> pour le moment !
+                <p><b-icon icon="watch"/>&nbsp;Concernant le délai, nous vous <strong>livrerons les Mardi et Vendredi</strong>. Il vous suffit de commander <strong>24H à l'avance</strong> pour que nous puissions préparer votre commande. Livraison sur <strong>LILLE UNIQUEMENT</strong> pour le moment !
                 </p>
 
 
