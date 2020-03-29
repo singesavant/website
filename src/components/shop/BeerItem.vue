@@ -1,6 +1,6 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <li class="item" v-if="in_stock">
+  <li class="item">
     <div :class="{ flipped: isFlipped }">
     <b-row no-gutters align-h="center">
 

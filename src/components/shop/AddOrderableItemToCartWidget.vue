@@ -81,6 +81,7 @@ export default {
   }),
   mounted: function () {
     this.$store.dispatch('LOAD_ORDERABLE_ITEM_DETAILS', {item: this.item})
+    .then(() => this.$forceUpdate())
   },
   methods: {
     qtty_down (item) {

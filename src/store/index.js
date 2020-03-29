@@ -213,7 +213,7 @@ const store = new Vuex.Store({
       state.cart = cart
     },
     SET_ORDERABLE_ITEM_DETAILS: (state, { itemDetails }) => {
-      state.orderable_item_details[itemDetails['name']] = itemDetails
+      Vue.set(state.orderable_item_details, itemDetails['name'], itemDetails)
     },
     isAuthenticated (state, payload) {
       state.isAuthenticated = payload.isAuthenticated
