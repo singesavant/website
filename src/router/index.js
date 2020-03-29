@@ -20,6 +20,7 @@ import ThankYou from '@/components/shop/ThankYou'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       name: 'home',

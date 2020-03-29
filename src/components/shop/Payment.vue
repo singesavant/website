@@ -4,11 +4,11 @@
 
 
     <b-modal size="xl"  centered @show="onACSModalShow" id="payment-acs-modal" title="Vérification ACS" hide-footer>
-      <b-form v-show="!hide_acs_form" ref="acsform" name="triggerACSForm" :action="acs.url" target="acs-frame" method="POST">
+      <b-form v-show="!hide_acs_form" @submit="start_acs" ref="acsform" name="triggerACSForm" :action="acs.url" target="acs-frame" method="POST">
         <input type="hidden" name="PaReq" :value="acs.pa_req"/>
         <input type="hidden" name="TermUrl" :value="acs.term_url"/>
         <input type="hidden" name="MD" :value="acs.md" />
-        <b-button variant="primary" @click="start_acs" type="submit"><b-icon icon="check-circle"/>&nbsp;Cliquez pour démarrer la vérification avec votre banque</b-button>
+        <b-button variant="primary" type="submit"><b-icon icon="check-circle"/>&nbsp;Cliquez pour démarrer la vérification avec votre banque</b-button>
       </b-form>
 
       <b-embed ref="acsframe" name="acs-frame" type="iframe"></b-embed>
@@ -27,7 +27,7 @@
       <b-button class="mt-3" block @click="$bvModal.hide('payment-error-modal')">OK</b-button>
     </b-modal>
 
-  <form @submit="submit_payment">          
+  <form @submit="submit_payment">
       <card-form :form-data="cardData" isCardNumberMasked=""/>
     </form>
   </b-overlay>
