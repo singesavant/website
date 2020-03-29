@@ -27,7 +27,7 @@
       <b-button class="mt-3" block @click="$bvModal.hide('payment-error-modal')">OK</b-button>
     </b-modal>
 
-  <form @submit="submit_payment">
+  <form action="#" @submit="submit_payment">
       <card-form :form-data="cardData" isCardNumberMasked=""/>
     </form>
   </b-overlay>
