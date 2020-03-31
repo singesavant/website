@@ -230,11 +230,20 @@ export default {
 
   computed: {
     sales_order_taxes_filtered () {
-      return _.filter(data.sales_order.taxes, {'description': 'Livraison'})
+      return _.filter(data.sales_order.taxes, {'description': 'Livraison Centre Lille'})
     },
     ...mapState({
     })
   },
+
+  watch: {
+    '$route.params.slug': function (slug) {
+      axios.get('/shop/orders/' + slug)
+        .then((response) => {
+          this.sales_order  = response.data
+        })
+      }
+    },
 
   mounted: function () {
     axios.get('/shop/orders/' + this.$route.params.slug)
@@ -261,11 +270,41 @@ export default {
 
         axios.post('/customer/contact', data.contact).then(() => {
 
-          // go to checkout!
-          //this.$router.replace({name: 'so-payment', params: {slug: data.sales_order.name}})
-          this.$bvModal.show('payment-modal')
+          // make sure we have enough in stock
+          axios.get('/shop/orders/' + data.sales_order.name + '?update_qttys=True').then(() => {
+            // go to checkout!
+            this.$bvModal.show('payment-modal')
+           })
+            .catch((error) => {
+              // Conflict: cart partly updated
+              if (error.response.status == 409)
+              {
+                axios.get('/shop/orders/' + data.sales_order.name)
+                  .then((response) => {
+                    this.sales_order  = response.data
 
-          data.is_processing = false
+                    this.$bvToast.toast("Il y a eu des commandes entre temps et les stocks ont changé : nous avons mis à jour votre panier en conséquence !", {
+                      autoHideDelay: 5000,
+                      title: "Mise à jour du panier",
+                      variant: "warning"
+                    })
+
+                  })
+                  .catch(() => data.sales_order = null )
+              }
+              // Gone: no more article in stock
+              else if (error.response.status == 410)
+              {
+                alert('Désolé, votre panier a expiré !')
+                this.$router.push({name: 'shop'})
+              }
+            })
+            .finally(() => {
+              this.$store.dispatch('LOAD_CART')
+              data.is_processing = false
+            })
+
+
 
 
         }, (err) => {

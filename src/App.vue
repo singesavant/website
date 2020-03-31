@@ -16,7 +16,7 @@
           </transition>
 
           <transition name="fade" mode="out-in" appear>
-              <router-view></router-view>
+              <router-view :key="$route.fullPath"></router-view>
           </transition>
       </div>
 
