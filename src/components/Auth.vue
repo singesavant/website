@@ -14,7 +14,7 @@
         <b-button v-b-tooltip.hover title="Déconnexion" variant="dark" @click="logout()"><b-icon icon="power"></b-icon></b-button>
     </div>
     <div class="auth" v-else>
-      <b-button v-b-tooltip.hover title="via Google. Les autres moyens arrivent bientôt !" variant="primary" @click="authenticate('google')">Se Connecter</b-button>
+      <b-button v-b-tooltip.hover title="via Google. Les autres moyens arrivent bientôt !" variant="primary" @click.prevent="authenticate('google')">Se Connecter</b-button>
     </div>
   </div>
 </template>
