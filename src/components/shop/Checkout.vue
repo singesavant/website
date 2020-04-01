@@ -50,6 +50,7 @@
 
                     </b-form-group>
 
+                    <!-- Address -->
                     <b-form-group id="input-group-2" label="Où ?" label-for="input-2">
                       <b-input-group>
                         <b-input-group-prepend is-text>
@@ -63,8 +64,14 @@
                       <b-form-input v-model="address.address_line2" id="input-2" placeholder="Appt, étage, ... (optionnel)"></b-form-input>
 
                       <b-input-group>
-                        <b-form-input v-model="address.pincode" id="input-zipcode" readonly required></b-form-input>
-                        <b-form-input v-b-tooltip.hover title="Nous livraison uniquement sur LILLE pour le moment, désolé !" v-model="address.city" id="input-city" readonly required></b-form-input>
+                        <b-form-select v-model="city_selected" :options="city_select_options" required>
+                          <template v-slot:first>
+                            <b-form-select-option :value="null" disabled>-- Choisissez votre Ville --</b-form-select-option>
+                          </template>
+
+                          <b-form-select-option disabled>Pas dans la liste ? Contactez-nous pour négocier ;-)</b-form-select-option>
+
+                        </b-form-select>
                       </b-input-group>
 
                     </b-form-group>
@@ -193,9 +200,24 @@ var data = {
 
   // Address
   address: {
-    city: 'Lille',
-    pincode: 59000
+    address_line1: '',
+    address_line2: ''
   },
+
+  city_selected: null,
+
+  city_select_options: [
+    {text: 'Faches-Thumesnil', value: {pincode: '59155', city: 'Faches-Thumesnil'}},
+    {text: 'Hellemmes-Lille', value: {pincode: '59260', city: 'Hellemmes-Lille'}},
+    {text: 'La Madeleine', value: {pincode: '59110', city: 'La Madeleine'}},
+    {text: 'Lambersart', value: {pincode: '59130', city: 'Lambersart'}},
+    {text: 'Lille', value: {city: 'Lille', 'pincode': '59000'}},
+    {text: 'Lommes', value: {pincode: '59160', city: 'Lommes'}},
+    {text: 'Loos', value: {pincode: '59120', city: 'Loos'}},
+    {text: 'Mons-en-Baroeul', value: {pincode: '59370', city: 'Mons-en-Baroeul'}},
+    {text: 'Ronchin', value: {pincode: '59790', city: 'Ronchin'}},
+    {text: 'Saint-André-lez-Lille', value: {pincode: '59350', city: 'Saint-André-lez-Lille'}}
+  ],
 
   // Contact
   contact: {
@@ -256,7 +278,13 @@ export default {
 
     // XXX 'Lille' Hardcoded!
     axios.get('/customer/address')
-      .then((response) => { data.address = response.data; data.address.city = 'Lille'; data.address.pincode = 59000 })
+      .then((response) => {
+        data.address = response.data
+        if (response.data.city && response.data.pincode) {
+          this.city_selected = {'city': response.data.city, 'pincode': response.data.pincode}
+          }
+        console.debug(this.city_selected)
+      })
 
     axios.get('/customer/contact')
       .then((response) => { data.contact = response.data })
@@ -265,6 +293,9 @@ export default {
   methods: {
     onSubmit: function () {
       data.is_processing = true
+
+      data.address.city = data.city_selected.city
+      data.address.pincode = data.city_selected.pincode
 
       axios.post('/customer/address', data.address).then(() => {
 
