@@ -283,7 +283,6 @@ export default {
         if (response.data.city && response.data.pincode) {
           this.city_selected = {'city': response.data.city, 'pincode': response.data.pincode}
           }
-        console.debug(this.city_selected)
       })
 
     axios.get('/customer/contact')
