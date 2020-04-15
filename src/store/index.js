@@ -25,10 +25,10 @@ const vueAuth = VueAuthenticate.factory(Vue.prototype.$http, {
 })
 
 const store = new Vuex.Store({
-  plugins: [createPersistedState()],
+  plugins: [createPersistedState({paths:['user', 'isAuthenticated', 'userProfile', 'cart']})],
 
   state: {
-    orderable_items: [],
+    orderable_items: {},
     orderable_item_details: {},
     sales_orders: [],
     malt_items: [],
@@ -73,7 +73,7 @@ const store = new Vuex.Store({
     LOAD_ORDERABLE_ITEM_LIST: function ({ commit }, { item_group }) {
       axios.get('/shop/items/',
                 { params: {item_group: item_group} }).then((response) => {
-                  commit('SET_ORDERABLE_ITEM_LIST', { list: response.data })
+                  commit('SET_ORDERABLE_ITEM_LIST', { item_group: item_group, list: response.data })
                 }, () => {
                   // console.log(err)
                 })
@@ -189,8 +189,8 @@ const store = new Vuex.Store({
       state.current_beer_details = details
     },
 
-    SET_ORDERABLE_ITEM_LIST: (state, { list }) => {
-      state.orderable_items = list
+    SET_ORDERABLE_ITEM_LIST: (state, { item_group, list }) => {
+      Vue.set(state.orderable_items, item_group, list)
     },
 
     SET_SALESORDER_LIST: (state, { list }) => {
@@ -223,6 +223,9 @@ const store = new Vuex.Store({
   getters: {
     isAuthenticated: function () {
       return vueAuth.isAuthenticated()
+    },
+    getOrderableListByGroup: (state) => (group) => {
+      return state.orderable_items[group]
     }
   }
 })

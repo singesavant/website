@@ -2,8 +2,10 @@
 <template lang="html">
   <ul class="item-list">
     <b-row class="orderable-item-container justify-content-md-center">
-      <b-col sm="6" md="3" v-for="item in orderBy(items, 'name')" :key="item.name">
-        <beer-item :item="item"></beer-item>
+      <b-col sm="6" md="3" v-for="item in orderBy(getOrderableListByGroup(item_group), 'name')" :key="item.name">
+        <slot :item="item">
+          <item :item="item"/>
+        </slot>
       </b-col>
     </b-row>
   </ul>
@@ -11,14 +13,14 @@
 </template>
 
 <script lang="js">
-import { mapState } from 'vuex'
-import BeerItem from './BeerItem'
+import { mapGetters } from 'vuex'
+import Item from './Item'
 import Vue2Filters from 'vue2-filters'
 
 export default {
   name: 'orderableItemList',
   components: {
-    BeerItem
+    Item
   },
   props: {
     item_group: null
@@ -26,9 +28,9 @@ export default {
 
   mixins: [Vue2Filters.mixin],
   computed:
-    mapState({
-      items: 'orderable_items'
-    }),
+  mapGetters([
+    'getOrderableListByGroup'
+    ]),
   mounted: function () {
     this.$store.dispatch('LOAD_ORDERABLE_ITEM_LIST', { item_group: this.item_group })
   }

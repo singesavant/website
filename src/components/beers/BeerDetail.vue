@@ -1,6 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-  <div class="product">
+  <b-overlay :show="is_loading" rounded="sm">
+  <div class="product" v-if="!is_loading && beer">
     <beer-header :title="beer.name"></beer-header>
 
     <b-row class="badge-header" align-h="center">
@@ -10,10 +11,19 @@
     </b-row>
 
     <b-row class="about" align-h="center">
+
       <b-col sm="4" class="left">
         <div class="text">
           <h2  class="beer-subtitle">Qu'est ce que ?</h2>
           <p class="description" v-html='beer.website_long_description_html'></p>
+
+        <b-row align-h="center" v-if="isAuthenticated">
+          <b-col align="left" align-v="bottom" cols="12">
+            <h2 class="beer-subtitle"><b-icon icon="bucket"/>&nbsp;Commander en ligne</h2>
+            <add-orderable-item-to-cart-widget :item="beer" />
+          </b-col>
+        </b-row>
+
         </div>
       </b-col>
       <b-col class="right" sm="4">
@@ -77,15 +87,15 @@
               <div class="caract-section" v-if="website_specifications.hops">
                 <h2 class="beer-subtitle">Houblons</h2>
                 <ul class="hop-list">
-                  <li class="hop" :key="index" :index="index" v-for="(hop, index) in website_specifications.hops.split(',')">{{ hop }}</li>
+                  <li class="hop" :key="hop.name" :index="index" v-for="(hop, index) in website_specifications.hops.split(',')">{{ hop }}</li>
                 </ul>
               </div>
 
               <div class="caract-section" v-if="website_specifications.ibu">
                 <h2 class="beer-subtitle">Amertume</h2>
                 <ul class="ibus" id="ibu-container">
-                  <li :key="index" :index="index" v-for="(n, index) in get_ibus" class="bullet ibu-bullet"></li>
-                  <li :key="index" :index="index" v-for="(n, index) in get_missing_ibus" class="bullet no-ibu-bullet"></li>
+                  <li :key="`ibu`+index" :index="index" v-for="(n, index) in get_ibus" class="bullet ibu-bullet"></li>
+                  <li :key="`remainibu`+index" :index="index" v-for="(n, index) in get_missing_ibus" class="bullet no-ibu-bullet"></li>
                 </ul>
 
                 <b-tooltip target="ibu-container" placement="bottom">
@@ -105,9 +115,9 @@
 
     <b-row class="buy" align-h="center">
       <b-col cols="8">
-        Commandez en ligne<br/> et faîtes vous livrer en véhicule électrique !<br/>
+        Commandez en ligne,<br/> nous vous livrons en MonkeyMobile électrique !<br/>
         <router-link :to="{name: 'shop'}">
-          <b-button id="go-to-shop" variant="secondary" >Accéder au shop</b-button>
+          <b-button id="go-to-shop" variant="primary" >Go Shop !</b-button>
         </router-link>
 
         <!-- <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p> -->
@@ -140,6 +150,7 @@
     <monkey-footer/>
 
   </div>
+  </b-overlay>
 </template>
 
 <script lang="js">
@@ -153,6 +164,7 @@ Vue.use(VueLodash, lodash)
 import BeerHeader from './Header.vue'
 import BeerCard from './BeerCard.vue'
 import MonkeyFooter from '../Footer.vue'
+import AddOrderableItemToCartWidget from '../shop/AddOrderableItemToCartWidget.vue'
 import _ from 'lodash'
 
 export default {
@@ -193,11 +205,14 @@ export default {
   components: {
     BeerHeader,
     BeerCard,
-    MonkeyFooter
+    MonkeyFooter,
+    AddOrderableItemToCartWidget
   },
 
   data: function () {
-    return {}
+    return {
+      is_loading: false
+    }
   },
   watch: {
     // call again the method if the route changes
@@ -212,7 +227,12 @@ export default {
   },
   methods: {
     fetchData: function () {
+      this.is_loading = true
       this.$store.dispatch('LOAD_BEER_DETAILS', {slug: this.$route.params.slug})
+        .then(() =>
+              this.is_loading = false
+        )
+
     }
   },
   filters: {

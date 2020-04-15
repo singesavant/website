@@ -13,8 +13,13 @@
     <div id="products">
       <b-row no-gutters class="product-list-container justify-content-md-center">
         <b-col sm="12" md="10">
+          <b-alert show v-if="check_browser()" variant="danger" dismissible fade>
+            <h4>Attention ! Votre navigateur risque de ne pas fonctionner avec notre Shop, désolé ! Merci d'utiliser Firefox ou Chrome.</h4>
+          </b-alert>
+
           <b-alert show variant="dark" dismissible fade>
             <h4 class="alert-heading">Livraison : COVID-19 & LOVE MONEY</h4>
+
             <p>
               <em>En ces temps de singe maigre, merci d'être toujours avec nous les monkeys !</em>
             </p>
@@ -90,18 +95,35 @@
           </b-alert>
 
 
-          <orderable-item-list item_group="Bières du Singe"/>
+          <orderable-item-list item_group="Bières du Singe">
+            <template #default="{ item }">
+              <beer-item :item="item"></beer-item>
+            </template>
+          </orderable-item-list>
+
 
         </b-col>
       </b-row>
+
+
+      <b-row no-gutters class="product-list-container justify-content-md-center">
+        <b-col sm="10" md="10" class="product-friends">
+          <h2 class="orderable-category"><b-icon icon="star"/>&nbsp;Le shop des potes</h2>
+          <em>Du made in local, avec les mêmes valeurs que nous, sur d'autres thématiques !</em>
+          <orderable-item-list item_group="Merchandising"/>
+        </b-col>
+      </b-row>
+
     </div>
 
   </div>
 </template>
 
 <script lang="js">
-import orderableItemList from './OrderableItemList'
+  import orderableItemList from './OrderableItemList'
+import BeerItem from './BeerItem'
 import { mapState } from 'vuex'
+
 
 
 var data = {
@@ -113,6 +135,7 @@ export default {
 
   components: {
     orderableItemList,
+    BeerItem
   },
   data: function () {
     return data
@@ -125,6 +148,14 @@ export default {
     login () {
       this.$store.dispatch('login')
     },
+
+    check_browser() {
+      return (this.$browserDetect.isSafari
+               || this.$browserDetect.isOpera
+              || this.$browserDetect.isEdge
+              || this.$browserDetect.isIE)
+    },
+
 
     toggleFlickering () {
       this.isFlickering = !this.isFlickering
@@ -149,6 +180,10 @@ export default {
 .shop {
     font-weight: 300;
 
+
+    h2.orderable-category {
+        color: white;
+    }
 
 
     p.lettrine::first-letter {
@@ -181,7 +216,29 @@ export default {
 
     .product-list-container {
         z-index: 3;
-     }
+
+    }
+
+    .product-friends {
+        h2 {
+            color: black !important;
+            font-variant: small-caps;
+        }
+
+        li.item > a {
+            color: black !important;
+        }
+
+
+        z-index: 10;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        padding: 4vh;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        border: 2px solid #555;
+    }
+
 
     .neon {
         background: url('/images/shop/shop_light.png'), url('/images/shop/shop_cross.png');

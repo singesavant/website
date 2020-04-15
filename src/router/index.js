@@ -11,6 +11,7 @@ import Contact from '@/components/Come'
 import TheBrewery from '@/components/TheBrewery'
 import Recycle from '@/components/Recycle'
 import BeerDetail from '@/components/beers/BeerDetail'
+import ItemDetail from '@/components/beers/ItemDetail'
 import BeerList from '@/components/beers/BeerList'
 import DealerList from '@/components/dealers/DealerList'
 import SalesOrderList from '@/components/shop/preOrderList'
@@ -107,6 +108,13 @@ export default new Router({
       name: 'beer-list',
       components: {
         'default': BeerList
+      }
+    },
+    {
+      path: '/i/:slug',
+      name: 'item-detail',
+      components: {
+        'default': ItemDetail
       }
     },
     {

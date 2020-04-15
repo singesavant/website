@@ -12,6 +12,7 @@ import Menubar from '@/components/Menubar'
 import Vue2Filters from 'vue2-filters'
 import VueAnalytics from 'vue-analytics'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import browserDetect from "vue-browser-detect-plugin";
 
 
 import VueLodash from 'vue-lodash'
@@ -27,6 +28,7 @@ Vue.use(VueLodash, { name: 'custom' , lodash: lodash })
 Vue.use(Vue2Filters)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(browserDetect)
 
 Vue.use(VueAnalytics, {
   id: 'UA-75870516-1',

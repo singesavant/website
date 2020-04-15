@@ -23,6 +23,7 @@
     "vue-analytics": "^5.22.1",
     "vue-authenticate": "^1.4.1",
     "vue-axios": "^2.1.5",
+    "vue-browser-detect-plugin": "^0.1.8",
     "vue-dplayer": "^0.0.10",
     "vue-interactive-paycard": "^1.0.0",
     "vue-lodash": "^2.1.2",

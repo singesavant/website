@@ -3,7 +3,8 @@
   <div class="product-list">
     <beer-header title-img="/images/home/beers_text.png" nolink></beer-header>
 
-    <b-row align-h="center">
+    <b-overlay :show="is_loading">
+      <b-row align-h="center">
       <b-col cols="8">
         <b-row align-h="center" class="available-beers">
           <b-col>
@@ -31,6 +32,9 @@
         </b-row>
       </b-col>
     </b-row>
+
+    </b-overlay>
+
 
     <monkey-footer/>
 
@@ -62,6 +66,7 @@ import MonkeyFooter from '../Footer'
 import Vue2Filters from 'vue2-filters'
 
 var data = {
+  is_loading: false
 }
 
 export default {
@@ -93,7 +98,11 @@ export default {
     return data
   },
   mounted: function () {
+    this.is_loading = true
     this.$store.dispatch('LOAD_BEER_LIST')
+      .then(() =>
+            this.is_loading = false
+           )
   },
   methods: {
   }
