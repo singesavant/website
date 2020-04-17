@@ -31,7 +31,7 @@
         </b-thead>
         <b-tbody>
           <b-tr v-for="item in cart.items" v-bind:key="item.product.name">
-            <b-td>{{item.product.name}}</b-td>
+            <b-td class="product-name">{{item.product.name}}</b-td>
             <b-td>x{{item.quantity}}</b-td>
             <b-td>{{item.line_price | currency('', 2) }}€</b-td>
             <b-td><b-button @click="removeItemFromCart(item)" class="remove vertical-align-middle"><b-icon icon="x"></b-icon></b-button></b-td>
@@ -117,7 +117,18 @@ export default {
         white-space:nowrap;
         padding-right: 10px;
         padding-left: 10px;
+
+
     }
+
+    table td.product-name {
+        text-overflow: ellipsis;
+        max-width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+
+    }
+
 
     .info {
         display: flex;
@@ -125,6 +136,7 @@ export default {
 
         font-size: 0.8em;
         line-height: 1.4em;
+
 
         .product_count {
             margin-right: 10px;
