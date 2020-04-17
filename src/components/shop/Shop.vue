@@ -93,15 +93,25 @@
               </p>
             </div>
           </b-alert>
+        </b-col>
+      </b-row>
 
 
+
+      <b-row no-gutters class="product-list-container justify-content-md-center">
+        <b-col sm="10" md="10" class="product-friends">
+          <h2 class="orderable-category"><b-icon icon="tag-fill"/>&nbsp;Les Packs !</h2>
+          <orderable-item-list item_group="Bières - Packs"/>
+        </b-col>
+      </b-row>
+
+      <b-row no-gutters class="product-list-container justify-content-md-center">
+        <b-col sm="10" md="10">
           <orderable-item-list item_group="Bières du Singe">
             <template #default="{ item }">
               <beer-item :item="item"></beer-item>
             </template>
           </orderable-item-list>
-
-
         </b-col>
       </b-row>
 

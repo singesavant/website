@@ -22,7 +22,7 @@
         <b-form>
           <b-input-group>
             <b-button @click="qtty_down(variant_selected)">-</b-button>
-            <b-input @change="check_qtty_input(variant_selected)" type="number" v-model="qtty[variant_selected.name]" :value="0" min="0" :max="variant_selected.orderable_qty"/>
+            <b-input @change="check_qtty_input(variant_selected)" type="number" v-model="qtty[variant_selected.name]" :value="0" min="1" :max="variant_selected.orderable_qty"/>
             <b-button @click="qtty_up(variant_selected)">+</b-button>
           </b-input-group>
           <b-button :disabled="qtty[variant_selected.name] <= 0" variant="primary" class="add-to-cart" @click="addOrderableItemToCart(variant_selected)">Ajouter au panier</b-button>
@@ -35,12 +35,13 @@
     <!-- we have no variant -->
 
     <div class="product-qtty" v-else>
+      <h3 class="price">{{ item.price }}€</h3>
       <b-overlay :show="is_loading" rounded="sm">
-        <b-button class="qtty-modifier">-</b-button>
-        <b-input type="number" v-model="qtty[item_details.name]" value="0" min="1" max="20"/>
-        <b-button class="qtty-modifier">+</b-button>
-      </b-overlay>
-    </div>
+        <b-form>
+          <b-button :disabled="qtty[item.name] <= 0" variant="primary" class="add-to-cart" @click="addOrderableItemToCart(item)">Ajouter au panier</b-button>
+        </b-form>
+        </b-overlay>
+      </div>
 
     </div>
     </div>
@@ -65,7 +66,7 @@ export default {
   name: 'addOrderableItemToCartWidget',
   data: function () {
     return {
-      qtty: defaultDict(function () { return 0 }),
+      qtty: defaultDict(function () { return 1 }),
       variant_selected_code: null,
       variant_selected: null,
       is_loading: false
@@ -119,6 +120,10 @@ export default {
             out_of_stock = false
           }
         })
+      } else {
+        if (parseInt(item.orderable_qty) > 0) {
+          out_of_stock = false
+        }
       }
 
       return out_of_stock
@@ -155,4 +160,9 @@ input::-webkit-inner-spin-button {
     text-decoration: line-through !important;
     color: grey;
 }
+
+.price {
+    color: black;
+}
+
 </style>
