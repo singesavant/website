@@ -169,12 +169,12 @@ export default {
         right:0;
     }
 
-    right: -30vw;
+    right: -100%;
     top:0;
     margin-top: 7.9vh;
     bottom: 0px;
 
-    max-width: 30vw;
+    max-width: 100%;
 
     height: 100%;
 
