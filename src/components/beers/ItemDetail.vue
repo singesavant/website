@@ -21,7 +21,7 @@
             <b-row class="online-order" align-h="center">
               <b-col align="left" align-v="bottom" cols="10">
                 <h2 class="beer-subtitle"><b-icon icon="bucket"/>&nbsp;Commander en ligne</h2>
-                <add-orderable-item-to-cart-widget :item="item"  v-if="isAuthenticated" />
+                <add-orderable-item-to-cart-widget :item="item" v-if="isAuthenticated"/>
                 <b-button v-else class="w-100" variant="primary" :to="{name: 'shop'}">Aller sur le Shop</b-button>
               </b-col>
             </b-row>
@@ -160,6 +160,8 @@ export default {
       this.$store.dispatch('LOAD_BEER_DETAILS', {slug: this.$route.params.slug})
         .then(() => {
           this.is_loading = false
+
+          this.$store.dispatch('LOAD_ORDERABLE_ITEM_DETAILS', {item: this.item})
         })
 
     }

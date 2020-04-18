@@ -16,8 +16,8 @@
 
     <b-row no-gutters align-h="center">
       <b-col sm="12" lg="12" class="info" align="center" align-v="bottom">
-          <h3 v-if="isAuthenticated" ><router-link :to="{'name': 'item-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
-          <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
+        <h3><router-link :to="{'name': 'item-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
+
         <b-overlay :show="!item_details" v-if="isAuthenticated">
           <add-orderable-item-to-cart-widget :item="item_details"/>
         </b-overlay>
