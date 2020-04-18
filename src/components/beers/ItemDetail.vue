@@ -18,10 +18,11 @@
           <b-col md="6" class="text-center">
             <b-img class="label" :src="item.website_image|erp_static_url" :alt="item.name"/>
 
-            <b-row class="online-order" align-h="center" v-if="isAuthenticated">
+            <b-row class="online-order" align-h="center">
               <b-col align="left" align-v="bottom" cols="10">
                 <h2 class="beer-subtitle"><b-icon icon="bucket"/>&nbsp;Commander en ligne</h2>
-                <add-orderable-item-to-cart-widget :item="item" />
+                <add-orderable-item-to-cart-widget :item="item"  v-if="isAuthenticated" />
+                <b-button v-else class="w-100" variant="primary" :to="{name: 'shop'}">Aller sur le Shop</b-button>
               </b-col>
             </b-row>
 

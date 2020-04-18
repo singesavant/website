@@ -89,6 +89,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+  h3 {
+  color: black;
+  }
 .recto-verso {
     display: none;
     visibility: hidden;
@@ -109,6 +113,10 @@ li.item {
 
 
     .info {
+        span {
+            color:black;
+        }
+
         z-index: 3;
 
         width: 50%;
