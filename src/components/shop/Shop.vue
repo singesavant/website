@@ -108,8 +108,8 @@
       <b-row no-gutters class="product-list-container justify-content-md-center">
         <b-col sm="10" md="10">
           <orderable-item-list item_group="Bières du Singe">
-            <template #default="{ item }">
-              <beer-item :item="item"></beer-item>
+            <template #default="{ item, itemIdx }">
+              <beer-item :item="item" :itemIdx="itemIdx"></beer-item>
             </template>
           </orderable-item-list>
         </b-col>

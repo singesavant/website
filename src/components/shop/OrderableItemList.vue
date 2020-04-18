@@ -2,9 +2,9 @@
 <template lang="html">
   <ul class="item-list">
     <b-row class="orderable-item-container justify-content-md-center">
-      <b-col sm="6" md="3" v-for="item in orderBy(getOrderableListByGroup(item_group), 'name')" :key="item.name">
-        <slot :item="item">
-          <item :item="item"/>
+      <b-col sm="6" md="3" v-for="(item, itemIdx) in orderBy(getOrderableListByGroup(item_group), 'name')" :key="item.name">
+        <slot :item="item" :itemIdx="itemIdx">
+          <item :item="item" :itemIdx="itemIdx"/>
         </slot>
       </b-col>
     </b-row>

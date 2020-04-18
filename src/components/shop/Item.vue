@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <li class="item">
-    <div :class="{ flipped: isFlipped }">
+    <div>
     <b-row no-gutters align-h="center">
 
       <!-- illustration -->
@@ -16,9 +16,11 @@
 
     <b-row no-gutters align-h="center">
       <b-col sm="12" lg="12" class="info" align="center" align-v="bottom">
-        <h3 v-if="isAuthenticated" v-b-tooltip.hover title="Cliquez pour en savoir plus"><router-link :to="{'name': 'item-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
-        <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
-        <add-orderable-item-to-cart-widget :item="item" v-if="isAuthenticated"/>
+          <h3 v-if="isAuthenticated" ><router-link :to="{'name': 'beer-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
+          <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
+        <b-overlay :show="!item_details" v-if="isAuthenticated">
+          <add-orderable-item-to-cart-widget :item="item_details"/>
+        </b-overlay>
         <span v-else><strong>[Connectez vous pour commander]</strong></span>
       </b-col>
     </b-row>
@@ -36,14 +38,24 @@ export default {
   components: {
     addOrderableItemToCartWidget
   },
+
   props: {
-    item: null
+    item: Object,
+    itemIdx: Number
   },
 
   data: function () {
     return {
-      isFlipped: false
+      is_loading: true
     }
+
+  },
+
+  mounted: function () {
+    this.$store.dispatch('LOAD_ORDERABLE_ITEM_DETAILS', {item: this.item})
+      .then(() =>
+            this.is_loading = false
+           )
   },
 
   filters: {
@@ -63,13 +75,14 @@ export default {
 
       return inStock
     },
-    ...mapState(['isAuthenticated'])
-  },
 
-  methods: {
-    flip: function () {
-      this.isFlipped = !this.isFlipped
-    }
+    ...mapState({
+      item_details: function (state) {
+        return state.orderable_item_details[this.item['name']]
+      }
+    }),
+
+    ...mapState(['isAuthenticated'])
   }
 
 }

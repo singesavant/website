@@ -1,51 +1,87 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <li class="item">
-    <div :class="{ flipped: isFlipped }">
+    <div>
     <b-row no-gutters align-h="center">
 
       <!-- illustration -->
       <b-col sm="12" lg="12" class="illustration">
+
+
         <div class="bottles">
-          <div class="bottle front">
-            <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
-            <img class="label" :src=item.thumbnail|erp_static_url>
-            <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
-          </div>
+            <div class="bottle front">
+              <img class="top" src="/images/bottle-75-top.png" alt="bottle top">
+              <a :id="`link-hover-`+itemIdx" href.prevent="javascript:;" tabindex="0">
+                <img class="label" :src=item.thumbnail|erp_static_url>
+              </a>
+              <img class="bottom" src="/images/bottle-75-bottom.png" alt="bottle bottom">
+            </div>
+          <b-popover :target="`link-hover-`+itemIdx" triggers="hover click blur" v-if="item_details">
+            <template v-slot:title>{{ website_specifications.style }} - {{ website_specifications.abv }}%</template>
+            <table class="beer-popover-table">
+              <tr>
+                <td class="category">Amertume</td>
+                <td align-v="middle"><IBUGauge :ibus="website_specifications.ibu"/></td>
+              </tr>
+
+              <tr>
+                <td class="category">Goût</td>
+                <td>{{  website_specifications.gout }}</td>
+              </tr>
+
+              <tr>
+                <td class="category">Arôme</td>
+                <td>{{  website_specifications.aroma }}</td>
+              </tr>
+
+              <tr>
+                <td class="category">Robe</td>
+                <td>{{  website_specifications.apparence }}</td>
+              </tr>
+
+            </table>
+
+            [+]&nbsp;<router-link :to="{'name': 'beer-detail', params: {'slug': item.code}}"> d'infos sur {{ item.name }}</router-link>
+          </b-popover>
+
         </div>
       </b-col>
     </b-row>
 
     <b-row no-gutters align-h="center">
       <b-col sm="12" lg="12" class="info" align="center" align-v="bottom">
-        <h3 v-if="isAuthenticated" v-b-tooltip.hover title="Cliquez pour découvrir la recette"><router-link :to="{'name': 'beer-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
-        <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
-        <add-orderable-item-to-cart-widget :item="item" v-if="isAuthenticated"/>
+          <h3 v-if="isAuthenticated" ><router-link :to="{'name': 'beer-detail', params: {'slug': item.code}}">{{ item.name }}</router-link></h3>
+          <h3 v-else v-b-tooltip.hover title="Connectez-vous pour commander">{{ item.name }}</h3>
+        <b-overlay :show="!item_details" v-if="isAuthenticated">
+          <add-orderable-item-to-cart-widget :item="item_details"/>
+        </b-overlay>
         <span v-else><strong>[Connectez vous pour commander]</strong></span>
       </b-col>
     </b-row>
-</div>
+
+
+    </div>
+
+
+
   </li>
 
 </template>
 
 <script lang="js">
-  import addOrderableItemToCartWidget from './AddOrderableItemToCartWidget'
-import { mapState } from 'vuex'
+
+
+     import { mapState } from 'vuex'
+     import IBUGauge from '../beers/Ibu.vue'
+
+import Item from './Item.vue'
 
 export default {
+  extends: Item,
+
   name: 'BeerItem',
   components: {
-    addOrderableItemToCartWidget
-  },
-  props: {
-    item: null
-  },
-
-  data: function () {
-    return {
-      isFlipped: false
-    }
+    IBUGauge
   },
 
   filters: {
@@ -54,30 +90,36 @@ export default {
     }
   },
   computed: {
-    in_stock: function () {
-      var inStock = false
-
-      if (this.item.has_variants) {
-        for (var variant in this.item.variants) {
-          inStock |= (variant.orderable_qty > 0)
+    ...mapState({
+      website_specifications: function () {
+        var specs = {}
+        for (var idx in this.item_details.website_specifications) {
+          specs[this.item_details.website_specifications[idx].label] = this.item_details.website_specifications[idx].description
         }
+
+        return specs
       }
 
-      return inStock
-    },
-    ...mapState(['isAuthenticated'])
-  },
-
-  methods: {
-    flip: function () {
-      this.isFlipped = !this.isFlipped
-    }
+    })
   }
 
 }
 </script>
 
 <style lang="scss" scoped>
+
+.beer-popover-table {
+  font-weight: 300;
+  font-style: italic;
+
+  .category {
+      font-style: normal;
+      font-weight: 800;
+  }
+}
+
+
+
 .recto-verso {
     display: none;
     visibility: hidden;
@@ -112,8 +154,8 @@ li.item {
 
     }
 
-
     .illustration {
+        z-index:10;
         position: relative;
         width: 50%;
 
