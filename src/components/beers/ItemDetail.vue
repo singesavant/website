@@ -12,7 +12,7 @@
 
     <b-row class="about" align-h="center">
       <b-col md="8" sm="10" class="left">
-        <b-row>
+        <b-row class="infos">
 
           <!-- left pane -->
           <b-col md="6" class="text-center">
@@ -298,6 +298,11 @@ h2.beer-subtitle {
 
     .about {
         justify-content: center;
+
+        .infos {
+            padding-bottom: 5vh;
+        }
+
 
         .left, .right {
             background-color: white;

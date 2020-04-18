@@ -215,10 +215,11 @@ export default {
     fetchData: function () {
       this.is_loading = true
       this.$store.dispatch('LOAD_BEER_DETAILS', {slug: this.$route.params.slug})
-        .then(() =>
-              this.is_loading = false
-        )
+        .then(() => {
+          this.is_loading = false
 
+          this.$store.dispatch('LOAD_ORDERABLE_ITEM_DETAILS', {item: this.beer})
+        })
     }
   },
   filters: {
