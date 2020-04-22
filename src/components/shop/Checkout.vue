@@ -3,9 +3,8 @@
   <b-container fluid class="brick-background">
 
     <b-modal v-if="sales_order != null" id="payment-modal" :title="sales_order.name" hide-footer>
-      <SumUpPayment/>
+      <StripePayment/>
     </b-modal>
-
 
     <b-row class="justify-content-md-center" align-h="center">
       <b-col sm="12" md="10">
@@ -187,7 +186,8 @@ import { mapState } from 'vuex'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { digits } from 'vee-validate/dist/rules'
-import SumUpPayment from './Payment.vue'
+// import SumUpPayment from './Payment.vue'
+import StripePayment from './StripePayment.vue'
 
 
 extend('digits', digits);
@@ -234,7 +234,8 @@ export default {
   components: {
     ValidationProvider,
     ValidationObserver,
-    SumUpPayment
+    //SumUpPayment,
+    StripePayment
   },
 
   created: function () {
@@ -293,6 +294,7 @@ export default {
     onSubmit: function () {
       data.is_processing = true
 
+      // Assign city and pincode to payload
       data.address.city = data.city_selected.city
       data.address.pincode = data.city_selected.pincode
 

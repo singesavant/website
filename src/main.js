@@ -14,9 +14,11 @@ import VueAnalytics from 'vue-analytics'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import browserDetect from "vue-browser-detect-plugin";
 
-
 import VueLodash from 'vue-lodash'
 import lodash from 'lodash'
+
+import * as Sentry from '@sentry/browser';
+import { Vue as VueIntegration } from '@sentry/integrations';
 
 import '@/assets/css/globals.scss'
 import 'bootstrap/dist/css/bootstrap-reboot.css'
@@ -29,6 +31,13 @@ Vue.use(Vue2Filters)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(browserDetect)
+
+if (process.env.NODE_ENV == 'production') {
+  Sentry.init({
+    dsn: process.env.VUE_APP_SENTRY_DSN,
+    integrations: [new VueIntegration({Vue, attachProps: true})],
+  });
+}
 
 Vue.use(VueAnalytics, {
   id: 'UA-75870516-1',
