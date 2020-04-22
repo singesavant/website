@@ -13,6 +13,15 @@
     <div id="products">
       <b-row no-gutters class="product-list-container justify-content-md-center">
         <b-col sm="12" md="10">
+
+          <b-alert show variant="danger" dismissible fade>
+            <h1>SUITE A LA SUSPENSION DE NOTRE COMPTE PAR NOTRE FOURNISSEUR DE ECOMMERCE, NOUS NE SOMMES MALHEUREUSEMENT PLUS CAPABLES DE VOUS FAIRE COMMANDER EN LIGNE</h1>
+
+            <h1>SI VOUS AVEZ DES AMIS/FAMILLE QUI BOSSENT DANS UN ORGANISME CAPABLE DE NOUS AIDER A OUVRIR UN COMPTE ECOMMERCE TRES RAPIDEMENT, N'HÉSITEZ PAS À NOUS ENVOYER UN EMAIL, CECI NOUS AIDERAIT ÉNORMÉMENT ! #MERCI SUMUP</H1>
+
+            <h4>En attendez, vous pouvez commander chez les copains d'<a href="https://hoppyurbandrive.eproshopping.fr/">HUB</a>, <a href="https://www.brasserie-cambier.fr/">CAMBIER</a> et <a href="http://www.waale.beer/">LA WAALE</a></h4>
+          </b-alert>
+
           <b-alert show v-if="check_browser()" variant="danger" dismissible fade>
             <h4>Attention ! Votre navigateur risque de ne pas fonctionner avec notre Shop, désolé ! Merci d'utiliser Firefox ou Chrome.</h4>
           </b-alert>
