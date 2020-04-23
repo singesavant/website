@@ -35,10 +35,15 @@ export default {
 
     methods: {
         get_ibus: function () {
-            return parseInt(this.ibus)
+            var ibus = parseInt(this.ibus)
+            if (ibus >= 0 && ibus <= 5) {
+                return ibus
+            } else
+                return 0
+
         },
         get_missing_ibus: function () {
-            return (5 - parseInt(this.ibus))
+            return (5 - this.get_ibus(this.ibus))
         }
     }
 }
