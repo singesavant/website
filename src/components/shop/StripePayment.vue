@@ -85,6 +85,16 @@ export default {
       this.$refs.elementsRef.submit()
     },
 
+    // With the response from Sumup, send that to server to validate payment
+    validatePayment(checkout_id) {
+      axios.post('/shop/orders/' + this.$route.params.slug + '/payment', {'checkout_id': checkout_id})
+        .then(() => {
+          this.$router.push({'name': 'so-giveaway', params: {slug: this.$route.params.slug}})
+        })
+
+      this.$store.dispatch('LOAD_CART')
+    },
+
     tokenCreated () {
       data.is_loading = true
 
@@ -118,16 +128,6 @@ export default {
           }
         })
 
-    },
-
-    // With the response from Sumup, send that to server to validate payment
-    validatePayment:function (checkout_id) {
-      axios.post('/shop/orders/' + this.$route.params.slug + '/payment', {'checkout_id': checkout_id})
-        .then(() => {
-          this.$router.push({'name': 'so-giveaway', params: {slug: this.$route.params.slug}})
-        })
-
-      this.$store.dispatch('LOAD_CART')
     },
 
     // Create a checkout at sumup and send card info
