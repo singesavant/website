@@ -16,7 +16,7 @@
 
           <!-- left pane -->
           <b-col md="6" class="text-center">
-            <b-img class="label" :src="item.website_image|erp_static_url" :alt="item.name"/>
+            <b-img class="label w-80" :src="item.website_image|erp_static_url" :alt="item.name"/>
 
             <b-row class="online-order" align-h="center">
               <b-col align="left" align-v="bottom" cols="10">
@@ -215,6 +215,12 @@ export default {
     }
 
 }
+
+
+.w-80 {
+    width: 80%;
+}
+
 
 .buy {
     height: 50vh;
