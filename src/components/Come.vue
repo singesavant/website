@@ -19,7 +19,7 @@
                   59000 Lille [<a href="https://goo.gl/maps/8fZnfwx1eS32">Google Maps</a>]
                 </p>
 
-                <p>Métro <strong>Porte d'Arras</strong> ou <strong>Porte de Douai</strong></p>
+                <p>Métro <strong>Porte d'Arras</strong></p>
 
                 <p>
                   Tél: 03.74.09.49.25 - Email: contact AT singe-savant.com

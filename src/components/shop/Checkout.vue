@@ -49,8 +49,26 @@
 
                     </b-form-group>
 
+                    <b-form-group label="Comment ?">
+                      <b-form-radio-group @change="changeShippingRule" id="shipping-rule" v-model="shipping_rule" name="radio-sub-component" buttons button-variant="outline-primary" required class="w-100">
+                        <b-form-radio value="drive"><b-icon icon="bell-fill"/>&nbsp;Au Drive, à la Brasserie</b-form-radio>
+                        <b-form-radio value="shipping"><b-icon icon="house-fill"/>&nbsp;En livraison, chez moi</b-form-radio>
+                      </b-form-radio-group>
+                    </b-form-group>
+
+                    <!-- Notice Drive -->
+                    <div v-show="shipping_rule == 'drive'">
+                      <b-alert show>
+                        <p>Les créneaux de retrait à la brasserie sont <strong>Mardi</strong> et <strong>Vendredi</strong> de 17h à 19h.</p>
+                        <p><b-icon icon="check"/>&nbsp;Veuillez vous munir d'une pièce d'identité.</p>
+                        <p><b-icon icon="bell"/>&nbsp;Pensez à mettre un masque et à vous protéger !</p>
+                      </b-alert>
+                    </div>
+
+
                     <!-- Address -->
-                    <b-form-group id="input-group-2" label="Où ?" label-for="input-2">
+                    <b-form-group v-if="shipping_rule == 'shipping'" id="input-group-2" label-for="input-2">
+
                       <b-input-group>
                         <b-input-group-prepend is-text>
                           <b-icon icon="house"></b-icon>
@@ -113,7 +131,8 @@
                       <b-tr v-for="item in sales_order.items" v-bind:key="item.item_code">
                         <b-td>
                           <div class="item-picture-container">
-                            <b-img :src=item.image|erp_static_url width="75px" height="75px" blank-color="#777" rounded alt="Item Preview"></b-img>
+                            <b-img v-if="item.image" :src=item.image|erp_static_url width="75px" height="75px" blank-color="#777" rounded alt="Item Preview"></b-img>
+                            <b-img v-else src="https://pbs.twimg.com/profile_images/785074692088598528/NU-A_vcH_400x400.jpg" width="75px" height="75px" rounded alt="Item"/>
                             <b-badge variant="dark" class="topright-badge">{{ item.quantity }}</b-badge>
                           </div>
                         </b-td>
@@ -137,7 +156,7 @@
                           <b-td colspan="2" class="align-middle text-left">
                             {{ tax.description }}
                             <br/>
-                            <em v-if="tax.tax_amount > 0">N'oubliez pas : la livraison est offerte à partir de 50€ !</em>
+                            <em v-if="tax.tax_amount > 0">N'oubliez pas : la livraison est offerte à partir de 50€ ou en passant par le drive !</em>
                           </b-td>
                           <b-td class="align-middle">
                             <span v-if="tax.tax_amount > 0">{{ tax.tax_amount }}€</span>
@@ -196,6 +215,7 @@ var data = {
   is_loading: true,
   is_processing: false,
   sales_order: null,
+  shipping_rule: null,
   itemPictureProps: { blank: true, width: 75, height: 75, class: 'm1' },
 
   // Address
@@ -253,7 +273,7 @@ export default {
 
   computed: {
     sales_order_taxes_filtered () {
-      return _.filter(data.sales_order.taxes, {'description': 'Livraison Centre Lille'})
+      return _.filter(data.sales_order.taxes, function(elt) { return elt.description.includes('Livraison') })
     },
     ...mapState({
     })
@@ -272,12 +292,24 @@ export default {
     axios.get('/shop/orders/' + this.$route.params.slug)
       .then((response) => {
         data.sales_order = response.data;
+
+        switch (data.sales_order['shipping_rule']) {
+        case 'Emport Brasserie':
+          data.shipping_rule = 'drive'
+          break
+
+        case 'Livraison Centre Lille':
+          data.shipping_rule  = 'shipping'
+          break
+        }
+
+
+
       })
       .catch(() => data.sales_order = null )
       .finally(() => data.is_loading = false)
 
 
-    // XXX 'Lille' Hardcoded!
     axios.get('/customer/address')
       .then((response) => {
         data.address = response.data
@@ -291,63 +323,95 @@ export default {
   },
 
   methods: {
+    changeShippingRule: function(value) {
+
+      data.is_processing = true
+
+      axios.post('/shop/orders/' + data.sales_order.name + '/shipping', {shipping_method: value})
+        .then((response) => {
+          data.sales_order = response.data
+        })
+        .catch(() => {
+          this.$bvToast.toast("Désolé, il y a eu une erreur, contactez nous !", {
+            autoHideDelay: 5000,
+            title: "Erreur de livraison",
+            variant: "error"
+          })
+        }).finally(() => {
+          data.is_processing = false
+        })
+    },
+
+    checkOrderAndPay: function () {
+
+      // make sure we have enough in stock
+      axios.get('/shop/orders/' + data.sales_order.name + '?update_qttys=True').then(() => {
+        // go to checkout!
+        this.$bvModal.show('payment-modal')
+      })
+        .catch((error) => {
+          // Conflict: cart partly updated
+          if (error.response.status == 409)
+          {
+            axios.get('/shop/orders/' + data.sales_order.name)
+              .then((response) => {
+                this.sales_order  = response.data
+                this.$bvToast.toast("Il y a eu des commandes entre temps et les stocks ont changé : nous avons mis à jour votre panier en conséquence !", {
+                  autoHideDelay: 5000,
+                  title: "Mise à jour du panier",
+                  variant: "warning"
+                })
+
+              })
+              .catch(() => data.sales_order = null )
+          }
+          // Gone: no more article in stock
+          else if (error.response.status == 410)
+          {
+            alert('Désolé, votre panier a expiré !')
+            this.$router.push({name: 'shop'})
+          }
+        })
+        .finally(() => {
+          this.$store.dispatch('LOAD_CART')
+          data.is_processing = false
+        })
+
+    },
+
     onSubmit: function () {
       data.is_processing = true
 
-      // Assign city and pincode to payload
-      data.address.city = data.city_selected.city
-      data.address.pincode = data.city_selected.pincode
-
-      axios.post('/customer/address', data.address).then(() => {
+      // No need to submit address if it is a pickup
+      if ( this.shipping_rule == 'drive' ) {
 
         axios.post('/customer/contact', data.contact).then(() => {
-
-          // make sure we have enough in stock
-          axios.get('/shop/orders/' + data.sales_order.name + '?update_qttys=True').then(() => {
-            // go to checkout!
-            this.$bvModal.show('payment-modal')
-           })
-            .catch((error) => {
-              // Conflict: cart partly updated
-              if (error.response.status == 409)
-              {
-                axios.get('/shop/orders/' + data.sales_order.name)
-                  .then((response) => {
-                    this.sales_order  = response.data
-
-                    this.$bvToast.toast("Il y a eu des commandes entre temps et les stocks ont changé : nous avons mis à jour votre panier en conséquence !", {
-                      autoHideDelay: 5000,
-                      title: "Mise à jour du panier",
-                      variant: "warning"
-                    })
-
-                  })
-                  .catch(() => data.sales_order = null )
-              }
-              // Gone: no more article in stock
-              else if (error.response.status == 410)
-              {
-                alert('Désolé, votre panier a expiré !')
-                this.$router.push({name: 'shop'})
-              }
-            })
-            .finally(() => {
-              this.$store.dispatch('LOAD_CART')
-              data.is_processing = false
-            })
-
-
-
-
+          this.checkOrderAndPay()
         }, (err) => {
           alert.error(err)
           data.is_processing = false
         })
 
-      }, (err) => {
-        alert.error(err)
-        data.is_processing = false
-      })
+      }
+      // Any other shipping rule should save the customer address
+      else {
+        // Assign city and pincode to payload
+        data.address.city = data.city_selected.city
+        data.address.pincode = data.city_selected.pincode
+
+        axios.post('/customer/address', data.address).then(() => {
+
+          axios.post('/customer/contact', data.contact).then(() => {
+            this.checkOrderAndPay()
+          }, (err) => {
+            alert.error(err)
+            data.is_processing = false
+          })
+        }, (err) => {
+          alert.error(err)
+          data.is_processing = false
+        })
+      }
     }
   }
 
