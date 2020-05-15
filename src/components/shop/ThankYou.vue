@@ -11,13 +11,16 @@
             <p>
               Comptez sur nous pour mettre la commande en préparation au plus vite.
               <br/>
-                            Elle vous sera livrée Mardi ou Vendredi prochain.
             </p>
 
             <b-img src="/images/shop/corona/thumbup.png"></b-img>
 
             <p>
-              <b-icon icon="chat"></b-icon>&nbsp;Nous vous contacterons très vite pour prendre rendez-vous !
+              <b-icon icon="bell"></b-icon>&nbsp;Si vous avez opté pour le <strong>retrait brasserie</strong>, on vous donne rendez-vous <br/>Mardi ou Vendredi entre 17h et 19h.
+            </p>
+
+            <p>
+              <b-icon icon="chat"></b-icon>&nbsp;Si vous avez opté pour la <strong>livraison</strong>, vous serez contacté Lundi ou Jeudi<br/> par notre Singe livreur qui vous indiquera un horaire de passage.
             </p>
 
             <b-row class="justify-content-md-center">
