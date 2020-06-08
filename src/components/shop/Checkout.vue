@@ -59,7 +59,8 @@
                     <!-- Notice Drive -->
                     <div v-show="shipping_rule == 'drive'">
                       <b-alert show>
-                        <p>Les créneaux de retrait à la brasserie sont <strong>Mardi</strong> et <strong>Vendredi</strong> de 17h à 19h.</p>
+                          <p>Les créneaux de retrait à la brasserie sont <strong>du Lundi au Vendredi</strong> de <strong>17h à 19h</strong>.</p>
+                          <p>Vous pouvez retirer votre commande le jour même si vous commandez avant 16h !</p>
                         <p><b-icon icon="check"/>&nbsp;Veuillez vous munir d'une pièce d'identité.</p>
                         <p><b-icon icon="bell"/>&nbsp;Pensez à mettre un masque et à vous protéger !</p>
                       </b-alert>

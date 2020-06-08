@@ -16,7 +16,7 @@
             <b-img src="/images/shop/corona/thumbup.png"></b-img>
 
             <p>
-              <b-icon icon="bell"></b-icon>&nbsp;Si vous avez opté pour le <strong>retrait brasserie</strong>, on vous donne rendez-vous <br/>Mardi ou Vendredi entre 17h et 19h.
+              <b-icon icon="bell"></b-icon>&nbsp;Si vous avez opté pour le <strong>retrait brasserie</strong>, on vous donne rendez-vous du <br/>Lundi au Vendredi entre 17h et 19h.
             </p>
 
             <p>
