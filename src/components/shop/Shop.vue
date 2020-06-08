@@ -19,6 +19,7 @@
             <h4>Attention ! Votre navigateur risque de ne pas fonctionner avec notre Shop, désolé ! Merci d'utiliser Firefox ou Chrome.</h4>
           </b-alert>
 
+          <!--
           <b-alert show variant="dark" dismissible fade>
             <h4 class="alert-heading">Livraison : COVID-19 & LOVE MONEY</h4>
 
@@ -95,18 +96,19 @@
               </p>
             </div>
           </b-alert>
+          -->
         </b-col>
       </b-row>
 
 
 
-      <b-row no-gutters class="product-list-container justify-content-md-center">
-        <b-col sm="10" md="10" class="product-friends">
-          <h2 class="orderable-category"><b-icon icon="tag-fill"/>&nbsp;Les Packs</h2>
-          <orderable-item-list item_group="Bières - Packs"/>
-        </b-col>
-      </b-row>
-
+      <!-- <b-row no-gutters class="product-list-container justify-content-md-center">
+           <b-col sm="10" md="10" class="product-friends">
+           <h2 class="orderable-category"><b-icon icon="tag-fill"/>&nbsp;Les Packs</h2>
+           <orderable-item-list item_group="Bières - Packs"/>
+           </b-col>
+           </b-row>
+      -->
       <b-row no-gutters class="product-list-container justify-content-md-center">
         <b-col sm="10" md="10">
           <orderable-item-list item_group="Bières du Singe">
@@ -120,8 +122,8 @@
 
       <b-row no-gutters class="product-list-container justify-content-md-center">
         <b-col sm="10" md="10" class="product-friends">
-          <h2 class="orderable-category"><b-icon icon="star"/>&nbsp;Le shop des potes</h2>
-          <em>Du made in local, avec les mêmes valeurs que nous, sur d'autres thématiques !</em>
+          <h2 class="orderable-category"><b-icon icon="star"/>&nbsp;Merch & Friends</h2>
+          <em>Merch du Singe & du made in local, avec les mêmes valeurs que nous, sur d'autres thématiques !</em>
           <orderable-item-list item_group="Merchandising"/>
         </b-col>
       </b-row>
@@ -132,14 +134,13 @@
 </template>
 
 <script lang="js">
-  import orderableItemList from './OrderableItemList'
+
+import orderableItemList from './OrderableItemList'
 import BeerItem from './BeerItem'
 import { mapState } from 'vuex'
 
-
-
 var data = {
-  isFlickering: false
+    isFlickering: false
 }
 
 export default {
