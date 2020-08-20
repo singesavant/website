@@ -26,7 +26,7 @@
                 </p>
 
                 <p>
-                  La brasserie est ouverte du <strong>lundi au vendredi</strong>, de 10h à 19h.
+                  La brasserie est ouverte du <strong>lundi au vendredi</strong>, de 17h à 19h.
                 </p>
 
                 <p>

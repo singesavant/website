@@ -28,7 +28,7 @@
                 <p>
                   Le plus simple est de venir en discuter avec nous, la
                   brasserie est ouverte du <strong>lundi au vendredi</strong>,
-                  de 10h à 19h. <router-link :to="{name: 'contact'}">Prenez contact</router-link> !
+                  de 17h à 19h. <router-link :to="{name: 'contact'}">Prenez contact</router-link> !
                 </p>
 
               </b-col>
