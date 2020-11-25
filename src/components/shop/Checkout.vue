@@ -186,7 +186,7 @@
 
               <b-row align-v="center" v-else-if="is_loading == false">
                 <b-col>
-                  <h1>Cette commande n'existe pas !</h1>
+                    <h1>Cette commande n'existe pas !</h1>
                 </b-col>
               </b-row>
 
@@ -201,8 +201,8 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
-     import axios from 'axios'
-     import _ from 'lodash';
+import axios from 'axios'
+import _ from 'lodash';
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { extend } from 'vee-validate'
 import { digits } from 'vee-validate/dist/rules'
@@ -213,266 +213,267 @@ import StripePayment from './StripePayment.vue'
 extend('digits', digits);
 
 var data = {
-  is_loading: true,
-  is_processing: false,
-  sales_order: null,
-  shipping_rule: null,
-  itemPictureProps: { blank: true, width: 75, height: 75, class: 'm1' },
+    is_loading: true,
+    is_processing: false,
+    sales_order: null,
+    shipping_rule: null,
+    itemPictureProps: { blank: true, width: 75, height: 75, class: 'm1' },
 
-  // Address
-  address: {
-    address_line1: '',
-    address_line2: ''
-  },
+    // Address
+    address: {
+        address_line1: '',
+        address_line2: ''
+    },
 
-  city_selected: null,
+    city_selected: null,
 
-  city_select_options: [
-    {text: 'Faches-Thumesnil', value: {pincode: '59155', city: 'Faches-Thumesnil'}},
-    {text: 'Hellemmes-Lille', value: {pincode: '59260', city: 'Hellemmes-Lille'}},
-    {text: 'La Madeleine', value: {pincode: '59110', city: 'La Madeleine'}},
-    {text: 'Lambersart', value: {pincode: '59130', city: 'Lambersart'}},
-    {text: 'Lille', value: {city: 'Lille', 'pincode': '59000'}},
-    {text: 'Lommes', value: {pincode: '59160', city: 'Lommes'}},
-    {text: 'Loos', value: {pincode: '59120', city: 'Loos'}},
-    {text: 'Mons-en-Baroeul', value: {pincode: '59370', city: 'Mons-en-Baroeul'}},
-    {text: 'Ronchin', value: {pincode: '59790', city: 'Ronchin'}},
-    {text: 'Saint-André-lez-Lille', value: {pincode: '59350', city: 'Saint-André-lez-Lille'}}
-  ],
+    city_select_options: [
+        {text: 'Faches-Thumesnil', value: {pincode: '59155', city: 'Faches-Thumesnil'}},
+        {text: 'Hellemmes-Lille', value: {pincode: '59260', city: 'Hellemmes-Lille'}},
+        {text: 'La Madeleine', value: {pincode: '59110', city: 'La Madeleine'}},
+        {text: 'Lambersart', value: {pincode: '59130', city: 'Lambersart'}},
+        {text: 'Lille', value: {city: 'Lille', 'pincode': '59000'}},
+        {text: 'Lommes', value: {pincode: '59160', city: 'Lommes'}},
+        {text: 'Loos', value: {pincode: '59120', city: 'Loos'}},
+        {text: 'Mons-en-Baroeul', value: {pincode: '59370', city: 'Mons-en-Baroeul'}},
+        {text: 'Ronchin', value: {pincode: '59790', city: 'Ronchin'}},
+        {text: 'Saint-André-lez-Lille', value: {pincode: '59350', city: 'Saint-André-lez-Lille'}},
+        {text: 'Villeneuve d\'Ascq', value: {pincode: '59491', city: 'Villeneuve d\'Ascq'}}
+    ],
 
-  // Contact
-  contact: {
-    first_name: '',
-    last_name: '',
-    mobile_no: ''
-  }
+    // Contact
+    contact: {
+        first_name: '',
+        last_name: '',
+        mobile_no: ''
+    }
 
 }
 
 export default {
-  name: 'Checkout',
+    name: 'Checkout',
 
-  components: {
-    ValidationProvider,
-    ValidationObserver,
-    //SumUpPayment,
-    StripePayment
-  },
-
-  created: function () {
-  },
-
-  filters: {
-    erp_static_url (uri) {
-      return 'https://erp.singe-savant.com/' + uri
-    }
-  },
-
-  data: function () {
-    return data
-  },
-
-  computed: {
-    sales_order_taxes_filtered () {
-      return _.filter(data.sales_order.taxes, function(elt) { return elt.description.includes('Livraison') })
-    },
-    ...mapState({
-    })
-  },
-
-  watch: {
-    '$route.params.slug': function (slug) {
-      axios.get('/shop/orders/' + slug)
-        .then((response) => {
-          this.sales_order  = response.data
-        })
-      }
+    components: {
+        ValidationProvider,
+        ValidationObserver,
+        //SumUpPayment,
+        StripePayment
     },
 
-  mounted: function () {
-    axios.get('/shop/orders/' + this.$route.params.slug)
-      .then((response) => {
-        data.sales_order = response.data;
+    created: function () {
+    },
 
-        switch (data.sales_order['shipping_rule']) {
-        case 'Emport Brasserie':
-          data.shipping_rule = 'drive'
-          break
-
-        case 'Livraison Centre Lille':
-          data.shipping_rule  = 'shipping'
-          break
+    filters: {
+        erp_static_url (uri) {
+            return 'https://erp.singe-savant.com/' + uri
         }
+    },
 
+    data: function () {
+        return data
+    },
 
-
-      })
-      .catch(() => data.sales_order = null )
-      .finally(() => data.is_loading = false)
-
-
-    axios.get('/customer/address')
-      .then((response) => {
-        data.address = response.data
-        if (response.data.city && response.data.pincode) {
-          this.city_selected = {'city': response.data.city, 'pincode': response.data.pincode}
-          }
-      })
-
-    axios.get('/customer/contact')
-      .then((response) => { data.contact = response.data })
-  },
-
-  methods: {
-    changeShippingRule: function(value) {
-
-      data.is_processing = true
-
-      axios.post('/shop/orders/' + data.sales_order.name + '/shipping', {shipping_method: value})
-        .then((response) => {
-          data.sales_order = response.data
-        })
-        .catch(() => {
-          this.$bvToast.toast("Désolé, il y a eu une erreur, contactez nous !", {
-            autoHideDelay: 5000,
-            title: "Erreur de livraison",
-            variant: "error"
-          })
-        }).finally(() => {
-          data.is_processing = false
+    computed: {
+        sales_order_taxes_filtered () {
+            return _.filter(data.sales_order.taxes, function(elt) { return elt.description.includes('Livraison') })
+        },
+        ...mapState({
         })
     },
 
-    checkOrderAndPay: function () {
+    watch: {
+        '$route.params.slug': function (slug) {
+            axios.get('/shop/orders/' + slug)
+                 .then((response) => {
+                     this.sales_order  = response.data
+                 })
+        }
+    },
 
-      // make sure we have enough in stock
-      axios.get('/shop/orders/' + data.sales_order.name + '?update_qttys=True').then(() => {
-        // go to checkout!
-        this.$bvModal.show('payment-modal')
-      })
-        .catch((error) => {
-          // Conflict: cart partly updated
-          if (error.response.status == 409)
-          {
-            axios.get('/shop/orders/' + data.sales_order.name)
-              .then((response) => {
-                this.sales_order  = response.data
-                this.$bvToast.toast("Il y a eu des commandes entre temps et les stocks ont changé : nous avons mis à jour votre panier en conséquence !", {
-                  autoHideDelay: 5000,
-                  title: "Mise à jour du panier",
-                  variant: "warning"
+    mounted: function () {
+        axios.get('/shop/orders/' + this.$route.params.slug)
+             .then((response) => {
+                 data.sales_order = response.data;
+
+                 switch (data.sales_order['shipping_rule']) {
+                     case 'Emport Brasserie':
+                         data.shipping_rule = 'drive'
+                         break
+
+                     case 'Livraison Centre Lille':
+                         data.shipping_rule  = 'shipping'
+                         break
+                 }
+
+
+
+             })
+             .catch(() => data.sales_order = null )
+             .finally(() => data.is_loading = false)
+
+
+        axios.get('/customer/address')
+             .then((response) => {
+                 data.address = response.data
+                 if (response.data.city && response.data.pincode) {
+                     this.city_selected = {'city': response.data.city, 'pincode': response.data.pincode}
+                 }
+             })
+
+        axios.get('/customer/contact')
+             .then((response) => { data.contact = response.data })
+    },
+
+    methods: {
+        changeShippingRule: function(value) {
+
+            data.is_processing = true
+
+            axios.post('/shop/orders/' + data.sales_order.name + '/shipping', {shipping_method: value})
+                 .then((response) => {
+                     data.sales_order = response.data
+                 })
+                 .catch(() => {
+                     this.$bvToast.toast("Désolé, il y a eu une erreur, contactez nous !", {
+                         autoHideDelay: 5000,
+                         title: "Erreur de livraison",
+                         variant: "error"
+                     })
+                 }).finally(() => {
+                     data.is_processing = false
+                 })
+        },
+
+        checkOrderAndPay: function () {
+
+            // make sure we have enough in stock
+            axios.get('/shop/orders/' + data.sales_order.name + '?update_qttys=True').then(() => {
+                // go to checkout!
+                this.$bvModal.show('payment-modal')
+            })
+                 .catch((error) => {
+                     // Conflict: cart partly updated
+                     if (error.response.status == 409)
+                     {
+                         axios.get('/shop/orders/' + data.sales_order.name)
+                              .then((response) => {
+                                  this.sales_order  = response.data
+                                  this.$bvToast.toast("Il y a eu des commandes entre temps et les stocks ont changé : nous avons mis à jour votre panier en conséquence !", {
+                                      autoHideDelay: 5000,
+                                      title: "Mise à jour du panier",
+                                      variant: "warning"
+                                  })
+
+                              })
+                              .catch(() => data.sales_order = null )
+                     }
+                     // Gone: no more article in stock
+                     else if (error.response.status == 410)
+                     {
+                         alert('Désolé, votre panier a expiré !')
+                         this.$router.push({name: 'shop'})
+                     }
+                 })
+                 .finally(() => {
+                     this.$store.dispatch('LOAD_CART')
+                     data.is_processing = false
+                 })
+
+        },
+
+        onSubmit: function () {
+            data.is_processing = true
+
+            // No need to submit address if it is a pickup
+            if ( this.shipping_rule == 'drive' ) {
+
+                axios.post('/customer/contact', data.contact).then(() => {
+                    this.checkOrderAndPay()
+                }, (err) => {
+                    alert.error(err)
+                    data.is_processing = false
                 })
 
-              })
-              .catch(() => data.sales_order = null )
-          }
-          // Gone: no more article in stock
-          else if (error.response.status == 410)
-          {
-            alert('Désolé, votre panier a expiré !')
-            this.$router.push({name: 'shop'})
-          }
-        })
-        .finally(() => {
-          this.$store.dispatch('LOAD_CART')
-          data.is_processing = false
-        })
+            }
+            // Any other shipping rule should save the customer address
+            else {
+                // Assign city and pincode to payload
+                data.address.city = data.city_selected.city
+                data.address.pincode = data.city_selected.pincode
 
-    },
+                axios.post('/customer/address', data.address).then(() => {
 
-    onSubmit: function () {
-      data.is_processing = true
-
-      // No need to submit address if it is a pickup
-      if ( this.shipping_rule == 'drive' ) {
-
-        axios.post('/customer/contact', data.contact).then(() => {
-          this.checkOrderAndPay()
-        }, (err) => {
-          alert.error(err)
-          data.is_processing = false
-        })
-
-      }
-      // Any other shipping rule should save the customer address
-      else {
-        // Assign city and pincode to payload
-        data.address.city = data.city_selected.city
-        data.address.pincode = data.city_selected.pincode
-
-        axios.post('/customer/address', data.address).then(() => {
-
-          axios.post('/customer/contact', data.contact).then(() => {
-            this.checkOrderAndPay()
-          }, (err) => {
-            alert.error(err)
-            data.is_processing = false
-          })
-        }, (err) => {
-          alert.error(err)
-          data.is_processing = false
-        })
-      }
+                    axios.post('/customer/contact', data.contact).then(() => {
+                        this.checkOrderAndPay()
+                    }, (err) => {
+                        alert.error(err)
+                        data.is_processing = false
+                    })
+                }, (err) => {
+                    alert.error(err)
+                    data.is_processing = false
+                })
+            }
+        }
     }
-  }
 
 }
 </script>
 
 <style lang="scss">
 
-  .item-list {
-    .item-picture-container {
-        position: relative;
+ .item-list {
+     .item-picture-container {
+         position: relative;
 
-        img {
-            border: 1px solid #ddd;
-        }
+         img {
+             border: 1px solid #ddd;
+         }
 
-    }
-  }
+     }
+ }
 
-.order-list {
+ .order-list {
 
-  }
-
-
-.topright-badge {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-}
-
-h2 {
-    margin-bottom: 20px;
-}
-
-#shipping-info-form .input-group {
-    margin-bottom: 10px;
-}
+ }
 
 
-.brick-background {
-    background: url('/images/shop/background.jpg'), url('/images/shop/wall_floor.jpg');
-    background-repeat: repeat, repeat;
-    background-attachment: fixed, fixed;
-    background-position: center, bottom;
-    background-size: cover, 100% 20vh;
+ .topright-badge {
+     position: absolute;
+     top: -4px;
+     right: -4px;
+ }
 
-    min-height: 100%;
+ h2 {
+     margin-bottom: 20px;
+ }
 
-    padding-top: 10vh;
-}
+ #shipping-info-form .input-group {
+     margin-bottom: 10px;
+ }
 
-table tr:first-child td{
-    border-top: none;
-}
 
-.total {
-    font-size: 1.4em;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+ .brick-background {
+     background: url('/images/shop/background.jpg'), url('/images/shop/wall_floor.jpg');
+     background-repeat: repeat, repeat;
+     background-attachment: fixed, fixed;
+     background-position: center, bottom;
+     background-size: cover, 100% 20vh;
+
+     min-height: 100%;
+
+     padding-top: 10vh;
+ }
+
+ table tr:first-child td{
+     border-top: none;
+ }
+
+ .total {
+     font-size: 1.4em;
+     padding-left: 20px;
+     padding-right: 20px;
+ }
 
 
 </style>
