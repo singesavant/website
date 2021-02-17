@@ -21,7 +21,7 @@
     "leaflet": "^1.6.0",
     "lodash": "^4.17.15",
     "vee-validate": "^3.2.5",
-    "vue": "^2.6.11",
+    "vue": "2",
     "vue-analytics": "^5.22.1",
     "vue-authenticate": "^1.4.1",
     "vue-axios": "^3.2.4",
@@ -29,11 +29,11 @@
     "vue-dplayer": "^0.0.10",
     "vue-interactive-paycard": "^1.0.0",
     "vue-lodash": "^2.1.2",
-    "vue-router": "^3.1.5",
+    "vue-router": "^3.5.1",
     "vue-stripe-checkout": "^3.2.2",
     "vue2-filters": "^0.12.0",
     "vue2-leaflet": "^2.6.0",
-    "vuex": "^3.1.2",
+    "vuex": "^3.6.2",
     "vuex-persistedstate": "3"
   },
   "devDependencies": {
@@ -43,10 +43,10 @@
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "sass": "^1.25.0",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "eslint": "^7.20.0",
+    "eslint-plugin-vue": "^7.6.0",
+    "sass": "^1.32.7",
+    "sass-loader": "10.1.1",
+    "vue-template-compiler": "^2.6.12"
   }
 }
