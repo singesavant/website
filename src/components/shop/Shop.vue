@@ -14,18 +14,19 @@
       <b-row no-gutters class="product-list-container justify-content-md-center">
           <b-col sm="12" md="10">
 
-              <b-alert show dismissible fade>
-                  <h3>Nous avons un (petit) bug !</h3>
-                  Rien de grave, mais si vous <strong>ne voyez pas apparaître le bouton "J'achète"</strong> après avoir ajouté des articles dans votre panier, c'est de <strong>notre faute</strong>, désolé !<br/>
-                  <hr/>
-                  Vous pouvez <strong>facilement le contourner</strong> en ouvrant une fenêtre de navigation privée :<br/>
-                  <ul>
-                      <li>Sur votre navigateur, cliquez sur l'icone en haut à droite avec les <strong>trois points</strong> (Chrome) ou les <strong>trois barres</strong> (Firefox)</li>
-                      <li>puis <strong>Nouvelle fenêtre de navigation privée</strong></li>
-                  </ul>
-                  Il vous suffit de <strong>vous connecter</strong> et tout devrait fonctionner. <em>Merci les monkeys bidouilleurs</em>, on corrige ça au plus vite !
-              </b-alert>
-
+              <!-- 
+                   <b-alert show dismissible fade>
+                   <h3>Nous avons un (petit) bug !</h3>
+                   Rien de grave, mais si vous <strong>ne voyez pas apparaître le bouton "J'achète"</strong> après avoir ajouté des articles dans votre panier, c'est de <strong>notre faute</strong>, désolé !<br/>
+                   <hr/>
+                   Vous pouvez <strong>facilement le contourner</strong> en ouvrant une fenêtre de navigation privée :<br/>
+                   <ul>
+                   <li>Sur votre navigateur, cliquez sur l'icone en haut à droite avec les <strong>trois points</strong> (Chrome) ou les <strong>trois barres</strong> (Firefox)</li>
+                   <li>puis <strong>Nouvelle fenêtre de navigation privée</strong></li>
+                   </ul>
+                   Il vous suffit de <strong>vous connecter</strong> et tout devrait fonctionner. <em>Merci les monkeys bidouilleurs</em>, on corrige ça au plus vite !
+                   </b-alert>
+              -->
 
           <!-- Browser compatibility warning -->
           <b-alert show v-if="check_browser()" variant="danger" dismissible fade>

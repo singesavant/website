@@ -25,7 +25,11 @@ const vueAuth = VueAuthenticate.factory(Vue.prototype.$http, {
 })
 
 const store = new Vuex.Store({
-  plugins: [createPersistedState({paths:['user', 'isAuthenticated', 'userProfile', 'cart']})],
+  plugins: [
+    createPersistedState({
+      paths: ['user', 'session_expiry', 'isAuthenticated', 'userProfile', 'cart'],
+    })
+  ],
 
   state: {
     orderable_items: {},
@@ -39,6 +43,7 @@ const store = new Vuex.Store({
     userProfile: {},
     cart: {},
     isAuthenticated: false,
+    session_expiry: null,
     user: null
   },
   actions: {
@@ -168,6 +173,11 @@ const store = new Vuex.Store({
             commit('isAuthenticated', {isAuthenticated: false})
         })
     },
+
+    destroy_session: function ({ commit }) {
+      commit('isAuthenticated', {isAuthenticated: false})
+    },
+
     authenticate: function ({ commit }, { provider }) {
       vueAuth.authenticate(provider).then(function () {
         axios.get('/auth/with', {params: {provider: provider, token: vueAuth.getToken()}}
@@ -216,7 +226,11 @@ const store = new Vuex.Store({
       Vue.set(state.orderable_item_details, itemDetails['name'], itemDetails)
     },
     isAuthenticated (state, payload) {
+      var in_seven_days = new Date()
+      in_seven_days.setDate(in_seven_days.getDate() + 7)
+
       state.isAuthenticated = payload.isAuthenticated
+      state.session_expiry = in_seven_days.toISOString()
       state.user = payload.user
     }
   },

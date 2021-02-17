@@ -24,17 +24,22 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Auth',
-  methods: {
-    authenticate: function (provider) {
-      this.$store.dispatch('authenticate', { provider })
+    name: 'Auth',
+    mounted: function() {
+        var exp_date = new Date(this.session_expiry)
+        if (exp_date < new Date()) {
+            this.$store.dispatch("destroy_session")
+        }
     },
-    logout: function () {
-      this.$store.dispatch('logout')
-    }
-  },
-  computed:
-  mapState(['isAuthenticated', 'user'])
+    methods: {
+        authenticate: function (provider) {
+            this.$store.dispatch('authenticate', { provider })
+        },
+        logout: function () {
+            this.$store.dispatch('logout')
+        }
+    },
+    computed: mapState(['isAuthenticated', 'session_expiry', 'user'])
 }
 </script>
 
