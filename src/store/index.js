@@ -38,6 +38,7 @@ const store = new Vuex.Store({
     malt_items: [],
     hop_items: [],
     beers: [],
+    dealers: [],
     current_beer_details: {},
     orders: [],
     userProfile: {},
@@ -62,6 +63,22 @@ const store = new Vuex.Store({
     LOAD_BEER_LIST: function ({ commit }) {
       axios.get('/beers/').then((response) => {
         commit('SET_BEER_LIST', { list: response.data })
+      }, () => {
+        // console.log(err)
+      })
+    },
+
+    LOAD_DEALER_LIST: function ({ commit }) {
+      axios.get('/dealers/').then((response) => {
+        var dealers = [];
+        for (var d of response.data) {
+          if (d.address) {
+            d.position = {lng: d.position_lng, lat: d.position_lat};
+            dealers.push(d)
+          }
+
+        }
+        commit('SET_DEALER_LIST', { list: dealers })
       }, () => {
         // console.log(err)
       })
@@ -194,6 +211,11 @@ const store = new Vuex.Store({
     SET_BEER_LIST: (state, { list }) => {
       state.beers = list
     },
+
+    SET_DEALER_LIST: (state, { list }) => {
+      state.dealers = list
+    },
+
 
     SET_BEER_DETAILS: (state, { details }) => {
       state.current_beer_details = details
