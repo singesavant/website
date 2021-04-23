@@ -20,7 +20,7 @@
             </p>
 
             <p>
-              <b-icon icon="chat"></b-icon>&nbsp;Si vous avez opté pour la <strong>livraison</strong>, vous serez contacté Lundi ou Jeudi<br/> par notre Singe livreur qui vous indiquera un horaire de passage.
+                <b-icon icon="chat"></b-icon>&nbsp;Si vous avez opté pour la <strong>livraison</strong>, vous serez contacté Lundi <br/> pour une livraison le <strong>mercredi</strong> par notre Singe livreur qui vous indiquera un horaire de passage.
             </p>
 
             <b-row class="justify-content-md-center">
