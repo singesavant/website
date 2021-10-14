@@ -16,12 +16,12 @@
             <b-img src="/images/shop/corona/thumbup.png"></b-img>
 
             <p>
-              <b-icon icon="bell"></b-icon>&nbsp;Si vous avez opté pour le <strong>retrait brasserie</strong>, on vous donne rendez-vous du <br/>Lundi au Vendredi entre 17h et 19h.
+              <b-icon icon="bell"></b-icon>&nbsp;<!--Si vous avez opté pour le <strong>retrait brasserie</strong>, --> On vous donne rendez-vous du <br/>Lundi au Vendredi entre 16h et 19h ou le Samedi de 11h à 18h pour retirer votre commande.
             </p>
 
-            <p>
+            <!-- <p>
                 <b-icon icon="chat"></b-icon>&nbsp;Si vous avez opté pour la <strong>livraison</strong>, vous serez contacté Lundi <br/> pour une livraison le <strong>mercredi</strong> par notre Singe livreur qui vous indiquera un horaire de passage.
-            </p>
+            </p> -->
 
             <b-row class="justify-content-md-center">
               <router-link :to="{name: 'home'}"><b-icon icon="house"></b-icon>&nbsp;Retour à la page d'accueil</router-link>
