@@ -57,13 +57,13 @@
 
     <b-row class="buy" align-h="center">
       <b-col cols="8">
-        Commandez en ligne,<br/>
-        nous vous livrons en MonkeyMobile électrique !<br/>
+        <!-- Commandez en ligne,<br/>
+        nous vous livrons en MonkeyMobile électrique !<br/> -->
         <router-link :to="{name: 'shop'}">
           <b-button id="go-to-shop" variant="primary" >Go Shop !</b-button>
         </router-link>
 
-        <!-- <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p> -->
+        <p class="smaller">(Vous pouvez aussi acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p>
       </b-col>
     </b-row>
 

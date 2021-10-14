@@ -8,7 +8,7 @@
       <b-col sm="12" lg="12" class="illustration">
         <div class="bottles">
           <div class="bottle front">
-            <img class="label" :src=item.thumbnail|erp_static_url>
+            <router-link :to="{'name': 'item-detail', params: {'slug': item.code}}"><img class="label" :src=item.thumbnail|erp_static_url></router-link>
           </div>
         </div>
       </b-col>

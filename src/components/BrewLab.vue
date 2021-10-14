@@ -48,10 +48,7 @@
 
                 <h4>C'est combien ?</h4>
                 <p>
-                  La formule coûte <strong>210€ pour une personne</strong> et
-                  <strong>80€ de plus par personne supplémentaire</strong>. Si
-                  vous souhaitez être accompagné-e par un-e ami-e qui ne fait que
-                  regarder, c'est <strong>gratuit</strong>, évidemment !
+                  La formule coûte <strong>300€ pour une à deux personnes</strong>
                 </p>
 
                 <p>

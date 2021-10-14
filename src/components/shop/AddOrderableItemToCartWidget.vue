@@ -4,7 +4,7 @@
   <div class="cart-buttons" v-if="item && item_details">
 
     <div v-if="is_out_of_stock(item_details)">
-  <h2><em>Rupture ! :'(</em></h2>
+  <h2><em>Pas dispo en ligne</em></h2>
     </div>
 
     <div v-else>

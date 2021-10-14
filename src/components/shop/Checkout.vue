@@ -52,14 +52,14 @@
                     <b-form-group label="Comment ?">
                       <b-form-radio-group @change="changeShippingRule" id="shipping-rule" v-model="shipping_rule" name="radio-sub-component" buttons button-variant="outline-primary" required class="w-100">
                         <b-form-radio value="drive"><b-icon icon="bell-fill"/>&nbsp;Au Drive, à la Brasserie</b-form-radio>
-                        <b-form-radio value="shipping"><b-icon icon="house-fill"/>&nbsp;En livraison, chez moi</b-form-radio>
+			<!-- <b-form-radio value="shipping"><b-icon icon="house-fill"/>&nbsp;En livraison, chez moi</b-form-radio> -->
                       </b-form-radio-group>
                     </b-form-group>
 
                     <!-- Notice Drive -->
                     <div v-show="shipping_rule == 'drive'">
                       <b-alert show>
-                          <p>Les créneaux de retrait à la brasserie sont <strong>du Lundi au Vendredi</strong> de <strong>16h à 19h</strong>.</p>
+                          <p>Les créneaux de retrait à la brasserie sont <strong>du Lundi au Vendredi</strong> de <strong>16h à 19h</strong> et le <strong>Samedi de 11h à 18h</strong>.</p>
                           <p>Vous pouvez retirer votre commande le jour même si vous commandez avant 16h !</p>
                         <p><b-icon icon="check"/>&nbsp;Veuillez vous munir d'une pièce d'identité.</p>
                         <p><b-icon icon="bell"/>&nbsp;Pensez à mettre un masque et à vous protéger !</p>
@@ -149,7 +149,7 @@
                       </b-tr>
 
                       <!-- Taxes list -->
-                        <!-- Livraison -->
+                        <!-- Livraison
                         <b-tr v-for="tax in sales_order_taxes_filtered" v-bind:key="tax.name">
                           <b-td class="align-middle">
                             <b-img src="/images/shop/shipping-icon.png" blank-color="#777" width="75px" rounded alt="Tax Preview"></b-img>
@@ -163,7 +163,7 @@
                             <span v-if="tax.tax_amount > 0">{{ tax.tax_amount }}€</span>
                             <span v-else>OFFERTE !</span>
                           </b-td>
-                        </b-tr>
+                        </b-tr> -->
 
                     </b-table-simple>
 

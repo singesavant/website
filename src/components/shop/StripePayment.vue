@@ -92,7 +92,7 @@ export default {
                  .then(() => {
                      this.is_loading = false
                      this.$store.dispatch('LOAD_CART')
-                     this.$router.push({'name': 'so-giveaway', params: {slug: this.$route.params.slug}})
+                     this.$router.push({'name': 'so-thank-you', params: {slug: this.$route.params.slug}})
                  })
         },
 
