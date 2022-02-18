@@ -245,7 +245,7 @@ var data = {
     contact: {
         first_name: '',
         last_name: '',
-        mobile_no: ''
+	mobile_no: ''
     }
 
 }
@@ -390,8 +390,13 @@ export default {
                 axios.post('/customer/contact', data.contact).then(() => {
                     this.checkOrderAndPay()
                 }, (err) => {
-                    alert.error(err)
+                     this.$bvToast.toast("Désolé, il y a eu une erreur, contactez nous !", {
+                         autoHideDelay: 5000,
+                         title: "Erreur",
+                         variant: "error"
+                     })
                     data.is_processing = false
+                    alert.error(err)
                 })
 
             }

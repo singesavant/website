@@ -1,10 +1,10 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
-    <router-link :to="{name: 'beer-detail', params: {slug: beer.code}}">
+    <router-link :to="{name: 'beer-detail', params: {slug: beer.name}}">
       <div class="beer-card">
-        <img class="beer-label-round" :src="beer.thumbnail|erp_static_url" :alt="beer.name">
-        <!-- <p class="card-text" v-html="$options.filters.truncate(beer.description_html, 200, '...')"></p> -->
-        <h3>{{ beer.name }}</h3>
+        <img class="beer-label-round" :src="beer.website_image|erp_static_url" :alt="beer.web_name">
+<!--        <p class="card-text" v-html="$options.filters.truncate(beer.description_html, 200, '...')"></p> -->
+        <h3>{{ beer.web_name }}</h3>
       </div>
     </router-link>
 </template>

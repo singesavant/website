@@ -6,10 +6,11 @@
     <b-overlay :show="is_loading">
       <b-row align-h="center">
       <b-col cols="8">
+	<center><h2>Dispo au shop en ce moment</h2></center>
         <b-row align-h="center" class="available-beers">
           <b-col>
             <b-row class="beer-list" align-v="top">
-              <b-col align-v="bottom" sm="4" align="center" v-for="beer in orderBy(beers_in_production,'name')" :key="beer.name">
+              <b-col align-v="bottom" sm="4" align="center" v-for="beer in orderBy(beers_in_production,'name')" :key="beer.web_name">
                 <beer-card :beer="beer"/>
               </b-col>
             </b-row>
@@ -17,7 +18,7 @@
         </b-row>
       </b-col>
     </b-row>
-
+<!--
     <b-row align-h="center">
       <b-col cols="8">
         <b-row align-h="center" class="old-beers">
@@ -32,7 +33,7 @@
         </b-row>
       </b-col>
     </b-row>
-
+-->
     </b-overlay>
 
 
@@ -78,11 +79,11 @@ export default {
     ]),
 
     beers_in_production: function () {
-      return this.beers.filter(beer => beer.disabled === false)
+      return this.beers.filter(beer => beer.published === true)
     },
 
     beers_not_produced_anymore: function () {
-      return this.beers.filter(beer => beer.disabled === true)
+      return this.beers.filter(beer => beer.published === true)
     }
   },
 

@@ -2,11 +2,11 @@
 <template lang="html">
   <b-overlay :show="is_loading" rounded="sm">
   <div class="product" v-if="!is_loading && beer">
-    <beer-header :title="beer.name"></beer-header>
+    <beer-header :title="beer.web_name"></beer-header>
 
     <b-row class="badge-header" align-h="center">
       <b-col class="background" sm="8">
-        <img class="label" :src="beer.website_image|erp_static_url" :alt="beer.name">
+        <img class="label" :src="beer.website_image|erp_static_url" :alt="beer.wen_name">
       </b-col>
     </b-row>
 
@@ -16,14 +16,14 @@
         <div class="text">
           <h2  class="beer-subtitle">Qu'est ce que ?</h2>
           <p class="description" v-html='beer.website_long_description_html'></p>
-
+<!--
         <b-row align-h="center" v-if="isAuthenticated">
           <b-col align="left" align-v="bottom" cols="12">
             <h2 class="beer-subtitle"><b-icon icon="bucket"/>&nbsp;Commander en ligne</h2>
             <add-orderable-item-to-cart-widget :item="beer" />
           </b-col>
         </b-row>
-
+-->
         </div>
       </b-col>
       <b-col class="right" sm="4">
@@ -103,9 +103,9 @@
       </b-col>
     </b-row>
 
-    <b-row class="buy" align-h="center">
+<!--    <b-row class="buy" align-h="center">
       <b-col cols="8">
-<!--        Commandez en ligne,<br/> nous vous livrons en MonkeyMobile électrique !<br/> -->
+        Commandez en ligne,<br/> nous vous livrons en MonkeyMobile électrique !<br/> 
         <router-link :to="{name: 'shop'}">
           <b-button id="go-to-shop" variant="primary" >Go Shop !</b-button>
         </router-link>
@@ -113,7 +113,7 @@
         <p class="smaller">(Vous pouvez acheter <router-link :to="{name: 'contact'}">sur place</router-link>)</p>
       </b-col>
     </b-row>
-
+-->
     <b-row class="other-beers justify-content-md-center">
       <b-col cols="12" align="center">
         <b-row>
@@ -155,7 +155,7 @@ import BeerHeader from './Header.vue'
 import IBUGauge from './Ibu.vue'
 import BeerCard from './BeerCard.vue'
 import MonkeyFooter from '../Footer.vue'
-import AddOrderableItemToCartWidget from '../shop/AddOrderableItemToCartWidget.vue'
+//import AddOrderableItemToCartWidget from '../shop/AddOrderableItemToCartWidget.vue'
 import _ from 'lodash'
 
 export default {
@@ -191,7 +191,7 @@ export default {
     BeerHeader,
     BeerCard,
     MonkeyFooter,
-    AddOrderableItemToCartWidget,
+  //  AddOrderableItemToCartWidget,
     IBUGauge
   },
 
