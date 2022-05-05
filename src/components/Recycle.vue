@@ -23,7 +23,7 @@
               <b-col class="text" align-v="bottom" sm="6">
                 <h3></h3>
                 <p>
-                  Plus de <strong>60%</strong> des bouteilles utilisées à la
+                  Plus de <strong>40%</strong> des bouteilles utilisées à la
                   brasserie sont issues de <strong>notre filière de
                   récupération</strong> de verre, mise en place dès le début du
                   projet.
@@ -81,27 +81,10 @@
                   traiteurs, …) qui nous ont fait <strong>confiance</strong> et
                   ont été <strong>enthousiastes</strong> par cette idée folle,
                   nous récoltons aujourd'hui lors de <strong>nos
-                  tournées</strong> la <strong>majeure partie des
-                  bouteilles</strong> nécessaires à couvrir l'appétit toujours
+                  tournées</strong> une bonne partie des
+                  bouteilles nécessaires à couvrir l'appétit toujours
                   grandissant des lillois pour les bières du Singe.
                 </p>
-
-                <p>
-                  Vous pouvez retrouver la <strong>liste de nos
-                  partenaires</strong> sur la carte ci-dessous : <strong>big
-                  up</strong> pour leur participations !<br/> Par ailleurs, si vous êtes pro ou
-                  connaissez un potentiel spot de ramassage sur la Métropole,
-                  n'hésitez pas à
-                  <router-link :to="{name: 'contact'}">nous contacter</router-link> !
-                </p>
-
-                <l-map ref="recycle-map" class="recycle-map" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="center">
-                  <l-tile-layer url="http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png"></l-tile-layer>
-                  <l-marker v-for="partner in partners" :key="partner.name" :icon="stickerIcon" :lat-lng="partner.position" :title="partner.name" :draggable="false">
-                    <l-popup :content="make_popup_content(partner)">
-                    </l-popup>
-                  </l-marker>
-                </l-map>
 
               </b-col>
 
@@ -121,15 +104,6 @@
                   venir <strong>découvrir les nouveautés et
                   avant-premières</strong>, vous ne perdrez pas votre temps, on
                   a toujours quelque chose à vous raconter !
-                </p>
-
-                <p>
-                  Vous souhaitez <strong>vous organiser</strong> entre voisins,
-                  colocs, ami-e-s, collègues ou autres pour nous rendre vos bouteilles vides ?
-                  C'est tout à fait possible ! Nous
-                  pouvons <strong>venir les récupérer chez vous</strong> à partir
-                  de <strong>100 bouteilles du Singe</strong> collectées. N'hésitez pas à
-                  <router-link :to="{name: 'contact'}">nous contacter</router-link>.
                 </p>
 
               </b-col>
