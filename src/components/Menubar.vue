@@ -27,9 +27,9 @@
     </div>
 
     <div class="menu-right">
-      <cart />
+<!--      <cart /> -->
 
-      <auth class="auth" />
+<!--      <auth class="auth" /> -->
 <!--      <router-view name="menubar-actions"></router-view> -->
     </div>
   </div>
@@ -38,8 +38,8 @@
 <script lang="js">
 
 import { mapState } from 'vuex'
-import Cart from './shop/Cart.vue'
-import Auth from './Auth.vue'
+// import Cart from './shop/Cart.vue'
+// import Auth from './Auth.vue'
 
 var data = {
   menuIsVisible: false
@@ -57,8 +57,8 @@ export default {
     return data
   },
   components: {
-    Cart,
-    Auth
+//    Cart,
+//    Auth
   },
   computed:
     mapState(['isAuthenticated', 'user'])
