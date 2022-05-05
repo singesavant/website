@@ -28,7 +28,7 @@
                 <p>
                   Le plus simple est de venir en discuter avec nous, la
                   brasserie est ouverte du <strong>lundi au vendredi</strong>,
-                  de 16h à 19h et le Samedi de 11h à 18h.
+                  de 16h à 19h et le <strong>Samedi</strong> de 11h à 18h.
                 </p>
 
               </b-col>
