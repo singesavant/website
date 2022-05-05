@@ -131,8 +131,6 @@ import BeerHeader from './beers/Header'
 import VueDPlayer from 'vue-dplayer'
 import 'vue-dplayer/dist/vue-dplayer.css'
 
-import { LMap, LMarker, LPopup, LTileLayer } from 'vue2-leaflet'
-
 var ResizedIcon = L.Icon.extend({options: {iconSize: [40, 40], iconAnchor: [20, 20], popupAnchor: [0, -20]}})
 
 var data = {
