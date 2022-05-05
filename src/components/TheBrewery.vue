@@ -18,7 +18,7 @@
                 </p>
 
                 <p>
-                  Nous brassons sur un <b>système numérique de 200 litres construit par nos soins</b> et bichonné pour nous permettre de réaliser toutes les recettes imaginées dans nos cerveaux de singes.
+                  Nous brassons sur un <b>système numérique de 800 litres construit par nos soins</b> et bichonné pour nous permettre de réaliser toutes les recettes imaginées dans nos cerveaux de singes.
                 </p>
 
                 <p>
@@ -28,7 +28,7 @@
                 <p>
                   Le plus simple est de venir en discuter avec nous, la
                   brasserie est ouverte du <strong>lundi au vendredi</strong>,
-                  de 17h à 19h. <router-link :to="{name: 'contact'}">Prenez contact</router-link> !
+                  de 16h à 19h et le Samedi de 11h à 18h.
                 </p>
 
               </b-col>
