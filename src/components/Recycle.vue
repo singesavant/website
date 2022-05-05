@@ -171,12 +171,7 @@ export default {
   name: 'Recycle',
 
   components: {
-    LMap,
-    LPopup,
-    LMarker,
-    LTileLayer,
-
-    'monkey-footer': MonkeyFooter,
+     'monkey-footer': MonkeyFooter,
     BeerHeader,
     'd-player': VueDPlayer
   },
