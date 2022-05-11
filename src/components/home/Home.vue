@@ -35,7 +35,7 @@
                 <router-link :to="{name: 'brewlab'}">
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Brew Lab & Shop</h2>
-                    <span class="tile-description">École de brassage, Houblons, Malts chez le Singe</span>
+                    <span class="tile-description">École de brassage & achat de matières premières en ligne</span>
 
                   </div>
 
@@ -63,15 +63,15 @@
 
           <b-col cols="4">
             <div class="tile">
-              <div class="zoomable shop">
-                <!-- <div class="soon"></div> -->
-                <router-link :to="{name: 'shop'}">
+              <div class="shop zoomable">
+                <div class="soon"></div>
+                <!--<router-link :to="{name: 'shop'}">
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Commandez en ligne !</h2>
                     <span class="tile-description">Direct producteur + livraison en véhicule électrique</span>
-                    <!-- <b-button class="go-button">Go</b-button> -->
+                    <b-button class="go-button">Go</b-button>
                   </div>
-                </router-link>
+                 </router-link> -->
               </div>
             </div>
           </b-col>
@@ -315,13 +315,13 @@ export default {
 
 
 .shop {
-    background: url('/images/home/shop_text_overlay.png'), url('/images/shop/corona/coronabuster.png'), url('/images/home/shop_text.png'), url('/images/home/shop.jpg');
-    background-size: 43.5%, 50%, 35%, cover ! important;
+    background: url('/images/home/shop_text_overlay.png'), url('/images/home/shop.jpg');
+    background-size: 43.5%, cover ! important;
     background-position: center, 50% 50%, center, center !important;
 
-    &:hover {
+    /*&:hover {
         background-position: center, -30% -30%, center, center !important;
-    }
+    }*/
 
 }
 
