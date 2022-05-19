@@ -8,12 +8,6 @@
         <b-row align-h="center" no-gutters>
           <b-col>
 
-            <b-row align-h="center" class="paragraphs-row" no-gutters >
-              <b-col class="text" align-v="bottom" align-h="center" sm="2">
-		<b-button :to="{name: 'brewshop'}" class="btn btn-primary">Accéder au Brewshop</b-button>
-              </b-col>
-            </b-row>
-
             <b-row class="paragraphs-row first" no-gutters >
               <b-col class="text" align-v="bottom" sm="12">
                 <h1>Les ateliers de brassage</h1>
