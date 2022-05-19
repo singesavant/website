@@ -20,9 +20,7 @@
               <div class="zoomable beers">
                 <router-link :to="{name: 'beer-list'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">Les bières</h2>
-                    <span class="tile-description">Découvrez notre gamme</span>
-                    <b-button class="go-button">Go</b-button>
+                    <h2 class="tile-title">Découvrez notre gamme</h2>
                   </div>
                 </router-link>
               </div>
@@ -34,9 +32,7 @@
               <div class="zoomable brewlab">
                 <router-link :to="{name: 'brewlab'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">Brew Lab</h2>
-                    <span class="tile-description">École de brassage, venez brasser dans une brasserie urbaine !</span>
-                    <b-button class="go-button">Go</b-button>
+                    <h2 class="tile-title">École de brassage, venez brasser dans une brasserie urbaine !</h2>
                   </div>
 
                 </router-link>
@@ -52,9 +48,7 @@
               <div class="zoomable dealers">
                 <router-link :to="{name: 'dealers'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">Dealers du Singe</h2>
-                    <span class="tile-description">Trouvez où acheter et boire nos bières</span>
-                    <b-button class="go-button">Go</b-button>
+                    <h2 class="tile-title">Trouvez où acheter et boire nos bières</h2>
                   </div>
                 </router-link>
               </div>
@@ -66,9 +60,7 @@
               <div class="zoomable shop">
                 <router-link :to="{name: 'brewshop'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title"></h2>
-                    <span class="tile-description">Commmandez vos matières premières pour brasser chez vous </span>
-                    <b-button class="go-button">Go</b-button>
+                    <h2 class="tile-title">Commmandez vos matières premières pour brasser chez vous </h2>
                   </div>
                  </router-link> 
               </div>
@@ -82,9 +74,7 @@
                   <div class="zoomable brewery">
                     <router-link :to="{name: 'about'}">
                         <div class="tile-text-wrapper">
-                        <h2 class="tile-title">La brasserie</h2>
-                        <span class="tile-description">Qui est le Singe ?</span>
-                        <!-- <b-button class="go-button">Go</b-button> -->
+                        <h2 class="tile-title">Qui est le Singe ?</h2>
                       </div>
                     </router-link>
                   </div>
@@ -98,9 +88,7 @@
                   <div class="zoomable recycling">
                     <router-link :to="{name: 'recycle'}">
                       <div class="tile-text-wrapper">
-                        <h2 class="tile-title">Recyclage</h2>
-                        <span class="tile-description">Verre recyclé, déchêts revalorisés, ...</span>
-                        <b-button class="go-button">Go</b-button>
+                        <h2 class="tile-title">Verre recyclé, déchêts revalorisés, ...</h2>
                        </div>
                     </router-link>
                   </div>
@@ -238,14 +226,10 @@ export default {
         .tile-text-wrapper {
             visibility: hidden;
 
-            padding: 3vh;
-
-            max-width: 80%;
-            min-width: 50%;
-
+            width: 100%;
+            text-align: center;
             position: absolute;
-            bottom: 0;
-            left: 20%;
+            bottom: 0vh;
             right: auto;
 
             color: white;
@@ -267,19 +251,11 @@ export default {
 
             .tile-title {
                 position: relative;
-                font-size: 1.2em;
+                font-size: 1em;
                 font-variant: small-caps;
                 padding-bottom: 6px;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    width: 10%;
-                    height: 1px;
-                    left: 0;
-                    bottom: 0;
-                    background-color: white;
-                }
+		margin-left: 20%;
+		margin-right: 20%;
             }
 
             .tile-description {
@@ -304,7 +280,7 @@ export default {
 }
 
 .brewlab {
-    background: url('/images/home/brewlab_text.png'), url('/images/home/brewlab.jpg');
+    background: url('/images/home/blab_text.png'), url('/images/home/brewlab.jpg');
 }
 
 .dealers {
