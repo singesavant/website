@@ -32,7 +32,7 @@
               <div class="zoomable brewlab">
                 <router-link :to="{name: 'brewlab'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">École de brassage, venez brasser dans une brasserie urbaine !</h2>
+                    <h2 class="tile-title">Ateliers de brassage, venez brasser dans une brasserie urbaine !</h2>
                   </div>
 
                 </router-link>
@@ -232,7 +232,7 @@ export default {
             bottom: 0vh;
             right: auto;
 
-            color: white;
+            color: #d19637;
 
             .go-button {
                 position: absolute;
