@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
+import BoxScop from '@/components/shop/BoxScop'
 import BrewLab from '@/components/BrewLab'
 import Checkout from '@/components/shop/Checkout'
 import Home from '@/components/home/Home'
@@ -94,6 +95,13 @@ export default new Router({
       name: 'brewshop',
       components: {
         'default': BrewShop
+      }
+    },
+    {
+      path: '/boxscop',
+      name: 'boxscop',
+      components: {
+        'default': BoxScop
       }
     },
     {
