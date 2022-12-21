@@ -6,6 +6,7 @@ import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
 import BoxScop from '@/components/shop/BoxScop'
 import BrewLab from '@/components/BrewLab'
+import BrewlabShop from '@/components/BrewlabShop'
 import Checkout from '@/components/shop/Checkout'
 import Home from '@/components/home/Home'
 import Contact from '@/components/Come'
@@ -88,6 +89,13 @@ export default new Router({
       name: 'brewlab',
       components: {
         'default': BrewLab
+      }
+    },
+    {
+      path: '/brewlabshop',
+      name: 'brewlabshop',
+      components: {
+        'default': BrewlabShop
       }
     },
     {

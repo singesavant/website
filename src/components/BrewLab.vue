@@ -19,6 +19,7 @@
 		Bienvenue au BREWLAB, cercle des fanatiques de la bière et atelier de brassage dans le quartier de Moulins, à Lille.
 
 		En compagnie des singes brasseurs et brasseuses, vous allez apprendre et appliquer tous les secrets de la fabrication de la bière ! Quel que soit votre niveau, nos ateliers sont aussi bien une <strong>initiation</strong> pour les débutants qu’un <strong>perfectionnement</strong> pour les amateurs ayant déjà brassé.
+	<center><b-button variant="primary" href="./brewlabshop">Réserver un atelier</b-button></center>
                 </p>
 
               </b-col>
@@ -50,9 +51,7 @@
                 <h4>Comment réserver ?</h4>
 
                 <p>
-			Écrivez à <a href="mailto:brewlab@singe-savant.com">brewlab@singe-savant.com</a> pour connaître les prochaines dates disponibles.
-
-Si c’est un cadeau, passez à la brasserie récupérer un tout beau carton d’invitation.
+			Vous pouvez acheter votre ticket (ou bon cadeau) <a href="./brewlabshop">directement en ligne</a>. Ensuite vous pourrez écrire à <a href="mailto:brewlab@singe-savant.com">brewlab@singe-savant.com</a> pour connaître les prochaines dates disponibles. Si c’est un cadeau, passez à la brasserie récupérer un tout beau carton d’invitation ou alors imprimez celui que l'on vous envoie par mail lors de votre achat sur le site !
                 </p>
               </b-col>
 
