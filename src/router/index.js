@@ -5,8 +5,8 @@ import Router from 'vue-router'
 import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
 import BoxScop from '@/components/shop/BoxScop'
-import BrewLab from '@/components/BrewLab'
-import BrewlabShop from '@/components/BrewlabShop'
+import BrewLab from '@/components/brewlab/BrewLab'
+import Resa from '@/components/brewlab/Resa'
 import Checkout from '@/components/shop/Checkout'
 import Home from '@/components/home/Home'
 import Contact from '@/components/Come'
@@ -92,10 +92,10 @@ export default new Router({
       }
     },
     {
-      path: '/brewlabshop',
-      name: 'brewlabshop',
+      path: '/brewlab/resa',
+      name: 'brewlab/resa',
       components: {
-        'default': BrewlabShop
+        'default': Resa
       }
     },
     {
