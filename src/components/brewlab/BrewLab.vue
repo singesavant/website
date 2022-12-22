@@ -51,7 +51,7 @@
                 <h4>Comment réserver ?</h4>
 
                 <p>
-			Vous pouvez acheter votre ticket (ou bon cadeau) <a href="./brewlab/resa">directement en ligne</a>. Ensuite vous pourrez écrire à <a href="mailto:brewlab@singe-savant.com">brewlab@singe-savant.com</a> pour connaître les prochaines dates disponibles. Si c’est un cadeau, passez à la brasserie récupérer un tout beau carton d’invitation ou alors imprimez celui que l'on vous envoie par mail lors de votre achat sur le site !
+			Que ce soit pour réserver une date ou pour offrir vous pouvez le faire en ligne sur <a href="./brewlab/resa">cette page</a>. Si vous avez la moindre question vous pouvez également envoyer un mail à <a href="mailto:brewlab@singe-savant.com">brewlab@singe-savant.com</a>.
                 </p>
               </b-col>
 
