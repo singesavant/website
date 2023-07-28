@@ -9,30 +9,37 @@
           <b-col>
             <b-row class="paragraphs-row" no-gutters >
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/come/map.jpg" alt="carte"/>
+                <img class="full" src="/images/come/map.png" alt="carte"/>
               </b-col>
               <b-col class="text" align-v="bottom" sm="6">
 
                 <p>
-                  <strong>Brasserie du Singe Savant</strong><br/>
-                  134 rue d'Arras <br/>
-                  59000 Lille [<a href="https://goo.gl/maps/8fZnfwx1eS32">Google Maps</a>]
+                  <strong>Taproom du Singe Savant</strong><br/>
+                  94 rue d'Arras <br/>
+                  59000 Lille [<a href="https://goo.gl/maps/9BYJHruo2tMstEpi7">Google Maps</a>]
                 </p>
 
                 <p>Métro <strong>Porte d'Arras</strong></p>
 
                 <p>
-                  Tél: 03.74.09.49.25 - Email: contact AT singe-savant.com
+                  Tél: 03.28.05.28.58 - Email: contact AT singe-savant.com
                 </p>
 
                 <p>
-                  La brasserie est ouverte du <strong>lundi au vendredi</strong>, de 17h à 19h.
+                  La taproom est ouverte aux jours et horaires suivants :<br/>
+			<ul>
+				<li><strong>Mardi :</strong> 16h-23h</li>
+				<li><strong>Mercredi :</strong> 16h-23h</li>
+				<li><strong>Jeudi :</strong> 16h-23h</li>
+				<li><strong>Vendredi :</strong> 16h-00h</li>
+				<li><strong>Samedi :</strong> 12h-00h</li>
+			</ul>
                 </p>
 
                 <p>
                   N'hésitez pas à venir nous saluer, <strong>nous vendons en direct</strong> !
                   <br/>
-                  Notre local est accessible en voiture, vélo, longboard, ...
+                  Notre taproom est accessible en voiture, vélo, longboard, ...
                 </p>
 
               </b-col>
