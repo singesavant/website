@@ -14,21 +14,15 @@
               <b-col class="text" align-v="bottom" sm="6">
 
                 <p>
-                  Le <b>Singe savant</b> est une micro-brasserie urbaine, de <b>cœur de ville</b>, située à <b>Lille</b> dans le <router-link :to="{name: 'contact'}">quartier de <b>Moulins</b></router-link>.
+                  Le <strong>Singe savant</strong> est une micro-brasserie <strong>coopérative et indépendante</strong>, située à <strong>Lille</strong> dans le <router-link :to="{name: 'contact'}">quartier de <strong>Moulins</strong></router-link>.
                 </p>
 
                 <p>
-                  Nous brassons sur un <b>système numérique de 800 litres construit par nos soins</b> et bichonné pour nous permettre de réaliser toutes les recettes imaginées dans nos cerveaux de singes.
+                  Nous avons à coeur de brasser des recettes <strong>créatives</strong> et <strong>inovantes</strong>, réalisées au maximum avec des <strong>matières premières biologiques</strong> et <strong>locales</strong>. Nous privilégions les <strong>circuits courts</strong> et essayons de <strong><router-link :to="{name: 'recycle'}">réduire nos déchets</router-link></strong> tant que possible.
                 </p>
 
                 <p>
-                  Au delà de l'aspect brassicole, nous mettons un point d'honneur à travailler au maximum avec des <b>matières premières biologiques</b>, privilégions les <b>circuits courts</b> et essayons de <b><router-link :to="{name: 'recycle'}">réduire nos déchets</router-link></b> tant que possible.
-                </p>
-
-                <p>
-                  Le plus simple est de venir en discuter avec nous, la
-                  brasserie est ouverte du <strong>lundi au vendredi</strong>
-                  de 16h à 19h et le <strong>Samedi</strong> de 11h à 18h.
+                  Le plus simple est de venir en discuter avec nous, vous trouverez les horaires d'ouverture de notre taproom <router-link :to="{name: 'contact'}">ici</router-link>.
                 </p>
 
               </b-col>
@@ -43,11 +37,11 @@
                 </blockquote>
 
                 <p>
-                  <b>Créer</b>, <b>improviser</b>, <b>explorer</b> et <b>partager</b> !
+                  <strong>Créer</strong>, <strong>improviser</strong>, <strong>explorer</strong> et <strong>partager</strong> !
                 </p>
 
                 <p>
-                  Notre <router-link :to="{name: 'beer-list'}">gamme est composée de recettes <b>permanentes</b> et <b>exploratoires</b></router-link>. Ces dernières, éphémères, sont des <b>brassins limités</b> sortant très régulièrement (~1-2 fois/mois) dans lesquels nous <b>partageons nos explorations brassicoles</b>. Et c'est vous qui <b>votez</b> pour les ré-éditer ou non !
+                  Notre <router-link :to="{name: 'beer-list'}">gamme</router-link> est composée de recettes <strong>permanentes</strong> et <strong>exploratoires</strong>. Ces dernières, éphémères, sont des <strong>brassins limités</strong> sortant très régulièrement (~1-2 fois/mois) avec lesquels nous partageons nos <strong>explorations brassicoles</strong>.
                 </p>
 
 
@@ -65,12 +59,10 @@
                   <h4>Nous vendons en direct</h4>
 
                 <p>
-                  Toutes nos recettes sont <b>disponibles en brasserie</b> à la fois en <b>bouteilles</b> mais aussi en <b>fûts</b> si vous prévoyez un événement. N'hésitez pas à <router-link :to="{name: 'contact'}">venir</router-link> faire vos achats ou discuter de votre projet.
+                  Toutes nos recettes sont disponible <router-link :to="{name: 'contact'}">dans notre bar / boutique</router-link> à la fois en <strong>bouteilles</strong> mais aussi en <strong>pression</strong>. Si vous prévoyez un événement et que vous voulez des fûts et une tireuse n'hésitez pas à <router-link :to="{name: 'contact'}">nous appeller</router-link> ou à envoyer <a href="mailto:contact@singe-savant.com">un mail</a> pour discuter de votre projet.
                 </p>
 
-                <p>Vous cherchez nos bières sur Lille ? Jetez un œil à <router-link :to="{name: 'dealers'}">notre carte de distribution</router-link>.</p>
-
-                <p>Also, if you're a <b>foreign traveller</b>, we'll be happy to give you a tour of the brewery in <b>english</b>.</p>
+                <p>Vous cherchez nos bières autre part dans Lille ? Jetez un œil à <router-link :to="{name: 'dealers'}">notre carte de distribution</router-link>.</p>
 
               </b-col>
 
@@ -78,7 +70,7 @@
               <b-col class="text" align-v="bottom" sm="6">
                   <h4>La brasserie se partage !</h4>
                 <p>
-                  Au delà d'une brasserie de production, le Singe propose un <b>BrewLab</b> composé d'une <b>école de brassage</b> où apprendre et s'améliorer. C'est aussi un lieu où <b>échanger</b> avec les autres passionné-e-s et un <b>BrewShop</b> où acheter vos <b>matières premières</b> ainsi que votre <b>matériel de brassage</b>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
+                  Au delà d'une brasserie de production, le Singe propose un <router-link :to="{name: 'brewlab'}">BrewLab</router-link> composé d'une <strong>école de brassage</strong> où apprendre et s'améliorer. C'est aussi un lieu où <strong>échanger</strong> avec les autres passionné-e-s et un <router-link :to="{name: 'shop'}">BrewShop</router-link> où acheter vos <strong>matières premières</strong>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
                 </p>
               </b-col>
               <b-col align-v="bottom" sm="6">

@@ -22,7 +22,7 @@
                 <p>Métro <strong>Porte d'Arras</strong></p>
 
                 <p>
-                  Tél: 03.28.05.28.58 - Email: contact AT singe-savant.com
+                  Tél: 03.28.05.28.58 - Email: <a href="mailto:contact@singe-savant.com">contact@singe-savant.com</a>
                 </p>
 
                 <p>
