@@ -18,7 +18,7 @@
           <b-col cols="6">
             <div class="tile">
               <div class="zoomable brewery">
-                <router-link :to="{name: 'about'}">
+                <router-link :to="{name: 'brewery'}">
                   <div class="tile-text-wrapper">
                     <h2 class="tile-title">Qui est le singe ?</h2>
                   </div>
@@ -30,9 +30,9 @@
           <b-col cols="6">
             <div class="tile">
               <div class="zoomable brewlab">
-                <router-link :to="{name: 'brewlab'}">
+                <router-link :to="{name: 'taproom'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">Ateliers de brassage, venez brasser dans une brasserie urbaine !</h2>
+                    <h2 class="tile-title">Le bar du singe</h2>
                   </div>
 
                 </router-link>

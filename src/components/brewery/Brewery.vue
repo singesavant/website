@@ -12,7 +12,6 @@
                 <img class="full" src="/images/brewery/monkey-looking.jpg" alt="Singe qui brasse"/>
               </b-col>
               <b-col class="text" align-v="bottom" sm="6">
-
                 <p>
                   Le <strong>Singe savant</strong> est une micro-brasserie <strong>coopérative et indépendante</strong>, située à <strong>Lille</strong> dans le <router-link :to="{name: 'contact'}">quartier de <strong>Moulins</strong></router-link>.
                 </p>
@@ -22,8 +21,12 @@
                 </p>
 
                 <p>
-                  Le plus simple est de venir en discuter avec nous, vous trouverez les horaires d'ouverture de notre taproom <router-link :to="{name: 'contact'}">ici</router-link>.
+                  Le plus simple est de venir en discuter avec nous, vous pouvez réserver une visite de la brasserie en cliquant sur le bouton ci dessous.
                 </p>
+
+		<p>
+			<center><b-button variant="primary" href="./brewery/visit">Visiter notre brasserie</b-button></center>
+		</p>
 
               </b-col>
 
@@ -109,14 +112,14 @@
 
 <script lang="js">
 import { mapState } from 'vuex'
-import BeerHeader from './beers/Header'
-import MonkeyFooter from './Footer'
+import BeerHeader from '../beers/Header'
+import MonkeyFooter from '../Footer'
 
 var data = {
 }
 
 export default {
-  name: 'TheBrewery',
+  name: 'Brewery',
 
   computed: {
     ...mapState([

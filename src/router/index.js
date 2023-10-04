@@ -6,11 +6,13 @@ import Shop from '@/components/shop/Shop'
 import BrewShop from '@/components/shop/BrewShop'
 import BoxScop from '@/components/shop/BoxScop'
 import BrewLab from '@/components/brewlab/BrewLab'
-import Resa from '@/components/brewlab/Resa'
+import ResaBrewlab from '@/components/brewlab/Resa'
 import Checkout from '@/components/shop/Checkout'
 import Home from '@/components/home/Home'
 import Contact from '@/components/Come'
-import TheBrewery from '@/components/TheBrewery'
+import Taproom from '@/components/taproom/Taproom'
+import Brewery from '@/components/brewery/Brewery'
+import Visit from '@/components/brewery/Visit'
 import Recycle from '@/components/Recycle'
 import BeerDetail from '@/components/beers/BeerDetail'
 import ItemDetail from '@/components/beers/ItemDetail'
@@ -78,10 +80,24 @@ export default new Router({
       }
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/taproom',
+      name: 'taproom',
       components: {
-        'default': TheBrewery
+        'default': Taproom
+      }
+    },
+    {
+      path: '/brewery',
+      name: 'brewery',
+      components: {
+        'default': Brewery
+      }
+    },
+    {
+      path: '/brewery/visit',
+      name: 'brewery/visit',
+      components: {
+        'default': Visit
       }
     },
     {
@@ -95,7 +111,7 @@ export default new Router({
       path: '/brewlab/resa',
       name: 'brewlab/resa',
       components: {
-        'default': Resa
+        'default': ResaBrewlab
       }
     },
     {
