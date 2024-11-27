@@ -22,12 +22,13 @@
                 <p>Métro <strong>Porte d'Arras</strong></p>
 
                 <p>
-                  Tél: 03.28.05.28.58 - Email: <a href="mailto:contact@singe-savant.com">contact@singe-savant.com</a>
+                  Tél: 03.28.05.28.58 - Email: <a href="mailto:bar@singe-savant.com">bar@singe-savant.com</a>
                 </p>
 
                 <p>
                   La taproom est ouverte aux jours et horaires suivants :<br/>
 			<ul>
+				<li><strong>Lundi :</strong> 16h-23h</li>
 				<li><strong>Mardi :</strong> 16h-23h</li>
 				<li><strong>Mercredi :</strong> 16h-23h</li>
 				<li><strong>Jeudi :</strong> 16h-23h</li>
@@ -40,6 +41,28 @@
                   N'hésitez pas à venir nous saluer, <strong>nous vendons en direct</strong> !
                   <br/>
                   Notre taproom est accessible en voiture, vélo, longboard, ...
+                </p>
+
+              </b-col>
+            </b-row>
+            <b-row class="paragraphs-row" no-gutters >
+              <b-col class="text" align-v="bottom" sm="12">
+		<h4> Pour venir à la brasserie </h4>
+
+                <p>
+                  La brasserie est uniquement ouverte lors <router-link :to="{name: 'brewery/visit'}">des visites</router-link> ou sur rendez vous
+                </p>
+                
+                <p>
+                  <strong>Brasserie du Singe Savant</strong><br/>
+                  134 rue d'Arras <br/>
+                  59000 Lille
+                </p>
+
+                <p>Métro <strong>Porte d'Arras</strong></p>
+                
+                <p>
+                  Tél: 03.74.09.49.25 - Email: <a href="mailto:contact@singe-savant.com">contact@singe-savant.com</a>
                 </p>
 
               </b-col>

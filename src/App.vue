@@ -1,12 +1,26 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <script lang="js">
   import Menubar from '@/components/Menubar'
-
+  import Popup from '@/components/Popup.vue'
   export default {
     components: {
-      Menubar
+      Menubar,
+      Popup
+    },
+    data() {
+      return {
+        isModalVisible: true,
+      };
+    },
+    methods: {
+      showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+      }
     }
-  }
+  };
 </script>
 
 <template lang="html">
@@ -18,8 +32,8 @@
           <transition name="fade" mode="out-in" appear>
               <router-view :key="$route.fullPath"></router-view>
           </transition>
+          <Popup v-show="isModalVisible" @close="closeModal" />
       </div>
-
 </template>
 
 

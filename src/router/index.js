@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Shop from '@/components/shop/Shop'
+import Popup from '@/components/Popup'
 import BrewShop from '@/components/shop/BrewShop'
 import BoxScop from '@/components/shop/BoxScop'
 import BrewLab from '@/components/brewlab/BrewLab'
@@ -36,6 +37,11 @@ export default new Router({
       name: 'contact',
       path: '/contact',
       component: Contact
+    },
+    {
+      name: 'popup',
+      path: '/popup',
+      component: Popup
     },
     {
       path: '/shop',

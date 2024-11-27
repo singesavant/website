@@ -6,7 +6,7 @@
     </b-modal>
 
     <b-form inline v-if="!successMessage">
-      <b-button v-b-modal.mailchimp-subscribe  variant="primary">C'est parti !</b-button>
+      <b-button v-b-modal.mailchimp-subscribe  variant="black">S'ABONNER À LA NEWSLETTER</b-button>
     </b-form>
     <p v-if="errorMessage && !successMessage" transition="fade">{{ errorMessage }}</p>
     <p v-if="successMessage" transition="fade">{{ successMessage }}</p>
@@ -45,8 +45,8 @@ export default {
 .mailchimp {
   width: 100%;
   border:none;
-outline:none;
-
-height: 60vh;
+  outline:none;
+  height: 60vh;
 }
+
 </style>

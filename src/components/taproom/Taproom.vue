@@ -1,7 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
   <div class="product-list">
-    <beer-header title-img="/images/brewery/logo.png" nolink></beer-header>
+    <beer-header title-img="/images/taproom/logo.png" nolink></beer-header>
 
     <b-row align-h="center" no-gutters  class="paragraphs">
       <b-col cols="8">
@@ -9,77 +9,113 @@
           <b-col>
             <b-row class="paragraphs-row" no-gutters >
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/monkey-looking.jpg" alt="Singe qui brasse"/>
+                <img class="full" src="/images/taproom/terrasse.jpg" alt="Terrasse à Moulins"/>
               </b-col>
               <b-col class="text" align-v="bottom" sm="6">
+                
                 <p>
-                  
-			PAGE TAPROOM
-		Le <strong>Singe savant</strong> est une micro-brasserie <strong>coopérative et indépendante</strong>, située à <strong>Lille</strong> dans le <router-link :to="{name: 'contact'}">quartier de <strong>Moulins</strong></router-link>.
+                  Le bar du <strong>Singe Savant</strong> a ouvert ses portes en mai 2023. Il fait partie intégrante de notre <strong>coopérative</strong> ! Il est situé au 94 de la rue d'Arras, à 120 mètres de la brasserie.
                 </p>
 
                 <p>
-                  Nous avons à coeur de brasser des recettes <strong>créatives</strong> et <strong>inovantes</strong>, réalisées au maximum avec des <strong>matières premières biologiques</strong> et <strong>locales</strong>. Nous privilégions les <strong>circuits courts</strong> et essayons de <strong><router-link :to="{name: 'recycle'}">réduire nos déchets</router-link></strong> tant que possible.
+                  Ce bar est pour nous l'occasion d'aller toujours plus loin dans notre démarche de circuit court, de local et d'écologie.
                 </p>
 
                 <p>
-                  Le plus simple est de venir en discuter avec nous, vous pouvez réserver une visite de la brasserie en cliquant sur le bouton ci dessous.
+                  Nous faisons notre maximum pour y pratiquer des prix raisonnables et pour que la qualité soit à portée de tous.
+                </p>
+
+              </b-col>
+            </b-row>
+              
+            <b-row class="paragraphs-row" no-gutters >
+              <b-col class="text" align-v="bottom" sm="6">
+
+                <h4>Déguster</h4>
+
+                <p>
+                  Vous pourrez y goûter <strong>12 recettes en pression</strong> : majoritairement celles du Singe mais on essaie de toujours avoir une ou deux références de bières des brasseries de nos potes, d'ici ou d'ailleurs, à vous faire découvrir ou redécouvrir !
+                </p>
+
+                <p>
+                  Nous proposons également des galopins, pour que vous puissiez assouvir votre curiosité. L'équipe du singe est également disponible et formée pour répondre à vos questions, et vous conseiller en fonction de vos goûts.
+                </p>
+                <p>
+			Vous pouvez également réserver un créneau de dégustation guidé précédé d'une visite de la brasserie en cliquant sur le bouton ci-dessous !
                 </p>
 
 		<p>
-			<center><b-button variant="primary" href="../brewery/visit">Visiter notre brasserie</b-button></center>
-		</p>
-
-              </b-col>
-
-              <b-col class="text" align-v="bottom" sm="6">
-                <blockquote class="paradox">
-                  Le paradoxe du singe savant est un théorème selon lequel un
-                  singe qui tape indéfiniment et au hasard sur le clavier d’une
-                  machine à écrire pourra « presque sûrement » écrire un texte
-                  improbable, tel qu’Hamlet de Shakespeare.” -- imaginez alors
-                  s’il commence à brasser de la bière !
-                </blockquote>
-
-                <p>
-                  <strong>Créer</strong>, <strong>improviser</strong>, <strong>explorer</strong> et <strong>partager</strong> !
-                </p>
-
-                <p>
-                  Notre <router-link :to="{name: 'beer-list'}">gamme</router-link> est composée de recettes <strong>permanentes</strong> et <strong>exploratoires</strong>. Ces dernières, éphémères, sont des <strong>brassins limités</strong> sortant très régulièrement (~1-2 fois/mois) avec lesquels nous partageons nos <strong>explorations brassicoles</strong>.
+                        <center><b-button variant="primary" to="brewery/visit">Réserver une visite / dégustation</b-button></center>
                 </p>
 
 
               </b-col>
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/hops.jpg" alt="Houblons"/>
+                <img class="full" src="/images/taproom/taproom-pompe.jpg" alt="Service pression"/>
               </b-col>
+            </b-row>
 
+            <b-row class="paragraphs-row" no-gutters >
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/magasin.jpg" alt="Magasin"/>
+                <img class="full" src="/images/taproom/bouffe.jpg" alt="Magasin"/>
               </b-col>
 
               <b-col class="text" align-v="bottom" sm="6">
 
-                  <h4>Nous vendons en direct</h4>
+                <h4>Manger</h4>
 
                 <p>
-                  Toutes nos recettes sont disponible <router-link :to="{name: 'contact'}">dans notre bar / boutique</router-link> à la fois en <strong>bouteilles</strong> mais aussi en <strong>pression</strong>. Si vous prévoyez un événement et que vous voulez des fûts et une tireuse n'hésitez pas à <router-link :to="{name: 'contact'}">nous appeller</router-link> ou à envoyer <a href="mailto:contact@singe-savant.com">un mail</a> pour discuter de votre projet.
+                  Parce que boire l'apéro, c'est cool, mais en mangeant un bout en même temps, c'est carrément mieux ! Tous les soirs à partir de <strong>19h</strong>, nous vous proposons une carte courte de plats, à <strong>partager</strong> ou en <strong>portion individuelle</strong>, renouvelée régulièrement.
                 </p>
 
-                <p>Vous cherchez nos bières autre part dans Lille ? Jetez un œil à <router-link :to="{name: 'dealers'}">notre carte de distribution</router-link>.</p>
+                <p>
+                  Nous cherchons à cuisiner comme nous brassons : de manière <strong>créative</strong>, avec des ingrédients de <strong>qualité</strong>, en collaborant au maximum avec des maraîchers <strong>locaux</strong> pour vous offrir des plats <strong>faits maison</strong>, en toute <strong>indépendance</strong>.
+                </p>
+
+                <p>
+                  Pour accompagner votre apéro, découvrez notre assortiment de boissons sans alcool, locales et/ou biologiques, ainsi qu'une sélection de vins et de cocktails, élaborée dans la même logique de qualité, de <strong>créativité</strong> et de produits de <strong>proximité</strong>.
+                </p>
 
               </b-col>
+            </b-row>
 
-
+            <b-row class="paragraphs-row" no-gutters >
               <b-col class="text" align-v="bottom" sm="6">
-                  <h4>La brasserie se partage !</h4>
+                <h4>Se poser</h4>
+
                 <p>
-                  Au delà d'une brasserie de production, le Singe propose un <router-link :to="{name: 'brewlab'}">BrewLab</router-link> composé d'une <strong>école de brassage</strong> où apprendre et s'améliorer. C'est aussi un lieu où <strong>échanger</strong> avec les autres passionné-e-s et un <router-link :to="{name: 'shop'}">BrewShop</router-link> où acheter vos <strong>matières premières</strong>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
+                  Pour que le plus grand nombre puisse <strong>se sentir comme à la maison</strong>, on a mis tout ce qu’on aime dans ce lieu. Des jeux pour tous les âges, une table à langer, des canapés, des bouquins sur la bière, de la lumière chaleureuse …
                 </p>
+
+                <p>
+                  Mais le bar du Singe c’est aussi et surtout un grand espace capable d'accueillir plus de 100 personnes, que ce soit pour des <strong>concerts</strong>, <strong>spectacle de théâtre</strong>, ou simplement pour venir <strong>boire un verre</strong>!
+                </p>
+
+                <p>
+                  Il est possible de réserver des tables pour les grands groupes (à partir de 8 personnes) en nous écrivant sur <a href="mailto:bar@singe-savant.com">bar@singe-savant.com</a> ou sur nos réseaux sociaux <a href="https://www.facebook.com/bardusingesavant" target="_blank">Facebook</a> ou <a href="https://www.instagram.com/lesingesavant_bar/" target="_blank">Instagram</a>).
+                </p> 
               </b-col>
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/brewlab.jpg" alt="BrewLab"/>
+                <img class="full" src="/images/taproom/taproom-jeux.jpg" alt="Jeux, canapés, comme à la maison"/>
+              </b-col>
+            </b-row>
+
+            <b-row class="paragraphs-row" no-gutters >
+              <b-col align-v="bottom" sm="6">
+                <img class="full" src="/images/taproom/taproom-shop.jpg" alt="Magasin"/>
+              </b-col>
+            
+              <b-col class="text" align-v="bottom" sm="6">
+
+                <h4>Emporter</h4>
+
+                  <p>
+                    Initialement implantée à la brasserie, notre boutique a déménagé au bar avec un vrai espace dédié. Vous y trouverez toute notre gamme de bouteilles, en 33 et 75cl, au frais ou non, à emporter chez vous, ainsi que des bières brassées en collaboration avec d’autres brasseries !
+                  </p>
+
+                  <p>
+                    Nous proposons également d’autres produits du Singe, comme du vinaigre de bière, des fringues, des verres… La boutique est ouverte aux mêmes horaires que le bar, mais ferme à 22h.
+                  </p>
               </b-col>
             </b-row>
           </b-col>
@@ -150,7 +186,6 @@ export default {
 .paragraphs-row {
     margin-top: -10vh;
     background-color: white;
-    margin-bottom: 10vh;
     padding-bottom: 10vh;
 
     img.full {
@@ -171,7 +206,7 @@ export default {
 }
 
 .beer-header {
-    background-image: url(/images/brewery/header.jpg) !important;
+    background-image: url(/images/taproom/header.jpg) !important;
     background-position: 10%;
 }
 

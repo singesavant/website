@@ -1,6 +1,7 @@
 // -*- mode: vue; js-indent-level: 2; -*-
 <template lang="html">
 
+
   <b-container fluid id="home">
 
     <b-row class="mosaic" no-gutters>
@@ -29,10 +30,10 @@
 
           <b-col cols="6">
             <div class="tile">
-              <div class="zoomable brewlab">
+              <div class="zoomable taproom">
                 <router-link :to="{name: 'taproom'}">
                   <div class="tile-text-wrapper">
-                    <h2 class="tile-title">Le bar du singe</h2>
+                    <h2 class="tile-title">Le bar et la boutique du singe</h2>
                   </div>
 
                 </router-link>
@@ -89,10 +90,10 @@
           <b-row class="fifty-row">
             <b-col>
               <div class="tile">
-                <div class="zoomable dealers">
-                  <router-link :to="{name: 'dealers'}">
+                <div class="zoomable visit">
+                  <router-link :to="{name: 'brewery/visit'}">
                     <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Trouvez où acheter et boire nos bières</h2>
+                      <h2 class="tile-title">Visiter la brasserie</h2>
                     </div>
                   </router-link>
                 </div>
@@ -127,6 +128,7 @@
 <script lang="js">
 import { mapState } from 'vuex'
 import MonkeyFooter from '../Footer'
+//import Popup from '../Popup'
 
 var data = {
 }
@@ -135,7 +137,8 @@ export default {
   name: 'Home',
 
   components: {
-    MonkeyFooter
+    MonkeyFooter//,
+  //  Popup
   },
 
   data: function () {
@@ -292,8 +295,8 @@ export default {
 }
 
 .beers {
-    background: url(/images/home/beers_text.png), url(/images/home/beers.gif);
-    background-size: 35%, cover !important;
+    background: url(/images/home/beers_text.png), url(/images/home/homepage-beers.jpg);
+    background-size: 50%, cover !important;
     background-position: 47% 39%, center !important;
 }
 
@@ -306,6 +309,10 @@ export default {
     background-size: 60%, cover !important;
 }
 
+.visit {
+    background: url('/images/home/visit_text.png'), url('/images/home/visit.jpg');
+    background-size: 60%, cover !important;
+}
 
 .shop {
     background: url('/images/home/bshp_text.png'), url('/images/home/bshp.jpg');
@@ -320,6 +327,10 @@ export default {
 
 .brewery {
     background-image: url('/images/home/brewery_text.png'), url('/images/home/brewery.jpg');
+}
+
+.taproom {
+    background-image: url('/images/home/taproom_text.png'), url('/images/home/taproom.jpg');
 }
 
 .recycling {

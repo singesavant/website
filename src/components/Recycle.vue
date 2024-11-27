@@ -99,8 +99,8 @@
 
                 <p>
                   C'est pourquoi vous pouvez nous ramener <strong>toutes les bouteilles vides du singe savant</strong>
-                  directement <router-link :to="{name: 'contact'}">à la
-                  brasserie</router-link>. C'est aussi une bonne occasion pour
+                  directement <router-link :to="{name: 'taproom'}">à la
+                  taproom</router-link>. C'est aussi une bonne occasion pour
                   venir <strong>découvrir les nouveautés et
                   avant-premières</strong>, vous ne perdrez pas votre temps, on
                   a toujours quelque chose à vous raconter !

@@ -7,10 +7,12 @@
       <b-col cols="8">
         <b-row align-h="center" no-gutters>
           <b-col>
+
             <b-row class="paragraphs-row" no-gutters >
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/monkey-looking.jpg" alt="Singe qui brasse"/>
+                <img class="full" src="/images/brewery/brewery-1.jpg" alt="La brasserie"/>
               </b-col>
+
               <b-col class="text" align-v="bottom" sm="6">
                 <p>
                   Le <strong>Singe savant</strong> est une micro-brasserie <strong>coopérative et indépendante</strong>, située à <strong>Lille</strong> dans le <router-link :to="{name: 'contact'}">quartier de <strong>Moulins</strong></router-link>.
@@ -21,14 +23,17 @@
                 </p>
 
                 <p>
-                  Le plus simple est de venir en discuter avec nous, vous pouvez réserver une visite de la brasserie en cliquant sur le bouton ci dessous.
+                  Si vous voulez en savoir plus, le plus simple est de venir en discuter avec nous, vous pouvez réserver une visite de la brasserie en cliquant sur le bouton ci dessous.
                 </p>
 
 		<p>
-			<center><b-button variant="primary" href="./brewery/visit">Visiter notre brasserie</b-button></center>
+			<center><b-button variant="primary" to="brewery/visit">Visiter notre brasserie</b-button></center>
 		</p>
 
               </b-col>
+            </b-row>
+
+            <b-row class="paragraphs-row" no-gutters >
 
               <b-col class="text" align-v="bottom" sm="6">
                 <blockquote class="paradox">
@@ -50,11 +55,15 @@
 
               </b-col>
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/hops.jpg" alt="Houblons"/>
+                <img class="full" src="/images/brewery/brewery-2.jpg" alt="Houblons"/>
               </b-col>
 
+            </b-row>
+
+            <b-row class="paragraphs-row" no-gutters >
+
               <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/magasin.jpg" alt="Magasin"/>
+                <img class="full" src="/images/brewery/singe-bouteilles.jpg" alt="Magasin"/>
               </b-col>
 
               <b-col class="text" align-v="bottom" sm="6">
@@ -62,24 +71,32 @@
                   <h4>Nous vendons en direct</h4>
 
                 <p>
-                  Toutes nos recettes sont disponible <router-link :to="{name: 'contact'}">dans notre bar / boutique</router-link> à la fois en <strong>bouteilles</strong> mais aussi en <strong>pression</strong>. Si vous prévoyez un événement et que vous voulez des fûts et une tireuse n'hésitez pas à <router-link :to="{name: 'contact'}">nous appeller</router-link> ou à envoyer <a href="mailto:contact@singe-savant.com">un mail</a> pour discuter de votre projet.
+                  Toutes nos recettes sont disponible <router-link :to="{name: 'taproom'}">dans notre bar / boutique</router-link> à la fois en <strong>bouteilles</strong> mais aussi en <strong>pression</strong>. Si vous prévoyez un événement et que vous voulez des fûts et une tireuse n'hésitez pas à <router-link :to="{name: 'contact'}">nous appeller</router-link> ou à envoyer <a href="mailto:contact@singe-savant.com">un mail</a> pour discuter de votre projet.
                 </p>
 
                 <p>Vous cherchez nos bières autre part dans Lille ? Jetez un œil à <router-link :to="{name: 'dealers'}">notre carte de distribution</router-link>.</p>
+                
+                <p>Vous êtes un professionnel et vous voulez bosser avec nous ? <router-link :to="{name: 'contact'}">Appellez nous</router-link> ou envoyez nous <a href="mailto:contact@singe-savant.com">un mail</a> pour que l'on se rencontre !
+                </p>
 
               </b-col>
 
+            </b-row>
+
+            <b-row class="paragraphs-row" no-gutters >
 
               <b-col class="text" align-v="bottom" sm="6">
                   <h4>La brasserie se partage !</h4>
                 <p>
-                  Au delà d'une brasserie de production, le Singe propose un <router-link :to="{name: 'brewlab'}">BrewLab</router-link> composé d'une <strong>école de brassage</strong> où apprendre et s'améliorer. C'est aussi un lieu où <strong>échanger</strong> avec les autres passionné-e-s et un <router-link :to="{name: 'shop'}">BrewShop</router-link> où acheter vos <strong>matières premières</strong>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
+                  Au delà d'une brasserie de production, le Singe propose un <router-link :to="{name: 'brewlab'}">BrewLab</router-link> composé d'une <strong>école de brassage</strong> où apprendre et s'améliorer. C'est aussi un lieu où <strong>échanger</strong> avec les autres passionné-e-s et un <router-link :to="{name: 'brewshop'}">BrewShop</router-link> où acheter vos <strong>matières premières</strong>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
                 </p>
               </b-col>
+
               <b-col align-v="bottom" sm="6">
                 <img class="full" src="/images/brewery/brewlab.jpg" alt="BrewLab"/>
               </b-col>
             </b-row>
+        
           </b-col>
         </b-row>
 
@@ -148,7 +165,6 @@ export default {
 .paragraphs-row {
     margin-top: -10vh;
     background-color: white;
-    margin-bottom: 10vh;
     padding-bottom: 10vh;
 
     img.full {

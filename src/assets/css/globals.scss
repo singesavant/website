@@ -39,6 +39,18 @@ a {
     }
 }
 
+.btn-black {
+    background-color: black !important;
+    border-color: black !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: white !important;
+    font-weight: bold;
+    &.active {
+        box-shadow: 0 !important;
+    }
+}
+
 .btn:focus, .btn:active {
     outline: none !important;
     box-shadow: none !important;
@@ -57,3 +69,4 @@ a {
 strong {
     font-weight: 600 !important;
 }
+

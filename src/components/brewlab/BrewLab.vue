@@ -19,7 +19,7 @@
 		Bienvenue au BREWLAB, cercle des fanatiques de la bière et atelier de brassage dans le quartier de Moulins, à Lille.
 
 		En compagnie des singes brasseurs et brasseuses, vous allez apprendre et appliquer tous les secrets de la fabrication de la bière ! Quel que soit votre niveau, nos ateliers sont aussi bien une <strong>initiation</strong> pour les débutants qu’un <strong>perfectionnement</strong> pour les amateurs ayant déjà brassé.
-	<center><b-button variant="primary" href="./brewlab/resa">Réserver un atelier</b-button></center>
+	<center><b-button variant="primary" to="brewlab/resa">Réserver un atelier</b-button></center>
                 </p>
 
               </b-col>
