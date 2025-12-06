@@ -29,7 +29,6 @@
     "vue-axios": "^3.2.4",
     "vue-browser-detect-plugin": "^0.1.13",
     "vue-dplayer": "^0.0.10",
-    "vue-interactive-paycard": "^1.0.0",
     "vue-lodash": "^2.1.2",
     "vue-mapbox": "^0.4.1",
     "vue-router": "^3.5.1",

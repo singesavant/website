@@ -10,65 +10,75 @@
 </script>
 
 <template>
-<div>
-<div class="modal-backdrop"></div>
-<div class="modal"
-        role="dialog"
-        aria-labelledby="modalTitle"
-        aria-describedby="modalDescription"
-      >
-        <section
-          class="modal-body"
-          id="modalDescription"
-        >
-          <slot name="body">
-            Ce site est interdit aux personnes de moins de 18 ans
-          </slot>
-        </section>
+  <div class="popup-container">
+    <div class="modal-backdrop"></div>
+    <div class="modal"
+         role="dialog"
+         aria-labelledby="modalTitle"
+         aria-describedby="modalDescription">
+      <section
+        class="modal-body"
+        id="modalDescription">
+        <slot name="body">
+          Ce site est interdit aux personnes de moins de 18 ans
+        </slot>
+      </section>
 
-        <footer class="modal-footer">
-          <slot name="footer">
-            J'ai plus de 18 ans
-          </slot>
-          <table>
-            <tr>
-               <th><button type="button" class="btn btn-primary" @click="close">Oui</button></th>
-               <th><a href="http://www.google.com"><button type="button" class="btn btn-primary">Non</button></a></th>
-            </tr>
-          </table>
-        </footer>
-      </div>
-
-   </div>
+      <footer class="modal-footer">
+        <slot name="footer">
+          J'ai plus de 18 ans
+        </slot>
+        <table>
+          <tr>
+            <th><button type="button" class="btn btn-primary" @click="close">Oui</button></th>
+            <th><a href="http://www.google.com"><button type="button" class="btn btn-primary">Non</button></a></th>
+          </tr>
+        </table>
+      </footer>
+    </div>
+  </div>
 </template>
 
-<style>
-  .modal-backdrop {
+<style scoped>
+  .popup-container {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+  .modal-backdrop {
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     opacity: 0.7;
+    pointer-events: auto;
+    z-index: 1;
   }
 
   .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
-    top: 50%;
-    left: 50%;
     width: auto;
     height: auto;
     border-radius: 20px;
-    transform: translate(-50%, -50%);
-    position: absolute;
+    padding: 20px;
+    min-width: 300px;
+    pointer-events: auto;
+    z-index: 2;
   }
 
   .modal-footer {
