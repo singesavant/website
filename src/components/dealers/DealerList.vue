@@ -20,7 +20,7 @@
               </div>
           </div>
 
-          <MglMap ref="map" :accessToken="accessToken" :mapStyle="mapStyle" :minZoom="minZoom" :maxZoom="maxZoom" :center="center" :zoom="zoom" :pitch="45">
+          <MglMap ref="map" :accessToken="accessToken" :mapStyle="mapStyle" :minZoom="minZoom" :maxZoom="maxZoom" :center="center" :zoom="zoom" :pitch="20">
               <MglMarker v-for="dealer in filteredDealers" :key="dealer.name" :coordinates="dealer.position" :title="dealer.name" :draggable="false">
                   <div slot="marker" class="custom-marker">
                       <i :class="getMarkerIconClass(dealer.spot_type)"></i>
@@ -281,7 +281,7 @@ export default {
 
   .filter-icon:hover .filter-tooltip {
       visibility: visible;
-      opacity: 1;
+      opacity: 1 !important;
     }
 
   .filter-icon-active {
@@ -298,7 +298,7 @@ export default {
       top: 50%;
       left: 50px;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: #000000;
       color: white;
       padding: 6px 10px;
       border-radius: 4px;
@@ -318,7 +318,7 @@ export default {
       top: 50%;
       transform: translateY(-50%);
       border: 5px solid transparent;
-      border-right-color: rgba(0, 0, 0, 0.8);
+      border-right-color: #000000;
     }
 
   .custom-marker {
