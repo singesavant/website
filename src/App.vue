@@ -14,6 +14,11 @@
         notificationTimer: null,
       };
     },
+    computed: {
+      isMenubarVisible() {
+        return this.$route.name !== 'home';
+      }
+    },
     methods: {
       showModal() {
         this.isModalVisible = true;
@@ -70,12 +75,15 @@
               <router-view :key="$route.fullPath"></router-view>
           </transition>
           <Popup v-show="isModalVisible" @close="closeModal" />
-          <transition name="slide-fade">
-            <div v-if="showNotification" class="notification-bubble" @mouseenter="onNotificationMouseEnter" @mouseleave="onNotificationMouseLeave">
+          <transition name="slide-down">
+            <div v-if="showNotification" class="notification-banner" :class="{ 'below-menubar': isMenubarVisible }" @mouseenter="onNotificationMouseEnter" @mouseleave="onNotificationMouseLeave">
               <router-link :to="{name: 'beer-list'}" class="notification-link">
-                Découvrez nos packs cadeaux
+                <i class="las la-gift"></i> Découvrez nos packs cadeaux <i class="las la-gift"></i>
               </router-link>
             </div>
+          </transition>
+          <transition name="fade">
+            <div v-if="showNotification" class="notification-spacer" :class="{ 'below-menubar': isMenubarVisible }"></div>
           </transition>
       </div>
 </template>
@@ -91,23 +99,38 @@
   width: 100%;
   }
 
-  .notification-bubble {
+  .notification-banner {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 101; /* Au-dessus du menubar (z-index: 100) */
     background-color: #d06f5a;
     color: white;
     padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease-out;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    
+    &.below-menubar {
+      top: 8vh; /* En dessous du menubar */
+      z-index: 99; /* En dessous du menubar mais au-dessus du contenu */
+    }
+  }
+
+  .notification-spacer {
+    height: 53px; /* Hauteur du bandeau (padding 15px + 15px + ligne de texte ~23px) */
+    width: 100%;
+    
+    &.below-menubar {
+      margin-top: 8vh; /* Décalage pour compenser le menubar */
+    }
   }
 
   .notification-link {
     color: white !important;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1em;
     
     &:hover {
@@ -116,33 +139,22 @@
     }
   }
 
-  .slide-fade-enter-active {
+  .slide-down-enter-active {
     transition: all 0.3s ease-out;
   }
 
-  .slide-fade-leave-active {
+  .slide-down-leave-active {
     transition: all 0.3s ease-in;
   }
 
-  .slide-fade-enter-from {
-    transform: translateX(100%);
+  .slide-down-enter-from {
+    transform: translateY(-100%);
     opacity: 0;
   }
 
-  .slide-fade-leave-to {
-    transform: translateX(100%);
+  .slide-down-leave-to {
+    transform: translateY(-100%);
     opacity: 0;
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
   }
 
 </style>

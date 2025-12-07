@@ -348,6 +348,11 @@ h2.beer-subtitle {
             .text.centered-content {
                 max-width: 50%;
                 margin: 0 auto;
+                
+                @media (max-width: 767.98px) {
+                    max-width: 100%;
+                    width: 100%;
+                }
             }
 
 

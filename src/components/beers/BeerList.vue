@@ -5,13 +5,13 @@
 
     <b-overlay :show="is_loading">
       <b-row align-h="center" class="shop-title-section">
-        <b-col cols="8">
+        <b-col cols="12" md="8">
           <center><h2>En vente dans notre <router-link :to="{name: 'contact'}" class="title-link">boutique</router-link> actuellement</h2></center>
         </b-col>
       </b-row>
 
       <b-row v-if="gifts_in_production.length > 0" align-h="center" class="gifts-section">
-        <b-col cols="8">
+        <b-col cols="12" md="8">
           <center><h2>Packs et idées (auto)cadeaux</h2></center>
           <b-row align-h="center" class="available-gifts">
             <b-col>
@@ -26,7 +26,7 @@
       </b-row>
 
       <b-row align-h="center" class="beers-section">
-        <b-col cols="8">
+        <b-col cols="12" md="8">
           <center><h2>Les biéres</h2></center>
           <b-row align-h="center" class="available-beers">
             <b-col>
@@ -103,12 +103,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.beer-list,
+.gift-list {
+  margin-top: 20px;
+  
+  .col {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    
+    @media (min-width: 576px) {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
+}
+
 .beer-list {
   margin-top: 20px;
+  
+  .col {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    
+    @media (min-width: 576px) {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+    }
+  }
 }
 
 .product-list {
     background-color: #eee;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 .shop-title-section {
@@ -118,26 +148,54 @@ export default {
 
 .beers-section {
     margin-top: 10px;
+    
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.gifts-section {
+    margin-top: 20px;
+    
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .available-beers {
     background-color: white;
     margin-bottom: 10vh;
     padding-bottom: 10px;
-}
-
-.gifts-section {
-    margin-top: 20px;
-}
-
-.gift-list {
-  margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .available-gifts {
     background-color: white;
     margin-bottom: 20px;
     padding-bottom: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .beer-card {
+        .beer-label-round {
+            @media (max-width: 575.98px) {
+                width: 100%;
+                min-width: 200px;
+                clip-path: circle(40% at center);
+            }
+        }
+    }
 }
 
 
