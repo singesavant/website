@@ -51,7 +51,7 @@
                 <div class="zoomable brewlab">
                   <router-link :to="{name: 'brewlab'}">
                     <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Ateliers de brassage, venez brasser dans une brasserie urbaine !</h2>
+                      <h2 class="tile-title">Ateliers de brassage</h2>
                     </div>
                   </router-link>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="zoomable shop">
                   <router-link :to="{name: 'brewshop'}">
                     <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Commmandez vos matières premières pour brasser chez vous</h2>
+                      <h2 class="tile-title">Commmandez vos matières premières</h2>
                      </div>
                   </router-link>
                 </div>
@@ -254,6 +254,9 @@ export default {
             right: auto;
 
             color: #d19637;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+            padding-top: 20px;
+            padding-bottom: 10px;
 
             .go-button {
                 position: absolute;
@@ -277,6 +280,7 @@ export default {
                 padding-bottom: 6px;
 		margin-left: 20%;
 		margin-right: 20%;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.7);
             }
 
             .tile-description {
