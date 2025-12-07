@@ -25,6 +25,14 @@ export default {
 
 
 <style lang="scss" scoped>
+a {
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .beer-card {
     color:black;
     font-variant: small-caps;

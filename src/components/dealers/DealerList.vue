@@ -271,8 +271,7 @@ export default {
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.8);
       cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
-      opacity: 0.3;
+      transition: transform 0.2s;
     }
 
   .filter-icon:hover {
@@ -281,16 +280,18 @@ export default {
 
   .filter-icon:hover .filter-tooltip {
       visibility: visible;
-      opacity: 1 !important;
-    }
-
-  .filter-icon-active {
       opacity: 1;
     }
 
   .filter-icon i {
       font-size: 24px;
       color: #d06f5a;
+      transition: opacity 0.2s;
+      opacity: 0.3;
+    }
+
+  .filter-icon-active i {
+      opacity: 1;
     }
 
   .filter-tooltip {

@@ -12,8 +12,8 @@
 
     <b-row class="about" align-h="center">
 
-      <b-col sm="4" class="left">
-        <div class="text">
+      <b-col :sm="hasSpecifications ? 4 : 8" class="left">
+        <div class="text" :class="{ 'centered-content': !hasSpecifications }">
           <h2  class="beer-subtitle">Qu'est ce que ?</h2>
           <p class="description" v-html='beer.website_long_description_html'></p>
 <!--
@@ -26,7 +26,7 @@
 -->
         </div>
       </b-col>
-      <b-col class="right" sm="4">
+      <b-col v-if="hasSpecifications" class="right" sm="4">
         <b-row align-h="center">
           <div class="text">
             <b-col cols="12">
@@ -115,13 +115,6 @@
     </b-row>
 -->
     <b-row class="other-beers justify-content-md-center">
-      <b-col cols="12" align="center">
-        <b-row>
-          <b-col cols="2" offset="5">
-            <h2 class="beer-subtitle">D'autres recettes ?</h2>
-          </b-col>
-        </b-row>
-      </b-col>
 
       <b-col cols="12">
         <b-row class="justify-content-md-center beer-list" align-h="center">
@@ -131,7 +124,7 @@
         </b-row>
         <b-row align-h="center" class="all-beers">
           <b-col align="center">
-            <b-button variant="primary" :to="{name: 'beer-list'}">Voir toutes les bières</b-button>
+            <b-button variant="primary" :to="{name: 'beer-list'}">Voir les autres bières</b-button>
           </b-col>
         </b-row>
       </b-col>
@@ -174,6 +167,11 @@ export default {
         }
 
         return specs
+      },
+      hasSpecifications: function () {
+        return !!(this.website_specifications.apparence || 
+                 this.website_specifications.hops || 
+                 this.website_specifications.ibu)
       },
       get_five_other_beers: function () {
         return _.sampleSize(this.beers.filter(beer => beer.disabled === false && beer.name !== this.beer.name), 5)
@@ -349,11 +347,14 @@ h2.beer-subtitle {
                 padding: 40px;
             }
 
+            .text.centered-content {
+                max-width: 50%;
+                margin: 0 auto;
+            }
+
 
             .caract-section {
                 margin-bottom: 30px;
-                &::first {
-                }
 
                 .row {
                     margin-bottom: 10px;
