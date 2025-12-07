@@ -4,6 +4,12 @@
     <beer-header title-img="/images/home/beers_text.png" nolink></beer-header>
 
     <b-overlay :show="is_loading">
+      <b-row align-h="center" class="shop-title-section">
+        <b-col cols="8">
+          <center><h2>En vente dans notre <router-link :to="{name: 'contact'}" class="title-link">boutique</router-link> actuellement</h2></center>
+        </b-col>
+      </b-row>
+
       <b-row v-if="gifts_in_production.length > 0" align-h="center" class="gifts-section">
         <b-col cols="8">
           <center><h2>Packs et idées (auto)cadeaux</h2></center>
@@ -21,7 +27,7 @@
 
       <b-row align-h="center" class="beers-section">
         <b-col cols="8">
-          <center><h2>Les biéres en vente à la <router-link :to="{name: 'contact'}" class="title-link">boutique</router-link> actuellement</h2></center>
+          <center><h2>Les biéres</h2></center>
           <b-row align-h="center" class="available-beers">
             <b-col>
               <b-row class="beer-list" align-v="top">
@@ -103,6 +109,11 @@ export default {
 
 .product-list {
     background-color: #eee;
+}
+
+.shop-title-section {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .beers-section {
