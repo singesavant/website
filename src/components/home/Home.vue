@@ -44,77 +44,41 @@
 
         <!-- second line -->
         <b-row class="fifty-row" no-gutters>
-        <b-col cols="4">
-          <b-row class="fifty-row">
-            <b-col>
-              <div class="tile">
-                <div class="zoomable brewlab">
-                  <router-link :to="{name: 'brewlab'}">
-                    <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Ateliers de brassage</h2>
-                    </div>
-                  </router-link>
-                </div>
+          <b-col cols="4">
+            <div class="tile">
+              <div class="zoomable dealers">
+                <router-link :to="{name: 'dealers'}">
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Trouvez où acheter et boire nos bières</h2>
+                  </div>
+                </router-link>
               </div>
-            </b-col>
-          </b-row>
-
-          <b-row class="fifty-row">
-            <b-col>
-              <div class="tile">
-                <div class="zoomable shop">
-                  <router-link :to="{name: 'brewshop'}">
-                    <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Commmandez vos matières premières</h2>
-                     </div>
-                  </router-link>
-                </div>
-              </div>
-            </b-col>
-          </b-row>
-        </b-col>
-        
-        <b-col cols="4">
-          <div class="tile">
-            <div class="zoomable beers">
-              <router-link :to="{name: 'beer-list'}">
-                <div class="tile-text-wrapper">
-                  <h2 class="tile-title">Découvrez notre gamme</h2>
-                </div>
-              </router-link>
             </div>
-          </div>
-        </b-col>
-
-        <b-col cols="4">
-          <b-row class="fifty-row">
-            <b-col>
-              <div class="tile">
-                <div class="zoomable visit">
-                  <router-link :to="{name: 'brewery/visit'}">
-                    <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Visiter la brasserie</h2>
-                    </div>
-                  </router-link>
-                </div>
+          </b-col>
+        
+          <b-col cols="4">
+            <div class="tile">
+              <div class="zoomable beers">
+                <router-link :to="{name: 'beer-list'}">
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Découvrez notre gamme</h2>
+                  </div>
+                </router-link>
               </div>
-            </b-col>
-          </b-row>
+            </div>
+          </b-col>
 
-          <b-row class="fifty-row">
-            <b-col>
-              <div class="tile">
-                <div class="zoomable dealers">
-                  <router-link :to="{name: 'dealers'}">
-                    <div class="tile-text-wrapper">
-                      <h2 class="tile-title">Trouvez où acheter et boire nos bières</h2>
-                     </div>
-                  </router-link>
-                </div>
+          <b-col cols="4">
+            <div class="tile">
+              <div class="zoomable visit">
+                <router-link :to="{name: 'brewery/visit'}">
+                  <div class="tile-text-wrapper">
+                    <h2 class="tile-title">Visiter la brasserie</h2>
+                  </div>
+                </router-link>
               </div>
-            </b-col>
-          </b-row>
-        </b-col>
+            </div>
+          </b-col>
         </b-row>
 
       </b-col>

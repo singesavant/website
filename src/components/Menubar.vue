@@ -19,9 +19,7 @@
         <li><router-link :to="{name: 'brewery/visit'}">Visiter la brasserie</router-link></li>
         <li><router-link :to="{name: 'taproom'}">Le bar</router-link></li>
         <li><router-link :to="{name: 'beer-list'}">Les bières</router-link></li>
-        <li><router-link :to="{name: 'brewshop'}">Le brewshop</router-link></li>
         <li><router-link :to="{name: 'dealers'}">Nos points de vente</router-link></li>
-        <li><router-link :to="{name: 'brewlab'}">BrewLab</router-link></li>
         <li><router-link :to="{name: 'contact'}">Venir / Contact</router-link></li>
         <li><router-link :to="{name: 'home'}">Accueil</router-link></li>
       </ul>

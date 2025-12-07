@@ -107,7 +107,6 @@ Vue.use(VueLodash, lodash)
 
 import BeerCard from './BeerCard.vue'
 import MonkeyFooter from '../Footer.vue'
-import AddOrderableItemToCartWidget from '../shop/AddOrderableItemToCartWidget.vue'
 
 import _ from 'lodash'
 
@@ -135,7 +134,6 @@ export default {
   components: {
     BeerCard,
     MonkeyFooter,
-    AddOrderableItemToCartWidget
   },
 
   data: function () {

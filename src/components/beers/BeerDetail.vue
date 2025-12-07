@@ -148,7 +148,6 @@ import BeerHeader from './Header.vue'
 import IBUGauge from './Ibu.vue'
 import BeerCard from './BeerCard.vue'
 import MonkeyFooter from '../Footer.vue'
-//import AddOrderableItemToCartWidget from '../shop/AddOrderableItemToCartWidget.vue'
 import _ from 'lodash'
 
 export default {
@@ -189,7 +188,6 @@ export default {
     BeerHeader,
     BeerCard,
     MonkeyFooter,
-  //  AddOrderableItemToCartWidget,
     IBUGauge
   },
 
