@@ -111,21 +111,8 @@ export default {
     width: 100%;
     flex: 0 0 100%;
     max-width: 100%;
-    
-    @media (min-width: 576px) {
-      flex: 0 0 33.333333%;
-      max-width: 33.333333%;
-    }
-  }
-}
-
-.beer-list {
-  margin-top: 20px;
-  
-  .col {
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
     
     @media (min-width: 576px) {
       flex: 0 0 33.333333%;
@@ -148,35 +135,13 @@ export default {
 
 .beers-section {
     margin-top: 10px;
-    
-    .col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 .gifts-section {
     margin-top: 20px;
-    
-    .col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
-.available-beers {
-    background-color: white;
-    margin-bottom: 10vh;
-    padding-bottom: 10px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+.available-beers,
 .available-gifts {
     background-color: white;
     margin-bottom: 20px;
@@ -188,14 +153,24 @@ export default {
     margin-right: auto;
     
     .beer-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
         .beer-label-round {
             @media (max-width: 575.98px) {
-                width: 100%;
+                width: 100% !important;
+                max-width: 100% !important;
                 min-width: 200px;
                 clip-path: circle(40% at center);
             }
         }
     }
+}
+
+.available-beers {
+    margin-bottom: 10vh;
 }
 
 
