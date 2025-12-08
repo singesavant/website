@@ -17,6 +17,32 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      // Attendre que le DOM soit prêt
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const element = document.querySelector(to.hash)
+          if (element) {
+            const menubarHeight = window.innerHeight * 0.08 // 8vh
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+            const offsetPosition = elementPosition - menubarHeight - 20 // 20px d'espace supplémentaire
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            })
+          }
+          resolve()
+        }, 100)
+      })
+    }
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {
       name: 'home',

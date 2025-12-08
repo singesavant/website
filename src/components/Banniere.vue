@@ -46,7 +46,7 @@ export default {
 <template lang="html">
   <transition name="fade" mode="out-in" appear>
     <div v-if="showNotification" class="notification-banner" :class="{ 'below-menubar': isMenubarVisible }">
-      <router-link :to="{name: 'beer-list'}" class="notification-link">
+      <router-link :to="{name: 'beer-list', hash: '#shop-title'}" class="notification-link">
         <i class="las la-gift"></i> Découvrez nos packs cadeaux <i class="las la-gift"></i>
       </router-link>
       <button @click="closeBanner" class="close-button" aria-label="Fermer la bannière">

@@ -19,7 +19,7 @@
                 </p>
 
                 <p>
-                  Nous avons à coeur de brasser des recettes <strong>créatives</strong> et <strong>inovantes</strong>, réalisées au maximum avec des <strong>matières premières biologiques</strong> et <strong>locales</strong>. Nous privilégions les <strong>circuits courts</strong> et essayons de <strong><router-link :to="{name: 'recycle'}">réduire nos déchets</router-link></strong> tant que possible.
+                  Nous avons à coeur de brasser des recettes <strong>créatives</strong> et <strong>innovantes</strong>, réalisées au maximum avec des <strong>matières premières biologiques</strong> et <strong>locales</strong>. Nous privilégions les <strong>circuits courts</strong> et essayons de réduire nos déchets tant que possible. Vous pouvez par exemple nous ramener vos bouteilles vides du Singe Savant, nous les laverons et leur donnerons une nouvelle vie.
                 </p>
 
                 <p>
@@ -78,30 +78,10 @@
                 
                 <p>Vous êtes un professionnel et vous voulez bosser avec nous ? <router-link :to="{name: 'contact'}">Appellez nous</router-link> ou envoyez nous <a href="mailto:contact@singe-savant.com">un mail</a> pour que l'on se rencontre !
                 </p>
-
-              </b-col>
-
-            </b-row>
-
-            <b-row class="paragraphs-row" no-gutters >
-
-              <b-col class="text" align-v="bottom" sm="6">
-                  <h4>La brasserie se partage !</h4>
-                <p>
-                  Au delà d'une brasserie de production, le Singe propose un <router-link :to="{name: 'brewlab'}">BrewLab</router-link> composé d'une <strong>école de brassage</strong> où apprendre et s'améliorer. C'est aussi un lieu où <strong>échanger</strong> avec les autres passionné-e-s et un <router-link :to="{name: 'brewshop'}">BrewShop</router-link> où acheter vos <strong>matières premières</strong>. Sensations fortes garanties ! N'hésitez pas à <router-link :to="{name: 'contact'}">nous contactez</router-link> si vous êtes intéressé-e.
-                </p>
-              </b-col>
-
-              <b-col align-v="bottom" sm="6">
-                <img class="full" src="/images/brewery/brewlab.jpg" alt="BrewLab"/>
               </b-col>
             </b-row>
-        
           </b-col>
         </b-row>
-
-
-
       </b-col>
     </b-row>
 

@@ -4,9 +4,9 @@
     <beer-header title-img="/images/home/beers_text.png" nolink></beer-header>
 
     <b-overlay :show="is_loading">
-      <b-row align-h="center" class="shop-title-section">
+      <b-row id="shop-title" align-h="center" class="shop-title-section">
         <b-col cols="12" md="8">
-          <center><h2>En vente dans notre <router-link :to="{name: 'contact'}" class="title-link">boutique</router-link> actuellement</h2></center>
+          <center><h2>En vente dans notre boutique au <router-link :to="{name: 'contact'}">94 rue d'Arras à Lille</router-link> actuellement</h2></center>
         </b-col>
       </b-row>
 
@@ -95,6 +95,22 @@ export default {
       this.$store.dispatch('LOAD_BEER_LIST', { item_group: 'cadeaux' })
     ]).then(() => {
       this.is_loading = false
+      // Scroll vers l'ancre si présente dans l'URL
+      this.$nextTick(() => {
+        if (this.$route.hash === '#shop-title') {
+          const element = document.getElementById('shop-title')
+          if (element) {
+            const menubarHeight = window.innerHeight * 0.08 // 8vh
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+            const offsetPosition = elementPosition - menubarHeight - 20 // 20px d'espace supplémentaire
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            })
+          }
+        }
+      })
     })
   },
   methods: {
@@ -171,21 +187,6 @@ export default {
 
 .available-beers {
     margin-bottom: 10vh;
-}
-
-
-.title-link {
-    color: #212529 !important;
-    text-decoration: none;
-    
-    &:hover {
-        color: #212529 !important;
-        text-decoration: none;
-    }
-    
-    &:visited {
-        color: #212529 !important;
-    }
 }
 
 .old-beers{
